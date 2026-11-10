@@ -1,0 +1,63 @@
+:root {
+  /* ── Dusty Blue ──────────────────────────────────── */
+  --dusty-900: #1e2d3d;
+  --dusty-800: #2b3f52;
+  --dusty-700: #3a5068;
+  --dusty-600: #4a6a8a;
+  --dusty-500: #6a8ba8;
+  --dusty-400: #8aaac4;
+  --dusty-200: #c4d8e8;
+  --dusty-100: #e4eff6;
+
+  /* ── Sage Green ──────────────────────────────────── */
+  --sage-600: #7d8f72;
+  --sage-400: #a8b89e;
+  --sage-200: #cdd8c5;
+
+  /* ── Vintage Pink / Blush ────────────────────────── */
+  --blush-700: #a06070;
+  --blush-600: #b87888;
+  --blush-500: #c4909a;
+  --blush-300: #ddb4be;
+  --blush-200: #eecdd4;
+  --blush-100: #f8eced;
+
+  /* ── Warm Cream ──────────────────────────────────── */
+  --cream:     #f5ede0;
+  --cream-50:  #faf5ef;
+
+  /* ── Backgrounds ─────────────────────────────────── */
+  --bg-deep:   #0f1824;
+  --bg-dark:   #162030;
+  --bg-mid:    #1e2d3d;
+
+  /* ── Typography ──────────────────────────────────── */
+  --ink:    #f0ebe2;
+  --ink-2:  #d8cfc0;
+  --muted:  #9ba8b5;
+  --line:   rgba(196, 216, 232, 0.20);
+  --white:  #ffffff;
+
+  /* ── Accents ─────────────────────────────────────── */
+  --accent-sage:  #7d8f72;
+  --accent-blush: #c4909a;
+  --accent-sky:   #c4d8e8;
+  --teal:         #7d8f72;
+  --gold:         #c4909a;
+
+  /* ── Glass surfaces ──────────────────────────────── */
+  --glass:       rgba(74, 106, 138, 0.10);
+  --glass-b:     rgba(196, 216, 232, 0.20);
+  --glass-hover: rgba(74, 106, 138, 0.18);
+  --r:           18px;
+  --r-pill:      9999px;
+
+  /* ── Shadows ─────────────────────────────────────── */
+  --shadow:      0 12px 32px -14px rgba(15, 24, 36, 0.65);
+  --shadow-lg:   0 28px 64px -22px rgba(15, 24, 36, 0.80);
+  --shadow-glow: 0 0 35px rgba(74, 106, 138, 0.45);
+
+  /* ── Fonts ───────────────────────────────────────── */
+  --font-h: 'Sora', system-ui, -apple-system, sans-serif;
+  --font-b: 'Inter', system-ui, -apple-system, sans-serif;
+}
