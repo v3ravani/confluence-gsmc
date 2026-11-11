@@ -168,7 +168,9 @@
 @media (prefers-reduced-motion: reduce) {
   .carousel-track,
   .animate-bubble-primary,
-  .animate-bubble-secondary {
+  .animate-bubble-secondary,
+  .animate-touch-burst,
+  .animate-touch-dot {
     animation: none !important;
   }
 }
@@ -435,5 +437,62 @@ html.dark textarea::placeholder {
 .animate-bubble-secondary {
   animation: float-bubble-secondary 12s ease-in-out infinite;
   will-change: transform;
+}
+
+/* ── Custom Cursor & Interactive Touch Indicator ── */
+html.custom-cursor-active,
+html.custom-cursor-active body,
+html.custom-cursor-active #root,
+html.custom-cursor-active *,
+html.custom-cursor-active *::before,
+html.custom-cursor-active *::after,
+html.custom-cursor-active a,
+html.custom-cursor-active button,
+html.custom-cursor-active input,
+html.custom-cursor-active select,
+html.custom-cursor-active textarea,
+html.custom-cursor-active label,
+html.custom-cursor-active [role="button"],
+html.custom-cursor-active .cursor-pointer {
+  cursor: none !important;
+}
+
+@keyframes touch-burst {
+  0% {
+    transform: scale(0.4);
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+}
+
+@keyframes touch-dot {
+  0% {
+    transform: scale(0.8);
+    opacity: 1;
+  }
+  35% {
+    transform: scale(1.35);
+    opacity: 0.95;
+  }
+  100% {
+    transform: scale(0.6);
+    opacity: 0;
+  }
+}
+
+.animate-touch-burst {
+  animation: touch-burst 0.48s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: transform, opacity;
+}
+
+.animate-touch-dot {
+  animation: touch-dot 0.48s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: transform, opacity;
 }
 
