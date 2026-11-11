@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
+  darkMode: 'class',
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
@@ -7,6 +8,21 @@ export default {
   theme: {
     extend: {
       colors: {
+        // ── Dark Mode Design Tokens ─────────────────────────────────────────
+        dark: {
+          bg:        '#202124',
+          secondary: '#252629',
+          surface:   '#2B2D30',
+          elevated:  '#323438',
+          border:    '#3B3D41',
+          text:      '#F2F0ED',
+          muted:     '#898A89',
+          sub:       '#B5B3B0',
+          coral:     '#F14666',
+          salmon:    '#EE9590',
+          peach:     '#FFCCAA',
+          sage:      '#9CBB98',
+        },
         // ── Core Dusty Blue + Sage + Vintage Pink palette ──────────────────
         dusty: {
           900: '#1e2d3d',

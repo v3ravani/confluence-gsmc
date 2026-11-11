@@ -18,17 +18,17 @@ function DateBox({ label, dates, delay }) {
   return (
     <motion.div
       {...fadeUp(delay)}
-      className="flex-1 min-w-0 border border-[rgba(100,85,70,0.20)]
-                 bg-[#ece1cf] hover:bg-[#f5ede1]
-                 hover:border-[var(--accent-blue)]
+      className="flex-1 min-w-0 border border-[rgba(100,85,70,0.20)] dark:border-[#3B3D41]
+                 bg-[#ece1cf] dark:bg-[#2B2D30] hover:bg-[#f5ede1] dark:hover:bg-[#323438]
+                 hover:border-[var(--accent-blue)] dark:hover:border-[#F14666]
                  transition-all duration-300 p-4 sm:p-5 group flex flex-col justify-center"
     >
       <span className="block text-[10px] sm:text-[11px] font-bold tracking-[0.22em] uppercase
                        text-[var(--accent-blush)] mb-1.5">
         {label}
       </span>
-      <p className="font-heading font-extrabold text-[#121110] text-base sm:text-lg lg:text-xl leading-tight
-                    group-hover:text-[var(--accent-blue)] transition-colors">
+      <p className="font-heading font-extrabold text-[#121110] dark:text-[#F2F0ED] text-base sm:text-lg lg:text-xl leading-tight
+                    group-hover:text-[var(--accent-blue)] dark:group-hover:text-[#F14666] transition-colors">
         {dates}
       </p>
     </motion.div>
@@ -52,16 +52,16 @@ function BrochureBtn({ children, fileName, url, delay }) {
       target="_blank"
       rel="noopener noreferrer"
       className="w-full flex items-center justify-between gap-3
-                 border border-[rgba(100,85,70,0.22)]
-                 bg-[#ece1cf] hover:bg-[#f5ede1]
-                 hover:border-[var(--accent-blue)]
+                 border border-[rgba(100,85,70,0.22)] dark:border-[#3B3D41]
+                 bg-[#ece1cf] dark:bg-[#2B2D30] hover:bg-[#f5ede1] dark:hover:bg-[#323438]
+                 hover:border-[var(--accent-blue)] dark:hover:border-[#F14666]
                  px-4 sm:px-5 py-3 sm:py-3.5 text-left transition-all duration-250 group rounded-xl"
     >
       <div className="flex items-center gap-3 min-w-0">
         <FileText className="w-4 h-4 flex-shrink-0 text-[var(--accent-blue)]
                              group-hover:text-[var(--accent-blue-hover)] transition-colors" />
         <span className="text-[12px] sm:text-[12.5px] font-bold uppercase tracking-[0.14em]
-                         text-[#121110] group-hover:text-[var(--accent-blue)] transition-colors truncate">
+                         text-[#121110] dark:text-[#F2F0ED] group-hover:text-[var(--accent-blue)] dark:group-hover:text-[#F14666] transition-colors truncate">
           {children}
         </span>
       </div>
@@ -80,9 +80,9 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative z-20 overflow-hidden text-[#121110]
+    <section className="relative z-20 overflow-hidden text-[#121110] dark:text-[#F2F0ED]
                         bg-[var(--bg-canvas)]
-                        pt-10 sm:pt-14 pb-16 lg:py-20 border-b border-[rgba(100,85,70,0.18)]">
+                        pt-10 sm:pt-14 pb-16 lg:py-20 border-b border-[rgba(100,85,70,0.18)] dark:border-[#3B3D41]">
       {/* Background grid mesh */}
       <div className="absolute inset-0 bg-grid-mesh pointer-events-none opacity-40" />
 
@@ -107,7 +107,7 @@ export default function Hero() {
             <motion.h1
               {...fadeUp(0)}
               className="font-heading font-black uppercase tracking-tight leading-none
-                         text-[clamp(44px,8.5vw,96px)] text-[#121110] mb-2"
+                         text-[clamp(44px,8.5vw,96px)] text-[#121110] dark:text-[#F2F0ED] mb-2"
             >
               CONFLUENCE
             </motion.h1>
@@ -146,7 +146,7 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.45, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
               className="flex flex-col sm:flex-row gap-0 w-full max-w-xl mb-6 sm:mb-8
-                         border border-[rgba(100,85,70,0.22)] rounded-lg overflow-hidden"
+                         border border-[rgba(100,85,70,0.22)] dark:border-[#3B3D41] rounded-lg overflow-hidden"
             >
               <DateBox
                 label="Pre-Conference"
@@ -154,8 +154,8 @@ export default function Hero() {
                 delay={0.50}
               />
               {/* Divider between the two boxes */}
-              <div className="w-px bg-[rgba(100,85,70,0.22)] hidden sm:block" />
-              <div className="h-px w-full bg-[rgba(100,85,70,0.22)] sm:hidden" />
+              <div className="w-px bg-[rgba(100,85,70,0.22)] dark:bg-[#3B3D41] hidden sm:block" />
+              <div className="h-px w-full bg-[rgba(100,85,70,0.22)] dark:bg-[#3B3D41] sm:hidden" />
               <DateBox
                 label="Main Conference"
                 dates={conferenceInfo.mainConferenceDates}
@@ -188,7 +188,7 @@ export default function Hero() {
               className="space-y-3.5 text-[var(--ink-2)] text-[15px] sm:text-[15.5px] leading-relaxed max-w-xl mb-8"
             >
               <p>
-                Initiated in 2014, <b className="text-[#121110] font-bold">CONFLUENCE 2026</b>, organised
+                Initiated in 2014, <b className="text-[#121110] dark:text-[#F2F0ED] font-bold">CONFLUENCE 2026</b>, organised
                 by Seth GS Medical College and KEM Hospital, Mumbai, is a prestigious international
                 medical and research conference. Spanning five days, it brings together aspiring medical
                 professionals for academic exchange, innovation and exploration.
@@ -204,7 +204,7 @@ export default function Hero() {
                 networking and collaboration. Embracing a hybrid format, the conference welcomes
                 participants through both virtual and in-person experiences.
               </p>
-              <p className="text-[#121110] font-semibold">
+              <p className="text-[#121110] dark:text-[#F2F0ED] font-semibold">
                 CONFLUENCE 2026 is a celebration of medical knowledge, research and intellectual camaraderie.
               </p>
             </motion.div>
@@ -220,8 +220,8 @@ export default function Hero() {
                 onClick={scrollToBrowse}
                 className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full
                            font-semibold text-sm text-white
-                           bg-[#913433] hover:bg-[#782827]
-                           shadow-[0_8px_20px_-8px_rgba(145,52,51,0.50)]
+                           bg-[#913433] hover:bg-[#782827] dark:bg-[#F14666] dark:hover:bg-[#e03253]
+                           shadow-[0_8px_20px_-8px_rgba(145,52,51,0.50)] dark:shadow-[0_8px_20px_-8px_rgba(241,70,102,0.40)]
                            hover:-translate-y-0.5 active:translate-y-0
                            transition-all duration-200 cursor-pointer"
               >
@@ -233,9 +233,9 @@ export default function Hero() {
               <Link
                 to="/about"
                 className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full
-                           font-semibold text-sm text-[#121110]
-                           bg-[#ece1cf] border border-[rgba(100,85,70,0.28)]
-                           hover:bg-[#f5ede1] hover:border-[var(--accent-blue)]
+                           font-semibold text-sm text-[#121110] dark:text-[#F2F0ED]
+                           bg-[#ece1cf] dark:bg-[#2B2D30] border border-[rgba(100,85,70,0.28)] dark:border-[#3B3D41]
+                           hover:bg-[#f5ede1] dark:hover:bg-[#323438] hover:border-[var(--accent-blue)] dark:hover:border-[#F14666]
                            hover:-translate-y-0.5 active:translate-y-0
                            transition-all duration-200 whitespace-nowrap"
               >

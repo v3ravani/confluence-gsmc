@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
+import { useTheme } from '../../context/ThemeContext';
 import heroBulbColored from '../../assets/logos/hero_bulb_colored.png';
 import heroDnaColored from '../../assets/logos/hero_dna_colored.png';
 import gsmcCrest from '../../assets/logos/gsmc_crest.png';
 
 export default function SplashScreen({ onComplete, duration = 3200 }) {
   const [dismissed, setDismissed] = useState(false);
+  const { isDark } = useTheme();
 
   useEffect(() => {
     // Lock scroll during splash screen
@@ -41,8 +43,8 @@ export default function SplashScreen({ onComplete, duration = 3200 }) {
       {/* 1. Full-Page Base Color Transition: starts slightly warm/dim and smoothly brightens to luminous canvas */}
       <motion.div
         aria-hidden="true"
-        initial={{ backgroundColor: '#e8e0d0' }}
-        animate={{ backgroundColor: '#f7f4ee' }}
+        initial={{ backgroundColor: isDark ? '#161719' : '#e8e0d0' }}
+        animate={{ backgroundColor: isDark ? '#202124' : '#f7f4ee' }}
         transition={{ duration: 2.8, ease: 'easeInOut' }}
         className="absolute inset-0 pointer-events-none"
       />
@@ -55,8 +57,9 @@ export default function SplashScreen({ onComplete, duration = 3200 }) {
         transition={{ duration: 2.8, ease: 'easeOut' }}
         className="absolute inset-0 pointer-events-none"
         style={{
-          background:
-            'radial-gradient(circle at 50% 42%, rgba(226, 185, 111, 0.48) 0%, rgba(226, 185, 111, 0.25) 40%, rgba(247, 244, 238, 0.05) 75%, transparent 100%)',
+          background: isDark
+            ? 'radial-gradient(circle at 50% 42%, rgba(241, 70, 102, 0.28) 0%, rgba(238, 149, 144, 0.14) 40%, rgba(32, 33, 36, 0.05) 75%, transparent 100%)'
+            : 'radial-gradient(circle at 50% 42%, rgba(226, 185, 111, 0.48) 0%, rgba(226, 185, 111, 0.25) 40%, rgba(247, 244, 238, 0.05) 75%, transparent 100%)',
         }}
       />
 
@@ -68,8 +71,9 @@ export default function SplashScreen({ onComplete, duration = 3200 }) {
         transition={{ duration: 2.8, ease: 'easeOut' }}
         className="absolute inset-0 pointer-events-none"
         style={{
-          background:
-            'linear-gradient(180deg, rgba(226, 185, 111, 0.15) 0%, rgba(247, 244, 238, 0) 50%, rgba(226, 185, 111, 0.12) 100%)',
+          background: isDark
+            ? 'linear-gradient(180deg, rgba(241, 70, 102, 0.08) 0%, rgba(32, 33, 36, 0) 50%, rgba(241, 70, 102, 0.08) 100%)'
+            : 'linear-gradient(180deg, rgba(226, 185, 111, 0.15) 0%, rgba(247, 244, 238, 0) 50%, rgba(226, 185, 111, 0.12) 100%)',
         }}
       />
 
@@ -129,7 +133,7 @@ export default function SplashScreen({ onComplete, duration = 3200 }) {
         transition={{ delay: 0.5, duration: 0.85, ease: [0.22, 1, 0.36, 1] }}
         className="text-center relative z-10 px-4"
       >
-        <h1 className="font-heading font-bold text-2xl sm:text-3xl md:text-3xl lg:text-4xl uppercase tracking-normal sm:tracking-tight text-[#121110] leading-none">
+        <h1 className="font-heading font-bold text-2xl sm:text-3xl md:text-3xl lg:text-4xl uppercase tracking-normal sm:tracking-tight text-[#121110] dark:text-[#F2F0ED] leading-none">
           CONFLUENCE 2026
         </h1>
       </motion.div>
@@ -147,10 +151,10 @@ export default function SplashScreen({ onComplete, duration = 3200 }) {
           className="w-9 h-9 sm:w-11 sm:h-11 object-contain drop-shadow-sm flex-shrink-0"
         />
         <div className="flex flex-col text-left leading-snug">
-          <span className="text-[10px] sm:text-[11.5px] font-semibold tracking-[0.14em] text-[#6b6459] uppercase">
+          <span className="text-[10px] sm:text-[11.5px] font-semibold tracking-[0.14em] text-[#6b6459] dark:text-[#B5B3B0] uppercase">
             SETH GS MEDICAL COLLEGE &amp;
           </span>
-          <span className="text-[9.5px] sm:text-[11px] font-extrabold tracking-[0.12em] text-[#121110] uppercase mt-0.5">
+          <span className="text-[9.5px] sm:text-[11px] font-extrabold tracking-[0.12em] text-[#121110] dark:text-[#F2F0ED] uppercase mt-0.5">
             KING EDWARD VII MEMORIAL HOSPITAL
           </span>
         </div>
@@ -164,7 +168,7 @@ export default function SplashScreen({ onComplete, duration = 3200 }) {
           handleComplete();
         }}
         aria-label="Skip splash screen"
-        className="absolute top-5 right-5 sm:top-7 sm:right-7 text-[11px] sm:text-xs font-medium text-[#8c8273] hover:text-[#121110] transition-colors py-1 px-3 rounded-full bg-[#ece1cf]/60 hover:bg-[#ece1cf] border border-[rgba(100,85,70,0.18)]"
+        className="absolute top-5 right-5 sm:top-7 sm:right-7 text-[11px] sm:text-xs font-medium text-[#8c8273] dark:text-[#B5B3B0] hover:text-[#121110] dark:hover:text-[#F2F0ED] transition-colors py-1 px-3 rounded-full bg-[#ece1cf]/60 dark:bg-[#2B2D30]/80 hover:bg-[#ece1cf] dark:hover:bg-[#2B2D30] border border-[rgba(100,85,70,0.18)] dark:border-[#3B3D41]"
       >
         Skip ✕
       </button>

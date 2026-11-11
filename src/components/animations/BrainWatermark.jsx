@@ -18,7 +18,7 @@ export default function BrainWatermark({
         className={`fixed inset-0 grid place-items-center pointer-events-none z-0 overflow-hidden ${className}`}
         aria-hidden="true"
       >
-        <div className="relative w-[min(70vmin,680px)] aspect-square opacity-[0.055] spin-smooth-slow brightness-0">
+        <div className="relative w-[min(70vmin,680px)] aspect-square opacity-[0.055] dark:opacity-[0.045] spin-smooth-slow brightness-0 dark:brightness-100 dark:invert">
           <img
             src={dnaRingImg}
             alt=""

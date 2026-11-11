@@ -69,3 +69,69 @@
   --font-h: 'Sora', system-ui, -apple-system, sans-serif;
   --font-b: 'Inter', system-ui, -apple-system, sans-serif;
 }
+
+/* ── Dark Mode Design Tokens (Strictly Preserves Light Mode on :root) ── */
+:root[data-theme="dark"],
+.dark {
+  /* ── Backgrounds and surfaces ───────────────────── */
+  --bg-canvas:        #202124;   /* Main background */
+  --bg-surface:       #2B2D30;   /* Cards / surfaces */
+  --bg-surface-light: #323438;   /* Elevated surfaces */
+  --bg-deep:          #202124;
+  --bg-dark:          #252629;   /* Secondary background */
+  --bg-mid:           #2B2D30;
+
+  /* ── Primary Accent: Coral Red ──────────────────── */
+  --accent-blue:       #F14666;
+  --accent-blue-hover: #e03253;
+  --accent-blue-light: rgba(241, 70, 102, 0.15);
+  --dusty-600:         #F14666;
+  --dusty-700:         #e03253;
+  --dusty-800:         #2B2D30;
+  --dusty-900:         #252629;
+  --dusty-500:         #EE9590;   /* Secondary accent */
+  --dusty-400:         #B5B3B0;
+  --dusty-200:         #3B3D41;
+  --dusty-100:         #2B2D30;
+
+  /* ── Secondary Accent: Muted Salmon ─────────────── */
+  --accent-crimson:    #EE9590;
+  --accent-blush:      #F14666;
+  --blush-700:         #c9304e;
+  --blush-600:         #EE9590;
+  --blush-500:         #F14666;
+  --blush-300:         #FFCCAA;   /* Warm Peach subtle highlight */
+  --blush-200:         rgba(241, 70, 102, 0.20);
+  --blush-100:         rgba(241, 70, 102, 0.10);
+
+  /* ── Sage Green Accent ──────────────────────────── */
+  --sage-600:          #9CBB98;
+  --sage-400:          #9CBB98;
+  --sage-200:          rgba(156, 187, 152, 0.22);
+  --accent-sage:       #9CBB98;
+  --accent-sky:        #FFCCAA;
+  --teal:              #9CBB98;
+  --gold:              #FFCCAA;
+
+  /* ── Warm Cream Mapping in Dark ─────────────────── */
+  --cream:             #2B2D30;
+  --cream-50:          #323438;
+
+  /* ── Typography ─────────────────────────────────── */
+  --ink:               #F2F0ED;   /* Primary text */
+  --ink-2:             #B5B3B0;   /* Secondary text */
+  --muted:             #898A89;   /* Muted text */
+  --line:              #3B3D41;   /* Borders / dividers */
+  --line-strong:       #4E5056;
+  --white:             #ffffff;
+
+  /* ── Surfaces & Glass ───────────────────────────── */
+  --glass:             #2B2D30;
+  --glass-b:           #3B3D41;
+  --glass-hover:       #323438;
+
+  /* ── Shadows ────────────────────────────────────── */
+  --shadow:            0 8px 24px -8px rgba(0, 0, 0, 0.45);
+  --shadow-lg:         0 16px 36px -12px rgba(0, 0, 0, 0.65);
+  --shadow-glow:       0 0 28px rgba(241, 70, 102, 0.22);
+}

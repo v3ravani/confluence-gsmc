@@ -17,15 +17,15 @@ function TimelineStep({ step, index, total }) {
         <motion.div
           animate={
             inView
-              ? { backgroundColor: '#2d508a', borderColor: '#2d508a', scale: 1.04 }
-              : { backgroundColor: '#f7f1e6', borderColor: 'rgba(100,85,70,0.32)', scale: 1 }
+              ? { backgroundColor: 'var(--accent-blue)', borderColor: 'var(--accent-blue)', scale: 1.04 }
+              : { backgroundColor: 'var(--bg-surface-light)', borderColor: 'var(--line-strong)', scale: 1 }
           }
           transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
           className="w-11 h-11 rounded-full border-2 flex items-center justify-center z-10 shadow-sm"
         >
           <span
             className={`font-heading font-extrabold text-sm transition-colors duration-400 ${
-              inView ? 'text-white' : 'text-[#6b6459]'
+              inView ? 'text-white' : 'text-[var(--muted)]'
             }`}
           >
             {step.step}
@@ -34,7 +34,7 @@ function TimelineStep({ step, index, total }) {
         {!isLast && (
           <div
             className={`w-0.5 flex-1 mt-2 transition-colors duration-700 min-h-[48px] ${
-              inView ? 'bg-[#2d508a]/40' : 'bg-[rgba(100,85,70,0.18)]'
+              inView ? 'bg-[var(--accent-blue)]/40' : 'bg-[var(--line)]'
             }`}
           />
         )}
@@ -44,19 +44,19 @@ function TimelineStep({ step, index, total }) {
       <div className="flex-1 min-w-0 pb-8">
         <span
           className={`block text-[10.5px] font-bold tracking-[0.22em] uppercase mb-1.5 transition-colors duration-400 ${
-            inView ? 'text-[#913433]' : 'text-[#6b6459]'
+            inView ? 'text-[var(--accent-blush)]' : 'text-[var(--muted)]'
           }`}
         >
           STEP {step.step}
         </span>
         <h3
           className={`font-heading font-extrabold text-base md:text-lg mb-2 leading-snug transition-colors duration-400 ${
-            inView ? 'text-[#121110]' : 'text-[#2d2b28]/85'
+            inView ? 'text-[var(--ink)]' : 'text-[var(--ink-2)]'
           }`}
         >
           {step.title}
         </h3>
-        <p className="text-sm text-[#4a453e] leading-relaxed">
+        <p className="text-sm text-[var(--ink-2)] leading-relaxed">
           {step.description}
         </p>
       </div>
@@ -70,7 +70,7 @@ export default function RegistrationRoadmap() {
   const reduced = useReducedMotion();
 
   return (
-    <section id="registration" className="py-16 md:py-24 relative border-b border-[rgba(100,85,70,0.18)] overflow-hidden">
+    <section id="registration" className="py-16 md:py-24 relative border-b border-[rgba(100,85,70,0.18)] dark:border-[#3B3D41] overflow-hidden">
       {/* Ambient glows */}
       <div className="absolute top-1/4 right-0 w-72 h-72
                       bg-[var(--accent-blue)]/5 rounded-full blur-[120px] pointer-events-none" />
@@ -91,7 +91,7 @@ export default function RegistrationRoadmap() {
             Guidelines
           </span>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-heading font-extrabold
-                         text-[#121110] tracking-tight leading-tight mb-3">
+                         text-[#121110] dark:text-[#F2F0ED] tracking-tight leading-tight mb-3">
             How Registration{' '}
             <span className="italic font-normal text-[var(--accent-crimson)]">
               Works
@@ -129,7 +129,7 @@ export default function RegistrationRoadmap() {
                                text-[var(--accent-blush)] block mb-3">
                 Important
               </span>
-              <h3 className="font-heading font-bold text-[#121110] text-lg mb-4 leading-snug">
+              <h3 className="font-heading font-bold text-[#121110] dark:text-[#F2F0ED] text-lg mb-4 leading-snug">
                 Each Event Has Its Own Registration Form
               </h3>
               <ul className="space-y-3 text-sm text-[var(--muted)] leading-relaxed">

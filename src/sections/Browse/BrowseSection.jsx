@@ -33,7 +33,7 @@ const browseCategories = [
 
 export default function BrowseSection() {
   return (
-    <section id="browse" className="py-16 md:py-24 relative border-b border-[rgba(100,85,70,0.18)]">
+    <section id="browse" className="py-16 md:py-24 relative border-b border-[rgba(100,85,70,0.18)] dark:border-[#3B3D41]">
       <div className="wrap">
         {/* Header row (View All removed per user request) */}
         <div className="mb-10">
@@ -48,8 +48,8 @@ export default function BrowseSection() {
 
         {/* Category rows */}
         <div className="flex flex-col rounded-2xl overflow-hidden
-                        border border-[rgba(100,85,70,0.20)]
-                        bg-[#ece1cf] shadow-sm">
+                        border border-[rgba(100,85,70,0.20)] dark:border-[#3B3D41]
+                        bg-[#ece1cf] dark:bg-[#2B2D30] shadow-sm">
           {browseCategories.map((cat, idx) => (
             <Link
               key={cat.id}
@@ -60,7 +60,7 @@ export default function BrowseSection() {
               {/* Index */}
               <span
                 className="font-heading font-bold text-2xl md:text-3xl w-10 flex-shrink-0 select-none
-                           text-[rgba(100,85,70,0.40)] group-hover:text-[var(--accent-blue)]
+                           text-[rgba(100,85,70,0.40)] dark:text-[#898A89] group-hover:text-[var(--accent-blue)]
                            transition-colors duration-300"
               >
                 {String(idx + 1).padStart(2, '0')}
@@ -69,7 +69,7 @@ export default function BrowseSection() {
               {/* Label + desc */}
               <div className="flex-1 min-w-0 pr-4">
                 <h3 className="font-heading font-extrabold text-xl md:text-2xl lg:text-3xl
-                               tracking-tight text-[#121110]
+                               tracking-tight text-[#121110] dark:text-[#F2F0ED]
                                group-hover:text-[var(--accent-blue)] transition-colors duration-250 mb-1">
                   {cat.label}
                 </h3>
@@ -83,7 +83,7 @@ export default function BrowseSection() {
               <div className="flex items-center flex-shrink-0">
                 <ArrowUpRight
                   strokeWidth={2.8}
-                  className="w-6 h-6 md:w-7 md:h-7 text-[#2d508a] group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-250"
+                  className="w-6 h-6 md:w-7 md:h-7 text-[#2d508a] dark:text-[#F14666] group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-250"
                 />
               </div>
             </Link>

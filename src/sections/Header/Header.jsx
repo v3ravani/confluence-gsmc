@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Menu } from 'lucide-react';
 import Navigation from '../../components/navigation/Navigation';
 import MobileDrawer from '../../components/navigation/MobileDrawer';
+import ThemeToggle from '../../components/common/ThemeToggle';
 import { headerBrand } from '../../data/navigation';
 import gsmcCrest from '../../assets/logos/gsmc_crest.png';
 
@@ -70,25 +71,31 @@ export default function Header() {
           </div>
         </Link>
 
-        {/* Desktop Navigation */}
-        <Navigation />
+        {/* Right Action Group: Desktop Navigation + Theme Toggle + Mobile Hamburger */}
+        <div className="flex items-center gap-2 sm:gap-3.5 ml-auto">
+          {/* Desktop Navigation */}
+          <Navigation />
 
-        {/* Mobile Hamburger Button: No bg or border, slightly wider/thicker lines */}
-        <button
-          type="button"
-          onClick={() => setMobileMenuOpen(true)}
-          className="lg:hidden p-1.5 text-[#121110] bg-transparent hover:opacity-75 transition-opacity flex-shrink-0 ml-auto cursor-pointer focus-visible:outline-none"
-          aria-label="Open navigation menu"
-          aria-expanded={mobileMenuOpen}
-        >
-          <Menu className="w-6 h-6 text-[#121110]" strokeWidth={2.35} />
-        </button>
+          {/* Theme Toggle (Desktop & Mobile) */}
+          <ThemeToggle />
+
+          {/* Mobile Hamburger Button: No bg or border, slightly wider/thicker lines */}
+          <button
+            type="button"
+            onClick={() => setMobileMenuOpen(true)}
+            className="lg:hidden p-1.5 text-[#121110] dark:text-[#F2F0ED] bg-transparent hover:opacity-75 transition-opacity flex-shrink-0 cursor-pointer focus-visible:outline-none"
+            aria-label="Open navigation menu"
+            aria-expanded={mobileMenuOpen}
+          >
+            <Menu className="w-6 h-6 text-[#121110] dark:text-[#F2F0ED]" strokeWidth={2.35} />
+          </button>
+        </div>
       </div>
 
       {/* Thin Red Scroll Progress Indicator Line on Bottom Border */}
       <div className="absolute bottom-0 left-0 w-full h-[2px] bg-transparent pointer-events-none overflow-hidden">
         <div
-          className="h-full bg-[#913433] transition-[width] duration-75 ease-out"
+          className="h-full bg-[#913433] dark:bg-[#F14666] transition-[width] duration-75 ease-out"
           style={{ width: `${scrollProgress}%` }}
         />
       </div>

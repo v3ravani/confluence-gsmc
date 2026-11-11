@@ -21,16 +21,16 @@ const merchandiseInfo = {
 
 function MerchCard({ item }) {
   return (
-    <div className="rounded-2xl bg-[#ece1cf] border border-[rgba(100,85,70,0.18)] p-6 group shadow-sm hover:shadow-md hover:border-[#2d508a] transition-all duration-300">
-      <span className="inline-block text-[10px] font-semibold tracking-[0.18em] uppercase text-[#913433] mb-3">
+    <div className="rounded-2xl bg-[#ece1cf] dark:bg-[#2B2D30] border border-[rgba(100,85,70,0.18)] dark:border-[#3B3D41] p-6 group shadow-sm hover:shadow-md hover:border-[#2d508a] dark:hover:border-[#F14666] transition-all duration-300">
+      <span className="inline-block text-[10px] font-semibold tracking-[0.18em] uppercase text-[#913433] dark:text-[#F14666] mb-3">
         {item.tag}
       </span>
-      <h3 className="font-heading font-extrabold text-[#121110] text-base md:text-lg mb-2 leading-snug group-hover:text-[#2d508a] transition-colors">
+      <h3 className="font-heading font-extrabold text-[#121110] dark:text-[#F2F0ED] text-base md:text-lg mb-2 leading-snug group-hover:text-[#2d508a] dark:group-hover:text-[#F14666] transition-colors">
         {item.title}
       </h3>
-      <p className="text-sm text-[#2d2b28] leading-relaxed">{item.desc}</p>
-      <div className="mt-4 pt-4 border-t border-[rgba(100,85,70,0.14)]">
-        <span className="text-[11px] font-semibold text-[#6b6459] uppercase tracking-wider">
+      <p className="text-sm text-[#2d2b28] dark:text-[#B5B3B0] leading-relaxed">{item.desc}</p>
+      <div className="mt-4 pt-4 border-t border-[rgba(100,85,70,0.14)] dark:border-[#3B3D41]">
+        <span className="text-[11px] font-semibold text-[#6b6459] dark:text-[#898A89] uppercase tracking-wider">
           Price TBA · Pre-order available soon
         </span>
       </div>
@@ -46,7 +46,7 @@ export default function Merchandise() {
       <BrainWatermark mode="watermark" />
       <MobilePageHero title="MERCHANDISE" />
       <div className="wrap relative z-10">
-        <Link to="/" className="hidden md:inline-flex items-center gap-2 text-sm text-[#6b6459] hover:text-[#121110] transition-colors mb-8 group">
+        <Link to="/" className="hidden md:inline-flex items-center gap-2 text-sm text-[#6b6459] dark:text-[#898A89] hover:text-[#121110] dark:hover:text-[#F2F0ED] transition-colors mb-8 group">
           <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
           Back to Home
         </Link>
@@ -64,10 +64,10 @@ export default function Merchandise() {
             { icon: <Package className="w-4 h-4" />, label: 'Accessories', val: '3+ Items' },
             { icon: <ShoppingBag className="w-4 h-4" />, label: 'Pre-order', val: 'Soon' },
           ].map(s => (
-            <div key={s.label} className="p-4 text-center rounded-xl bg-[#ece1cf] border border-[rgba(100,85,70,0.18)] shadow-xs">
-              <div className="text-[#2d508a] flex justify-center mb-1">{s.icon}</div>
-              <b className="font-heading text-[#121110] text-lg block">{s.val}</b>
-              <span className="text-[10px] text-[#6b6459] uppercase tracking-wider font-semibold">{s.label}</span>
+            <div key={s.label} className="p-4 text-center rounded-xl bg-[#ece1cf] dark:bg-[#2B2D30] border border-[rgba(100,85,70,0.18)] dark:border-[#3B3D41] shadow-xs">
+              <div className="text-[#2d508a] dark:text-[#F14666] flex justify-center mb-1">{s.icon}</div>
+              <b className="font-heading text-[#121110] dark:text-[#F2F0ED] text-lg block">{s.val}</b>
+              <span className="text-[10px] text-[#6b6459] dark:text-[#898A89] uppercase tracking-wider font-semibold">{s.label}</span>
             </div>
           ))}
         </div>
@@ -76,9 +76,9 @@ export default function Merchandise() {
           {merchandiseInfo.items.map(item => <MerchCard key={item.id} item={item} />)}
         </div>
 
-        <div className="p-5 rounded-2xl bg-[#ece1cf] border border-[rgba(100,85,70,0.18)] flex items-start gap-3">
-          <span className="text-[#913433] mt-0.5 flex-shrink-0">✦</span>
-          <p className="text-sm text-[#2d2b28] leading-relaxed">{merchandiseInfo.note}</p>
+        <div className="p-5 rounded-2xl bg-[#ece1cf] dark:bg-[#2B2D30] border border-[rgba(100,85,70,0.18)] dark:border-[#3B3D41] flex items-start gap-3">
+          <span className="text-[#913433] dark:text-[#F14666] mt-0.5 flex-shrink-0">✦</span>
+          <p className="text-sm text-[#2d2b28] dark:text-[#B5B3B0] leading-relaxed">{merchandiseInfo.note}</p>
         </div>
       </div>
     </div>

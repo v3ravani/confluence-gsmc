@@ -42,23 +42,23 @@ export default function MemoriesGallery() {
   }, [selectedIdx, closeLightbox, nextPhoto, prevPhoto]);
 
   return (
-    <section className="pt-16 pb-20 border-t border-[rgba(100,85,70,0.18)]">
+    <section className="pt-16 pb-20 border-t border-[rgba(100,85,70,0.18)] dark:border-[#3B3D41]">
       {/* Header */}
       <div className="mb-8">
-        <span className="text-[12px] font-semibold tracking-[0.22em] uppercase text-[var(--accent-crimson)] mb-2 block flex items-center gap-1.5">
+        <span className="text-[12px] font-semibold tracking-[0.22em] uppercase text-[var(--accent-crimson)] dark:text-[#F14666] mb-2 block flex items-center gap-1.5">
           <Sparkles className="w-3.5 h-3.5" />
           Memories
         </span>
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-heading font-extrabold text-[#121110] tracking-tight leading-tight mb-2">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-heading font-extrabold text-[#121110] dark:text-[#F2F0ED] tracking-tight leading-tight mb-2">
           PHOTOS FROM PREVIOUS{' '}
           <span
-            className="italic font-normal text-[var(--accent-crimson)]"
+            className="italic font-normal text-[var(--accent-crimson)] dark:text-[#EE9590]"
             style={{ fontFamily: "'Playfair Display', 'Cormorant Garamond', 'Georgia', serif" }}
           >
             editions
           </span>
         </h2>
-        <p className="text-sm sm:text-base text-[var(--muted)] max-w-2xl leading-relaxed">
+        <p className="text-sm sm:text-base text-[var(--muted)] dark:text-[#B5B3B0] max-w-2xl leading-relaxed">
           A visual retrospective of CONFLUENCE ’25: landmark stage installations, intensive hands-on clinical workshops, research presentations, and vibrant student camaraderie.
         </p>
       </div>
@@ -72,7 +72,7 @@ export default function MemoriesGallery() {
             <div
               key={photo.id}
               onClick={() => openLightbox(idx)}
-              className={`relative rounded-xl overflow-hidden cursor-pointer border border-[rgba(100,85,70,0.20)] hover:border-[var(--accent-blue)] transition-all duration-300 hover:scale-[1.015] bg-[#ded2c0] shadow-sm ${
+              className={`relative rounded-xl overflow-hidden cursor-pointer border border-[rgba(100,85,70,0.20)] dark:border-[#3B3D41] hover:border-[var(--accent-blue)] dark:hover:border-[#F14666] transition-all duration-300 hover:scale-[1.015] bg-[#ded2c0] dark:bg-[#2B2D30] shadow-sm ${
                 isFeatured ? 'sm:col-span-2 lg:col-span-2 aspect-[16/10]' : 'aspect-[4/3]'
               }`}
             >

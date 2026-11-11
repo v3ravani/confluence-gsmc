@@ -9,15 +9,15 @@ export default function Footer() {
   const year = 2026;
 
   return (
-    <footer className="relative bg-[#1a3158] rounded-t-[36px] sm:rounded-t-[48px] md:rounded-t-[60px] pt-16 pb-10 text-white
-                       border-t border-white/10 shadow-[0_-8px_32px_rgba(26,49,88,0.20)] overflow-hidden">
+    <footer className="relative bg-[#1a3158] dark:bg-[#252629] rounded-t-[36px] sm:rounded-t-[48px] md:rounded-t-[60px] pt-16 pb-10 text-white
+                       border-t border-white/10 dark:border-[#3B3D41] shadow-[0_-8px_32px_rgba(26,49,88,0.20)] dark:shadow-[0_-8px_32px_rgba(0,0,0,0.50)] overflow-hidden">
       {/* Large decorative watermark anchored cleanly at bottom */}
       <div
         aria-hidden="true"
         className="absolute bottom-0 left-1/2 -translate-x-1/2 pointer-events-none select-none overflow-hidden w-full flex justify-center translate-y-3 sm:translate-y-4 md:translate-y-6"
       >
         <span className="font-heading font-black text-[clamp(95px,22vw,240px)]
-                         tracking-tighter text-white/[0.045] uppercase leading-none whitespace-nowrap select-none">
+                         tracking-tighter text-white/[0.045] dark:text-white/[0.035] uppercase leading-none whitespace-nowrap select-none">
           CONFLUENCE
         </span>
       </div>
@@ -25,7 +25,7 @@ export default function Footer() {
       <div className="wrap relative z-10">
         {/* ── Main grid ───────────────────────────────────────────── */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8
-                        pb-14 border-b border-white/10">
+                        pb-14 border-b border-white/10 dark:border-[#3B3D41]">
 
           {/* Col 1 — Brand (4 cols) */}
           <div className="lg:col-span-4">

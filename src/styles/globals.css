@@ -225,3 +225,145 @@
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(100, 85, 70, 0.45);
 }
+
+/* ══════════════════════════════════════════════════════════════════════
+   DARK MODE STYLES & UNIVERSAL PALETTE MAPPING
+   ══════════════════════════════════════════════════════════════════════ */
+
+html.dark body,
+[data-theme="dark"] body {
+  background-color: #202124;
+  background-image:
+    radial-gradient(1000px 700px at 90% -5%, rgba(241, 70, 102, 0.05) 0%, transparent 60%),
+    radial-gradient(800px 800px at -5% 35%, rgba(238, 149, 144, 0.04) 0%, transparent 55%),
+    linear-gradient(180deg, #202124 0%, #252629 45%, #202124 100%);
+  color: #B5B3B0;
+}
+
+html.dark h1,
+html.dark h2,
+html.dark h3,
+html.dark h4,
+html.dark h5,
+html.dark h6 {
+  color: #F2F0ED;
+}
+
+html.dark :focus-visible {
+  outline-color: #F14666;
+}
+
+html.dark .bg-grid-mesh {
+  background-image:
+    linear-gradient(rgba(242, 240, 237, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(242, 240, 237, 0.04) 1px, transparent 1px);
+}
+
+html.dark ::-webkit-scrollbar-track {
+  background: #202124;
+}
+
+html.dark ::-webkit-scrollbar-thumb {
+  background: #3B3D41;
+}
+
+html.dark ::-webkit-scrollbar-thumb:hover {
+  background: #4E5056;
+}
+
+html.dark input,
+html.dark textarea,
+html.dark select {
+  background-color: #2B2D30;
+  border-color: #3B3D41;
+  color: #F2F0ED;
+}
+
+html.dark input::placeholder,
+html.dark textarea::placeholder {
+  color: #898A89;
+}
+
+/* ── Universal Palette Translations in Dark Mode ── */
+.dark .bg-\[\#e2d4c0\],
+.dark .bg-\[\#e2d4c0\]\/90,
+.dark .bg-\[\#e2d4c0\]\/95 {
+  background-color: rgba(37, 38, 41, 0.95) !important;
+}
+
+.dark .bg-\[\#e4d5c2\],
+.dark .bg-\[\#ded0bb\] {
+  background-color: #202124 !important;
+}
+
+.dark .bg-\[\#ece1cf\] {
+  background-color: #2B2D30 !important;
+}
+
+.dark .bg-\[\#f7f1e6\] {
+  background-color: #323438 !important;
+}
+
+.dark .bg-\[\#f7f4ee\] {
+  background-color: #202124 !important;
+}
+
+.dark .bg-\[\#f2e8d8\],
+.dark .bg-\[\#fbf7f0\] {
+  background-color: #323438 !important;
+}
+
+.dark .border-\[rgba\(100\,85\,70\,0\.14\)\],
+.dark .border-\[rgba\(100\,85\,70\,0\.18\)\],
+.dark .border-\[rgba\(100\,85\,70\,0\.20\)\],
+.dark .border-\[rgba\(100\,85\,70\,0\.22\)\],
+.dark .border-\[rgba\(100\,85\,70\,0\.24\)\],
+.dark .border-\[rgba\(100\,85\,70\,0\.32\)\] {
+  border-color: #3B3D41 !important;
+}
+
+.dark .text-\[\#121110\] {
+  color: #F2F0ED !important;
+}
+
+.dark .text-\[\#2d2b28\] {
+  color: #B5B3B0 !important;
+}
+
+.dark .text-\[\#6b6459\] {
+  color: #898A89 !important;
+}
+
+.dark .text-\[\#8c8273\] {
+  color: #898A89 !important;
+}
+
+.dark .text-\[\#2d508a\] {
+  color: #F14666 !important;
+}
+
+.dark .text-\[\#913433\] {
+  color: #EE9590 !important;
+}
+
+.dark .hover\:text-\[\#121110\]:hover {
+  color: #F2F0ED !important;
+}
+
+.dark .hover\:text-\[\#2d508a\]:hover {
+  color: #F14666 !important;
+}
+
+.dark .hover\:text-\[\#913433\]:hover {
+  color: #EE9590 !important;
+}
+
+.dark .hover\:bg-\[rgba\(45\,80\,138\,0\.08\)\]:hover {
+  background-color: #323438 !important;
+}
+
+.dark .card-glass:hover {
+  border-color: #F14666 !important;
+  box-shadow: 0 16px 36px -12px rgba(0, 0, 0, 0.65) !important;
+}
+
