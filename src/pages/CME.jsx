@@ -313,37 +313,8 @@ export default function CME() {
           </a>
         </div>
 
-        {/* 2 & 3. Day 1 Events followed by Day 2 Events */}
-        <div className="space-y-14 mb-16">
-          {cmeDays.map((day) => (
-            <div key={day.dayNumber}>
-              {/* Day Header */}
-              <div className="mb-6 pb-3 border-b border-[#829DBB]/35 dark:border-[#3B3D41]">
-                <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#536F91] dark:text-[#F14666] block mb-1">
-                  {day.dateBadge} · {day.dateLabel}
-                </span>
-                <h3 className="font-heading font-black text-[#1D344F] dark:text-[#F2F0ED] text-xl sm:text-2xl leading-snug">
-                  {day.theme}
-                </h3>
-              </div>
-
-              {/* Cards Grid (Equal-Height) */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
-                {day.sessions.map((session, sIdx) => (
-                  <CMECard
-                    key={session.id}
-                    session={session}
-                    index={day.dayNumber === 1 ? sIdx : sIdx + 2}
-                    onOpenDetails={(s) => setSelectedSession(s)}
-                  />
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* 4. Delegation Rates (Immediately after Day 1 & Day 2 Events, Register Links Removed) */}
-        <div className="mb-12">
+        {/* 2. Delegation Rates (Above Day 1 & Day 2 Events, Register Links Removed) */}
+        <div className="mb-14">
           <div className="mb-5">
             <span className="text-[11px] font-bold tracking-[0.18em] uppercase text-[#536F91] dark:text-[#F14666] block mb-1">
               Official Brochure · Page 23
@@ -396,6 +367,35 @@ export default function CME() {
               </div>
             ))}
           </div>
+        </div>
+
+        {/* 3 & 4. Day 1 Events followed by Day 2 Events */}
+        <div className="space-y-14 mb-12">
+          {cmeDays.map((day) => (
+            <div key={day.dayNumber}>
+              {/* Day Header */}
+              <div className="mb-6 pb-3 border-b border-[#829DBB]/35 dark:border-[#3B3D41]">
+                <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#536F91] dark:text-[#F14666] block mb-1">
+                  {day.dateBadge} · {day.dateLabel}
+                </span>
+                <h3 className="font-heading font-black text-[#1D344F] dark:text-[#F2F0ED] text-xl sm:text-2xl leading-snug">
+                  {day.theme}
+                </h3>
+              </div>
+
+              {/* Cards Grid (Equal-Height) */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
+                {day.sessions.map((session, sIdx) => (
+                  <CMECard
+                    key={session.id}
+                    session={session}
+                    index={day.dayNumber === 1 ? sIdx : sIdx + 2}
+                    onOpenDetails={(s) => setSelectedSession(s)}
+                  />
+                ))}
+              </div>
+            </div>
+          ))}
         </div>
 
         {/* Footer Note */}
