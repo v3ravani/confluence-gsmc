@@ -19,6 +19,8 @@ export const headerBrand = {
 export const brochureConfig = {
   eventBrochureUrl:          '#/brochures/confluence-2026-event.pdf',
   workshopBrochureUrl:       '#/brochures/confluence-2026-workshop.pdf',
+  cmeBrochureUrl:            '',
   eventBrochureFileName:     'CONFLUENCE_2026_Event_Brochure.pdf',
   workshopBrochureFileName:  'CONFLUENCE_2026_Workshop_Brochure.pdf',
+  cmeBrochureFileName:       'CME Brochure',
 };

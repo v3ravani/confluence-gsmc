@@ -36,27 +36,24 @@ function DateBox({ label, dates, delay }) {
 }
 
 /* ── Brochure button ────────────────────────────────────── */
-function BrochureBtn({ children, fileName, url, delay }) {
+function BrochureBtn({ children, fileName, url, delay, className = '' }) {
+  const hasExternalFile = Boolean(url && !url.startsWith('#'));
+
   const handleClick = (e) => {
-    if (!url || url.startsWith('#')) {
+    if (!hasExternalFile) {
       e.preventDefault();
       alert(`The ${fileName} will be released with the official conference compendium.`);
     }
   };
 
-  return (
-    <motion.a
-      {...fadeUp(delay)}
-      href={url || '#'}
-      onClick={handleClick}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="w-full flex items-center justify-between gap-3
+  const sharedClassName = `w-full flex items-center justify-between gap-3
                  border border-[rgba(100,85,70,0.22)] dark:border-[#3B3D41]
                  bg-[#ece1cf] dark:bg-[#2B2D30] hover:bg-[#f5ede1] dark:hover:bg-[#323438]
                  hover:border-[var(--accent-blue)] dark:hover:border-[#F14666]
-                 px-4 sm:px-5 py-3 sm:py-3.5 text-left transition-all duration-250 group rounded-xl"
-    >
+                 px-4 sm:px-5 py-3 sm:py-3.5 text-left transition-all duration-250 group rounded-xl cursor-pointer ${className}`;
+
+  const content = (
+    <>
       <div className="flex items-center gap-3 min-w-0">
         <FileText className="w-4 h-4 flex-shrink-0 text-[var(--accent-blue)]
                              group-hover:text-[var(--accent-blue-hover)] transition-colors" />
@@ -68,9 +65,65 @@ function BrochureBtn({ children, fileName, url, delay }) {
       <ArrowUpRight className="w-4 h-4 flex-shrink-0 text-[var(--muted)]
                                group-hover:text-[var(--accent-blue)] group-hover:translate-x-0.5
                                group-hover:-translate-y-0.5 transition-all" />
+    </>
+  );
+
+  if (!hasExternalFile) {
+    return (
+      <motion.button
+        type="button"
+        {...fadeUp(delay)}
+        onClick={handleClick}
+        className={sharedClassName}
+      >
+        {content}
+      </motion.button>
+    );
+  }
+
+  return (
+    <motion.a
+      {...fadeUp(delay)}
+      href={url}
+      onClick={handleClick}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={sharedClassName}
+    >
+      {content}
     </motion.a>
   );
 }
+
+const BROCHURE_BUTTONS = [
+  {
+    key: 'event',
+    label: 'VIEW EVENT BROCHURE',
+    fileName: brochureConfig.eventBrochureFileName,
+    url: brochureConfig.eventBrochureUrl,
+    mobileDelay: 0.60,
+    desktopDelay: 0.48,
+    mobileSpan: 'sm:col-span-2',
+  },
+  {
+    key: 'workshop',
+    label: 'VIEW WORKSHOP BROCHURE',
+    fileName: brochureConfig.workshopBrochureFileName,
+    url: brochureConfig.workshopBrochureUrl,
+    mobileDelay: 0.66,
+    desktopDelay: 0.54,
+    mobileSpan: '',
+  },
+  {
+    key: 'cme',
+    label: 'VIEW CME BROCHURE',
+    fileName: brochureConfig.cmeBrochureFileName,
+    url: brochureConfig.cmeBrochureUrl,
+    mobileDelay: 0.72,
+    desktopDelay: 0.60,
+    mobileSpan: '',
+  },
+];
 
 /* ── Main Hero ──────────────────────────────────────────── */
 export default function Hero() {
@@ -164,22 +217,18 @@ export default function Hero() {
             </motion.div>
 
             {/* Mobile brochure buttons (visible on < lg only, neatly tucked below date boxes) */}
-            <div className="lg:hidden w-full max-w-xl flex flex-col sm:flex-row gap-2.5 mb-8">
-              <BrochureBtn
-                fileName={brochureConfig.eventBrochureFileName}
-                url={brochureConfig.eventBrochureUrl}
-                delay={0.60}
-              >
-                VIEW EVENT BROCHURE
-              </BrochureBtn>
-
-              <BrochureBtn
-                fileName={brochureConfig.workshopBrochureFileName}
-                url={brochureConfig.workshopBrochureUrl}
-                delay={0.66}
-              >
-                VIEW WORKSHOP BROCHURE
-              </BrochureBtn>
+            <div className="lg:hidden w-full max-w-xl grid grid-cols-1 sm:grid-cols-2 gap-2.5 mb-8">
+              {BROCHURE_BUTTONS.map((btn) => (
+                <BrochureBtn
+                  key={btn.key}
+                  fileName={btn.fileName}
+                  url={btn.url}
+                  delay={btn.mobileDelay}
+                  className={btn.mobileSpan}
+                >
+                  {btn.label}
+                </BrochureBtn>
+              ))}
             </div>
 
             {/* 5. CONFLUENCE Introduction — revised shortened description */}
@@ -253,21 +302,16 @@ export default function Hero() {
 
             {/* Brochure Buttons: Vertically arranged, one below the other */}
             <div className="w-full max-w-sm flex flex-col gap-3">
-              <BrochureBtn
-                fileName={brochureConfig.eventBrochureFileName}
-                url={brochureConfig.eventBrochureUrl}
-                delay={0.48}
-              >
-                VIEW EVENT BROCHURE
-              </BrochureBtn>
-
-              <BrochureBtn
-                fileName={brochureConfig.workshopBrochureFileName}
-                url={brochureConfig.workshopBrochureUrl}
-                delay={0.56}
-              >
-                VIEW WORKSHOP BROCHURE
-              </BrochureBtn>
+              {BROCHURE_BUTTONS.map((btn) => (
+                <BrochureBtn
+                  key={btn.key}
+                  fileName={btn.fileName}
+                  url={btn.url}
+                  delay={btn.desktopDelay}
+                >
+                  {btn.label}
+                </BrochureBtn>
+              ))}
             </div>
           </div>
         </div>

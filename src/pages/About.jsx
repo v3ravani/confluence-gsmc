@@ -156,7 +156,7 @@ export default function About() {
                                  text-[var(--muted)] block mb-1">
                   Format
                 </span>
-                <b className="text-[#121110] dark:text-[#F2F0ED] text-sm font-semibold">Hybrid · Campus & Virtual</b>
+                <b className="text-[#121110] dark:text-[#F2F0ED] text-sm font-semibold">On Campus and Online Mode</b>
               </div>
             </div>
           </div>

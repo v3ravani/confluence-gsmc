@@ -5,6 +5,24 @@ import BrainWatermark from '../components/animations/BrainWatermark';
 import MobilePageHero from '../components/common/MobilePageHero';
 import { memoriesGallery } from '../data/about';
 
+// Desktop-only 12-column editorial Bento configuration matched to each photo's aspect ratio
+const DESKTOP_BENTO_TILES = [
+  { span: 'lg:col-span-7 lg:row-span-2', objPos: 'object-center' },       // 0: memory14 (1.50 landscape)
+  { span: 'lg:col-span-5 lg:row-span-1', objPos: 'object-[center_35%]' }, // 1: memory12 (1.33 landscape)
+  { span: 'lg:col-span-5 lg:row-span-1', objPos: 'object-[center_30%]' }, // 2: memory9  (1.50 landscape)
+  { span: 'lg:col-span-5 lg:row-span-1', objPos: 'object-[center_30%]' }, // 3: memory11 (1.50 landscape)
+  { span: 'lg:col-span-3 lg:row-span-2', objPos: 'object-center' },       // 4: memory5  (0.56 portrait)
+  { span: 'lg:col-span-4 lg:row-span-2', objPos: 'object-center' },       // 5: memory4  (0.75 portrait)
+  { span: 'lg:col-span-5 lg:row-span-1', objPos: 'object-center' },       // 6: memory6  (1.78 landscape)
+  { span: 'lg:col-span-6 lg:row-span-1', objPos: 'object-center' },       // 7: memory8  (1.78 landscape)
+  { span: 'lg:col-span-6 lg:row-span-2', objPos: 'object-[center_25%]' }, // 8: memory3  (1.50 landscape)
+  { span: 'lg:col-span-6 lg:row-span-1', objPos: 'object-[center_30%]' }, // 9: memory10 (1.50 landscape)
+  { span: 'lg:col-span-6 lg:row-span-1', objPos: 'object-[center_35%]' }, // 10: memory1 (1.33 landscape)
+  { span: 'lg:col-span-3 lg:row-span-2', objPos: 'object-[center_25%]' }, // 11: memory13 (0.75 portrait)
+  { span: 'lg:col-span-3 lg:row-span-2', objPos: 'object-[center_25%]' }, // 12: memory7  (0.75 portrait)
+  { span: 'lg:col-span-6 lg:row-span-1', objPos: 'object-center' },       // 13: memory2 (1.78 landscape)
+];
+
 export default function Gallery() {
   const [selectedIdx, setSelectedIdx] = useState(null);
 
@@ -48,45 +66,8 @@ export default function Gallery() {
     };
   }, [selectedIdx, closeLightbox, nextPhoto, prevPhoto]);
 
-  // Bento span config for desktop 12-column grid
-  const getBentoClasses = (idx, photo) => {
-    // 14 items bento layout
-    switch (idx) {
-      case 0:
-        return 'col-span-12 lg:col-span-8 lg:row-span-2 min-h-[380px] lg:min-h-[440px]';
-      case 1:
-        return 'col-span-12 sm:col-span-6 lg:col-span-4 lg:row-span-2 min-h-[320px] lg:min-h-[440px]';
-      case 2:
-        return 'col-span-12 sm:col-span-6 lg:col-span-4 min-h-[260px]';
-      case 3:
-        return 'col-span-12 sm:col-span-6 lg:col-span-4 min-h-[260px]';
-      case 4:
-        return 'col-span-12 sm:col-span-6 lg:col-span-4 min-h-[260px]';
-      case 5:
-        return 'col-span-12 sm:col-span-6 lg:col-span-6 min-h-[280px]';
-      case 6:
-        return 'col-span-12 sm:col-span-6 lg:col-span-6 min-h-[280px]';
-      case 7:
-        return 'col-span-12 sm:col-span-6 lg:col-span-4 min-h-[260px]';
-      case 8:
-        return 'col-span-12 sm:col-span-6 lg:col-span-4 min-h-[260px]';
-      case 9:
-        return 'col-span-12 sm:col-span-6 lg:col-span-4 min-h-[260px]';
-      case 10:
-        return 'col-span-12 sm:col-span-6 lg:col-span-6 min-h-[280px]';
-      case 11:
-        return 'col-span-12 sm:col-span-6 lg:col-span-6 min-h-[280px]';
-      case 12:
-        return 'col-span-12 sm:col-span-6 lg:col-span-6 min-h-[280px]';
-      case 13:
-        return 'col-span-12 sm:col-span-6 lg:col-span-6 min-h-[280px]';
-      default:
-        return 'col-span-12 sm:col-span-6 lg:col-span-4 min-h-[260px]';
-    }
-  };
-
   return (
-    <div className="pt-0 pb-16 md:py-20 relative min-h-screen">
+    <div className="pt-0 pb-16 md:py-20 relative min-h-screen overflow-x-clip">
       <BrainWatermark mode="watermark" />
       <MobilePageHero title="GALLERY" />
 
@@ -171,22 +152,25 @@ export default function Gallery() {
           ))}
         </div>
 
-        {/* ── DESKTOP VIEW: BENTO GRID ─────────────────────────────────────── */}
-        <div className="hidden md:grid grid-cols-12 gap-5 auto-rows-fr">
+        {/* ── TABLET (2-col balanced grid) & DESKTOP (12-col editorial Bento Grid) ── */}
+        <div className="hidden md:grid md:grid-cols-2 md:auto-rows-[240px] lg:grid-cols-12 lg:auto-rows-[215px] lg:grid-flow-dense gap-5">
           {memoriesGallery.map((photo, idx) => {
-            const bentoSpan = getBentoClasses(idx, photo);
+            const tile = DESKTOP_BENTO_TILES[idx] || {
+              span: 'lg:col-span-4 lg:row-span-1',
+              objPos: 'object-center',
+            };
 
             return (
               <div
                 key={photo.id}
                 onClick={() => openLightbox(idx)}
-                className={`relative rounded-2xl overflow-hidden cursor-pointer border border-[rgba(100,85,70,0.20)] dark:border-[#3B3D41] hover:border-[#2d508a] dark:hover:border-[#F14666] bg-[#ded2c0] dark:bg-[#2B2D30] shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col justify-end ${bentoSpan}`}
+                className={`relative rounded-2xl overflow-hidden cursor-pointer border border-[rgba(100,85,70,0.20)] dark:border-[#3B3D41] hover:border-[#2d508a] dark:hover:border-[#F14666] bg-[#ded2c0] dark:bg-[#2B2D30] shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col justify-end ${tile.span}`}
               >
-                {/* Background Image */}
+                {/* Background Image with smooth hover zoom */}
                 <img
                   src={photo.src}
                   alt={photo.title || 'CONFLUENCE memory'}
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+                  className={`absolute inset-0 w-full h-full object-cover ${tile.objPos} transition-transform duration-500 ease-out group-hover:scale-105`}
                   loading="lazy"
                 />
 
