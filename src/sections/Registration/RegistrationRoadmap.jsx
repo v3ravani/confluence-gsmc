@@ -8,9 +8,9 @@ function TimelineStep({ step, index, total }) {
   const reduced = useReducedMotion();
 
   const variants = {
-    hidden:  { opacity: 0, y: reduced ? 0 : 28 },
+    hidden:  { opacity: 0, y: reduced ? 0 : 10 },
     visible: { opacity: 1, y: 0,
-      transition: { duration: 0.55, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] } },
+      transition: { duration: 0.4, delay: index * 0.06, ease: [0.22, 1, 0.36, 1] } },
   };
 
   const isLast = index === total - 1;
@@ -26,13 +26,13 @@ function TimelineStep({ step, index, total }) {
       {/* Left: node + line */}
       <div className="flex flex-col items-center flex-shrink-0">
         <motion.div
-          initial={{ scale: reduced ? 1 : 0, opacity: 0 }}
-          animate={inView ? { scale: 1, opacity: 1 } : {}}
-          transition={{ duration: 0.38, delay: index * 0.1 + 0.15 }}
+          initial={{ opacity: 0 }}
+          animate={inView ? { opacity: 1 } : {}}
+          transition={{ duration: 0.3, delay: index * 0.06 }}
           className="w-11 h-11 rounded-full border-2 border-[rgba(196,216,232,0.30)]
                      bg-[rgba(74,106,138,0.12)] backdrop-blur-sm
                      flex items-center justify-center z-10
-                     shadow-[0_0_18px_rgba(74,106,138,0.30)]"
+                     shadow-[0_0_14px_rgba(74,106,138,0.22)]"
         >
           <span className="font-heading font-bold text-sm text-[var(--accent-blush)]">
             {step.step}

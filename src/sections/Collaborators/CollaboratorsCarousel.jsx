@@ -78,7 +78,7 @@ export default function CollaboratorsCarousel() {
           width: 'max-content',
           animation: reduced || paused
             ? 'none'
-            : 'marquee 30s linear infinite',
+            : 'marquee 45s linear infinite',
           animationPlayState: paused ? 'paused' : 'running',
         }}
         aria-hidden={reduced}

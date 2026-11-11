@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowLeft, Calendar, MapPin, Users, Award } from 'lucide-react';
+import { ArrowLeft, Calendar, MapPin, Users } from 'lucide-react';
 import BrainWatermark from '../components/animations/BrainWatermark';
-import SectionHeading from '../components/common/SectionHeading';
+import HostSection from '../components/about/HostSection';
+import MemoriesGallery from '../components/about/MemoriesGallery';
 import gsmcCrest from '../assets/logos/gsmc_crest.png';
 import { conferenceInfo } from '../data/events';
 
@@ -24,7 +25,8 @@ export default function About() {
           Back to Home
         </Link>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+        {/* Section 1: The Conference */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start pb-6">
 
           {/* Left — full description */}
           <div className="lg:col-span-8">
@@ -75,38 +77,6 @@ export default function About() {
                 CONFLUENCE 2026 is a remarkable convergence of medical knowledge, research, and
                 intellectual camaraderie, creating a lasting impact on all attendees.
               </p>
-            </div>
-
-            {/* Event highlights */}
-            <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-5">
-              {[
-                {
-                  icon: <Award className="w-5 h-5" />,
-                  title: 'Scientific Competitions',
-                  desc: 'Paper presentations, case reports, poster showcases and medical quizzes recognising outstanding student research.',
-                },
-                {
-                  icon: <Users className="w-5 h-5" />,
-                  title: 'Hands-On Workshops',
-                  desc: 'Clinical skill simulations, BLS training, surgical suturing, POCUS and research methodology workshops led by expert faculty.',
-                },
-                {
-                  icon: <Award className="w-5 h-5" />,
-                  title: 'CME Programmes',
-                  desc: 'Accredited Continuing Medical Education sessions designed for resident doctors, postgraduate students and consultant physicians.',
-                },
-                {
-                  icon: <Users className="w-5 h-5" />,
-                  title: 'Literati & Networking',
-                  desc: 'Medical debates, literary events, recreational activities and networking evenings fostering community beyond academics.',
-                },
-              ].map(h => (
-                <div key={h.title} className="card-glass p-5 group">
-                  <div className="text-[var(--dusty-400)] mb-3">{h.icon}</div>
-                  <h4 className="font-heading font-bold text-white text-base mb-2">{h.title}</h4>
-                  <p className="text-sm text-[var(--muted)] leading-relaxed">{h.desc}</p>
-                </div>
-              ))}
             </div>
           </div>
 
@@ -190,6 +160,12 @@ export default function About() {
             </div>
           </div>
         </div>
+
+        {/* Section 2: The Host — About Seth GSMC & KEMH */}
+        <HostSection />
+
+        {/* Section 3: Memories — Photos from Previous Editions */}
+        <MemoriesGallery />
       </div>
     </div>
   );

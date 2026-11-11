@@ -11,9 +11,9 @@ function PostPlaceholder({ post, index }) {
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, scale: reduced ? 1 : 0.92 }}
-      animate={inView ? { opacity: 1, scale: 1 } : {}}
-      transition={{ duration: 0.42, delay: index * 0.06, ease: [0.22, 1, 0.36, 1] }}
+      initial={{ opacity: 0, y: reduced ? 0 : 8 }}
+      animate={inView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.35, delay: index * 0.04, ease: [0.22, 1, 0.36, 1] }}
       className="aspect-square rounded-xl overflow-hidden
                  border border-[rgba(196,216,232,0.14)]
                  bg-[rgba(74,106,138,0.08)]
@@ -23,7 +23,7 @@ function PostPlaceholder({ post, index }) {
     >
       <div className="w-8 h-8 rounded-full bg-[rgba(74,106,138,0.20)]
                       flex items-center justify-center mb-1
-                      group-hover:scale-110 transition-transform">
+                      group-hover:scale-105 transition-transform">
         <Instagram className="w-4 h-4 text-[var(--dusty-400)]" />
       </div>
       <span className="text-[10px] font-semibold text-[var(--muted)] text-center

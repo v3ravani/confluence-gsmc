@@ -184,18 +184,24 @@
 }
 
 @keyframes float-gentle {
-  0%, 100% { transform: translateY(0px) scale(1); }
-  50%      { transform: translateY(-6px) scale(1.02); }
+  0%, 100% { transform: translateY(0px); }
+  50%      { transform: translateY(-3px); }
 }
 
 .spin-smooth {
-  animation: spin-clockwise 28s linear infinite;
+  animation: spin-clockwise 42s linear infinite;
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+}
+
+.spin-smooth-slow {
+  animation: spin-clockwise 65s linear infinite;
   will-change: transform;
   transform: translate3d(0, 0, 0);
 }
 
 .float-smooth {
-  animation: float-gentle 5s ease-in-out infinite;
+  animation: float-gentle 7s ease-in-out infinite;
   will-change: transform;
   transform: translate3d(0, 0, 0);
 }
@@ -203,6 +209,7 @@
 @media (prefers-reduced-motion: reduce) {
   .carousel-track,
   .spin-smooth,
+  .spin-smooth-slow,
   .float-smooth,
   [style*="marquee"] {
     animation: none !important;

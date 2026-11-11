@@ -6,11 +6,11 @@ import BrainWatermark from '../../components/animations/BrainWatermark';
 import { conferenceInfo } from '../../data/events';
 import { brochureConfig } from '../../data/navigation';
 
-/* ── Stagger timing ─────────────────────────────────────── */
+/* ── Stagger timing (subtle & calm) ─────────────────────── */
 const fadeUp = (delay = 0) => ({
-  initial:    { opacity: 0, y: 20 },
+  initial:    { opacity: 0, y: 8 },
   animate:    { opacity: 1, y: 0 },
-  transition: { duration: 0.65, delay, ease: [0.22, 1, 0.36, 1] },
+  transition: { duration: 0.45, delay: Math.min(delay, 0.22), ease: [0.22, 1, 0.36, 1] },
 });
 
 /* ── Date box ───────────────────────────────────────────── */
@@ -80,7 +80,7 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative overflow-hidden text-white
+    <section className="relative z-20 overflow-hidden text-white
                         bg-gradient-to-b from-[#1e2d3d] via-[#162030] to-[#0f1824]
                         pt-10 sm:pt-14 pb-16 lg:py-20 border-b border-[rgba(196,216,232,0.08)]">
       {/* Background grid mesh */}
@@ -142,9 +142,9 @@ export default function Hero() {
 
             {/* 4. Date boxes — TWO rectangular boxes side by side on desktop */}
             <motion.div
-              initial={{ opacity: 0, y: 16 }}
+              initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.55, delay: 0.44, ease: [0.22, 1, 0.36, 1] }}
+              transition={{ duration: 0.45, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
               className="flex flex-col sm:flex-row gap-0 w-full max-w-xl mb-6 sm:mb-8
                          border border-[rgba(196,216,232,0.22)] rounded-lg overflow-hidden"
             >

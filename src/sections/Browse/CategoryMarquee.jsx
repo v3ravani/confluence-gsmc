@@ -12,7 +12,7 @@ export default function CategoryMarquee() {
   return (
     <div
       className="w-full overflow-hidden bg-[var(--dusty-700)] border-y border-[rgba(196,216,232,0.15)]
-                 py-3.5 select-none"
+                 py-3.5 select-none relative z-20"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
       aria-hidden="true"
@@ -22,7 +22,7 @@ export default function CategoryMarquee() {
         style={{
           display:          'flex',
           width:            'max-content',
-          animation:        'marquee 22s linear infinite',
+          animation:        'marquee 40s linear infinite',
           animationPlayState: paused ? 'paused' : 'running',
         }}
       >

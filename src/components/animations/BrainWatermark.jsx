@@ -4,19 +4,20 @@ import bulbBrainImg from '../../assets/logos/confluence_bulb_brain.png';
 
 export default function BrainWatermark({
   mode = 'hero',
+  position = 'absolute',
   className = '',
   isMobile = false,
 }) {
   const [isHovered, setIsHovered] = useState(false);
 
-  // Background full-page fixed watermark mode (lightweight, non-laggy)
+  // Background watermark mode (strictly bounded to container, calm slow rotation)
   if (mode === 'watermark') {
     return (
       <div
-        className="fixed inset-0 grid place-items-center pointer-events-none z-0 overflow-hidden"
+        className={`${position} inset-0 grid place-items-center pointer-events-none z-0 overflow-hidden ${className}`}
         aria-hidden="true"
       >
-        <div className="relative w-[min(70vmin,680px)] aspect-square opacity-[0.06] spin-smooth">
+        <div className="relative w-[min(70vmin,680px)] aspect-square opacity-[0.07] spin-smooth-slow">
           <img
             src={dnaRingImg}
             alt=""
@@ -41,19 +42,19 @@ export default function BrainWatermark({
         isMobile ? 'w-full h-full' : 'max-w-[460px] w-full'
       } ${className}`}
     >
-      {/* 1. Ambient static radial glow (pure GPU gradient - zero lag) */}
+      {/* 1. Ambient static radial glow */}
       <div
-        className="absolute inset-[-12%] rounded-full pointer-events-none transition-all duration-500 ease-out"
+        className="absolute inset-[-10%] rounded-full pointer-events-none transition-all duration-500 ease-out"
         style={{
           background: isHovered
-            ? 'radial-gradient(circle, rgba(120, 190, 255, 0.40) 0%, rgba(196, 144, 154, 0.25) 45%, transparent 72%)'
-            : 'radial-gradient(circle, rgba(94, 160, 240, 0.25) 0%, rgba(125, 143, 114, 0.14) 45%, transparent 70%)',
-          transform: isHovered ? 'scale(1.15)' : 'scale(1)',
-          opacity: isHovered ? 1 : 0.85,
+            ? 'radial-gradient(circle, rgba(120, 190, 255, 0.30) 0%, rgba(196, 144, 154, 0.18) 45%, transparent 70%)'
+            : 'radial-gradient(circle, rgba(94, 160, 240, 0.20) 0%, rgba(125, 143, 114, 0.10) 45%, transparent 70%)',
+          transform: isHovered ? 'scale(1.05)' : 'scale(1)',
+          opacity: isHovered ? 0.95 : 0.85,
         }}
       />
 
-      {/* 2. Rotating Outer DNA Double-Helix Ring (pure GPU compositor thread) */}
+      {/* 2. Rotating Outer DNA Double-Helix Ring */}
       <div
         className="absolute inset-0 w-full h-full pointer-events-none flex items-center justify-center spin-smooth"
         style={{ willChange: 'transform' }}
@@ -66,13 +67,13 @@ export default function BrainWatermark({
         />
       </div>
 
-      {/* 3. Inner Lightbulb + Brain with gentle floating and hover glow */}
+      {/* 3. Inner Lightbulb + Brain with gentle floating and subtle hover */}
       <div
         className="relative z-10 w-[72%] h-[72%] flex items-center justify-center cursor-pointer pointer-events-auto rounded-full float-smooth transition-transform duration-300"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
         style={{
-          transform: isHovered ? 'scale(1.08)' : 'scale(1)',
+          transform: isHovered ? 'scale(1.03)' : 'scale(1)',
         }}
         title="CONFLUENCE 2026: Convergence of Medical Knowledge & Research"
       >
@@ -82,8 +83,8 @@ export default function BrainWatermark({
           className="w-full h-full object-contain transition-all duration-300"
           style={{
             filter: isHovered
-              ? 'drop-shadow(0 0 24px rgba(120, 190, 255, 0.9)) brightness(1.25)'
-              : 'drop-shadow(0 0 12px rgba(120, 190, 255, 0.5))',
+              ? 'drop-shadow(0 0 16px rgba(120, 190, 255, 0.75)) brightness(1.15)'
+              : 'drop-shadow(0 0 10px rgba(120, 190, 255, 0.45))',
           }}
           loading="eager"
         />
