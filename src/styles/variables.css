@@ -1,69 +1,69 @@
 :root {
-  /* ── Inspo Palette: Warm Off-White / Sand Base + Royal Blue + Heritage Crimson ── */
+  /* ── Light Mode Theme: Mist, Powder, Steel, Slate & Midnight Navy ── */
 
-  /* ── Backgrounds (Warm Off-white / Cream / Sand) ── */
-  --bg-canvas:        #e2d4c0;   /* Primary warm canvas */
-  --bg-surface:       #ece1cf;   /* Card / container surface */
-  --bg-surface-light: #f7f1e6;   /* Lighter elevated card surface */
-  --bg-deep:          #e2d4c0;
-  --bg-dark:          #ece1cf;
-  --bg-mid:           #f7f1e6;
+  /* ── Backgrounds (~65% Very Light Blue/White, ~20% Powder & Mist Blue) ── */
+  --bg-canvas:        #F6F9FC;   /* Very light blue-white primary canvas */
+  --bg-surface:       #EAF0F6;   /* Mist blue card / container surface */
+  --bg-surface-light: #D4E1EF;   /* Powder blue elevated surface */
+  --bg-deep:          #EAF0F6;
+  --bg-dark:          #D4E1EF;
+  --bg-mid:           #F6F9FC;
 
-  /* ── Primary Accent: Deep Royal / Cobalt Blue ──── */
-  --accent-blue:       #2d508a;
-  --accent-blue-hover: #1e3b6d;
-  --accent-blue-light: rgba(45, 80, 138, 0.12);
-  --dusty-600:         #2d508a;   /* Primary Action Blue */
-  --dusty-700:         #203c6b;
-  --dusty-800:         #1a3158;
-  --dusty-900:         #121110;
-  --dusty-500:         #3f66a3;
-  --dusty-400:         #6b6459;   /* Muted subheadings */
-  --dusty-200:         #2d508a;
-  --dusty-100:         #f2e9dc;
+  /* ── Primary Accent: Midnight Navy (#1D344F) & Slate Blue (#536F91) ── */
+  --accent-blue:       #1D344F;  /* 5% Navy for headings, primary buttons & active states */
+  --accent-blue-hover: #15273C;
+  --accent-blue-light: rgba(130, 157, 187, 0.16);
+  --dusty-600:         #536F91;  /* 10% Slate blue for ribbons & highlights */
+  --dusty-700:         #1D344F;
+  --dusty-800:         #15273C;
+  --dusty-900:         #1D344F;
+  --dusty-500:         #829DBB;  /* Steel blue */
+  --dusty-400:         #536F91;
+  --dusty-200:         #D4E1EF;
+  --dusty-100:         #EAF0F6;
 
-  /* ── Secondary Accent: Heritage Crimson / Brick Red ── */
-  --accent-crimson: #913433;
-  --accent-blush:   #913433;   /* Eyebrows, highlights, prize tags */
-  --blush-700:      #7a2a29;
-  --blush-600:      #913433;
-  --blush-500:      #a83e3c;
-  --blush-300:      #df9b99;
-  --blush-200:      #faebe8;
-  --blush-100:      #fdf4f3;
+  /* ── Secondary Accent: Slate Blue & Steel Blue ── */
+  --accent-crimson: #536F91;     /* Slate blue highlights & serif italic accents */
+  --accent-blush:   #536F91;     /* Eyebrows, step tags & labels */
+  --blush-700:      #1D344F;
+  --blush-600:      #536F91;
+  --blush-500:      #829DBB;
+  --blush-300:      #D4E1EF;
+  --blush-200:      #EAF0F6;
+  --blush-100:      #F6F9FC;
 
-  /* ── Sage Green Accent ──────────────────────────── */
-  --sage-600: #5a7050;
-  --sage-400: #7b9470;
-  --sage-200: #d4e0ce;
-  --accent-sage: #5a7050;
-  --accent-sky:  #2d508a;
-  --teal:        #5a7050;
-  --gold:        #913433;
+  /* ── Steel / Slate Neutral Tones ─────────────────────── */
+  --sage-600: #536F91;
+  --sage-400: #829DBB;
+  --sage-200: #D4E1EF;
+  --accent-sage: #536F91;
+  --accent-sky:  #829DBB;
+  --teal:        #536F91;
+  --gold:        #1D344F;
 
-  /* ── Warm Cream ─────────────────────────────────── */
-  --cream:    #ece1cf;
-  --cream-50: #fbf7f0;
+  /* ── Mist & White Surface Aliases ──────────────────────── */
+  --cream:    #EAF0F6;
+  --cream-50: #F8FBFE;
 
-  /* ── Typography (High-Contrast Dark Charcoal on Off-white) ── */
-  --ink:    #121110;   /* Primary Headings / Strong text */
-  --ink-2:  #2d2b28;   /* Primary Body Text */
-  --muted:  #6b6459;   /* Secondary / Meta / Descriptions */
-  --line:   rgba(100, 85, 70, 0.18); /* Hairline warm borders */
-  --line-strong: rgba(100, 85, 70, 0.32);
+  /* ── Typography (Midnight Navy Headings & Crisp Slate Ink) ── */
+  --ink:    #1D344F;   /* Primary Headings */
+  --ink-2:  #29405B;   /* Readable Body Text */
+  --muted:  #536F91;   /* Secondary / Meta / Descriptions */
+  --line:   rgba(130, 157, 187, 0.35); /* Steel blue hairline borders */
+  --line-strong: rgba(83, 111, 145, 0.50);
   --white:  #ffffff;
 
   /* ── Surfaces & Glass ───────────────────────────── */
-  --glass:       #ece1cf;
-  --glass-b:     rgba(100, 85, 70, 0.18);
-  --glass-hover: #f2e8d8;
+  --glass:       #EAF0F6;
+  --glass-b:     rgba(130, 157, 187, 0.35);
+  --glass-hover: #D4E1EF;
   --r:           18px;
   --r-pill:      9999px;
 
   /* ── Shadows ────────────────────────────────────── */
-  --shadow:      0 8px 24px -8px rgba(70, 55, 40, 0.12);
-  --shadow-lg:   0 16px 36px -12px rgba(70, 55, 40, 0.18);
-  --shadow-glow: 0 0 28px rgba(45, 80, 138, 0.18);
+  --shadow:      0 8px 24px -8px rgba(29, 52, 79, 0.10);
+  --shadow-lg:   0 16px 36px -12px rgba(29, 52, 79, 0.16);
+  --shadow-glow: 0 0 28px rgba(83, 111, 145, 0.22);
 
   /* ── Fonts ──────────────────────────────────────── */
   --font-h: 'Sora', system-ui, -apple-system, sans-serif;

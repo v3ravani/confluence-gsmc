@@ -21,7 +21,7 @@ export default function SectionHeading({
         </span>
       )}
       <h2 className="text-3xl md:text-4xl lg:text-[42px] font-heading font-extrabold
-                     text-[#121110] dark:text-[#F2F0ED] tracking-tight leading-[1.15] mb-3">
+                     text-[#1D344F] dark:text-[#F2F0ED] tracking-tight leading-[1.15] mb-3">
         {title}{' '}
         {highlightWord && (
           <span

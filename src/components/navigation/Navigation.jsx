@@ -12,8 +12,8 @@ export default function Navigation({ className = '' }) {
           className={({ isActive }) =>
             `px-4 py-2 rounded-full text-[13.5px] font-semibold tracking-wide transition-all duration-200 ${
               isActive
-                ? 'text-white bg-[var(--accent-blue)] dark:bg-[#F14666] shadow-sm'
-                : 'text-[#2d2b28] hover:text-[#121110] hover:bg-[rgba(45,80,138,0.08)] dark:text-[#B5B3B0] dark:hover:text-[#F2F0ED] dark:hover:bg-white/[0.06]'
+                ? 'text-white bg-[#1D344F] dark:bg-[#F14666] shadow-sm'
+                : 'text-[#29405B] hover:text-[#1D344F] hover:bg-[#D4E1EF]/60 dark:text-[#B5B3B0] dark:hover:text-[#F2F0ED] dark:hover:bg-white/[0.06]'
             }`
           }
         >

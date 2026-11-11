@@ -6,12 +6,10 @@ import {
   ArrowUpRight,
   Award,
   Calendar,
-  Clock,
   MapPin,
   CheckCircle2,
   Info,
   X,
-  ShieldCheck,
   Instagram,
 } from 'lucide-react';
 import BrainWatermark from '../components/animations/BrainWatermark';
@@ -19,7 +17,7 @@ import MobilePageHero from '../components/common/MobilePageHero';
 import SectionHeading from '../components/common/SectionHeading';
 import { cmeConferenceOverview, cmeDays } from '../data/cme';
 
-/* ── CME Session Details Modal (Red Header Design, Academic Syllabus) ── */
+/* ── CME Session Details Modal (Informational Only — No Register Button) ── */
 function CMEDetailsModal({ session, onClose }) {
   useEffect(() => {
     const handleKeyDown = (e) => {
@@ -36,28 +34,19 @@ function CMEDetailsModal({ session, onClose }) {
 
   if (!session) return null;
 
-  const handleRegister = () => {
-    if (session.googleFormUrl) {
-      window.open(session.googleFormUrl, '_blank', 'noopener,noreferrer');
-    } else {
-      alert(`Registration for "${session.name}" will open shortly.`);
-    }
-  };
-
   return createPortal(
     <div
       role="dialog"
       aria-modal="true"
-      className="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 backdrop-blur-sm p-4 sm:p-6 overflow-y-auto"
+      className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/60 backdrop-blur-sm p-4 sm:p-6 overflow-y-auto"
       onClick={onClose}
     >
       <div
-        className="relative max-w-2xl w-full max-h-[90vh] flex flex-col rounded-2xl bg-[#e2d4c0] dark:bg-[#202124] border border-[rgba(100,85,70,0.25)] dark:border-[#3B3D41] shadow-2xl overflow-hidden animate-fadeIn text-left my-auto text-[#2d2b28] dark:text-[#B5B3B0]"
+        className="relative max-w-2xl w-full max-h-[90vh] flex flex-col rounded-2xl bg-[#F6F9FC] dark:bg-[#202124] border border-[#829DBB]/45 dark:border-[#3B3D41] shadow-2xl overflow-hidden animate-fadeIn text-left my-auto text-[#29405B] dark:text-[#B5B3B0]"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Modal Header — Red Header Banner matching Event Modal */}
-        <div className="relative bg-[#913433] dark:bg-[#252629] dark:border-b dark:border-[#3B3D41] p-6 text-white rounded-t-2xl overflow-hidden">
-          {/* Subtle curved background circles */}
+        {/* Modal Header — Midnight Navy Header Banner */}
+        <div className="relative bg-[#1D344F] dark:bg-[#252629] dark:border-b dark:border-[#3B3D41] p-6 text-white rounded-t-2xl overflow-hidden">
           <div className="absolute -right-8 -bottom-10 w-36 h-36 rounded-full bg-white/10 pointer-events-none" />
           <div className="absolute right-16 -top-10 w-28 h-28 rounded-full bg-white/5 pointer-events-none" />
 
@@ -79,27 +68,27 @@ function CMEDetailsModal({ session, onClose }) {
             {session.name}
           </h2>
 
-          <div className="relative z-10 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#ece1cf] dark:bg-[#323438] text-[#913433] dark:text-[#F14666] text-[10.5px] font-extrabold tracking-wider uppercase shadow-xs">
+          <div className="relative z-10 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#EAF0F6] dark:bg-[#323438] text-[#1D344F] dark:text-[#F14666] text-[10.5px] font-extrabold tracking-wider uppercase shadow-xs">
             <Award className="w-3.5 h-3.5" />
             <span>APPLIED FOR 4 MMC CREDIT POINTS</span>
           </div>
         </div>
 
         {/* Modal Body */}
-        <div className="p-6 overflow-y-auto space-y-4 text-xs text-[#2d2b28] dark:text-[#B5B3B0]">
-          <p className="text-sm text-[#2d2b28] dark:text-[#B5B3B0] leading-relaxed">
+        <div className="p-6 overflow-y-auto space-y-4 text-xs text-[#29405B] dark:text-[#B5B3B0]">
+          <p className="text-sm text-[#29405B] dark:text-[#B5B3B0] leading-relaxed">
             {session.summary}
           </p>
 
           {/* Official Curriculum Topics directly from the brochure */}
-          <div className="p-4 rounded-xl bg-[#ece1cf] dark:bg-[#2B2D30] border border-[rgba(100,85,70,0.18)] dark:border-[#3B3D41]">
-            <h4 className="font-heading font-bold text-xs uppercase tracking-wider text-[#913433] dark:text-[#F14666] mb-3">
+          <div className="p-4 rounded-xl bg-[#EAF0F6] dark:bg-[#2B2D30] border border-[#829DBB]/35 dark:border-[#3B3D41]">
+            <h4 className="font-heading font-bold text-xs uppercase tracking-wider text-[#536F91] dark:text-[#F14666] mb-3">
               Official Brochure Curriculum (Page {session.brochurePage})
             </h4>
             <div className="space-y-2">
               {session.topics.map((t, idx) => (
-                <div key={idx} className="flex items-start gap-2.5 text-xs text-[#2d2b28] dark:text-[#B5B3B0]">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-[#913433] dark:text-[#9CBB98] flex-shrink-0 mt-0.5" />
+                <div key={idx} className="flex items-start gap-2.5 text-xs text-[#29405B] dark:text-[#B5B3B0]">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-[#536F91] dark:text-[#9CBB98] flex-shrink-0 mt-0.5" />
                   <span className="font-medium">{t}</span>
                 </div>
               ))}
@@ -107,78 +96,68 @@ function CMEDetailsModal({ session, onClose }) {
           </div>
 
           {/* Accreditation Notice */}
-          <div className="p-3.5 rounded-r-xl bg-[#ece1cf] dark:bg-[#2B2D30] border-l-4 border-[#913433] dark:border-[#F14666] text-xs text-[#2d2b28] dark:text-[#B5B3B0] leading-relaxed">
-            <b>MMC Points Eligibility:</b> Maharashtra Medical Council credit points will be awarded upon completion of accredited CME hours. Attendance verification is mandatory at the session hall.
+          <div className="p-3.5 rounded-r-xl bg-[#EAF0F6] dark:bg-[#2B2D30] border-l-4 border-[#536F91] dark:border-[#F14666] text-xs text-[#29405B] dark:text-[#B5B3B0] leading-relaxed">
+            <b className="text-[#1D344F] dark:text-[#F2F0ED]">MMC Points Eligibility:</b> Maharashtra Medical Council credit points will be awarded upon completion of accredited CME hours. Attendance verification is mandatory at the session hall.
           </div>
 
           {/* 4 Specs Boxes */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
-            <div className="p-3.5 rounded-xl bg-[#ece1cf] dark:bg-[#2B2D30] border border-[rgba(100,85,70,0.18)] dark:border-[#3B3D41]">
-              <span className="text-[10px] text-[#6b6459] dark:text-[#898A89] font-semibold uppercase tracking-wider block">
+            <div className="p-3.5 rounded-xl bg-[#EAF0F6] dark:bg-[#2B2D30] border border-[#829DBB]/35 dark:border-[#3B3D41]">
+              <span className="text-[10px] text-[#536F91] dark:text-[#898A89] font-semibold uppercase tracking-wider block">
                 Date &amp; Schedule
               </span>
-              <b className="text-xs text-[#121110] dark:text-[#F2F0ED] font-bold block mt-0.5">
+              <b className="text-xs text-[#1D344F] dark:text-[#F2F0ED] font-bold block mt-0.5">
                 {session.date} ({session.time})
               </b>
             </div>
 
-            <div className="p-3.5 rounded-xl bg-[#ece1cf] dark:bg-[#2B2D30] border border-[rgba(100,85,70,0.18)] dark:border-[#3B3D41]">
-              <span className="text-[10px] text-[#6b6459] dark:text-[#898A89] font-semibold uppercase tracking-wider block">
+            <div className="p-3.5 rounded-xl bg-[#EAF0F6] dark:bg-[#2B2D30] border border-[#829DBB]/35 dark:border-[#3B3D41]">
+              <span className="text-[10px] text-[#536F91] dark:text-[#898A89] font-semibold uppercase tracking-wider block">
                 Venue
               </span>
-              <b className="text-xs text-[#121110] dark:text-[#F2F0ED] font-bold block mt-0.5">
+              <b className="text-xs text-[#1D344F] dark:text-[#F2F0ED] font-bold block mt-0.5">
                 Main Auditorium, Seth GSMC &amp; KEMH
               </b>
             </div>
 
-            <div className="p-3.5 rounded-xl bg-[#ece1cf] dark:bg-[#2B2D30] border border-[rgba(100,85,70,0.18)] dark:border-[#3B3D41]">
-              <span className="text-[10px] text-[#6b6459] dark:text-[#898A89] font-semibold uppercase tracking-wider block">
+            <div className="p-3.5 rounded-xl bg-[#EAF0F6] dark:bg-[#2B2D30] border border-[#829DBB]/35 dark:border-[#3B3D41]">
+              <span className="text-[10px] text-[#536F91] dark:text-[#898A89] font-semibold uppercase tracking-wider block">
                 Department
               </span>
-              <b className="text-xs text-[#121110] dark:text-[#F2F0ED] font-bold block mt-0.5">
+              <b className="text-xs text-[#1D344F] dark:text-[#F2F0ED] font-bold block mt-0.5">
                 {session.department}
               </b>
             </div>
 
-            <div className="p-3.5 rounded-xl bg-[#ece1cf] dark:bg-[#2B2D30] border border-[rgba(100,85,70,0.18)] dark:border-[#3B3D41]">
-              <span className="text-[10px] text-[#6b6459] dark:text-[#898A89] font-semibold uppercase tracking-wider block">
+            <div className="p-3.5 rounded-xl bg-[#EAF0F6] dark:bg-[#2B2D30] border border-[#829DBB]/35 dark:border-[#3B3D41]">
+              <span className="text-[10px] text-[#536F91] dark:text-[#898A89] font-semibold uppercase tracking-wider block">
                 Eligibility
               </span>
-              <b className="text-xs text-[#121110] dark:text-[#F2F0ED] font-bold block mt-0.5">
+              <b className="text-xs text-[#1D344F] dark:text-[#F2F0ED] font-bold block mt-0.5">
                 {session.audience}
               </b>
             </div>
           </div>
         </div>
 
-        {/* Modal Action Footer */}
-        <div className="p-4 sm:p-5 bg-[#ece1cf] dark:bg-[#252629] border-t border-[rgba(100,85,70,0.20)] dark:border-[#3B3D41] flex items-center justify-between gap-4">
+        {/* Modal Footer — Informational Only (Register Button Removed) */}
+        <div className="p-4 sm:p-5 bg-[#D4E1EF]/60 dark:bg-[#252629] border-t border-[#829DBB]/35 dark:border-[#3B3D41] flex items-center justify-between gap-4">
           <div>
-            <span className="text-[10px] font-bold uppercase tracking-wider text-[#6b6459] dark:text-[#898A89] block">
+            <span className="text-[10px] font-bold uppercase tracking-wider text-[#536F91] dark:text-[#898A89] block">
               Registration Fee
             </span>
-            <div className="text-sm font-extrabold text-[#913433] dark:text-[#F14666]">
+            <div className="text-sm font-extrabold text-[#1D344F] dark:text-[#F14666]">
               {session.registrationFee}
             </div>
           </div>
 
-          <div className="flex items-center gap-2.5">
-            <button
-              type="button"
-              onClick={onClose}
-              className="px-4 py-2 rounded-full text-xs font-semibold text-[#121110] dark:text-[#F2F0ED] bg-[#f7f1e6] dark:bg-[#323438] hover:bg-[#e6dccb] dark:hover:bg-[#3B3D41] border border-[rgba(100,85,70,0.25)] dark:border-[#3B3D41] transition-colors cursor-pointer"
-            >
-              Close
-            </button>
-            <button
-              type="button"
-              onClick={handleRegister}
-              className="inline-flex items-center gap-1.5 px-5 py-2 rounded-full text-xs font-bold text-white bg-[#913433] hover:bg-[#782928] dark:bg-[#F14666] dark:hover:bg-[#e03253] shadow-md transition-all cursor-pointer"
-            >
-              <span>Register</span>
-              <ArrowUpRight className="w-3.5 h-3.5" />
-            </button>
-          </div>
+          <button
+            type="button"
+            onClick={onClose}
+            className="px-6 py-2.5 rounded-full text-xs font-bold text-white bg-[#1D344F] hover:bg-[#15273C] dark:bg-[#323438] dark:hover:bg-[#3B3D41] border border-transparent dark:border-[#3B3D41] transition-colors cursor-pointer"
+          >
+            Close
+          </button>
         </div>
       </div>
     </div>,
@@ -186,22 +165,12 @@ function CMEDetailsModal({ session, onClose }) {
   );
 }
 
-/* ── CME Card (Same layout as EventCard, with Red Header Design) ── */
+/* ── CME Card (Informational — View Details Only, Register Removed) ── */
 function CMECard({ session, index, onOpenDetails }) {
-  const handleRegister = (e) => {
-    e.stopPropagation();
-    if (session.googleFormUrl) {
-      window.open(session.googleFormUrl, '_blank', 'noopener,noreferrer');
-    } else {
-      alert(`Registration for "${session.name}" will open shortly.`);
-    }
-  };
-
   return (
-    <div className="rounded-2xl bg-[#ece1cf] dark:bg-[#2B2D30] border border-[rgba(100,85,70,0.18)] dark:border-[#3B3D41] shadow-sm hover:shadow-md hover:border-[#913433] dark:hover:border-[#F14666] transition-all duration-300 flex flex-col justify-between h-full overflow-hidden group">
-      {/* Top Red Header Banner (Matching EventCard layout with red theme) */}
-      <div className="relative bg-[#913433] dark:bg-[#252629] dark:border-b dark:border-[#3B3D41] px-5 py-4 sm:py-4.5 text-white flex items-center justify-between rounded-t-2xl overflow-hidden">
-        {/* Subtle decorative curves */}
+    <div className="rounded-2xl bg-[#EAF0F6] dark:bg-[#2B2D30] border border-[#829DBB]/40 dark:border-[#3B3D41] shadow-sm hover:shadow-md hover:border-[#536F91] dark:hover:border-[#F14666] transition-all duration-300 flex flex-col justify-between h-full overflow-hidden group">
+      {/* Top Midnight Navy Header Banner */}
+      <div className="relative bg-[#1D344F] dark:bg-[#252629] dark:border-b dark:border-[#3B3D41] px-5 py-4 sm:py-4.5 text-white flex items-center justify-between rounded-t-2xl overflow-hidden">
         <div className="absolute -right-6 -bottom-8 w-24 h-24 rounded-full bg-white/10 pointer-events-none" />
         <div className="absolute right-14 -top-6 w-16 h-16 rounded-full bg-white/5 pointer-events-none" />
 
@@ -226,35 +195,35 @@ function CMECard({ session, index, onOpenDetails }) {
         <div>
           {/* Title & Department */}
           <div className="mb-2.5">
-            <h3 className="font-heading font-extrabold text-[#121110] dark:text-[#F2F0ED] text-lg sm:text-xl leading-snug group-hover:text-[#913433] dark:group-hover:text-[#F14666] transition-colors">
+            <h3 className="font-heading font-extrabold text-[#1D344F] dark:text-[#F2F0ED] text-lg sm:text-xl leading-snug group-hover:text-[#536F91] dark:group-hover:text-[#F14666] transition-colors">
               {session.name}
             </h3>
-            <span className="text-xs text-[#6b6459] dark:text-[#898A89] font-medium block mt-1">
+            <span className="text-xs text-[#536F91] dark:text-[#898A89] font-medium block mt-1">
               {session.department}
             </span>
           </div>
 
           {/* Date & Accreditation */}
-          <div className="flex items-center justify-between text-xs mb-3 pb-2.5 border-b border-[rgba(100,85,70,0.12)] dark:border-[#3B3D41]">
-            <span className="font-semibold text-[#913433] dark:text-[#EE9590] flex items-center gap-1.5 truncate">
+          <div className="flex items-center justify-between text-xs mb-3 pb-2.5 border-b border-[#829DBB]/25 dark:border-[#3B3D41]">
+            <span className="font-semibold text-[#536F91] dark:text-[#EE9590] flex items-center gap-1.5 truncate">
               <Calendar className="w-3.5 h-3.5 flex-shrink-0" />
               {session.date}
             </span>
-            <span className="font-bold text-[#2d508a] dark:text-[#FFCCAA] flex items-center gap-1 flex-shrink-0">
+            <span className="font-bold text-[#1D344F] dark:text-[#FFCCAA] flex items-center gap-1 flex-shrink-0">
               <Award className="w-3.5 h-3.5 flex-shrink-0" />
               4 MMC Points
             </span>
           </div>
 
           {/* Official Brochure Curriculum Topics */}
-          <div className="p-3 rounded-xl bg-[#f7f1e6] dark:bg-[#323438] border border-[rgba(100,85,70,0.16)] dark:border-[#3B3D41] mb-4">
-            <span className="text-[10px] font-bold uppercase tracking-wider text-[#913433] dark:text-[#F14666] block mb-2">
+          <div className="p-3 rounded-xl bg-[#F6F9FC] dark:bg-[#323438] border border-[#829DBB]/30 dark:border-[#3B3D41] mb-4">
+            <span className="text-[10px] font-bold uppercase tracking-wider text-[#536F91] dark:text-[#F14666] block mb-2">
               Curriculum Topics (Brochure Page {session.brochurePage})
             </span>
             <ul className="space-y-1.5">
               {session.topics.map((t, i) => (
-                <li key={i} className="text-xs text-[#2d2b28] dark:text-[#B5B3B0] flex items-start gap-1.5">
-                  <span className="text-[#913433] dark:text-[#F14666] font-bold text-[10px] mt-0.5">✦</span>
+                <li key={i} className="text-xs text-[#29405B] dark:text-[#B5B3B0] flex items-start gap-1.5">
+                  <span className="text-[#536F91] dark:text-[#F14666] font-bold text-[10px] mt-0.5">✦</span>
                   <span className="leading-snug">{t}</span>
                 </li>
               ))}
@@ -262,24 +231,15 @@ function CMECard({ session, index, onOpenDetails }) {
           </div>
         </div>
 
-        {/* Card Footer: View Details & Register Buttons */}
-        <div className="pt-3.5 border-t border-[rgba(100,85,70,0.14)] dark:border-[#3B3D41] grid grid-cols-2 gap-2.5">
+        {/* Card Footer: View Details Button Only */}
+        <div className="pt-3.5 border-t border-[#829DBB]/25 dark:border-[#3B3D41]">
           <button
             type="button"
             onClick={() => onOpenDetails(session)}
-            className="w-full inline-flex items-center justify-center gap-1.5 py-2 px-3 rounded-full text-xs font-semibold text-[#913433] dark:text-[#F2F0ED] hover:text-white dark:hover:text-white bg-[#f7f1e6] dark:bg-[#323438] hover:bg-[#913433] dark:hover:bg-[#3B3D41] border border-[#913433] dark:border-[#3B3D41] transition-all cursor-pointer shadow-xs"
+            className="w-full inline-flex items-center justify-center gap-2 py-2.5 px-4 rounded-full text-xs font-semibold text-white bg-[#1D344F] hover:bg-[#15273C] dark:bg-[#323438] dark:hover:bg-[#3B3D41] border border-transparent dark:border-[#3B3D41] transition-all cursor-pointer shadow-xs"
           >
             <Info className="w-3.5 h-3.5 flex-shrink-0" />
             <span>VIEW DETAILS</span>
-          </button>
-
-          <button
-            type="button"
-            onClick={handleRegister}
-            className="w-full inline-flex items-center justify-center gap-1.5 py-2 px-3 rounded-full text-xs font-semibold text-white bg-[#913433] hover:bg-[#782928] dark:bg-[#F14666] dark:hover:bg-[#e03253] transition-all cursor-pointer shadow-xs"
-          >
-            <span>REGISTER</span>
-            <ArrowUpRight className="w-3.5 h-3.5 flex-shrink-0" />
           </button>
         </div>
       </div>
@@ -295,7 +255,6 @@ export default function CME() {
   }, []);
 
   const {
-    title,
     accreditation,
     venue,
     dates,
@@ -311,13 +270,13 @@ export default function CME() {
         {/* Back link (Desktop) */}
         <Link
           to="/"
-          className="hidden md:inline-flex items-center gap-2 text-sm text-[#6b6459] hover:text-[#121110] transition-colors mb-8 group"
+          className="hidden md:inline-flex items-center gap-2 text-sm text-[#536F91] hover:text-[#1D344F] dark:text-[#898A89] dark:hover:text-[#F2F0ED] transition-colors mb-8 group"
         >
           <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
           Back to Home
         </Link>
 
-        {/* Page Heading */}
+        {/* 1. Existing CME Page Content */}
         <SectionHeading
           eyebrow="Continuing Medical Education"
           title="CME"
@@ -326,18 +285,18 @@ export default function CME() {
         />
 
         {/* Academic Overview Box */}
-        <div className="p-5 sm:p-6 rounded-2xl bg-[#ece1cf] dark:bg-[#2B2D30] border border-[rgba(100,85,70,0.20)] dark:border-[#3B3D41] mb-12 flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <div className="p-5 sm:p-6 rounded-2xl bg-[#EAF0F6] dark:bg-[#2B2D30] border border-[#829DBB]/40 dark:border-[#3B3D41] mb-12 flex flex-col md:flex-row md:items-center justify-between gap-4 shadow-xs">
           <div className="flex flex-wrap items-center gap-2.5">
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-[#913433] dark:bg-[#F14666] text-white tracking-wide">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-[#1D344F] dark:bg-[#F14666] text-white tracking-wide">
               <Calendar className="w-3.5 h-3.5" />
               {dates}
             </span>
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-[#2d508a] dark:bg-[#323438] text-white tracking-wide border dark:border-[#3B3D41]">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-[#536F91] dark:bg-[#323438] text-white tracking-wide border dark:border-[#3B3D41]">
               <Award className="w-3.5 h-3.5" />
               {accreditation}
             </span>
-            <span className="text-xs text-[#4a453e] dark:text-[#B5B3B0] font-medium flex items-center gap-1.5">
-              <MapPin className="w-3.5 h-3.5 text-[#913433] dark:text-[#F14666]" />
+            <span className="text-xs text-[#29405B] dark:text-[#B5B3B0] font-medium flex items-center gap-1.5">
+              <MapPin className="w-3.5 h-3.5 text-[#536F91] dark:text-[#F14666]" />
               {venue}
             </span>
           </div>
@@ -346,7 +305,7 @@ export default function CME() {
             href="https://www.instagram.com/confluence_gsmc/"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 text-xs font-bold text-[#913433] dark:text-[#F14666] hover:underline"
+            className="inline-flex items-center gap-1.5 text-xs font-bold text-[#1D344F] dark:text-[#F14666] hover:underline"
           >
             <Instagram className="w-3.5 h-3.5" />
             <span>@confluence_gsmc</span>
@@ -354,16 +313,16 @@ export default function CME() {
           </a>
         </div>
 
-        {/* Sequential Day-by-Day Curriculum */}
+        {/* 2 & 3. Day 1 Events followed by Day 2 Events */}
         <div className="space-y-14 mb-16">
           {cmeDays.map((day) => (
             <div key={day.dayNumber}>
               {/* Day Header */}
-              <div className="mb-6 pb-3 border-b border-[rgba(100,85,70,0.20)] dark:border-[#3B3D41]">
-                <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#913433] dark:text-[#F14666] block mb-1">
+              <div className="mb-6 pb-3 border-b border-[#829DBB]/35 dark:border-[#3B3D41]">
+                <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#536F91] dark:text-[#F14666] block mb-1">
                   {day.dateBadge} · {day.dateLabel}
                 </span>
-                <h3 className="font-heading font-black text-[#121110] dark:text-[#F2F0ED] text-xl sm:text-2xl leading-snug">
+                <h3 className="font-heading font-black text-[#1D344F] dark:text-[#F2F0ED] text-xl sm:text-2xl leading-snug">
                   {day.theme}
                 </h3>
               </div>
@@ -383,13 +342,13 @@ export default function CME() {
           ))}
         </div>
 
-        {/* Official Delegation Packages (Brochure Page 23) */}
+        {/* 4. Delegation Rates (Immediately after Day 1 & Day 2 Events, Register Links Removed) */}
         <div className="mb-12">
-          <div className="mb-4">
-            <span className="text-[11px] font-bold tracking-[0.18em] uppercase text-[#913433] dark:text-[#F14666] block mb-1">
+          <div className="mb-5">
+            <span className="text-[11px] font-bold tracking-[0.18em] uppercase text-[#536F91] dark:text-[#F14666] block mb-1">
               Official Brochure · Page 23
             </span>
-            <h3 className="font-heading font-extrabold text-[#121110] dark:text-[#F2F0ED] text-lg sm:text-xl">
+            <h3 className="font-heading font-extrabold text-[#1D344F] dark:text-[#F2F0ED] text-lg sm:text-xl">
               CME 2026 Delegation Rates
             </h3>
           </div>
@@ -398,48 +357,41 @@ export default function CME() {
             {delegationTiers.map((tier) => (
               <div
                 key={tier.role}
-                className="rounded-2xl bg-[#ece1cf] dark:bg-[#2B2D30] border border-[rgba(100,85,70,0.18)] dark:border-[#3B3D41] p-5 flex flex-col justify-between"
+                className="rounded-2xl bg-[#D4E1EF]/65 dark:bg-[#2B2D30] border border-[#829DBB]/45 dark:border-[#3B3D41] p-5 flex flex-col justify-between shadow-xs"
               >
                 <div>
-                  <div className="flex items-center justify-between gap-2 mb-2 pb-2 border-b border-[rgba(100,85,70,0.14)] dark:border-[#3B3D41]">
-                    <h4 className="font-heading font-bold text-[#121110] dark:text-[#F2F0ED] text-base">
+                  <div className="flex items-center justify-between gap-2 mb-3 pb-2.5 border-b border-[#829DBB]/30 dark:border-[#3B3D41]">
+                    <h4 className="font-heading font-bold text-[#1D344F] dark:text-[#F2F0ED] text-base">
                       {tier.role}
                     </h4>
-                    <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-[#f7f1e6] dark:bg-[#323438] text-[#6b6459] dark:text-[#898A89] border border-[rgba(100,85,70,0.20)] dark:border-[#3B3D41]">
+                    <span className="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-[#F6F9FC] dark:bg-[#323438] text-[#536F91] dark:text-[#898A89] border border-[#829DBB]/35 dark:border-[#3B3D41]">
                       {tier.badge}
                     </span>
                   </div>
 
-                  <div className="space-y-2 mb-4">
+                  <div className="space-y-2.5 mb-4">
                     <div className="flex items-center justify-between text-xs">
-                      <span className="text-[#6b6459] dark:text-[#898A89]">Early Bird:</span>
-                      <span className="font-extrabold text-[#913433] dark:text-[#F14666] text-base">{tier.earlyBird}</span>
+                      <span className="text-[#536F91] dark:text-[#898A89]">Early Bird:</span>
+                      <span className="font-extrabold text-[#1D344F] dark:text-[#F14666] text-base">{tier.earlyBird}</span>
                     </div>
                     <div className="flex items-center justify-between text-xs">
-                      <span className="text-[#6b6459] dark:text-[#898A89]">Regular:</span>
-                      <span className="font-bold text-[#121110] dark:text-[#F2F0ED]">{tier.regular}</span>
+                      <span className="text-[#536F91] dark:text-[#898A89]">Regular:</span>
+                      <span className="font-bold text-[#1D344F] dark:text-[#F2F0ED]">{tier.regular}</span>
                     </div>
                     <div className="flex items-center justify-between text-xs">
-                      <span className="text-[#6b6459] dark:text-[#898A89]">Group of 3:</span>
-                      <span className="font-semibold text-[#2d508a] dark:text-[#EE9590]">{tier.group3}</span>
+                      <span className="text-[#536F91] dark:text-[#898A89]">Group of 3:</span>
+                      <span className="font-semibold text-[#536F91] dark:text-[#EE9590]">{tier.group3}</span>
                     </div>
                     <div className="flex items-center justify-between text-xs">
-                      <span className="text-[#6b6459] dark:text-[#898A89]">Group of 5:</span>
-                      <span className="font-semibold text-[#2d508a] dark:text-[#EE9590]">{tier.group5}</span>
+                      <span className="text-[#536F91] dark:text-[#898A89]">Group of 5:</span>
+                      <span className="font-semibold text-[#536F91] dark:text-[#EE9590]">{tier.group5}</span>
                     </div>
                   </div>
                 </div>
 
-                <div className="pt-3 border-t border-[rgba(100,85,70,0.14)] dark:border-[#3B3D41] flex items-center justify-between text-[11px] text-[#6b6459] dark:text-[#898A89]">
+                <div className="pt-3 border-t border-[#829DBB]/30 dark:border-[#3B3D41] flex items-center justify-between text-[11px] text-[#536F91] dark:text-[#898A89]">
                   <span>4 MMC Points Included</span>
-                  <a
-                    href="https://www.instagram.com/confluence_gsmc/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="font-bold text-[#913433] dark:text-[#F14666] hover:underline flex items-center gap-1"
-                  >
-                    REGISTER <ArrowUpRight className="w-3 h-3" />
-                  </a>
+                  <span className="font-bold text-[#1D344F] dark:text-[#FFCCAA]">GSMC &amp; KEMH</span>
                 </div>
               </div>
             ))}
@@ -447,9 +399,9 @@ export default function CME() {
         </div>
 
         {/* Footer Note */}
-        <div className="p-5 rounded-2xl bg-[#ece1cf] dark:bg-[#2B2D30] border border-[rgba(100,85,70,0.18)] dark:border-[#3B3D41] flex items-start gap-3">
-          <span className="text-[#913433] dark:text-[#F14666] mt-0.5 flex-shrink-0 text-lg">✦</span>
-          <p className="text-sm text-[#2d2b28] dark:text-[#B5B3B0] leading-relaxed">
+        <div className="p-5 rounded-2xl bg-[#EAF0F6] dark:bg-[#2B2D30] border border-[#829DBB]/40 dark:border-[#3B3D41] flex items-start gap-3 shadow-xs">
+          <span className="text-[#536F91] dark:text-[#F14666] mt-0.5 flex-shrink-0 text-lg">✦</span>
+          <p className="text-sm text-[#29405B] dark:text-[#B5B3B0] leading-relaxed">
             Attendance verification is conducted via check-in at the Main Auditorium entrance on both days. Certificates with accredited MMC credit points will be provided to registered delegates post-conference.
           </p>
         </div>

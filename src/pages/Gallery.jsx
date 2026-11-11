@@ -75,8 +75,8 @@ export default function Gallery() {
         {/* Desktop Back Link */}
         <Link
           to="/"
-          className="hidden md:inline-flex items-center gap-2 text-sm text-[#6b6459] dark:text-[#898A89]
-                     hover:text-[#121110] dark:hover:text-[#F2F0ED] transition-colors mb-8 group"
+          className="hidden md:inline-flex items-center gap-2 text-sm text-[#536F91] dark:text-[#898A89]
+                     hover:text-[#1D344F] dark:hover:text-[#F2F0ED] transition-colors mb-8 group"
         >
           <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
           <span>Back to Home</span>
@@ -88,7 +88,7 @@ export default function Gallery() {
             <Sparkles className="w-3.5 h-3.5" />
             CONFLUENCE ARCHIVES
           </span>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-heading font-extrabold text-[#121110] dark:text-[#F2F0ED] tracking-tight leading-tight mb-3">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-heading font-extrabold text-[#1D344F] dark:text-[#F2F0ED] tracking-tight leading-tight mb-3">
             PHOTOS FROM PREVIOUS{' '}
             <span
               className="italic font-normal text-[var(--accent-crimson)] dark:text-[#EE9590]"
@@ -115,11 +115,11 @@ export default function Gallery() {
             >
               <div
                 onClick={() => openLightbox(idx)}
-                className="rounded-2xl sm:rounded-3xl overflow-hidden border border-[rgba(100,85,70,0.22)] dark:border-[#3B3D41] bg-[#ece1cf] dark:bg-[#2B2D30] shadow-[0_12px_36px_rgba(0,0,0,0.16)] dark:shadow-[0_12px_36px_rgba(0,0,0,0.55)] cursor-pointer active:scale-[0.98] transition-transform"
+                className="rounded-2xl sm:rounded-3xl overflow-hidden border border-[#829DBB]/45 dark:border-[#3B3D41] bg-[#EAF0F6] dark:bg-[#2B2D30] shadow-[0_12px_36px_rgba(29,52,79,0.12)] dark:shadow-[0_12px_36px_rgba(0,0,0,0.55)] cursor-pointer active:scale-[0.98] transition-transform"
               >
                 {/* 1. Top Bar: Counter */}
                 <div className="px-4 pt-3.5 pb-2.5 flex items-center justify-between">
-                  <span className="text-xs font-black tracking-wider text-[#913433] dark:text-[#F14666]">
+                  <span className="text-xs font-black tracking-wider text-[#536F91] dark:text-[#F14666]">
                     {String(idx + 1).padStart(2, '0')}/{String(memoriesGallery.length).padStart(2, '0')}
                   </span>
                 </div>
@@ -138,11 +138,11 @@ export default function Gallery() {
 
                 {/* 3. Bottom Text: Title & Description */}
                 <div className="p-4 pt-3.5">
-                  <h3 className="font-heading font-extrabold text-base leading-snug text-[#121110] dark:text-[#F2F0ED] mb-1.5">
+                  <h3 className="font-heading font-extrabold text-base leading-snug text-[#1D344F] dark:text-[#F2F0ED] mb-1.5">
                     {photo.title}
                   </h3>
                   {photo.caption && (
-                    <p className="text-xs text-[#6b6459] dark:text-[#B5B3B0] leading-relaxed">
+                    <p className="text-xs text-[#536F91] dark:text-[#B5B3B0] leading-relaxed">
                       {photo.caption}
                     </p>
                   )}
@@ -164,7 +164,7 @@ export default function Gallery() {
               <div
                 key={photo.id}
                 onClick={() => openLightbox(idx)}
-                className={`relative rounded-2xl overflow-hidden cursor-pointer border border-[rgba(100,85,70,0.20)] dark:border-[#3B3D41] hover:border-[#2d508a] dark:hover:border-[#F14666] bg-[#ded2c0] dark:bg-[#2B2D30] shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col justify-end ${tile.span}`}
+                className={`relative rounded-2xl overflow-hidden cursor-pointer border border-[#829DBB]/40 dark:border-[#3B3D41] hover:border-[#536F91] dark:hover:border-[#F14666] bg-[#D4E1EF] dark:bg-[#2B2D30] shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col justify-end ${tile.span}`}
               >
                 {/* Background Image with smooth hover zoom */}
                 <img

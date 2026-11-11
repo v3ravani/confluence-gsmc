@@ -70,7 +70,7 @@ export default function RegistrationRoadmap() {
   const reduced = useReducedMotion();
 
   return (
-    <section id="registration" className="py-16 md:py-24 relative border-b border-[rgba(100,85,70,0.18)] dark:border-[#3B3D41] overflow-x-clip">
+    <section id="registration" className="py-16 md:py-24 relative border-b border-[#829DBB]/30 dark:border-[#3B3D41] overflow-x-clip">
       {/* Ambient glows */}
       <div className="absolute top-1/4 right-0 w-72 h-72
                       bg-[var(--accent-blue)]/5 rounded-full blur-[120px] pointer-events-none" />
@@ -91,7 +91,7 @@ export default function RegistrationRoadmap() {
             Guidelines
           </span>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-heading font-extrabold
-                         text-[#121110] dark:text-[#F2F0ED] tracking-tight leading-tight mb-3">
+                         text-[#1D344F] dark:text-[#F2F0ED] tracking-tight leading-tight mb-3">
             How Registration{' '}
             <span
               className="italic font-normal text-[var(--accent-crimson)] dark:text-[#F14666]"
@@ -132,7 +132,7 @@ export default function RegistrationRoadmap() {
                                text-[var(--accent-blush)] block mb-3">
                 Important
               </span>
-              <h3 className="font-heading font-bold text-[#121110] dark:text-[#F2F0ED] text-lg mb-4 leading-snug">
+              <h3 className="font-heading font-bold text-[#1D344F] dark:text-[#F2F0ED] text-lg mb-4 leading-snug">
                 Each Event Has Its Own Registration Form
               </h3>
               <ul className="space-y-3 text-sm text-[var(--muted)] leading-relaxed">

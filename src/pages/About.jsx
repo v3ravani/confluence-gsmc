@@ -19,8 +19,8 @@ export default function About() {
         {/* Desktop Back */}
         <Link
           to="/"
-          className="hidden md:inline-flex items-center gap-2 text-sm text-[#6b6459] dark:text-[#898A89]
-                     hover:text-[#121110] dark:hover:text-[#F2F0ED] transition-colors mb-10 group"
+          className="hidden md:inline-flex items-center gap-2 text-sm text-[#536F91] dark:text-[#898A89]
+                     hover:text-[#1D344F] dark:hover:text-[#F2F0ED] transition-colors mb-10 group"
         >
           <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
           Back to Home
@@ -35,7 +35,7 @@ export default function About() {
                              text-[var(--accent-crimson)] mb-2 block">
               The Conference
             </span>
-            <h1 className="text-4xl sm:text-5xl font-heading font-extrabold text-[#121110] dark:text-[#F2F0ED]
+            <h1 className="text-4xl sm:text-5xl font-heading font-extrabold text-[#1D344F] dark:text-[#F2F0ED]
                            tracking-tight leading-tight mb-2">
               CONFLUENCE
             </h1>
@@ -46,7 +46,7 @@ export default function About() {
 
             <div className="space-y-5 text-[var(--ink-2)] text-base md:text-[16.5px] leading-relaxed">
               <p>
-                Initiated in 2014, <b className="text-[#121110] dark:text-[#F2F0ED] font-semibold">CONFLUENCE 2026</b>, organised
+                Initiated in 2014, <b className="text-[#1D344F] dark:text-[#F2F0ED] font-semibold">CONFLUENCE 2026</b>, organised
                 by Seth GS Medical College and KEM Hospital in Mumbai, is a prestigious international
                 medical and research conference. Spanning five days, this event provides a platform for
                 academic exchange and exploration.
@@ -74,7 +74,7 @@ export default function About() {
                 ensuring inclusivity and an immersive experience for delegates across the country and
                 internationally.
               </p>
-              <p className="text-[#121110] dark:text-[#F2F0ED] font-semibold">
+              <p className="text-[#1D344F] dark:text-[#F2F0ED] font-semibold">
                 CONFLUENCE 2026 is a remarkable convergence of medical knowledge, research, and
                 intellectual camaraderie, creating a lasting impact on all attendees.
               </p>
@@ -84,7 +84,7 @@ export default function About() {
           {/* Right — key info card */}
           <div className="lg:col-span-4 w-full">
             <div className="card-glass p-7 sticky top-24">
-              <div className="flex items-center gap-4 pb-6 border-b border-[rgba(100,85,70,0.18)] dark:border-[#3B3D41] mb-6">
+              <div className="flex items-center gap-4 pb-6 border-b border-[#829DBB]/35 dark:border-[#3B3D41] mb-6">
                 <img
                   src={gsmcCrest}
                   alt="Seth GSMC & KEMH Crest"
@@ -95,7 +95,7 @@ export default function About() {
                                    text-[var(--accent-crimson)] block">
                     At a glance
                   </span>
-                  <h3 className="font-heading font-bold text-[#121110] dark:text-[#F2F0ED] text-base leading-tight">
+                  <h3 className="font-heading font-bold text-[#1D344F] dark:text-[#F2F0ED] text-base leading-tight">
                     Seth GSMC & KEMH
                   </h3>
                   <small className="text-[var(--muted)] text-xs">Parel, Mumbai, India</small>
@@ -109,7 +109,7 @@ export default function About() {
                     <small className="text-[10px] text-[var(--muted)] block uppercase tracking-wider mb-0.5">
                       Pre-Conference
                     </small>
-                    <b className="font-heading font-semibold text-[#121110] dark:text-[#F2F0ED] text-sm">{conferenceInfo.preConferenceDates}</b>
+                    <b className="font-heading font-semibold text-[#1D344F] dark:text-[#F2F0ED] text-sm">{conferenceInfo.preConferenceDates}</b>
                   </div>
                 </div>
 
@@ -119,7 +119,7 @@ export default function About() {
                     <small className="text-[10px] text-[var(--muted)] block uppercase tracking-wider mb-0.5">
                       Main Conference
                     </small>
-                    <b className="font-heading font-semibold text-[#121110] dark:text-[#F2F0ED] text-sm">{conferenceInfo.mainConferenceDates}</b>
+                    <b className="font-heading font-semibold text-[#1D344F] dark:text-[#F2F0ED] text-sm">{conferenceInfo.mainConferenceDates}</b>
                   </div>
                 </div>
 
@@ -129,7 +129,7 @@ export default function About() {
                     <small className="text-[10px] text-[var(--muted)] block uppercase tracking-wider mb-0.5">
                       Venue
                     </small>
-                    <b className="font-heading font-semibold text-[#121110] dark:text-[#F2F0ED] text-sm">{conferenceInfo.venue}</b>
+                    <b className="font-heading font-semibold text-[#1D344F] dark:text-[#F2F0ED] text-sm">{conferenceInfo.venue}</b>
                   </div>
                 </div>
 
@@ -139,7 +139,7 @@ export default function About() {
                     <small className="text-[10px] text-[var(--muted)] block uppercase tracking-wider mb-1">
                       Open To
                     </small>
-                    <ul className="text-[#121110] dark:text-[#F2F0ED] text-xs font-semibold space-y-1">
+                    <ul className="text-[#1D344F] dark:text-[#F2F0ED] text-xs font-semibold space-y-1">
                       {conferenceInfo.openToList.map(item => (
                         <li key={item} className="flex items-center gap-1.5">
                           <span className="text-[var(--accent-crimson)]">✦</span>
@@ -151,12 +151,12 @@ export default function About() {
                 </div>
               </div>
 
-              <div className="mt-6 pt-5 border-t border-[rgba(100,85,70,0.18)] dark:border-[#3B3D41]">
+              <div className="mt-6 pt-5 border-t border-[#829DBB]/35 dark:border-[#3B3D41]">
                 <span className="text-[11px] font-semibold uppercase tracking-wider
                                  text-[var(--muted)] block mb-1">
                   Format
                 </span>
-                <b className="text-[#121110] dark:text-[#F2F0ED] text-sm font-semibold">On Campus and Online Mode</b>
+                <b className="text-[#1D344F] dark:text-[#F2F0ED] text-sm font-semibold">On Campus and Online Mode</b>
               </div>
             </div>
           </div>

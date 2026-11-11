@@ -35,8 +35,8 @@ export default function Header() {
     <header
       className={`sticky top-0 z-40 border-b transition-all duration-300
         ${scrolled
-          ? 'bg-[#e2d4c0]/95 backdrop-blur-md border-[rgba(100,85,70,0.20)] shadow-[0_4px_20px_rgba(70,55,40,0.08)]'
-          : 'bg-[#e2d4c0]/90 backdrop-blur-sm border-[rgba(100,85,70,0.14)]'
+          ? 'bg-[#F6F9FC]/95 backdrop-blur-md border-[#829DBB]/35 shadow-[0_4px_20px_rgba(29,52,79,0.08)]'
+          : 'bg-[#F6F9FC]/88 backdrop-blur-sm border-[#829DBB]/25'
         } text-[var(--ink)]`}
     >
       <div className="wrap flex items-center justify-between h-[72px] gap-2 sm:gap-4">
@@ -49,11 +49,11 @@ export default function Header() {
           <img
             src={gsmcCrest}
             alt="Seth GS Medical College & KEM Hospital Crest"
-            className="w-10 h-10 sm:w-11 sm:h-11 object-contain drop-shadow-[0_2px_8px_rgba(70,55,40,0.15)]
+            className="w-10 h-10 sm:w-11 sm:h-11 object-contain drop-shadow-[0_2px_8px_rgba(29,52,79,0.14)]
                        group-hover:scale-105 transition-transform duration-200 flex-shrink-0"
           />
           <div className="flex flex-col leading-tight min-w-0">
-            <b className="font-heading font-extrabold text-[15px] sm:text-[17px] tracking-tight text-[#121110]
+            <b className="font-heading font-extrabold text-[15px] sm:text-[17px] tracking-tight text-[#1D344F] dark:text-[#F2F0ED]
                           group-hover:text-[var(--accent-blue)] transition-colors truncate">
               {headerBrand.title}
             </b>
@@ -79,23 +79,23 @@ export default function Header() {
           {/* Theme Toggle (Desktop & Mobile) */}
           <ThemeToggle />
 
-          {/* Mobile Hamburger Button: No bg or border, slightly wider/thicker lines */}
+          {/* Mobile Hamburger Button */}
           <button
             type="button"
             onClick={() => setMobileMenuOpen(true)}
-            className="lg:hidden p-1.5 text-[#121110] dark:text-[#F2F0ED] bg-transparent hover:opacity-75 transition-opacity flex-shrink-0 cursor-pointer focus-visible:outline-none"
+            className="lg:hidden p-1.5 text-[#1D344F] dark:text-[#F2F0ED] bg-transparent hover:opacity-75 transition-opacity flex-shrink-0 cursor-pointer focus-visible:outline-none"
             aria-label="Open navigation menu"
             aria-expanded={mobileMenuOpen}
           >
-            <Menu className="w-6 h-6 text-[#121110] dark:text-[#F2F0ED]" strokeWidth={2.35} />
+            <Menu className="w-6 h-6 text-[#1D344F] dark:text-[#F2F0ED]" strokeWidth={2.35} />
           </button>
         </div>
       </div>
 
-      {/* Thin Red Scroll Progress Indicator Line on Bottom Border */}
+      {/* Scroll Progress Indicator Line on Bottom Border (Slate blue ribbon accent) */}
       <div className="absolute bottom-0 left-0 w-full h-[2px] bg-transparent pointer-events-none overflow-hidden">
         <div
-          className="h-full bg-[#913433] dark:bg-[#F14666] transition-[width] duration-75 ease-out"
+          className="h-full bg-[#536F91] dark:bg-[#F14666] transition-[width] duration-75 ease-out"
           style={{ width: `${scrollProgress}%` }}
         />
       </div>

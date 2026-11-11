@@ -24,7 +24,7 @@ export default function ComingSoonSection({
         {/* Desktop Back Link */}
         <Link
           to="/"
-          className="hidden md:inline-flex items-center gap-2 text-sm text-[#6b6459] dark:text-[#898A89] hover:text-[#121110] dark:hover:text-[#F2F0ED] transition-colors mb-8 group self-start"
+          className="hidden md:inline-flex items-center gap-2 text-sm text-[#536F91] dark:text-[#898A89] hover:text-[#1D344F] dark:hover:text-[#F2F0ED] transition-colors mb-8 group self-start"
         >
           <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
           <span>Back to Home</span>
@@ -36,7 +36,7 @@ export default function ComingSoonSection({
             initial={{ opacity: 0, y: reduced ? 0 : 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-            className="w-full max-w-xl rounded-3xl bg-[#ece1cf] dark:bg-[#2B2D30] border border-[rgba(100,85,70,0.22)] dark:border-[#3B3D41] px-6 py-12 sm:px-10 sm:py-16 text-center shadow-sm relative overflow-hidden"
+            className="w-full max-w-xl rounded-3xl bg-[#EAF0F6] dark:bg-[#2B2D30] border border-[#829DBB]/45 dark:border-[#3B3D41] px-6 py-12 sm:px-10 sm:py-16 text-center shadow-sm relative overflow-hidden"
           >
             {/* Subtle Ambient Accent Glow */}
             <div
@@ -46,7 +46,7 @@ export default function ComingSoonSection({
 
             <div className="relative z-10 flex flex-col items-center">
               {/* Badge */}
-              <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full text-[11px] font-bold tracking-[0.2em] uppercase bg-[#f7f1e6] dark:bg-[#323438] text-[#913433] dark:text-[#EE9590] border border-[rgba(100,85,70,0.20)] dark:border-[#3B3D41] mb-6">
+              <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full text-[11px] font-bold tracking-[0.2em] uppercase bg-[#F8FBFE] dark:bg-[#323438] text-[#536F91] dark:text-[#EE9590] border border-[#829DBB]/40 dark:border-[#3B3D41] mb-6">
                 <Sparkles className="w-3.5 h-3.5" />
                 <span>{eyebrow}</span>
               </span>
@@ -55,13 +55,13 @@ export default function ComingSoonSection({
               <motion.div
                 animate={reduced ? undefined : { y: [0, -4, 0] }}
                 transition={{ duration: 3.6, repeat: Infinity, ease: 'easeInOut' }}
-                className="w-14 h-14 rounded-2xl bg-[#2d508a] dark:bg-[#252629] border border-[#203c6b] dark:border-[#3B3D41] text-white dark:text-[#EE9590] flex items-center justify-center shadow-sm mb-6"
+                className="w-14 h-14 rounded-2xl bg-[#1D344F] dark:bg-[#252629] border border-[#536F91]/40 dark:border-[#3B3D41] text-white dark:text-[#EE9590] flex items-center justify-center shadow-sm mb-6"
               >
                 <Clock className="w-6 h-6" />
               </motion.div>
 
               {/* Main Title */}
-              <h1 className="font-heading font-black text-3xl sm:text-5xl text-[#121110] dark:text-[#F2F0ED] tracking-tight leading-tight mb-3">
+              <h1 className="font-heading font-black text-3xl sm:text-5xl text-[#1D344F] dark:text-[#F2F0ED] tracking-tight leading-tight mb-3">
                 Coming{' '}
                 <span
                   className="italic font-normal text-[var(--accent-crimson)] dark:text-[#F14666]"
@@ -72,14 +72,14 @@ export default function ComingSoonSection({
               </h1>
 
               {/* Supporting Line */}
-              <p className="text-sm sm:text-base text-[#6b6459] dark:text-[#B5B3B0] max-w-sm leading-relaxed mb-8">
+              <p className="text-sm sm:text-base text-[#536F91] dark:text-[#B5B3B0] max-w-sm leading-relaxed mb-8">
                 {subtitle}
               </p>
 
               {/* Return Action */}
               <Link
                 to="/"
-                className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full text-xs sm:text-sm font-semibold text-white bg-[#2d508a] hover:bg-[#203c6b] dark:bg-[#F14666] dark:hover:bg-[#e03253] shadow-sm hover:-translate-y-0.5 transition-all duration-200"
+                className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full text-xs sm:text-sm font-semibold text-white bg-[#1D344F] hover:bg-[#15273C] dark:bg-[#F14666] dark:hover:bg-[#e03253] shadow-sm hover:-translate-y-0.5 transition-all duration-200"
               >
                 <ArrowLeft className="w-4 h-4" />
                 <span>Back to Homepage</span>

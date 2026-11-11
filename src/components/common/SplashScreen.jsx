@@ -43,8 +43,8 @@ export default function SplashScreen({ onComplete, duration = 3200 }) {
       {/* 1. Full-Page Base Color Transition: starts slightly warm/dim and smoothly brightens to luminous canvas */}
       <motion.div
         aria-hidden="true"
-        initial={{ backgroundColor: isDark ? '#161719' : '#e8e0d0' }}
-        animate={{ backgroundColor: isDark ? '#202124' : '#f7f4ee' }}
+        initial={{ backgroundColor: isDark ? '#161719' : '#D4E1EF' }}
+        animate={{ backgroundColor: isDark ? '#202124' : '#F6F9FC' }}
         transition={{ duration: 2.8, ease: 'easeInOut' }}
         className="absolute inset-0 pointer-events-none"
       />
@@ -59,7 +59,7 @@ export default function SplashScreen({ onComplete, duration = 3200 }) {
         style={{
           background: isDark
             ? 'radial-gradient(circle at 50% 42%, rgba(241, 70, 102, 0.28) 0%, rgba(238, 149, 144, 0.14) 40%, rgba(32, 33, 36, 0.05) 75%, transparent 100%)'
-            : 'radial-gradient(circle at 50% 42%, rgba(226, 185, 111, 0.48) 0%, rgba(226, 185, 111, 0.25) 40%, rgba(247, 244, 238, 0.05) 75%, transparent 100%)',
+            : 'radial-gradient(circle at 50% 42%, rgba(130, 157, 187, 0.42) 0%, rgba(212, 225, 239, 0.28) 42%, rgba(246, 249, 252, 0.08) 75%, transparent 100%)',
         }}
       />
 
@@ -73,7 +73,7 @@ export default function SplashScreen({ onComplete, duration = 3200 }) {
         style={{
           background: isDark
             ? 'linear-gradient(180deg, rgba(241, 70, 102, 0.08) 0%, rgba(32, 33, 36, 0) 50%, rgba(241, 70, 102, 0.08) 100%)'
-            : 'linear-gradient(180deg, rgba(226, 185, 111, 0.15) 0%, rgba(247, 244, 238, 0) 50%, rgba(226, 185, 111, 0.12) 100%)',
+            : 'linear-gradient(180deg, rgba(212, 225, 239, 0.25) 0%, rgba(246, 249, 252, 0) 50%, rgba(212, 225, 239, 0.22) 100%)',
         }}
       />
 
@@ -92,7 +92,12 @@ export default function SplashScreen({ onComplete, duration = 3200 }) {
           <img
             src={heroDnaColored}
             alt="CONFLUENCE DNA Ring"
-            className="w-full h-full object-contain drop-shadow-[0_4px_16px_rgba(167,123,72,0.20)]"
+            className="w-full h-full object-contain"
+            style={{
+              filter: isDark
+                ? 'drop-shadow(0 4px 16px rgba(167,123,72,0.20))'
+                : 'hue-rotate(182deg) saturate(0.82) contrast(1.05) drop-shadow(0 6px 20px rgba(83,111,145,0.28))',
+            }}
           />
         </motion.div>
 
@@ -101,15 +106,25 @@ export default function SplashScreen({ onComplete, duration = 3200 }) {
           initial={{
             opacity: 0,
             scale: 0.92,
-            filter: 'brightness(0.50) drop-shadow(0 0 0px rgba(226, 185, 111, 0))',
+            filter: isDark
+              ? 'brightness(0.50) drop-shadow(0 0 0px rgba(226, 185, 111, 0))'
+              : 'hue-rotate(182deg) saturate(0.82) brightness(0.70) drop-shadow(0 0 0px rgba(130, 157, 187, 0))',
           }}
           animate={{
             opacity: 1,
             scale: [0.92, 1, 1.05],
             filter: [
-              'brightness(0.50) drop-shadow(0 0 0px rgba(226, 185, 111, 0))',
-              'brightness(0.85) drop-shadow(0 0 16px rgba(226, 185, 111, 0.45))',
-              'brightness(1.22) drop-shadow(0 0 35px rgba(226, 185, 111, 0.95)) drop-shadow(0 0 75px rgba(226, 185, 111, 0.65))',
+              ...(isDark
+                ? [
+                    'brightness(0.50) drop-shadow(0 0 0px rgba(226, 185, 111, 0))',
+                    'brightness(0.85) drop-shadow(0 0 16px rgba(226, 185, 111, 0.45))',
+                    'brightness(1.22) drop-shadow(0 0 35px rgba(226, 185, 111, 0.95)) drop-shadow(0 0 75px rgba(226, 185, 111, 0.65))',
+                  ]
+                : [
+                    'hue-rotate(182deg) saturate(0.82) brightness(0.70) drop-shadow(0 0 0px rgba(130, 157, 187, 0))',
+                    'hue-rotate(182deg) saturate(0.85) brightness(0.95) drop-shadow(0 0 16px rgba(130, 157, 187, 0.50))',
+                    'hue-rotate(182deg) saturate(0.88) brightness(1.08) drop-shadow(0 0 32px rgba(83, 111, 145, 0.65)) drop-shadow(0 0 70px rgba(130, 157, 187, 0.45))',
+                  ]),
             ],
           }}
           transition={{
@@ -133,7 +148,7 @@ export default function SplashScreen({ onComplete, duration = 3200 }) {
         transition={{ delay: 0.5, duration: 0.85, ease: [0.22, 1, 0.36, 1] }}
         className="text-center relative z-10 px-4"
       >
-        <h1 className="font-heading font-bold text-2xl sm:text-3xl md:text-3xl lg:text-4xl uppercase tracking-normal sm:tracking-tight text-[#121110] dark:text-[#F2F0ED] leading-none">
+        <h1 className="font-heading font-bold text-2xl sm:text-3xl md:text-3xl lg:text-4xl uppercase tracking-normal sm:tracking-tight text-[#1D344F] dark:text-[#F2F0ED] leading-none">
           CONFLUENCE 2026
         </h1>
       </motion.div>
@@ -151,10 +166,10 @@ export default function SplashScreen({ onComplete, duration = 3200 }) {
           className="w-9 h-9 sm:w-11 sm:h-11 object-contain drop-shadow-sm flex-shrink-0"
         />
         <div className="flex flex-col text-left leading-snug">
-          <span className="text-[10px] sm:text-[11.5px] font-semibold tracking-[0.14em] text-[#6b6459] dark:text-[#B5B3B0] uppercase">
+          <span className="text-[10px] sm:text-[11.5px] font-semibold tracking-[0.14em] text-[#536F91] dark:text-[#B5B3B0] uppercase">
             SETH GS MEDICAL COLLEGE &amp;
           </span>
-          <span className="text-[9.5px] sm:text-[11px] font-extrabold tracking-[0.12em] text-[#121110] dark:text-[#F2F0ED] uppercase mt-0.5">
+          <span className="text-[9.5px] sm:text-[11px] font-extrabold tracking-[0.12em] text-[#1D344F] dark:text-[#F2F0ED] uppercase mt-0.5">
             KING EDWARD VII MEMORIAL HOSPITAL
           </span>
         </div>
@@ -168,7 +183,7 @@ export default function SplashScreen({ onComplete, duration = 3200 }) {
           handleComplete();
         }}
         aria-label="Skip splash screen"
-        className="absolute top-5 right-5 sm:top-7 sm:right-7 text-[11px] sm:text-xs font-medium text-[#8c8273] dark:text-[#B5B3B0] hover:text-[#121110] dark:hover:text-[#F2F0ED] transition-colors py-1 px-3 rounded-full bg-[#ece1cf]/60 dark:bg-[#2B2D30]/80 hover:bg-[#ece1cf] dark:hover:bg-[#2B2D30] border border-[rgba(100,85,70,0.18)] dark:border-[#3B3D41]"
+        className="absolute top-5 right-5 sm:top-7 sm:right-7 text-[11px] sm:text-xs font-medium text-[#536F91] dark:text-[#B5B3B0] hover:text-[#1D344F] dark:hover:text-[#F2F0ED] transition-colors py-1 px-3 rounded-full bg-[#EAF0F6]/80 dark:bg-[#2B2D30]/80 hover:bg-[#D4E1EF] dark:hover:bg-[#2B2D30] border border-[#829DBB]/40 dark:border-[#3B3D41]"
       >
         Skip ✕
       </button>

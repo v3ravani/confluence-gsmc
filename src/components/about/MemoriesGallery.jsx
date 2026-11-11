@@ -42,14 +42,14 @@ export default function MemoriesGallery() {
   }, [selectedIdx, closeLightbox, nextPhoto, prevPhoto]);
 
   return (
-    <section className="pt-16 pb-20 border-t border-[rgba(100,85,70,0.18)] dark:border-[#3B3D41]">
+    <section className="pt-16 pb-20 border-t border-[#829DBB]/30 dark:border-[#3B3D41]">
       {/* Header */}
       <div className="mb-8">
         <span className="text-[12px] font-semibold tracking-[0.22em] uppercase text-[var(--accent-crimson)] dark:text-[#F14666] mb-2 block flex items-center gap-1.5">
           <Sparkles className="w-3.5 h-3.5" />
           Memories
         </span>
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-heading font-extrabold text-[#121110] dark:text-[#F2F0ED] tracking-tight leading-tight mb-2">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-heading font-extrabold text-[#1D344F] dark:text-[#F2F0ED] tracking-tight leading-tight mb-2">
           PHOTOS FROM PREVIOUS{' '}
           <span
             className="italic font-normal text-[var(--accent-crimson)] dark:text-[#EE9590]"
@@ -72,7 +72,7 @@ export default function MemoriesGallery() {
             <div
               key={photo.id}
               onClick={() => openLightbox(idx)}
-              className={`relative rounded-xl overflow-hidden cursor-pointer border border-[rgba(100,85,70,0.20)] dark:border-[#3B3D41] hover:border-[var(--accent-blue)] dark:hover:border-[#F14666] transition-all duration-300 hover:scale-[1.015] bg-[#ded2c0] dark:bg-[#2B2D30] shadow-sm ${
+              className={`relative rounded-xl overflow-hidden cursor-pointer border border-[#829DBB]/40 dark:border-[#3B3D41] hover:border-[#536F91] dark:hover:border-[#F14666] transition-all duration-300 hover:scale-[1.015] bg-[#D4E1EF] dark:bg-[#2B2D30] shadow-sm ${
                 isFeatured ? 'sm:col-span-2 lg:col-span-2 aspect-[16/10]' : 'aspect-[4/3]'
               }`}
             >
@@ -90,7 +90,7 @@ export default function MemoriesGallery() {
       {/* ── MOBILE STACKING CARDS SCROLL GALLERY (< sm: progressive layered card stack) ── */}
       <div className="sm:hidden relative pb-6">
         {/* Mobile stack header count */}
-        <div className="flex items-center justify-end text-xs text-[#6b6459] dark:text-[#898A89] mb-4 px-1">
+        <div className="flex items-center justify-end text-xs text-[#536F91] dark:text-[#898A89] mb-4 px-1">
           <span className="text-[11px] font-semibold text-[var(--accent-crimson)] dark:text-[#EE9590]">
             {memoriesGallery.length} Memories
           </span>
@@ -111,20 +111,20 @@ export default function MemoriesGallery() {
                   zIndex: zIndex,
                 }}
                 onClick={() => openLightbox(idx)}
-                className="group rounded-2xl overflow-hidden cursor-pointer bg-[#ece1cf] dark:bg-[#2B2D30] border border-[rgba(100,85,70,0.24)] dark:border-[#3B3D41] mobile-stack-card transition-all duration-300"
+                className="group rounded-2xl overflow-hidden cursor-pointer bg-[#EAF0F6] dark:bg-[#2B2D30] border border-[#829DBB]/45 dark:border-[#3B3D41] mobile-stack-card transition-all duration-300"
               >
                 {/* Card Top Label Bar */}
-                <div className="flex items-center gap-2 px-4 py-2.5 bg-[#e4d6c0] dark:bg-[#252629] border-b border-[rgba(100,85,70,0.16)] dark:border-[#3B3D41]">
-                  <span className="font-heading font-black text-xs text-[#913433] dark:text-[#F14666]">
+                <div className="flex items-center gap-2 px-4 py-2.5 bg-[#D4E1EF] dark:bg-[#252629] border-b border-[#829DBB]/35 dark:border-[#3B3D41]">
+                  <span className="font-heading font-black text-xs text-[#1D344F] dark:text-[#F14666]">
                     {String(idx + 1).padStart(2, '0')} / {String(memoriesGallery.length).padStart(2, '0')}
                   </span>
-                  <span className="text-[10px] font-semibold tracking-wider uppercase text-[#6b6459] dark:text-[#898A89] truncate">
+                  <span className="text-[10px] font-semibold tracking-wider uppercase text-[#536F91] dark:text-[#898A89] truncate">
                     {photo.tag || 'CONFLUENCE'}
                   </span>
                 </div>
 
                 {/* Photo Frame (Preserves original 16:10 aspect ratio without distortion) */}
-                <div className="relative w-full aspect-[16/10] bg-[#ded2c0] dark:bg-[#1E2022] overflow-hidden">
+                <div className="relative w-full aspect-[16/10] bg-[#D4E1EF] dark:bg-[#1E2022] overflow-hidden">
                   <img
                     src={photo.src}
                     alt={photo.title || 'CONFLUENCE memory'}
@@ -134,12 +134,12 @@ export default function MemoriesGallery() {
                 </div>
 
                 {/* Card Bottom Caption */}
-                <div className="p-4 bg-[#ece1cf] dark:bg-[#2B2D30]">
-                  <h4 className="font-heading font-bold text-[#121110] dark:text-[#F2F0ED] text-sm leading-snug mb-1">
+                <div className="p-4 bg-[#EAF0F6] dark:bg-[#2B2D30]">
+                  <h4 className="font-heading font-bold text-[#1D344F] dark:text-[#F2F0ED] text-sm leading-snug mb-1">
                     {photo.title}
                   </h4>
                   {photo.caption && (
-                    <p className="text-xs text-[#6b6459] dark:text-[#B5B3B0] leading-relaxed line-clamp-2">
+                    <p className="text-xs text-[#536F91] dark:text-[#B5B3B0] leading-relaxed line-clamp-2">
                       {photo.caption}
                     </p>
                   )}

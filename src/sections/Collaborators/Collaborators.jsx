@@ -9,7 +9,7 @@ export default function Collaborators() {
   const reduced = useReducedMotion();
 
   return (
-    <section className="py-16 md:py-24 relative border-b border-[rgba(100,85,70,0.18)] dark:border-[#3B3D41] overflow-x-clip">
+    <section className="py-16 md:py-24 relative border-b border-[#829DBB]/30 dark:border-[#3B3D41] overflow-x-clip">
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-56
                       bg-[var(--accent-blue)]/5 rounded-full blur-[100px] pointer-events-none" />
 

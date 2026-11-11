@@ -37,9 +37,9 @@ function EventCard({ event, index, onOpenDetails }) {
   };
 
   return (
-    <div className="w-[84vw] max-w-[340px] flex-shrink-0 snap-start md:w-full md:max-w-none md:flex-shrink md:snap-align-none rounded-2xl bg-[#ece1cf] dark:bg-[#2B2D30] border border-[rgba(100,85,70,0.18)] dark:border-[#3B3D41] shadow-sm hover:shadow-md hover:border-[#2d508a] dark:hover:border-[#F14666] transition-all duration-300 flex flex-col justify-between h-full overflow-hidden group">
+    <div className="w-[84vw] max-w-[340px] flex-shrink-0 snap-start md:w-full md:max-w-none md:flex-shrink md:snap-align-none rounded-2xl bg-[#EAF0F6] dark:bg-[#2B2D30] border border-[#829DBB]/40 dark:border-[#3B3D41] shadow-sm hover:shadow-md hover:border-[#536F91] dark:hover:border-[#F14666] transition-all duration-300 flex flex-col justify-between h-full overflow-hidden group">
       {/* Top Blue Header Banner (Slightly increased height with decorative curves & icon design) */}
-      <div className="relative bg-[#2d508a] dark:bg-[#252629] dark:border-b dark:border-[#3B3D41] px-5 py-4 sm:py-4.5 text-white flex items-center justify-between rounded-t-2xl overflow-hidden">
+      <div className="relative bg-[#1D344F] dark:bg-[#252629] dark:border-b dark:border-[#3B3D41] px-5 py-4 sm:py-4.5 text-white flex items-center justify-between rounded-t-2xl overflow-hidden">
         {/* Subtle decorative background curves — independently animated organic floating bubbles */}
         <div
           className="absolute -right-6 -bottom-8 w-24 h-24 rounded-full bg-white/10 pointer-events-none animate-bubble-primary"
@@ -77,60 +77,60 @@ function EventCard({ event, index, onOpenDetails }) {
         <div>
           {/* Title & Subtitle */}
           <div className="mb-2.5">
-            <h3 className="font-heading font-extrabold text-[#121110] dark:text-[#F2F0ED] text-lg sm:text-xl leading-snug group-hover:text-[#2d508a] dark:group-hover:text-[#F14666] transition-colors">
+            <h3 className="font-heading font-extrabold text-[#1D344F] dark:text-[#F2F0ED] text-lg sm:text-xl leading-snug group-hover:text-[#536F91] dark:group-hover:text-[#F14666] transition-colors">
               {event.name}
             </h3>
-            <h4 className="font-heading font-semibold text-[11px] tracking-[0.14em] uppercase text-[#6b6459] dark:text-[#898A89] mt-0.5">
+            <h4 className="font-heading font-semibold text-[11px] tracking-[0.14em] uppercase text-[#536F91] dark:text-[#898A89] mt-0.5">
               {event.subtitle}
             </h4>
           </div>
 
           {/* Quick Date & Prize Row */}
-          <div className="flex items-center justify-between text-xs mb-3 pb-2.5 border-b border-[rgba(100,85,70,0.12)] dark:border-[#3B3D41]">
-            <span className="font-semibold text-[#2d508a] dark:text-[#EE9590] flex items-center gap-1.5 truncate">
+          <div className="flex items-center justify-between text-xs mb-3 pb-2.5 border-b border-[#829DBB]/25 dark:border-[#3B3D41]">
+            <span className="font-semibold text-[#1D344F] dark:text-[#EE9590] flex items-center gap-1.5 truncate">
               <Calendar className="w-3.5 h-3.5 flex-shrink-0" />
               {event.rounds?.[0]?.date || 'September 2026'}
             </span>
-            <span className="font-bold text-[#913433] dark:text-[#F14666] flex items-center gap-1 flex-shrink-0">
+            <span className="font-bold text-[#536F91] dark:text-[#F14666] flex items-center gap-1 flex-shrink-0">
               <Trophy className="w-3.5 h-3.5 flex-shrink-0" />
               {event.prizes[0] ? event.prizes[0].amount : event.totalPrize}
             </span>
           </div>
 
           {/* Specs Matrix (Compact) */}
-          <div className="grid grid-cols-2 gap-2 p-2.5 rounded-xl bg-[#f7f1e6] dark:bg-[#323438] border border-[rgba(100,85,70,0.16)] dark:border-[#3B3D41] mb-3 text-xs">
+          <div className="grid grid-cols-2 gap-2 p-2.5 rounded-xl bg-[#D4E1EF]/60 dark:bg-[#323438] border border-[#829DBB]/40 dark:border-[#3B3D41] mb-3 text-xs">
             <div>
-              <span className="text-[9.5px] font-semibold uppercase tracking-wider text-[#6b6459] dark:text-[#898A89] block">
+              <span className="text-[9.5px] font-semibold uppercase tracking-wider text-[#536F91] dark:text-[#898A89] block">
                 Team Size
               </span>
-              <b className="text-[#121110] dark:text-[#F2F0ED] font-medium flex items-center gap-1 text-[11.5px] truncate mt-0.5">
-                <Users className="w-3 h-3 text-[#2d508a] dark:text-[#F14666] flex-shrink-0" />
+              <b className="text-[#1D344F] dark:text-[#F2F0ED] font-medium flex items-center gap-1 text-[11.5px] truncate mt-0.5">
+                <Users className="w-3 h-3 text-[#536F91] dark:text-[#F14666] flex-shrink-0" />
                 {event.teamStructure.size}
               </b>
             </div>
             <div>
-              <span className="text-[9.5px] font-semibold uppercase tracking-wider text-[#6b6459] dark:text-[#898A89] block">
+              <span className="text-[9.5px] font-semibold uppercase tracking-wider text-[#536F91] dark:text-[#898A89] block">
                 Registration Fee
               </span>
-              <b className="text-[#121110] dark:text-[#F2F0ED] font-medium text-[11.5px] truncate block mt-0.5">
+              <b className="text-[#1D344F] dark:text-[#F2F0ED] font-medium text-[11.5px] truncate block mt-0.5">
                 {event.pricing.earlyBird.split('(')[0]}
               </b>
             </div>
           </div>
 
           {/* Compact 2-line Description */}
-          <p className="text-xs text-[#2d2b28] dark:text-[#B5B3B0] leading-relaxed mb-4 line-clamp-2">
+          <p className="text-xs text-[#29405B] dark:text-[#B5B3B0] leading-relaxed mb-4 line-clamp-2">
             {event.description}
           </p>
         </div>
 
         {/* Card Action Footer with Equal-Height Two Buttons */}
-        <div className="pt-3.5 border-t border-[rgba(100,85,70,0.14)] dark:border-[#3B3D41] grid grid-cols-2 gap-2.5">
+        <div className="pt-3.5 border-t border-[#829DBB]/30 dark:border-[#3B3D41] grid grid-cols-2 gap-2.5">
           {/* View Details Button -> Opens Modal Popup */}
           <button
             type="button"
             onClick={() => onOpenDetails(event)}
-            className="w-full inline-flex items-center justify-center gap-1.5 py-2 px-3 rounded-full text-xs font-semibold text-[#2d508a] dark:text-[#F2F0ED] hover:text-white dark:hover:text-white bg-[#f7f1e6] dark:bg-[#323438] hover:bg-[#2d508a] dark:hover:bg-[#3B3D41] border border-[#2d508a] dark:border-[#3B3D41] transition-all cursor-pointer shadow-xs"
+            className="w-full inline-flex items-center justify-center gap-1.5 py-2 px-3 rounded-full text-xs font-semibold text-[#1D344F] dark:text-[#F2F0ED] hover:text-white dark:hover:text-white bg-[#F8FBFE] dark:bg-[#323438] hover:bg-[#1D344F] dark:hover:bg-[#3B3D41] border border-[#829DBB] dark:border-[#3B3D41] transition-all cursor-pointer shadow-xs"
           >
             <Info className="w-3.5 h-3.5 flex-shrink-0" />
             <span>VIEW DETAILS</span>
@@ -140,7 +140,7 @@ function EventCard({ event, index, onOpenDetails }) {
           <button
             type="button"
             onClick={handleRegister}
-            className="w-full inline-flex items-center justify-center gap-1.5 py-2 px-3 rounded-full text-xs font-semibold text-white bg-[#2d508a] hover:bg-[#203c6b] dark:bg-[#F14666] dark:hover:bg-[#e03253] transition-all cursor-pointer shadow-xs"
+            className="w-full inline-flex items-center justify-center gap-1.5 py-2 px-3 rounded-full text-xs font-semibold text-white bg-[#1D344F] hover:bg-[#15273C] dark:bg-[#F14666] dark:hover:bg-[#e03253] transition-all cursor-pointer shadow-xs"
           >
             <span>REGISTER</span>
             <ArrowUpRight className="w-3.5 h-3.5 flex-shrink-0" />
@@ -250,7 +250,7 @@ export default function Event() {
         {/* Back Link (Desktop) */}
         <Link
           to="/"
-          className="hidden md:inline-flex items-center gap-2 text-sm text-[#6b6459] hover:text-[#121110] transition-colors mb-8 group"
+          className="hidden md:inline-flex items-center gap-2 text-sm text-[#536F91] dark:text-[#898A89] hover:text-[#1D344F] dark:hover:text-[#F2F0ED] transition-colors mb-8 group"
         >
           <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
           Back to Home
@@ -274,15 +274,15 @@ export default function Event() {
           ].map((stat) => (
             <div
               key={stat.label}
-              className="p-3.5 sm:p-4 rounded-xl bg-[#ece1cf] dark:bg-[#2B2D30] border border-[rgba(100,85,70,0.18)] dark:border-[#3B3D41] shadow-xs"
+              className="p-3.5 sm:p-4 rounded-xl bg-[#EAF0F6] dark:bg-[#2B2D30] border border-[#829DBB]/40 dark:border-[#3B3D41] shadow-xs"
             >
-              <b className="block font-heading font-bold text-[#121110] dark:text-[#F2F0ED] text-base sm:text-lg leading-tight">
+              <b className="block font-heading font-bold text-[#1D344F] dark:text-[#F2F0ED] text-base sm:text-lg leading-tight">
                 {stat.value}
               </b>
-              <span className="block text-[11px] font-semibold text-[#913433] dark:text-[#F14666] uppercase tracking-wider mt-0.5">
+              <span className="block text-[11px] font-semibold text-[#536F91] dark:text-[#F14666] uppercase tracking-wider mt-0.5">
                 {stat.label}
               </span>
-              <small className="block text-[10.5px] text-[#6b6459] dark:text-[#898A89] leading-tight mt-1">
+              <small className="block text-[10.5px] text-[#536F91] dark:text-[#898A89] leading-tight mt-1">
                 {stat.sub}
               </small>
             </div>
@@ -292,7 +292,7 @@ export default function Event() {
         {/* Search & Filter Controls */}
         <div className="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4 mb-8">
           {/* Category Filter Pills */}
-          <div className="flex flex-wrap items-center gap-1.5 p-1 rounded-xl bg-[#ece1cf] dark:bg-[#2B2D30] border border-[rgba(100,85,70,0.18)] dark:border-[#3B3D41]">
+          <div className="flex flex-wrap items-center gap-1.5 p-1 rounded-xl bg-[#EAF0F6] dark:bg-[#2B2D30] border border-[#829DBB]/40 dark:border-[#3B3D41]">
             {categories.map((cat) => (
               <button
                 key={cat}
@@ -300,8 +300,8 @@ export default function Event() {
                 onClick={() => setSelectedCategory(cat)}
                 className={`px-3.5 py-1.5 rounded-lg text-xs font-semibold tracking-wide transition-all cursor-pointer ${
                   selectedCategory === cat
-                    ? 'bg-[#913433] dark:bg-[#F14666] text-white shadow-sm'
-                    : 'text-[#2d2b28] dark:text-[#B5B3B0] hover:text-[#121110] dark:hover:text-[#F2F0ED] hover:bg-[rgba(100,85,70,0.12)] dark:hover:bg-[#323438]'
+                    ? 'bg-[#1D344F] dark:bg-[#F14666] text-white shadow-sm'
+                    : 'text-[#29405B] dark:text-[#B5B3B0] hover:text-[#1D344F] dark:hover:text-[#F2F0ED] hover:bg-[#D4E1EF]/70 dark:hover:bg-[#323438]'
                 }`}
               >
                 {cat}
@@ -311,19 +311,19 @@ export default function Event() {
 
           {/* Search Input Box */}
           <div className="relative min-w-[240px] md:w-72">
-            <Search className="w-4 h-4 text-[#6b6459] dark:text-[#898A89] absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none" />
+            <Search className="w-4 h-4 text-[#536F91] dark:text-[#898A89] absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none" />
             <input
               type="text"
               placeholder="Search by event, subject, rule..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-9 pr-8 py-2 rounded-xl bg-[#ece1cf] dark:bg-[#2B2D30] border border-[rgba(100,85,70,0.20)] dark:border-[#3B3D41] focus:border-[#2d508a] dark:focus:border-[#F14666] focus:outline-none text-xs text-[#121110] dark:text-[#F2F0ED] placeholder-[#6b6459] dark:placeholder-[#898A89] transition-all"
+              className="w-full pl-9 pr-8 py-2 rounded-xl bg-[#EAF0F6] dark:bg-[#2B2D30] border border-[#829DBB]/45 dark:border-[#3B3D41] focus:border-[#1D344F] dark:focus:border-[#F14666] focus:outline-none text-xs text-[#1D344F] dark:text-[#F2F0ED] placeholder-[#536F91] dark:placeholder-[#898A89] transition-all"
             />
             {searchQuery && (
               <button
                 type="button"
                 onClick={() => setSearchQuery('')}
-                className="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-[#6b6459] dark:text-[#898A89] hover:text-[#121110] dark:hover:text-[#F2F0ED]"
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-[#536F91] dark:text-[#898A89] hover:text-[#1D344F] dark:hover:text-[#F2F0ED]"
               >
                 ✕
               </button>
@@ -333,11 +333,11 @@ export default function Event() {
 
         {/* ── Mobile Swipe Hint (visible on mobile only) ─────────── */}
         {filteredEvents.length > 0 && (
-          <div className="flex md:hidden items-center justify-between text-xs text-[#6b6459] dark:text-[#898A89] mb-3 px-1">
+          <div className="flex md:hidden items-center justify-between text-xs text-[#536F91] dark:text-[#898A89] mb-3 px-1">
             <span className="flex items-center gap-1.5 font-medium">
               <span>← Swipe to explore</span>
             </span>
-            <span className="text-[11px] font-semibold text-[#2d508a] dark:text-[#EE9590]">
+            <span className="text-[11px] font-semibold text-[#1D344F] dark:text-[#EE9590]">
               {filteredEvents.length} Events →
             </span>
           </div>
@@ -374,8 +374,8 @@ export default function Event() {
                     aria-label={`Scroll to event ${i + 1}: ${ev.name}`}
                     className={`h-1.5 rounded-full transition-all duration-300 ease-out cursor-pointer ${
                       activeCardIndex === i
-                        ? 'w-6 bg-[#2d508a] dark:bg-[#EE9590] shadow-sm'
-                        : 'w-1.5 bg-[rgba(100,85,70,0.35)] dark:bg-[#525458] hover:bg-[rgba(100,85,70,0.60)]'
+                        ? 'w-6 bg-[#1D344F] dark:bg-[#EE9590] shadow-sm'
+                        : 'w-1.5 bg-[#829DBB]/45 dark:bg-[#525458] hover:bg-[#536F91]/65'
                     }`}
                   />
                 ))}
@@ -383,12 +383,12 @@ export default function Event() {
             )}
           </>
         ) : (
-          <div className="p-12 text-center rounded-2xl mb-14 bg-[#ece1cf] dark:bg-[#2B2D30] border border-[rgba(100,85,70,0.18)] dark:border-[#3B3D41]">
-            <HelpCircle className="w-10 h-10 text-[#6b6459] dark:text-[#898A89] mx-auto mb-3 opacity-60" />
-            <h4 className="text-[#121110] dark:text-[#F2F0ED] font-heading font-bold text-lg mb-1">
+          <div className="p-12 text-center rounded-2xl mb-14 bg-[#EAF0F6] dark:bg-[#2B2D30] border border-[#829DBB]/40 dark:border-[#3B3D41]">
+            <HelpCircle className="w-10 h-10 text-[#536F91] dark:text-[#898A89] mx-auto mb-3 opacity-60" />
+            <h4 className="text-[#1D344F] dark:text-[#F2F0ED] font-heading font-bold text-lg mb-1">
               No matching events found
             </h4>
-            <p className="text-sm text-[#6b6459] dark:text-[#898A89] mb-4">
+            <p className="text-sm text-[#536F91] dark:text-[#898A89] mb-4">
               Try adjusting your search query or reset the category filters.
             </p>
             <button
@@ -397,7 +397,7 @@ export default function Event() {
                 setSelectedCategory('All');
                 setSearchQuery('');
               }}
-              className="px-4 py-2 rounded-full text-xs font-semibold bg-[#2d508a] hover:bg-[#203c6b] dark:bg-[#F14666] dark:hover:bg-[#e03253] text-white transition-colors cursor-pointer"
+              className="px-4 py-2 rounded-full text-xs font-semibold bg-[#1D344F] hover:bg-[#15273C] dark:bg-[#F14666] dark:hover:bg-[#e03253] text-white transition-colors cursor-pointer"
             >
               Reset All Filters
             </button>
@@ -405,12 +405,12 @@ export default function Event() {
         )}
 
         {/* Registration Notes Banner */}
-        <div className="p-6 rounded-2xl bg-[#ece1cf] dark:bg-[#2B2D30] border border-[rgba(100,85,70,0.18)] dark:border-[#3B3D41] flex flex-col sm:flex-row items-start gap-4">
-          <div className="p-2.5 rounded-xl bg-[#f7f1e6] dark:bg-[#323438] border border-[rgba(100,85,70,0.16)] dark:border-[#3B3D41] text-[#913433] dark:text-[#F14666] flex-shrink-0">
+        <div className="p-6 rounded-2xl bg-[#EAF0F6] dark:bg-[#2B2D30] border border-[#829DBB]/40 dark:border-[#3B3D41] flex flex-col sm:flex-row items-start gap-4">
+          <div className="p-2.5 rounded-xl bg-[#D4E1EF]/80 dark:bg-[#323438] border border-[#829DBB]/40 dark:border-[#3B3D41] text-[#1D344F] dark:text-[#F14666] flex-shrink-0">
             <AlertCircle className="w-5 h-5" />
           </div>
-          <div className="text-xs text-[#2d2b28] dark:text-[#B5B3B0] leading-relaxed space-y-1.5">
-            <h4 className="text-[#121110] dark:text-[#F2F0ED] font-heading font-bold text-sm">
+          <div className="text-xs text-[#29405B] dark:text-[#B5B3B0] leading-relaxed space-y-1.5">
+            <h4 className="text-[#1D344F] dark:text-[#F2F0ED] font-heading font-bold text-sm">
               Official Registration & Submission Guidelines
             </h4>
             <p>

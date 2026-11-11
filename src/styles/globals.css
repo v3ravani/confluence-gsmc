@@ -22,9 +22,9 @@
     color: var(--ink-2);
     background-color: var(--bg-canvas);
     background-image:
-      radial-gradient(1000px 700px at 90% -5%, rgba(45, 80, 138, 0.05) 0%, transparent 60%),
-      radial-gradient(800px 800px at -5% 35%, rgba(145, 52, 51, 0.04) 0%, transparent 55%),
-      linear-gradient(180deg, #e4d5c2 0%, #e2d4c0 42%, #ded0bb 100%);
+      radial-gradient(950px 680px at 88% -5%, rgba(212, 225, 239, 0.60) 0%, transparent 62%),
+      radial-gradient(800px 750px at -5% 38%, rgba(234, 240, 246, 0.70) 0%, transparent 58%),
+      linear-gradient(180deg, #F8FBFE 0%, #F2F6FA 48%, #EAF0F6 100%);
     background-attachment: fixed;
     line-height: 1.6;
     font-size: 16px;
@@ -113,8 +113,8 @@
 /* ── Grid Background ─────────────────────────────────────── */
 .bg-grid-mesh {
   background-image:
-    linear-gradient(rgba(100, 85, 70, 0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(100, 85, 70, 0.06) 1px, transparent 1px);
+    linear-gradient(rgba(130, 157, 187, 0.14) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(130, 157, 187, 0.14) 1px, transparent 1px);
   background-size: 56px 56px;
   mask-image: radial-gradient(ellipse at 60% 40%, #000 20%, transparent 75%);
 }
@@ -152,7 +152,7 @@
 }
 
 .browse-row:hover {
-  background: rgba(45, 80, 138, 0.05);
+  background: rgba(212, 225, 239, 0.45);
   padding-left: 2rem;
 }
 
@@ -225,11 +225,11 @@
 ::-webkit-scrollbar { width: 9px; }
 ::-webkit-scrollbar-track { background: var(--bg-canvas); }
 ::-webkit-scrollbar-thumb {
-  background: rgba(100, 85, 70, 0.28);
+  background: rgba(130, 157, 187, 0.45);
   border-radius: 999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(100, 85, 70, 0.45);
+  background: rgba(83, 111, 145, 0.65);
 }
 
 /* ══════════════════════════════════════════════════════════════════════
@@ -293,20 +293,31 @@ html.dark textarea::placeholder {
 /* ── Universal Palette Translations in Dark Mode ── */
 .dark .bg-\[\#e2d4c0\],
 .dark .bg-\[\#e2d4c0\]\/90,
-.dark .bg-\[\#e2d4c0\]\/95 {
+.dark .bg-\[\#e2d4c0\]\/95,
+.dark .bg-\[\#F6F9FC\]\/90,
+.dark .bg-\[\#F6F9FC\]\/95,
+.dark .bg-\[\#F2F6FA\]\/90,
+.dark .bg-\[\#F2F6FA\]\/95 {
   background-color: rgba(37, 38, 41, 0.95) !important;
 }
 
 .dark .bg-\[\#e4d5c2\],
-.dark .bg-\[\#ded0bb\] {
+.dark .bg-\[\#ded0bb\],
+.dark .bg-\[\#F4F8FC\],
+.dark .bg-\[\#F6F9FC\] {
   background-color: #202124 !important;
 }
 
-.dark .bg-\[\#ece1cf\] {
+.dark .bg-\[\#ece1cf\],
+.dark .bg-\[\#EAF0F6\] {
   background-color: #2B2D30 !important;
 }
 
-.dark .bg-\[\#f7f1e6\] {
+.dark .bg-\[\#f7f1e6\],
+.dark .bg-\[\#f2e8d8\],
+.dark .bg-\[\#fbf7f0\],
+.dark .bg-\[\#F8FBFE\],
+.dark .bg-\[\#D4E1EF\] {
   background-color: #323438 !important;
 }
 
@@ -314,49 +325,52 @@ html.dark textarea::placeholder {
   background-color: #202124 !important;
 }
 
-.dark .bg-\[\#f2e8d8\],
-.dark .bg-\[\#fbf7f0\] {
-  background-color: #323438 !important;
-}
-
 .dark .border-\[rgba\(100\,85\,70\,0\.14\)\],
 .dark .border-\[rgba\(100\,85\,70\,0\.18\)\],
 .dark .border-\[rgba\(100\,85\,70\,0\.20\)\],
 .dark .border-\[rgba\(100\,85\,70\,0\.22\)\],
 .dark .border-\[rgba\(100\,85\,70\,0\.24\)\],
-.dark .border-\[rgba\(100\,85\,70\,0\.32\)\] {
+.dark .border-\[rgba\(100\,85\,70\,0\.32\)\],
+.dark .border-\[\#829DBB\]\/25,
+.dark .border-\[\#829DBB\]\/30,
+.dark .border-\[\#829DBB\]\/35,
+.dark .border-\[\#829DBB\]\/40,
+.dark .border-\[\#829DBB\]\/45,
+.dark .border-\[\#829DBB\]\/50 {
   border-color: #3B3D41 !important;
 }
 
-.dark .text-\[\#121110\] {
+.dark .text-\[\#121110\],
+.dark .text-\[\#1D344F\] {
   color: #F2F0ED !important;
 }
 
-.dark .text-\[\#2d2b28\] {
+.dark .text-\[\#2d2b28\],
+.dark .text-\[\#29405B\] {
   color: #B5B3B0 !important;
 }
 
-.dark .text-\[\#6b6459\] {
-  color: #898A89 !important;
-}
-
+.dark .text-\[\#6b6459\],
 .dark .text-\[\#8c8273\] {
   color: #898A89 !important;
 }
 
+.dark .text-\[\#536F91\],
 .dark .text-\[\#2d508a\] {
-  color: #F14666 !important;
+  color: #EE9590 !important;
 }
 
 .dark .text-\[\#913433\] {
   color: #EE9590 !important;
 }
 
-.dark .hover\:text-\[\#121110\]:hover {
+.dark .hover\:text-\[\#121110\]:hover,
+.dark .hover\:text-\[\#1D344F\]:hover {
   color: #F2F0ED !important;
 }
 
-.dark .hover\:text-\[\#2d508a\]:hover {
+.dark .hover\:text-\[\#2d508a\]:hover,
+.dark .hover\:text-\[\#536F91\]:hover {
   color: #F14666 !important;
 }
 
@@ -364,7 +378,10 @@ html.dark textarea::placeholder {
   color: #EE9590 !important;
 }
 
-.dark .hover\:bg-\[rgba\(45\,80\,138\,0\.08\)\]:hover {
+.dark .hover\:bg-\[rgba\(45\,80\,138\,0\.08\)\]:hover,
+.dark .hover\:bg-\[\#D4E1EF\]\/55:hover,
+.dark .hover\:bg-\[\#D4E1EF\]\/65:hover,
+.dark .hover\:bg-\[\#D4E1EF\]:hover {
   background-color: #323438 !important;
 }
 

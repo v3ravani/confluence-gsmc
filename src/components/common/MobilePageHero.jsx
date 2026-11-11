@@ -67,7 +67,7 @@ function DnaHelixTile() {
 
 export default function MobilePageHero({ title }) {
   return (
-    <div className="md:hidden relative bg-[#2d508a] dark:bg-[#252629] w-full pt-6 pb-11 px-5 text-white overflow-hidden shadow-md mb-7 border-b border-[#203c6b] dark:border-[#3B3D41]">
+    <div className="md:hidden relative bg-[#1D344F] dark:bg-[#252629] w-full pt-6 pb-11 px-5 text-white overflow-hidden shadow-md mb-7 border-b border-[#536F91]/40 dark:border-[#3B3D41]">
       {/* Animated Diagonal DNA Double-Helix Visual (replaces bubble circles) */}
       <div
         aria-hidden="true"

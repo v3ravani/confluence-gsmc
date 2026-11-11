@@ -11,13 +11,13 @@ export default function HostSection() {
   ];
 
   return (
-    <section className="pt-16 pb-14 border-t border-[rgba(100,85,70,0.18)] dark:border-[#3B3D41]">
+    <section className="pt-16 pb-14 border-t border-[#829DBB]/30 dark:border-[#3B3D41]">
       {/* Eyebrow & Title */}
       <div className="mb-10">
         <span className="text-[12px] font-semibold tracking-[0.22em] uppercase text-[var(--accent-crimson)] mb-2 block">
           {hostInfo.eyebrow}
         </span>
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-heading font-extrabold text-[#121110] dark:text-[#F2F0ED] tracking-tight leading-tight mb-2">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-heading font-extrabold text-[#1D344F] dark:text-[#F2F0ED] tracking-tight leading-tight mb-2">
           {hostInfo.title}
         </h2>
         <div className="flex flex-wrap items-center gap-2 text-xs sm:text-sm font-semibold tracking-[0.16em] uppercase text-[var(--muted)]">
@@ -35,7 +35,7 @@ export default function HostSection() {
         {/* Paragraphs from brochure */}
         <div className="lg:col-span-7 space-y-5 text-[var(--ink-2)] text-base md:text-[16.5px] leading-relaxed">
           {hostInfo.paragraphs.map((p, idx) => (
-            <p key={idx} className={idx === 0 ? 'text-[#121110] dark:text-[#F2F0ED] font-semibold' : ''}>
+            <p key={idx} className={idx === 0 ? 'text-[#1D344F] dark:text-[#F2F0ED] font-semibold' : ''}>
               {p}
             </p>
           ))}
@@ -45,13 +45,13 @@ export default function HostSection() {
             {hostInfo.stats.map((s, idx) => (
               <div
                 key={s.label}
-                className="card-glass p-4 rounded-xl border border-[rgba(100,85,70,0.20)] dark:border-[#3B3D41] bg-[#ece1cf] dark:bg-[#2B2D30] flex items-start gap-3.5 shadow-sm"
+                className="card-glass p-4 rounded-xl border border-[#829DBB]/40 dark:border-[#3B3D41] bg-[#EAF0F6] dark:bg-[#2B2D30] flex items-start gap-3.5 shadow-sm"
               >
-                <div className="p-2 rounded-lg bg-[#f7f1e6] dark:bg-[#323438] flex-shrink-0 mt-0.5 border border-[rgba(100,85,70,0.14)] dark:border-[#3B3D41]">
+                <div className="p-2 rounded-lg bg-[#D4E1EF]/80 dark:bg-[#323438] flex-shrink-0 mt-0.5 border border-[#829DBB]/35 dark:border-[#3B3D41]">
                   {statIcons[idx % statIcons.length]}
                 </div>
                 <div>
-                  <b className="block text-[#121110] dark:text-[#F2F0ED] font-heading font-bold text-base leading-tight">
+                  <b className="block text-[#1D344F] dark:text-[#F2F0ED] font-heading font-bold text-base leading-tight">
                     {s.value}
                   </b>
                   <span className="block text-xs font-bold text-[var(--accent-blue)] tracking-wide uppercase mt-0.5">
@@ -69,7 +69,7 @@ export default function HostSection() {
         {/* Featured Campus Photo Card on Right */}
         <div className="lg:col-span-5 w-full">
           <div className="card-glass p-3.5 rounded-2xl overflow-hidden group shadow-sm">
-            <div className="relative aspect-[4/3] rounded-xl overflow-hidden mb-3.5 bg-[#ded2c0] dark:bg-[#323438]">
+            <div className="relative aspect-[4/3] rounded-xl overflow-hidden mb-3.5 bg-[#D4E1EF] dark:bg-[#323438]">
               <img
                 src={hostInfo.campusPhotos[0].src}
                 alt={hostInfo.campusPhotos[0].alt}
@@ -77,7 +77,7 @@ export default function HostSection() {
                 loading="lazy"
               />
             </div>
-            <h4 className="font-heading font-bold text-[#121110] dark:text-[#F2F0ED] text-sm sm:text-base leading-snug px-1 mb-1">
+            <h4 className="font-heading font-bold text-[#1D344F] dark:text-[#F2F0ED] text-sm sm:text-base leading-snug px-1 mb-1">
               {hostInfo.campusPhotos[0].title}
             </h4>
             <p className="text-xs text-[var(--muted)] px-1 leading-relaxed">

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTheme } from '../../context/ThemeContext';
 import dnaRingImg from '../../assets/logos/confluence_dna_ring.png';
 import bulbBrainImg from '../../assets/logos/confluence_bulb_brain.png';
 import heroDnaColored from '../../assets/logos/hero_dna_colored.png';
@@ -10,6 +11,7 @@ export default function BrainWatermark({
   isMobile = false,
 }) {
   const [isHovered, setIsHovered] = useState(false);
+  const { isDark } = useTheme();
 
   // Background watermark mode (fixed in place at center of viewport, calm slow rotation)
   if (mode === 'watermark') {
@@ -48,8 +50,12 @@ export default function BrainWatermark({
         className="absolute inset-[-14%] rounded-full pointer-events-none transition-all duration-700 ease-out"
         style={{
           background: isHovered
-            ? 'radial-gradient(circle, rgba(226, 185, 111, 0.45) 0%, rgba(226, 185, 111, 0.22) 40%, rgba(197, 139, 120, 0.08) 60%, transparent 75%)'
-            : 'radial-gradient(circle, rgba(226, 185, 111, 0.14) 0%, rgba(167, 123, 72, 0.06) 45%, transparent 70%)',
+            ? isDark
+              ? 'radial-gradient(circle, rgba(226, 185, 111, 0.45) 0%, rgba(226, 185, 111, 0.22) 40%, rgba(197, 139, 120, 0.08) 60%, transparent 75%)'
+              : 'radial-gradient(circle, rgba(130, 157, 187, 0.45) 0%, rgba(212, 225, 239, 0.35) 42%, rgba(234, 240, 246, 0.14) 65%, transparent 78%)'
+            : isDark
+              ? 'radial-gradient(circle, rgba(226, 185, 111, 0.14) 0%, rgba(167, 123, 72, 0.06) 45%, transparent 70%)'
+              : 'radial-gradient(circle, rgba(130, 157, 187, 0.28) 0%, rgba(212, 225, 239, 0.18) 48%, transparent 74%)',
           transform: isHovered ? 'scale(1.08)' : 'scale(1)',
           opacity: isHovered ? 1 : 0.80,
         }}
@@ -63,7 +69,12 @@ export default function BrainWatermark({
         <img
           src={heroDnaColored}
           alt="CONFLUENCE DNA Ring"
-          className="w-full h-full object-contain opacity-95 drop-shadow-[0_4px_16px_rgba(167,123,72,0.25)]"
+          className="w-full h-full object-contain opacity-95 transition-all duration-500"
+          style={{
+            filter: isDark
+              ? 'drop-shadow(0 4px 16px rgba(167,123,72,0.25))'
+              : 'hue-rotate(182deg) saturate(0.82) contrast(1.05) drop-shadow(0 6px 20px rgba(83,111,145,0.28))',
+          }}
           loading="eager"
         />
       </div>
@@ -82,9 +93,13 @@ export default function BrainWatermark({
           alt="CONFLUENCE Brain & Lightbulb"
           className="w-full h-full object-contain transition-all duration-500 ease-out"
           style={{
-            filter: isHovered
-              ? 'drop-shadow(0 0 24px rgba(226, 185, 111, 0.90)) drop-shadow(0 0 45px rgba(226, 185, 111, 0.45))'
-              : 'drop-shadow(0 4px 12px rgba(150, 115, 79, 0.30))',
+            filter: isDark
+              ? isHovered
+                ? 'drop-shadow(0 0 24px rgba(226, 185, 111, 0.90)) drop-shadow(0 0 45px rgba(226, 185, 111, 0.45))'
+                : 'drop-shadow(0 4px 12px rgba(150, 115, 79, 0.30))'
+              : isHovered
+                ? 'hue-rotate(182deg) saturate(0.85) drop-shadow(0 0 24px rgba(130, 157, 187, 0.90)) drop-shadow(0 0 45px rgba(83, 111, 145, 0.45))'
+                : 'hue-rotate(182deg) saturate(0.82) drop-shadow(0 4px 14px rgba(83, 111, 145, 0.32))',
           }}
           loading="eager"
         />

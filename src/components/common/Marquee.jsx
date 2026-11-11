@@ -17,7 +17,7 @@ export default function Marquee({
 
   return (
     <div
-      className={`relative w-full overflow-hidden bg-[#2d508a] border-y border-[#203c6b] py-3.5 select-none pointer-events-none ${className}`}
+      className={`relative w-full overflow-hidden bg-[#1D344F] dark:bg-[#2d508a] border-y border-[#536F91]/40 dark:border-[#203c6b] py-3.5 select-none pointer-events-none ${className}`}
       aria-hidden="true"
     >
       <div className="flex w-max animate-marquee space-x-8">
