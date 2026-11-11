@@ -9,8 +9,8 @@ export default function Footer() {
   const year = 2026;
 
   return (
-    <footer className="relative bg-[#1a3158] pt-16 pb-10 text-white
-                       border-t border-[rgba(100,85,70,0.22)] overflow-hidden">
+    <footer className="relative bg-[#1a3158] rounded-t-[36px] sm:rounded-t-[48px] md:rounded-t-[60px] pt-16 pb-10 text-white
+                       border-t border-white/10 shadow-[0_-8px_32px_rgba(26,49,88,0.20)] overflow-hidden">
       {/* Large decorative watermark anchored cleanly at bottom */}
       <div
         aria-hidden="true"

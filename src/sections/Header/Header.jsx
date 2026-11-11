@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Menu, X } from 'lucide-react';
+import { Menu } from 'lucide-react';
 import Navigation from '../../components/navigation/Navigation';
 import MobileDrawer from '../../components/navigation/MobileDrawer';
 import { headerBrand } from '../../data/navigation';
@@ -9,11 +9,25 @@ import gsmcCrest from '../../assets/logos/gsmc_crest.png';
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      setScrolled(scrollY > 20);
+
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      if (docHeight > 0) {
+        const progress = Math.min(100, Math.max(0, (scrollY / docHeight) * 100));
+        setScrollProgress(progress);
+      } else {
+        setScrollProgress(0);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
@@ -69,6 +83,14 @@ export default function Header() {
         >
           <Menu className="w-5 h-5 text-[#121110]" />
         </button>
+      </div>
+
+      {/* Thin Red Scroll Progress Indicator Line on Bottom Border */}
+      <div className="absolute bottom-0 left-0 w-full h-[2px] bg-transparent pointer-events-none overflow-hidden">
+        <div
+          className="h-full bg-[#913433] transition-[width] duration-75 ease-out"
+          style={{ width: `${scrollProgress}%` }}
+        />
       </div>
 
       {/* Mobile Drawer */}

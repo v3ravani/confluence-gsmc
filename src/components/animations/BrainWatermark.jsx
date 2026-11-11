@@ -76,7 +76,6 @@ export default function BrainWatermark({
         style={{
           transform: isHovered ? 'scale(1.04)' : 'scale(1)',
         }}
-        title="CONFLUENCE 2026: Convergence of Medical Knowledge & Research"
       >
         <img
           src={heroBulbColored}
@@ -89,13 +88,6 @@ export default function BrainWatermark({
           }}
           loading="eager"
         />
-
-        {/* Hover tip badge */}
-        {isHovered && !isMobile && (
-          <div className="absolute -bottom-7 px-3 py-1 rounded-full bg-[#fbf7f0] border border-[#E2B96F]/70 text-[#96734F] text-xs font-bold shadow-md pointer-events-none whitespace-nowrap animate-fadeIn">
-            ✦ CONFLUENCE 2026
-          </div>
-        )}
       </div>
     </div>
   );
