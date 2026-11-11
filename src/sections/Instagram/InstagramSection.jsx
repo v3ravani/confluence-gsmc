@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { motion, useInView, useReducedMotion } from 'framer-motion';
-import { Instagram, ArrowUpRight, ExternalLink } from 'lucide-react';
+import { Instagram, ArrowUpRight } from 'lucide-react';
 import { instagramConfig } from '../../data/collaborators';
 
 function PostPlaceholder({ post, index }) {
@@ -56,16 +56,6 @@ export default function InstagramSection() {
             animate={headingView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
           >
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full
-                            border border-[rgba(145,52,51,0.25)]
-                            bg-[#faebe8] mb-6">
-              <Instagram className="w-4 h-4 text-[var(--accent-crimson)]" />
-              <span className="text-[11px] font-semibold tracking-[0.18em] uppercase
-                               text-[var(--accent-crimson)]">
-                {instagramConfig.handle}
-              </span>
-            </div>
-
             <h2 className="text-3xl sm:text-4xl font-heading font-extrabold text-[#121110]
                            tracking-tight leading-tight mb-4">
               {instagramConfig.heading}
@@ -97,18 +87,6 @@ export default function InstagramSection() {
               {instagramConfig.placeholderPosts.map((post, idx) => (
                 <PostPlaceholder key={post.id} post={post} index={idx} />
               ))}
-            </div>
-            <div className="mt-4 flex items-center justify-end gap-1.5">
-              <a
-                href={instagramConfig.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-xs
-                           text-[var(--dusty-400)] hover:text-white transition-colors"
-              >
-                <ExternalLink className="w-3 h-3" />
-                {instagramConfig.handle}
-              </a>
             </div>
           </div>
         </div>

@@ -103,30 +103,13 @@ export default function Hero() {
           {/* ── LEFT: Text hierarchy + date boxes + intro + buttons (7 cols on desktop, full width on mobile) ── */}
           <div className="lg:col-span-7 flex flex-col items-start relative z-10">
 
-            {/* 1. CONFLUENCE — primary and most prominent heading with thin curvy yellow underline */}
+            {/* 1. CONFLUENCE — primary and most prominent heading */}
             <motion.h1
               {...fadeUp(0)}
               className="font-heading font-black uppercase tracking-tight leading-none
-                         text-[clamp(44px,8.5vw,96px)] text-[#121110] mb-3 relative inline-block"
+                         text-[clamp(44px,8.5vw,96px)] text-[#121110] mb-2"
             >
-              <span className="relative inline-block">
-                CONFLUENCE
-                {/* Thin curvy yellow underline */}
-                <svg
-                  className="absolute -bottom-2 sm:-bottom-3.5 left-0 w-full h-3 sm:h-4.5 overflow-visible pointer-events-none"
-                  viewBox="0 0 320 20"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  aria-hidden="true"
-                >
-                  <path
-                    d="M 3 14 C 85 4, 195 19, 317 10"
-                    stroke="#E2B96F"
-                    strokeWidth="3.2"
-                    strokeLinecap="round"
-                  />
-                </svg>
-              </span>
+              CONFLUENCE
             </motion.h1>
 
             {/* 2. College Name — clean spaced caps typography hierarchy */}
