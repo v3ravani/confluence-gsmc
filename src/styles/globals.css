@@ -166,8 +166,12 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .carousel-track {
-    animation: none;
+  .carousel-track,
+  .animate-bubble-primary,
+  .animate-bubble-secondary,
+  .animate-touch-burst,
+  .animate-touch-dot {
+    animation: none !important;
   }
 }
 
@@ -365,5 +369,130 @@ html.dark textarea::placeholder {
 .dark .card-glass:hover {
   border-color: #F14666 !important;
   box-shadow: 0 16px 36px -12px rgba(0, 0, 0, 0.65) !important;
+}
+
+/* ── Mobile Interactions: Horizontal Scroll & Card Stacking ── */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.touch-pan-x {
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-x;
+}
+
+.mobile-stack-card {
+  box-shadow: 0 -6px 20px -2px rgba(0, 0, 0, 0.14), 0 12px 28px -6px rgba(0, 0, 0, 0.22);
+}
+.dark .mobile-stack-card {
+  box-shadow: 0 -8px 24px -4px rgba(0, 0, 0, 0.45), 0 16px 36px -8px rgba(0, 0, 0, 0.65);
+}
+
+/* ── Event Card Blue Header Floating Bubbles Animation ── */
+@keyframes float-bubble-primary {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  25% {
+    transform: translate3d(-7px, -6px, 0) scale(1.04);
+  }
+  50% {
+    transform: translate3d(5px, -9px, 0) scale(0.97);
+  }
+  75% {
+    transform: translate3d(-4px, 5px, 0) scale(1.03);
+  }
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+@keyframes float-bubble-secondary {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  25% {
+    transform: translate3d(6px, 5px, 0) scale(0.96);
+  }
+  50% {
+    transform: translate3d(-5px, 8px, 0) scale(1.04);
+  }
+  75% {
+    transform: translate3d(4px, -4px, 0) scale(0.98);
+  }
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+.animate-bubble-primary {
+  animation: float-bubble-primary 9s ease-in-out infinite;
+  will-change: transform;
+}
+
+.animate-bubble-secondary {
+  animation: float-bubble-secondary 12s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* ── Custom Cursor & Interactive Touch Indicator ── */
+html.custom-cursor-active,
+html.custom-cursor-active body,
+html.custom-cursor-active #root,
+html.custom-cursor-active *,
+html.custom-cursor-active *::before,
+html.custom-cursor-active *::after,
+html.custom-cursor-active a,
+html.custom-cursor-active button,
+html.custom-cursor-active input,
+html.custom-cursor-active select,
+html.custom-cursor-active textarea,
+html.custom-cursor-active label,
+html.custom-cursor-active [role="button"],
+html.custom-cursor-active .cursor-pointer {
+  cursor: none !important;
+}
+
+@keyframes touch-burst {
+  0% {
+    transform: scale(0.4);
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+}
+
+@keyframes touch-dot {
+  0% {
+    transform: scale(0.8);
+    opacity: 1;
+  }
+  35% {
+    transform: scale(1.35);
+    opacity: 0.95;
+  }
+  100% {
+    transform: scale(0.6);
+    opacity: 0;
+  }
+}
+
+.animate-touch-burst {
+  animation: touch-burst 0.48s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: transform, opacity;
+}
+
+.animate-touch-dot {
+  animation: touch-dot 0.48s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: transform, opacity;
 }
 

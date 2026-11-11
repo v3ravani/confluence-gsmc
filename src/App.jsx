@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
+import CustomCursor from './components/common/CustomCursor';
 import SplashScreen from './components/common/SplashScreen';
 import Header from './sections/Header/Header';
 import Footer from './sections/Footer/Footer';
@@ -18,6 +19,7 @@ export default function App() {
 
   return (
     <>
+      <CustomCursor />
       <AnimatePresence>
         {showSplash && (
           <SplashScreen onComplete={() => setShowSplash(false)} />

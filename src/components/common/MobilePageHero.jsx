@@ -4,11 +4,22 @@ import { ArrowLeft } from 'lucide-react';
 
 export default function MobilePageHero({ title }) {
   return (
+export default function MobilePageHero({ title }) {
+  return (
     <div className="md:hidden relative bg-[#2d508a] dark:bg-[#252629] w-full pt-6 pb-11 px-5 text-white overflow-hidden shadow-md mb-7 border-b border-[#203c6b] dark:border-[#3B3D41]">
-      {/* Decorative background curves */}
-      <div className="absolute -right-10 -bottom-12 w-48 h-48 rounded-full bg-white/10 pointer-events-none" />
-      <div className="absolute right-20 -top-10 w-32 h-32 rounded-full bg-white/5 pointer-events-none" />
-      <div className="absolute -left-12 -bottom-10 w-36 h-36 rounded-full bg-white/5 pointer-events-none" />
+      {/* Decorative background curves — smooth organic floating blue bubble animations */}
+      <div
+        className="absolute -right-10 -bottom-12 w-48 h-48 rounded-full bg-white/10 pointer-events-none animate-bubble-primary"
+        style={{ animationDuration: '9.5s' }}
+      />
+      <div
+        className="absolute right-20 -top-10 w-32 h-32 rounded-full bg-white/5 pointer-events-none animate-bubble-secondary"
+        style={{ animationDuration: '12s', animationDelay: '-2s' }}
+      />
+      <div
+        className="absolute -left-12 -bottom-10 w-36 h-36 rounded-full bg-white/5 pointer-events-none animate-bubble-primary"
+        style={{ animationDuration: '13.5s', animationDelay: '-5s' }}
+      />
 
       {/* Top row: small back to home in grey on left */}
       <div className="relative z-10 flex items-center justify-between mb-5">

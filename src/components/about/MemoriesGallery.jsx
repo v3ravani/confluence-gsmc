@@ -63,8 +63,8 @@ export default function MemoriesGallery() {
         </p>
       </div>
 
-      {/* Responsive Gallery Grid — Clean image cards with subtle hover animation */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-5">
+      {/* ── DESKTOP GALLERY GRID (≥ sm: clean responsive grid unchanged) ── */}
+      <div className="hidden sm:grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-5">
         {memoriesGallery.map((photo, idx) => {
           const isFeatured = photo.featured;
 
@@ -85,6 +85,69 @@ export default function MemoriesGallery() {
             </div>
           );
         })}
+      </div>
+
+      {/* ── MOBILE STACKING CARDS SCROLL GALLERY (< sm: progressive layered card stack) ── */}
+      <div className="sm:hidden relative pb-6">
+        {/* Mobile stack header count */}
+        <div className="flex items-center justify-end text-xs text-[#6b6459] dark:text-[#898A89] mb-4 px-1">
+          <span className="text-[11px] font-semibold text-[var(--accent-crimson)] dark:text-[#EE9590]">
+            {memoriesGallery.length} Memories
+          </span>
+        </div>
+
+        {/* Progressive Stacking Cards Deck */}
+        <div className="relative flex flex-col space-y-10">
+          {memoriesGallery.map((photo, idx) => {
+            const stickyTop = 74 + Math.min(idx, 4) * 8; // Layered 8px stepped top reveal
+            const zIndex = idx + 1;
+
+            return (
+              <div
+                key={photo.id}
+                style={{
+                  position: 'sticky',
+                  top: `${stickyTop}px`,
+                  zIndex: zIndex,
+                }}
+                onClick={() => openLightbox(idx)}
+                className="group rounded-2xl overflow-hidden cursor-pointer bg-[#ece1cf] dark:bg-[#2B2D30] border border-[rgba(100,85,70,0.24)] dark:border-[#3B3D41] mobile-stack-card transition-all duration-300"
+              >
+                {/* Card Top Label Bar */}
+                <div className="flex items-center gap-2 px-4 py-2.5 bg-[#e4d6c0] dark:bg-[#252629] border-b border-[rgba(100,85,70,0.16)] dark:border-[#3B3D41]">
+                  <span className="font-heading font-black text-xs text-[#913433] dark:text-[#F14666]">
+                    {String(idx + 1).padStart(2, '0')} / {String(memoriesGallery.length).padStart(2, '0')}
+                  </span>
+                  <span className="text-[10px] font-semibold tracking-wider uppercase text-[#6b6459] dark:text-[#898A89] truncate">
+                    {photo.tag || 'CONFLUENCE'}
+                  </span>
+                </div>
+
+                {/* Photo Frame (Preserves original 16:10 aspect ratio without distortion) */}
+                <div className="relative w-full aspect-[16/10] bg-[#ded2c0] dark:bg-[#1E2022] overflow-hidden">
+                  <img
+                    src={photo.src}
+                    alt={photo.title || 'CONFLUENCE memory'}
+                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"
+                    loading="lazy"
+                  />
+                </div>
+
+                {/* Card Bottom Caption */}
+                <div className="p-4 bg-[#ece1cf] dark:bg-[#2B2D30]">
+                  <h4 className="font-heading font-bold text-[#121110] dark:text-[#F2F0ED] text-sm leading-snug mb-1">
+                    {photo.title}
+                  </h4>
+                  {photo.caption && (
+                    <p className="text-xs text-[#6b6459] dark:text-[#B5B3B0] leading-relaxed line-clamp-2">
+                      {photo.caption}
+                    </p>
+                  )}
+                </div>
+              </div>
+            );
+          })}
+        </div>
       </div>
 
       {/* ── LIGHTBOX MODAL ─────────────────────────────────────────── */}
