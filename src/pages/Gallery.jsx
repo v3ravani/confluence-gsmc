@@ -136,13 +136,10 @@ export default function Gallery() {
                 onClick={() => openLightbox(idx)}
                 className="rounded-2xl sm:rounded-3xl overflow-hidden border border-[rgba(100,85,70,0.22)] dark:border-[#3B3D41] bg-[#ece1cf] dark:bg-[#2B2D30] shadow-[0_12px_36px_rgba(0,0,0,0.16)] dark:shadow-[0_12px_36px_rgba(0,0,0,0.55)] cursor-pointer active:scale-[0.98] transition-transform"
               >
-                {/* 1. Top Bar: Counter & Tag (Matching Inspo) */}
-                <div className="px-4 pt-3.5 pb-2.5 flex items-center gap-2">
+                {/* 1. Top Bar: Counter */}
+                <div className="px-4 pt-3.5 pb-2.5 flex items-center justify-between">
                   <span className="text-xs font-black tracking-wider text-[#913433] dark:text-[#F14666]">
                     {String(idx + 1).padStart(2, '0')}/{String(memoriesGallery.length).padStart(2, '0')}
-                  </span>
-                  <span className="text-[10.5px] font-bold tracking-[0.16em] uppercase text-[#6b6459] dark:text-[#898A89]">
-                    {photo.tag || 'CONFLUENCE'}
                   </span>
                 </div>
 
@@ -205,9 +202,6 @@ export default function Gallery() {
 
                 {/* Tile Content in Bottom Area */}
                 <div className="relative z-10 p-5 text-white flex flex-col justify-end">
-                  <span className="text-[10px] sm:text-[11px] font-bold tracking-[0.16em] uppercase text-[#FFCCAA] dark:text-[#EE9590] mb-1.5 inline-block">
-                    {photo.tag || 'CONFLUENCE Memory'}
-                  </span>
                   <h3 className="font-heading font-extrabold text-base sm:text-lg lg:text-xl text-white leading-snug drop-shadow-sm group-hover:text-white transition-colors">
                     {photo.title}
                   </h3>
@@ -236,14 +230,9 @@ export default function Gallery() {
             >
               {/* Top Bar with Counter & Close */}
               <div className="w-full flex items-center justify-between text-white/80 pb-3 mb-2 border-b border-white/10">
-                <div className="flex items-center gap-2">
-                  <span className="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-white/15 text-[#FFCCAA]">
-                    {memoriesGallery[selectedIdx].tag || 'Archive'}
-                  </span>
-                  <span className="text-xs text-white/60 font-medium tracking-wide">
-                    {selectedIdx + 1} / {memoriesGallery.length}
-                  </span>
-                </div>
+                <span className="text-xs text-white/70 font-semibold tracking-wide">
+                  {selectedIdx + 1} / {memoriesGallery.length}
+                </span>
 
                 <button
                   type="button"
