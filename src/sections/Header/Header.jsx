@@ -73,15 +73,15 @@ export default function Header() {
         {/* Desktop Navigation */}
         <Navigation />
 
-        {/* Mobile Hamburger Button */}
+        {/* Mobile Hamburger Button: No bg or border, slightly wider/thicker lines */}
         <button
           type="button"
           onClick={() => setMobileMenuOpen(true)}
-          className="lg:hidden p-2.5 rounded-xl text-[#121110] bg-[rgba(45,80,138,0.08)] hover:bg-[rgba(45,80,138,0.16)] border border-[rgba(100,85,70,0.22)] transition-all flex-shrink-0 ml-auto cursor-pointer focus-visible:outline-none"
+          className="lg:hidden p-1.5 text-[#121110] bg-transparent hover:opacity-75 transition-opacity flex-shrink-0 ml-auto cursor-pointer focus-visible:outline-none"
           aria-label="Open navigation menu"
           aria-expanded={mobileMenuOpen}
         >
-          <Menu className="w-5 h-5 text-[#121110]" />
+          <Menu className="w-6 h-6 text-[#121110]" strokeWidth={2.35} />
         </button>
       </div>
 
