@@ -4,17 +4,16 @@ import bulbBrainImg from '../../assets/logos/confluence_bulb_brain.png';
 
 export default function BrainWatermark({
   mode = 'hero',
-  position = 'absolute',
   className = '',
   isMobile = false,
 }) {
   const [isHovered, setIsHovered] = useState(false);
 
-  // Background watermark mode (strictly bounded to container, calm slow rotation)
+  // Background watermark mode (fixed in place at center of viewport, calm slow rotation)
   if (mode === 'watermark') {
     return (
       <div
-        className={`${position} inset-0 grid place-items-center pointer-events-none z-0 overflow-hidden ${className}`}
+        className={`fixed inset-0 grid place-items-center pointer-events-none z-0 overflow-hidden ${className}`}
         aria-hidden="true"
       >
         <div className="relative w-[min(70vmin,680px)] aspect-square opacity-[0.07] spin-smooth-slow">

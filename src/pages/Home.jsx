@@ -21,8 +21,8 @@ export default function Home() {
       <CategoryMarquee />
 
       {/* 3. Sections Below Marquee — rotating background watermark is ONLY visible here */}
-      <div className="relative overflow-hidden">
-        <BrainWatermark mode="watermark" position="absolute" />
+      <div className="relative">
+        <BrainWatermark mode="watermark" />
 
         <div className="relative z-10">
           {/* Browse — 4 clickable categories */}
