@@ -15,19 +15,19 @@ function PostPlaceholder({ post, index }) {
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.35, delay: index * 0.04, ease: [0.22, 1, 0.36, 1] }}
       className="aspect-square rounded-xl overflow-hidden
-                 border border-[rgba(196,216,232,0.14)]
-                 bg-[rgba(74,106,138,0.08)]
-                 hover:border-[rgba(196,216,232,0.32)] hover:bg-[rgba(74,106,138,0.16)]
-                 transition-all duration-300 group cursor-pointer
+                 border border-[rgba(100,85,70,0.20)]
+                 bg-[#ece1cf]
+                 hover:border-[var(--accent-crimson)] hover:bg-[#f7f1e6]
+                 transition-all duration-300 group cursor-pointer shadow-sm
                  flex flex-col items-center justify-center gap-2 p-3"
     >
-      <div className="w-8 h-8 rounded-full bg-[rgba(74,106,138,0.20)]
+      <div className="w-8 h-8 rounded-full bg-[#faebe8]
                       flex items-center justify-center mb-1
                       group-hover:scale-105 transition-transform">
-        <Instagram className="w-4 h-4 text-[var(--dusty-400)]" />
+        <Instagram className="w-4 h-4 text-[var(--accent-crimson)]" />
       </div>
       <span className="text-[10px] font-semibold text-[var(--muted)] text-center
-                       group-hover:text-[var(--dusty-200)] transition-colors leading-tight">
+                       group-hover:text-[var(--accent-crimson)] transition-colors leading-tight">
         {post.label}
       </span>
     </motion.div>
@@ -40,11 +40,11 @@ export default function InstagramSection() {
   const reduced     = useReducedMotion();
 
   return (
-    <section className="py-16 md:py-24 relative border-b border-white/[0.08] overflow-hidden">
+    <section className="py-16 md:py-24 relative border-b border-[rgba(100,85,70,0.18)] overflow-hidden">
       <div className="absolute top-1/2 right-10 w-80 h-80
-                      bg-[var(--blush-500)]/10 rounded-full blur-[120px] pointer-events-none" />
+                      bg-[var(--accent-crimson)]/5 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute bottom-0 left-10 w-56 h-56
-                      bg-[var(--dusty-600)]/16 rounded-full blur-[90px] pointer-events-none" />
+                      bg-[var(--accent-blue)]/5 rounded-full blur-[90px] pointer-events-none" />
 
       <div className="wrap relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -57,21 +57,21 @@ export default function InstagramSection() {
             transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
           >
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full
-                            border border-[rgba(196,144,154,0.35)]
-                            bg-[rgba(196,144,154,0.08)] mb-6">
-              <Instagram className="w-4 h-4 text-[var(--accent-blush)]" />
+                            border border-[rgba(145,52,51,0.25)]
+                            bg-[#faebe8] mb-6">
+              <Instagram className="w-4 h-4 text-[var(--accent-crimson)]" />
               <span className="text-[11px] font-semibold tracking-[0.18em] uppercase
-                               text-[var(--accent-blush)]">
+                               text-[var(--accent-crimson)]">
                 {instagramConfig.handle}
               </span>
             </div>
 
-            <h2 className="text-3xl sm:text-4xl font-heading font-extrabold text-white
+            <h2 className="text-3xl sm:text-4xl font-heading font-extrabold text-[#121110]
                            tracking-tight leading-tight mb-4">
               {instagramConfig.heading}
             </h2>
 
-            <p className="text-[var(--muted)] text-base leading-relaxed mb-8 max-w-md">
+            <p className="text-[var(--ink-2)] text-base leading-relaxed mb-8 max-w-md">
               {instagramConfig.subtext}
             </p>
 
@@ -81,9 +81,8 @@ export default function InstagramSection() {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full font-semibold
                          text-sm text-white
-                         bg-gradient-to-r from-[var(--blush-600)] to-[var(--blush-700)]
-                         hover:from-[var(--blush-500)] hover:to-[var(--blush-600)]
-                         hover:-translate-y-0.5 shadow-blush
+                         bg-[var(--accent-crimson)] hover:bg-[#7a2a29]
+                         hover:-translate-y-0.5 shadow-md
                          transition-all duration-250 group"
             >
               <Instagram className="w-4 h-4" />

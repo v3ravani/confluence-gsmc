@@ -4,13 +4,13 @@ import { registrationSteps } from '../../data/registration';
 
 function TimelineStep({ step, index, total }) {
   const ref     = useRef(null);
-  const inView  = useInView(ref, { once: true, margin: '-80px 0px' });
+  const inView  = useInView(ref, { once: false, margin: '-60px 0px -60px 0px' });
   const reduced = useReducedMotion();
 
   const variants = {
-    hidden:  { opacity: 0, y: reduced ? 0 : 10 },
+    hidden:  { opacity: 0.6, y: reduced ? 0 : 8 },
     visible: { opacity: 1, y: 0,
-      transition: { duration: 0.4, delay: index * 0.06, ease: [0.22, 1, 0.36, 1] } },
+      transition: { duration: 0.4, delay: index * 0.05, ease: [0.22, 1, 0.36, 1] } },
   };
 
   const isLast = index === total - 1;
@@ -26,35 +26,48 @@ function TimelineStep({ step, index, total }) {
       {/* Left: node + line */}
       <div className="flex flex-col items-center flex-shrink-0">
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={inView ? { opacity: 1 } : {}}
-          transition={{ duration: 0.3, delay: index * 0.06 }}
-          className="w-11 h-11 rounded-full border-2 border-[rgba(196,216,232,0.30)]
-                     bg-[rgba(74,106,138,0.12)] backdrop-blur-sm
-                     flex items-center justify-center z-10
-                     shadow-[0_0_14px_rgba(74,106,138,0.22)]"
+          animate={
+            inView
+              ? { backgroundColor: '#2d508a', borderColor: '#2d508a', scale: 1.05 }
+              : { backgroundColor: '#f7f1e6', borderColor: 'rgba(100,85,70,0.30)', scale: 1 }
+          }
+          transition={{ duration: 0.35, ease: 'easeOut' }}
+          className="w-11 h-11 rounded-full border-2 flex items-center justify-center z-10 shadow-sm"
         >
-          <span className="font-heading font-bold text-sm text-[var(--accent-blush)]">
+          <span
+            className={`font-heading font-extrabold text-sm transition-colors duration-300 ${
+              inView ? 'text-white' : 'text-[#6b6459]'
+            }`}
+          >
             {step.step}
           </span>
         </motion.div>
         {!isLast && (
-          <div className="w-px flex-1 mt-2
-                          bg-gradient-to-b from-[rgba(196,216,232,0.22)] to-[rgba(196,216,232,0.06)]
-                          min-h-[40px]" />
+          <div
+            className={`w-0.5 flex-1 mt-2 transition-colors duration-500 min-h-[44px] ${
+              inView ? 'bg-[#2d508a]/40' : 'bg-[rgba(100,85,70,0.18)]'
+            }`}
+          />
         )}
       </div>
 
       {/* Right: content */}
       <div className="flex-1 min-w-0 pb-8">
-        <span className="block text-[10px] font-semibold tracking-[0.22em] uppercase
-                         text-[var(--accent-blush)] mb-1.5">
-          Step {step.step}
+        <span
+          className={`block text-[10px] font-bold tracking-[0.22em] uppercase mb-1.5 transition-colors duration-300 ${
+            inView ? 'text-[#913433]' : 'text-[#6b6459]'
+          }`}
+        >
+          STEP {step.step}
         </span>
-        <h3 className="font-heading font-bold text-white text-base md:text-lg mb-2 leading-snug">
+        <h3
+          className={`font-heading font-extrabold text-base md:text-lg mb-2 leading-snug transition-colors duration-300 ${
+            inView ? 'text-[#121110]' : 'text-[#2d2b28]/80'
+          }`}
+        >
           {step.title}
         </h3>
-        <p className="text-sm text-[var(--muted)] leading-relaxed">
+        <p className="text-sm text-[#4a453e] leading-relaxed">
           {step.description}
         </p>
       </div>
@@ -68,12 +81,12 @@ export default function RegistrationRoadmap() {
   const reduced     = useReducedMotion();
 
   return (
-    <section id="registration" className="py-16 md:py-24 relative border-b border-white/[0.08] overflow-hidden">
+    <section id="registration" className="py-16 md:py-24 relative border-b border-[rgba(100,85,70,0.18)] overflow-hidden">
       {/* Ambient glows */}
       <div className="absolute top-1/4 right-0 w-72 h-72
-                      bg-[var(--dusty-600)]/16 rounded-full blur-[120px] pointer-events-none" />
+                      bg-[var(--accent-blue)]/5 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute bottom-10 left-0 w-56 h-56
-                      bg-[var(--blush-500)]/12 rounded-full blur-[90px] pointer-events-none" />
+                      bg-[var(--accent-crimson)]/5 rounded-full blur-[90px] pointer-events-none" />
 
       <div className="wrap relative z-10">
         {/* Heading */}
@@ -89,11 +102,9 @@ export default function RegistrationRoadmap() {
             Guidelines
           </span>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-heading font-extrabold
-                         text-white tracking-tight leading-tight mb-3">
+                         text-[#121110] tracking-tight leading-tight mb-3">
             How Registration{' '}
-            <span className="italic font-normal
-                             bg-gradient-to-r from-[var(--dusty-400)] to-[var(--blush-300)]
-                             bg-clip-text text-transparent">
+            <span className="italic font-normal text-[var(--accent-crimson)]">
               Works
             </span>
           </h2>
@@ -129,7 +140,7 @@ export default function RegistrationRoadmap() {
                                text-[var(--accent-blush)] block mb-3">
                 Important
               </span>
-              <h3 className="font-heading font-bold text-white text-lg mb-4 leading-snug">
+              <h3 className="font-heading font-bold text-[#121110] text-lg mb-4 leading-snug">
                 Each Event Has Its Own Registration Form
               </h3>
               <ul className="space-y-3 text-sm text-[var(--muted)] leading-relaxed">

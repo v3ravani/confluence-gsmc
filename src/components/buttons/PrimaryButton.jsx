@@ -13,10 +13,8 @@ export default function PrimaryButton({
 }) {
   const base = `inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full
     font-semibold text-[15px] text-white
-    bg-gradient-to-r from-[var(--dusty-600)] to-[var(--dusty-700)]
-    hover:from-[#5a7a9a] hover:to-[#3a5068]
-    shadow-[0_10px_24px_-10px_rgba(58,80,104,0.80)]
-    hover:shadow-[0_14px_28px_-10px_rgba(58,80,104,0.95)]
+    bg-[#2d508a] hover:bg-[#203c6b]
+    shadow-sm hover:shadow-md
     hover:-translate-y-0.5 active:translate-y-0
     transition-all duration-200 cursor-pointer
     disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none

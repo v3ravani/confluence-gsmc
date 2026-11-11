@@ -13,28 +13,28 @@ function LogoTile({ collab }) {
 
   return (
     <div
-      className="flex-shrink-0 flex flex-col items-center justify-center gap-2
-                 w-[160px] h-[88px] rounded-2xl
-                 border border-[rgba(196,216,232,0.14)]
-                 bg-[rgba(74,106,138,0.08)] hover:bg-[rgba(74,106,138,0.18)]
-                 backdrop-blur-sm transition-all duration-300 group px-4"
+      className="flex-shrink-0 flex flex-col items-center justify-center gap-3
+                 w-[160px] h-[160px] sm:w-[185px] sm:h-[185px] aspect-square rounded-2xl
+                 border border-[rgba(100,85,70,0.22)]
+                 bg-[#ece1cf] hover:bg-[#f7f1e6] hover:border-[#2d508a]
+                 transition-all duration-300 group p-5 sm:p-6 shadow-xs"
       title={collab.name}
     >
       {collab.logo ? (
         <img
           src={collab.logo}
           alt={collab.name}
-          className="max-h-10 max-w-[120px] object-contain opacity-70 group-hover:opacity-100 transition-opacity"
+          className="max-h-14 max-w-[120px] object-contain opacity-85 group-hover:opacity-100 transition-opacity"
         />
       ) : (
         <>
-          {/* Placeholder monogram until real logo is provided */}
-          <span className="font-heading font-extrabold text-xl text-[var(--dusty-400)]
-                           group-hover:text-white transition-colors">
+          {/* Large Square tile monogram */}
+          <span className="font-heading font-black text-3xl sm:text-4xl text-[#121110]
+                           group-hover:text-[#2d508a] transition-colors leading-none">
             {initials}
           </span>
-          <span className="text-[9px] font-semibold tracking-wider uppercase
-                           text-[var(--muted)] group-hover:text-[var(--dusty-200)]
+          <span className="text-[11px] sm:text-xs font-bold tracking-wider uppercase
+                           text-[#6b6459] group-hover:text-[#2d508a]
                            transition-colors text-center leading-tight line-clamp-2">
             {collab.category}
           </span>
@@ -55,7 +55,7 @@ export default function CollaboratorsCarousel() {
 
   return (
     <div
-      className="relative overflow-hidden w-full"
+      className="relative overflow-hidden w-full py-2"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
       // Touch support: handled via CSS animation pause
@@ -64,11 +64,11 @@ export default function CollaboratorsCarousel() {
       aria-label="Meet our collaborators"
       role="region"
     >
-      {/* Left & Right fade masks */}
-      <div className="absolute left-0 top-0 bottom-0 w-20 z-10 pointer-events-none
-                      bg-gradient-to-r from-[#162030] to-transparent" />
-      <div className="absolute right-0 top-0 bottom-0 w-20 z-10 pointer-events-none
-                      bg-gradient-to-l from-[#162030] to-transparent" />
+      {/* Left & Right fade masks merging seamlessly into #e2d4c0 canvas */}
+      <div className="absolute left-0 top-0 bottom-0 w-24 sm:w-36 z-10 pointer-events-none
+                      bg-gradient-to-r from-[#e2d4c0] via-[#e2d4c0]/85 to-transparent" />
+      <div className="absolute right-0 top-0 bottom-0 w-24 sm:w-36 z-10 pointer-events-none
+                      bg-gradient-to-l from-[#e2d4c0] via-[#e2d4c0]/85 to-transparent" />
 
       {/* Scrolling track */}
       <div

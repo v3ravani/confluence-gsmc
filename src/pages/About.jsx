@@ -18,8 +18,8 @@ export default function About() {
         {/* Back */}
         <Link
           to="/"
-          className="inline-flex items-center gap-2 text-sm text-[var(--dusty-400)]
-                     hover:text-white transition-colors mb-10 group"
+          className="inline-flex items-center gap-2 text-sm text-[var(--accent-blue)]
+                     hover:text-[var(--accent-blue-hover)] transition-colors mb-10 group"
         >
           <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
           Back to Home
@@ -31,21 +31,21 @@ export default function About() {
           {/* Left — full description */}
           <div className="lg:col-span-8">
             <span className="text-[12px] font-semibold tracking-[0.22em] uppercase
-                             text-[var(--accent-blush)] mb-2 block">
+                             text-[var(--accent-crimson)] mb-2 block">
               The Conference
             </span>
-            <h1 className="text-4xl sm:text-5xl font-heading font-extrabold text-white
+            <h1 className="text-4xl sm:text-5xl font-heading font-extrabold text-[#121110]
                            tracking-tight leading-tight mb-2">
               CONFLUENCE
             </h1>
             <h2 className="text-xs sm:text-sm font-semibold tracking-[0.18em] uppercase
-                           text-[var(--dusty-400)] mb-8">
+                           text-[var(--muted)] mb-8">
               SETH GS MEDICAL COLLEGE & KING EDWARD VII MEMORIAL HOSPITAL
             </h2>
 
-            <div className="space-y-5 text-[var(--muted)] text-base md:text-[16.5px] leading-relaxed">
+            <div className="space-y-5 text-[var(--ink-2)] text-base md:text-[16.5px] leading-relaxed">
               <p>
-                Initiated in 2014, <b className="text-white font-semibold">CONFLUENCE 2026</b>, organised
+                Initiated in 2014, <b className="text-[#121110] font-semibold">CONFLUENCE 2026</b>, organised
                 by Seth GS Medical College and KEM Hospital in Mumbai, is a prestigious international
                 medical and research conference. Spanning five days, this event provides a platform for
                 academic exchange and exploration.
@@ -73,7 +73,7 @@ export default function About() {
                 ensuring inclusivity and an immersive experience for delegates across the country and
                 internationally.
               </p>
-              <p className="text-white font-medium">
+              <p className="text-[#121110] font-semibold">
                 CONFLUENCE 2026 is a remarkable convergence of medical knowledge, research, and
                 intellectual camaraderie, creating a lasting impact on all attendees.
               </p>
@@ -83,7 +83,7 @@ export default function About() {
           {/* Right — key info card */}
           <div className="lg:col-span-4 w-full">
             <div className="card-glass p-7 sticky top-24">
-              <div className="flex items-center gap-4 pb-6 border-b border-[rgba(196,216,232,0.12)] mb-6">
+              <div className="flex items-center gap-4 pb-6 border-b border-[rgba(100,85,70,0.18)] mb-6">
                 <img
                   src={gsmcCrest}
                   alt="Seth GSMC & KEMH Crest"
@@ -91,10 +91,10 @@ export default function About() {
                 />
                 <div>
                   <span className="text-[11px] font-semibold uppercase tracking-wider
-                                   text-[var(--dusty-400)] block">
+                                   text-[var(--accent-crimson)] block">
                     At a glance
                   </span>
-                  <h3 className="font-heading font-bold text-white text-base leading-tight">
+                  <h3 className="font-heading font-bold text-[#121110] text-base leading-tight">
                     Seth GSMC & KEMH
                   </h3>
                   <small className="text-[var(--muted)] text-xs">Parel, Mumbai, India</small>
@@ -103,45 +103,45 @@ export default function About() {
 
               <div className="space-y-4">
                 <div className="flex items-start gap-3">
-                  <Calendar className="w-4 h-4 text-[var(--dusty-400)] mt-0.5 flex-shrink-0" />
+                  <Calendar className="w-4 h-4 text-[var(--accent-blue)] mt-0.5 flex-shrink-0" />
                   <div>
                     <small className="text-[10px] text-[var(--muted)] block uppercase tracking-wider mb-0.5">
                       Pre-Conference
                     </small>
-                    <b className="font-heading font-semibold text-white text-sm">{conferenceInfo.preConferenceDates}</b>
+                    <b className="font-heading font-semibold text-[#121110] text-sm">{conferenceInfo.preConferenceDates}</b>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-3">
-                  <Calendar className="w-4 h-4 text-[var(--dusty-400)] mt-0.5 flex-shrink-0" />
+                  <Calendar className="w-4 h-4 text-[var(--accent-blue)] mt-0.5 flex-shrink-0" />
                   <div>
                     <small className="text-[10px] text-[var(--muted)] block uppercase tracking-wider mb-0.5">
                       Main Conference
                     </small>
-                    <b className="font-heading font-semibold text-white text-sm">{conferenceInfo.mainConferenceDates}</b>
+                    <b className="font-heading font-semibold text-[#121110] text-sm">{conferenceInfo.mainConferenceDates}</b>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-3">
-                  <MapPin className="w-4 h-4 text-[var(--dusty-400)] mt-0.5 flex-shrink-0" />
+                  <MapPin className="w-4 h-4 text-[var(--accent-blue)] mt-0.5 flex-shrink-0" />
                   <div>
                     <small className="text-[10px] text-[var(--muted)] block uppercase tracking-wider mb-0.5">
                       Venue
                     </small>
-                    <b className="font-heading font-semibold text-white text-sm">{conferenceInfo.venue}</b>
+                    <b className="font-heading font-semibold text-[#121110] text-sm">{conferenceInfo.venue}</b>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-3">
-                  <Users className="w-4 h-4 text-[var(--dusty-400)] mt-0.5 flex-shrink-0" />
+                  <Users className="w-4 h-4 text-[var(--accent-blue)] mt-0.5 flex-shrink-0" />
                   <div>
                     <small className="text-[10px] text-[var(--muted)] block uppercase tracking-wider mb-1">
                       Open To
                     </small>
-                    <ul className="text-white text-xs font-semibold space-y-1">
+                    <ul className="text-[#121110] text-xs font-semibold space-y-1">
                       {conferenceInfo.openToList.map(item => (
                         <li key={item} className="flex items-center gap-1.5">
-                          <span className="text-[var(--accent-blush)]">✦</span>
+                          <span className="text-[var(--accent-crimson)]">✦</span>
                           <span>{item}</span>
                         </li>
                       ))}
@@ -150,12 +150,12 @@ export default function About() {
                 </div>
               </div>
 
-              <div className="mt-6 pt-5 border-t border-[rgba(196,216,232,0.12)]">
+              <div className="mt-6 pt-5 border-t border-[rgba(100,85,70,0.18)]">
                 <span className="text-[11px] font-semibold uppercase tracking-wider
-                                 text-[var(--dusty-400)] block mb-1">
+                                 text-[var(--muted)] block mb-1">
                   Format
                 </span>
-                <b className="text-white text-sm font-semibold">Hybrid · Campus & Virtual</b>
+                <b className="text-[#121110] text-sm font-semibold">Hybrid · Campus & Virtual</b>
               </div>
             </div>
           </div>

@@ -1,63 +1,71 @@
 :root {
-  /* ── Dusty Blue ──────────────────────────────────── */
-  --dusty-900: #1e2d3d;
-  --dusty-800: #2b3f52;
-  --dusty-700: #3a5068;
-  --dusty-600: #4a6a8a;
-  --dusty-500: #6a8ba8;
-  --dusty-400: #8aaac4;
-  --dusty-200: #c4d8e8;
-  --dusty-100: #e4eff6;
+  /* ── Inspo Palette: Warm Off-White / Sand Base + Royal Blue + Heritage Crimson ── */
 
-  /* ── Sage Green ──────────────────────────────────── */
-  --sage-600: #7d8f72;
-  --sage-400: #a8b89e;
-  --sage-200: #cdd8c5;
+  /* ── Backgrounds (Warm Off-white / Cream / Sand) ── */
+  --bg-canvas:        #e2d4c0;   /* Primary warm canvas */
+  --bg-surface:       #ece1cf;   /* Card / container surface */
+  --bg-surface-light: #f7f1e6;   /* Lighter elevated card surface */
+  --bg-deep:          #e2d4c0;
+  --bg-dark:          #ece1cf;
+  --bg-mid:           #f7f1e6;
 
-  /* ── Vintage Pink / Blush ────────────────────────── */
-  --blush-700: #a06070;
-  --blush-600: #b87888;
-  --blush-500: #c4909a;
-  --blush-300: #ddb4be;
-  --blush-200: #eecdd4;
-  --blush-100: #f8eced;
+  /* ── Primary Accent: Deep Royal / Cobalt Blue ──── */
+  --accent-blue:       #2d508a;
+  --accent-blue-hover: #1e3b6d;
+  --accent-blue-light: rgba(45, 80, 138, 0.12);
+  --dusty-600:         #2d508a;   /* Primary Action Blue */
+  --dusty-700:         #203c6b;
+  --dusty-800:         #1a3158;
+  --dusty-900:         #121110;
+  --dusty-500:         #3f66a3;
+  --dusty-400:         #6b6459;   /* Muted subheadings */
+  --dusty-200:         #2d508a;
+  --dusty-100:         #f2e9dc;
 
-  /* ── Warm Cream ──────────────────────────────────── */
-  --cream:     #f5ede0;
-  --cream-50:  #faf5ef;
+  /* ── Secondary Accent: Heritage Crimson / Brick Red ── */
+  --accent-crimson: #913433;
+  --accent-blush:   #913433;   /* Eyebrows, highlights, prize tags */
+  --blush-700:      #7a2a29;
+  --blush-600:      #913433;
+  --blush-500:      #a83e3c;
+  --blush-300:      #df9b99;
+  --blush-200:      #faebe8;
+  --blush-100:      #fdf4f3;
 
-  /* ── Backgrounds ─────────────────────────────────── */
-  --bg-deep:   #0f1824;
-  --bg-dark:   #162030;
-  --bg-mid:    #1e2d3d;
+  /* ── Sage Green Accent ──────────────────────────── */
+  --sage-600: #5a7050;
+  --sage-400: #7b9470;
+  --sage-200: #d4e0ce;
+  --accent-sage: #5a7050;
+  --accent-sky:  #2d508a;
+  --teal:        #5a7050;
+  --gold:        #913433;
 
-  /* ── Typography ──────────────────────────────────── */
-  --ink:    #f0ebe2;
-  --ink-2:  #d8cfc0;
-  --muted:  #9ba8b5;
-  --line:   rgba(196, 216, 232, 0.20);
+  /* ── Warm Cream ─────────────────────────────────── */
+  --cream:    #ece1cf;
+  --cream-50: #fbf7f0;
+
+  /* ── Typography (High-Contrast Dark Charcoal on Off-white) ── */
+  --ink:    #121110;   /* Primary Headings / Strong text */
+  --ink-2:  #2d2b28;   /* Primary Body Text */
+  --muted:  #6b6459;   /* Secondary / Meta / Descriptions */
+  --line:   rgba(100, 85, 70, 0.18); /* Hairline warm borders */
+  --line-strong: rgba(100, 85, 70, 0.32);
   --white:  #ffffff;
 
-  /* ── Accents ─────────────────────────────────────── */
-  --accent-sage:  #7d8f72;
-  --accent-blush: #c4909a;
-  --accent-sky:   #c4d8e8;
-  --teal:         #7d8f72;
-  --gold:         #c4909a;
-
-  /* ── Glass surfaces ──────────────────────────────── */
-  --glass:       rgba(74, 106, 138, 0.10);
-  --glass-b:     rgba(196, 216, 232, 0.20);
-  --glass-hover: rgba(74, 106, 138, 0.18);
+  /* ── Surfaces & Glass ───────────────────────────── */
+  --glass:       #ece1cf;
+  --glass-b:     rgba(100, 85, 70, 0.18);
+  --glass-hover: #f2e8d8;
   --r:           18px;
   --r-pill:      9999px;
 
-  /* ── Shadows ─────────────────────────────────────── */
-  --shadow:      0 12px 32px -14px rgba(15, 24, 36, 0.65);
-  --shadow-lg:   0 28px 64px -22px rgba(15, 24, 36, 0.80);
-  --shadow-glow: 0 0 35px rgba(74, 106, 138, 0.45);
+  /* ── Shadows ────────────────────────────────────── */
+  --shadow:      0 8px 24px -8px rgba(70, 55, 40, 0.12);
+  --shadow-lg:   0 16px 36px -12px rgba(70, 55, 40, 0.18);
+  --shadow-glow: 0 0 28px rgba(45, 80, 138, 0.18);
 
-  /* ── Fonts ───────────────────────────────────────── */
+  /* ── Fonts ──────────────────────────────────────── */
   --font-h: 'Sora', system-ui, -apple-system, sans-serif;
   --font-b: 'Inter', system-ui, -apple-system, sans-serif;
 }

@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import dnaRingImg from '../../assets/logos/confluence_dna_ring.png';
 import bulbBrainImg from '../../assets/logos/confluence_bulb_brain.png';
+import heroDnaColored from '../../assets/logos/hero_dna_colored.png';
+import heroBulbColored from '../../assets/logos/hero_bulb_colored.png';
 
 export default function BrainWatermark({
   mode = 'hero',
@@ -16,7 +18,7 @@ export default function BrainWatermark({
         className={`fixed inset-0 grid place-items-center pointer-events-none z-0 overflow-hidden ${className}`}
         aria-hidden="true"
       >
-        <div className="relative w-[min(70vmin,680px)] aspect-square opacity-[0.07] spin-smooth-slow">
+        <div className="relative w-[min(70vmin,680px)] aspect-square opacity-[0.055] spin-smooth-slow brightness-0">
           <img
             src={dnaRingImg}
             alt=""
@@ -34,63 +36,63 @@ export default function BrainWatermark({
     );
   }
 
-  // Hero interactive & responsive mode
+  // Hero interactive & responsive mode with custom palette & warm golden radial hover glow
   return (
     <div
       className={`relative flex items-center justify-center aspect-square select-none ${
-        isMobile ? 'w-full h-full' : 'max-w-[460px] w-full'
+        isMobile ? 'w-full h-full' : 'max-w-[500px] xl:max-w-[530px] w-full'
       } ${className}`}
     >
-      {/* 1. Ambient static radial glow */}
+      {/* 1. Ambient static & hover warm golden radial glow (#E2B96F) */}
       <div
-        className="absolute inset-[-10%] rounded-full pointer-events-none transition-all duration-500 ease-out"
+        className="absolute inset-[-14%] rounded-full pointer-events-none transition-all duration-700 ease-out"
         style={{
           background: isHovered
-            ? 'radial-gradient(circle, rgba(120, 190, 255, 0.30) 0%, rgba(196, 144, 154, 0.18) 45%, transparent 70%)'
-            : 'radial-gradient(circle, rgba(94, 160, 240, 0.20) 0%, rgba(125, 143, 114, 0.10) 45%, transparent 70%)',
-          transform: isHovered ? 'scale(1.05)' : 'scale(1)',
-          opacity: isHovered ? 0.95 : 0.85,
+            ? 'radial-gradient(circle, rgba(226, 185, 111, 0.45) 0%, rgba(226, 185, 111, 0.22) 40%, rgba(197, 139, 120, 0.08) 60%, transparent 75%)'
+            : 'radial-gradient(circle, rgba(226, 185, 111, 0.14) 0%, rgba(167, 123, 72, 0.06) 45%, transparent 70%)',
+          transform: isHovered ? 'scale(1.08)' : 'scale(1)',
+          opacity: isHovered ? 1 : 0.80,
         }}
       />
 
-      {/* 2. Rotating Outer DNA Double-Helix Ring */}
+      {/* 2. Rotating Outer DNA Double-Helix Ring (Strand 1: #A66F77, Strand 2: #A77B48) */}
       <div
         className="absolute inset-0 w-full h-full pointer-events-none flex items-center justify-center spin-smooth"
         style={{ willChange: 'transform' }}
       >
         <img
-          src={dnaRingImg}
+          src={heroDnaColored}
           alt="CONFLUENCE DNA Ring"
-          className="w-full h-full object-contain opacity-90"
+          className="w-full h-full object-contain opacity-95 drop-shadow-[0_4px_16px_rgba(167,123,72,0.25)]"
           loading="eager"
         />
       </div>
 
-      {/* 3. Inner Lightbulb + Brain with gentle floating and subtle hover */}
+      {/* 3. Inner Lightbulb (#96734F) + Brain (#C58B78) with smooth golden radial illumination (#E2B96F) on hover */}
       <div
-        className="relative z-10 w-[72%] h-[72%] flex items-center justify-center cursor-pointer pointer-events-auto rounded-full float-smooth transition-transform duration-300"
+        className="relative z-10 w-[76%] h-[76%] flex items-center justify-center cursor-pointer pointer-events-auto rounded-full float-smooth transition-transform duration-300"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
         style={{
-          transform: isHovered ? 'scale(1.03)' : 'scale(1)',
+          transform: isHovered ? 'scale(1.04)' : 'scale(1)',
         }}
         title="CONFLUENCE 2026: Convergence of Medical Knowledge & Research"
       >
         <img
-          src={bulbBrainImg}
+          src={heroBulbColored}
           alt="CONFLUENCE Brain & Lightbulb"
-          className="w-full h-full object-contain transition-all duration-300"
+          className="w-full h-full object-contain transition-all duration-500 ease-out"
           style={{
             filter: isHovered
-              ? 'drop-shadow(0 0 16px rgba(120, 190, 255, 0.75)) brightness(1.15)'
-              : 'drop-shadow(0 0 10px rgba(120, 190, 255, 0.45))',
+              ? 'drop-shadow(0 0 24px rgba(226, 185, 111, 0.90)) drop-shadow(0 0 45px rgba(226, 185, 111, 0.45))'
+              : 'drop-shadow(0 4px 12px rgba(150, 115, 79, 0.30))',
           }}
           loading="eager"
         />
 
         {/* Hover tip badge */}
         {isHovered && !isMobile && (
-          <div className="absolute -bottom-7 px-3 py-1 rounded-full bg-[#162030]/95 border border-[rgba(196,216,232,0.30)] text-[var(--accent-blush)] text-xs font-semibold backdrop-blur-md shadow-lg pointer-events-none whitespace-nowrap animate-fadeIn">
+          <div className="absolute -bottom-7 px-3 py-1 rounded-full bg-[#fbf7f0] border border-[#E2B96F]/70 text-[#96734F] text-xs font-bold shadow-md pointer-events-none whitespace-nowrap animate-fadeIn">
             ✦ CONFLUENCE 2026
           </div>
         )}

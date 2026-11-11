@@ -9,9 +9,9 @@ export default function Collaborators() {
   const reduced = useReducedMotion();
 
   return (
-    <section className="py-16 md:py-24 relative border-b border-white/[0.08] overflow-hidden">
+    <section className="py-16 md:py-24 relative border-b border-[rgba(100,85,70,0.18)] overflow-hidden">
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-56
-                      bg-[var(--dusty-600)]/12 rounded-full blur-[100px] pointer-events-none" />
+                      bg-[var(--accent-blue)]/5 rounded-full blur-[100px] pointer-events-none" />
 
       <div className="wrap relative z-10">
         <SectionHeading

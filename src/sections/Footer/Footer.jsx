@@ -9,15 +9,15 @@ export default function Footer() {
   const year = 2026;
 
   return (
-    <footer className="relative bg-[#0f1824] pt-16 pb-10 text-white
-                       border-t border-[rgba(196,216,232,0.10)] overflow-hidden">
+    <footer className="relative bg-[#1a3158] pt-16 pb-10 text-white
+                       border-t border-[rgba(100,85,70,0.22)] overflow-hidden">
       {/* Large decorative watermark */}
       <div
         aria-hidden="true"
         className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden"
       >
         <span className="font-heading font-extrabold text-[clamp(80px,16vw,200px)]
-                         tracking-tighter text-white/[0.025] uppercase leading-none whitespace-nowrap">
+                         tracking-tighter text-white/[0.04] uppercase leading-none whitespace-nowrap">
           CONFLUENCE
         </span>
       </div>
@@ -25,7 +25,7 @@ export default function Footer() {
       <div className="wrap relative z-10">
         {/* ── Main grid ───────────────────────────────────────────── */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8
-                        pb-14 border-b border-[rgba(196,216,232,0.10)]">
+                        pb-14 border-b border-white/10">
 
           {/* Col 1 — Brand (4 cols) */}
           <div className="lg:col-span-4">
@@ -39,16 +39,16 @@ export default function Footer() {
                 <b className="font-heading font-extrabold text-lg text-white">
                   {headerBrand.title}
                 </b>
-                <span className="text-[9.5px] tracking-[0.14em] text-[var(--dusty-200)] uppercase mt-0.5">
+                <span className="text-[9.5px] tracking-[0.14em] text-white/80 uppercase mt-0.5">
                   {headerBrand.collegeLine1}
                 </span>
-                <span className="text-[9px] tracking-[0.12em] text-[var(--dusty-400)] uppercase">
+                <span className="text-[9px] tracking-[0.12em] text-white/60 uppercase">
                   {headerBrand.collegeLine2}
                 </span>
               </div>
             </Link>
 
-            <p className="text-[var(--muted)] text-sm leading-relaxed max-w-sm mb-5">
+            <p className="text-white/80 text-sm leading-relaxed max-w-sm mb-5">
               Premier international undergraduate medical and research conference
               organised by Seth GS Medical College &amp; King Edward VII Memorial Hospital, Mumbai.
             </p>
@@ -60,10 +60,10 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="CONFLUENCE on Instagram"
-                className="w-9 h-9 rounded-full border border-[rgba(196,216,232,0.18)]
-                           bg-[rgba(74,106,138,0.10)]
-                           flex items-center justify-center text-[var(--dusty-400)]
-                           hover:bg-[var(--blush-600)] hover:border-[var(--blush-600)]
+                className="w-9 h-9 rounded-full border border-white/20
+                           bg-white/10
+                           flex items-center justify-center text-white/90
+                           hover:bg-[var(--accent-crimson)] hover:border-[var(--accent-crimson)]
                            hover:text-white transition-all duration-250"
               >
                 <Instagram className="w-4 h-4" />
@@ -71,8 +71,8 @@ export default function Footer() {
             </div>
 
             <span className="inline-block mt-5 text-xs font-semibold px-3 py-1 rounded-full
-                             bg-[rgba(74,106,138,0.12)] text-[var(--dusty-200)]
-                             border border-[rgba(196,216,232,0.14)]">
+                             bg-white/10 text-white
+                             border border-white/20">
               ✦ Est. 2014 · Mumbai, India
             </span>
           </div>
@@ -82,7 +82,7 @@ export default function Footer() {
             <h4 className="font-heading font-bold text-white text-sm mb-4 tracking-tight uppercase">
               Explore
             </h4>
-            <div className="flex flex-col gap-2.5 text-sm text-[var(--dusty-200)]">
+            <div className="flex flex-col gap-2.5 text-sm text-white/80">
               {navLinks.map(link => (
                 <Link
                   key={link.path}
@@ -100,7 +100,7 @@ export default function Footer() {
             <h4 className="font-heading font-bold text-white text-sm mb-4 tracking-tight uppercase">
               Delegates
             </h4>
-            <div className="flex flex-col gap-2.5 text-sm text-[var(--dusty-200)]">
+            <div className="flex flex-col gap-2.5 text-sm text-white/80">
               <a
                 href="#registration"
                 className="hover:text-white hover:translate-x-1 transition-all duration-200"
@@ -123,7 +123,7 @@ export default function Footer() {
                 href={instagramConfig.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 text-[var(--dusty-400)]
+                className="inline-flex items-center gap-1 text-white/70
                            hover:text-white transition-colors"
               >
                 <span>Instagram</span>
@@ -137,9 +137,9 @@ export default function Footer() {
             <h4 className="font-heading font-bold text-white text-sm mb-4 tracking-tight uppercase">
               Contact &amp; Venue
             </h4>
-            <div className="flex flex-col gap-3 text-xs text-[var(--muted)]">
+            <div className="flex flex-col gap-3 text-xs text-white/80">
               <div className="flex items-start gap-2.5">
-                <MapPin className="w-4 h-4 text-[var(--dusty-400)] flex-shrink-0 mt-0.5" />
+                <MapPin className="w-4 h-4 text-white/60 flex-shrink-0 mt-0.5" />
                 <span>
                   Seth GS Medical College &amp; KEM Hospital,<br />
                   Acharya Donde Marg, Parel,<br />
@@ -147,16 +147,16 @@ export default function Footer() {
                 </span>
               </div>
               <div className="flex items-center gap-2.5">
-                <Mail className="w-4 h-4 text-[var(--dusty-400)] flex-shrink-0" />
+                <Mail className="w-4 h-4 text-white/60 flex-shrink-0" />
                 <a
                   href="mailto:confluence.gsmc@gmail.com"
-                  className="text-[var(--dusty-400)] hover:underline hover:text-white transition-colors"
+                  className="text-white/80 hover:underline hover:text-white transition-colors"
                 >
                   confluence.gsmc@gmail.com
                 </a>
               </div>
               <div className="flex items-center gap-2.5">
-                <Phone className="w-4 h-4 text-[var(--dusty-400)] flex-shrink-0" />
+                <Phone className="w-4 h-4 text-white/60 flex-shrink-0" />
                 <span>Secretariat: +91 22 2410 7000</span>
               </div>
             </div>
@@ -165,7 +165,7 @@ export default function Footer() {
 
         {/* ── Bottom bar ──────────────────────────────────────────── */}
         <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3
-                        text-xs text-[var(--muted)]">
+                        text-xs text-white/60">
           <span>
             © {year} CONFLUENCE · Seth GS Medical College &amp; KEM Hospital, Mumbai
           </span>

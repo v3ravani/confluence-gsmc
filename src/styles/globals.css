@@ -17,13 +17,12 @@
 
   body {
     font-family: var(--font-b);
-    color: var(--ink);
-    background-color: #162030;
+    color: var(--ink-2);
+    background-color: var(--bg-canvas);
     background-image:
-      radial-gradient(900px 600px at 85% -5%,  rgba(74, 106, 138, 0.55) 0%, transparent 60%),
-      radial-gradient(700px 700px at -5% 35%,  rgba(58, 80, 104, 0.45) 0%, transparent 55%),
-      radial-gradient(800px 700px at 65% 108%, rgba(125, 143, 114, 0.22) 0%, transparent 58%),
-      linear-gradient(180deg, #1e2d3d 0%, #162030 42%, #0f1824 100%);
+      radial-gradient(1000px 700px at 90% -5%, rgba(45, 80, 138, 0.05) 0%, transparent 60%),
+      radial-gradient(800px 800px at -5% 35%, rgba(145, 52, 51, 0.04) 0%, transparent 55%),
+      linear-gradient(180deg, #e4d5c2 0%, #e2d4c0 42%, #ded0bb 100%);
     background-attachment: fixed;
     line-height: 1.6;
     font-size: 16px;
@@ -33,13 +32,14 @@
 
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-h);
+    color: var(--ink);
     line-height: 1.15;
     letter-spacing: -0.02em;
     font-weight: 700;
   }
 
   :focus-visible {
-    outline: 3px solid var(--dusty-400);
+    outline: 3px solid var(--accent-blue);
     outline-offset: 2px;
     border-radius: 8px;
   }
@@ -51,21 +51,19 @@
   margin-inline: auto;
 }
 
-/* ── Glass Card ──────────────────────────────────────────── */
+/* ── Warm Inspo Surface Card ─────────────────────────────── */
 .card-glass {
-  background: var(--glass);
-  border: 1px solid var(--glass-b);
+  background: var(--bg-surface);
+  border: 1px solid var(--line);
   border-radius: var(--r);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
   box-shadow: var(--shadow);
-  transition: all 0.28s ease-in-out;
+  transition: all 0.25s ease-in-out;
 }
 
 .card-glass:hover {
-  transform: translateY(-4px);
-  border-color: rgba(196, 216, 232, 0.38);
-  box-shadow: var(--shadow-lg), 0 0 22px rgba(74, 106, 138, 0.28);
+  transform: translateY(-3px);
+  border-color: rgba(45, 80, 138, 0.32);
+  box-shadow: var(--shadow-lg);
 }
 
 /* ── Buttons ─────────────────────────────────────────────── */
@@ -85,34 +83,35 @@
 }
 
 .btn-primary-gradient {
-  background: linear-gradient(135deg, var(--dusty-600), var(--dusty-700));
+  background: var(--accent-blue);
   color: #ffffff;
-  box-shadow: 0 10px 24px -10px rgba(58, 80, 104, 0.80);
+  box-shadow: 0 8px 20px -8px rgba(45, 80, 138, 0.50);
 }
 
 .btn-primary-gradient:hover {
   transform: translateY(-2px);
-  box-shadow: 0 14px 28px -10px rgba(58, 80, 104, 0.95);
-  background: linear-gradient(135deg, #5a7a9a, #3a5068);
+  box-shadow: 0 12px 26px -8px rgba(45, 80, 138, 0.65);
+  background: var(--accent-blue-hover);
 }
 
 .btn-outline-glass {
-  background: rgba(74, 106, 138, 0.10);
-  border-color: rgba(196, 216, 232, 0.28);
-  color: #f0ebe2;
+  background: rgba(45, 80, 138, 0.06);
+  border-color: rgba(45, 80, 138, 0.35);
+  color: var(--accent-blue);
 }
 
 .btn-outline-glass:hover {
-  background: rgba(74, 106, 138, 0.20);
-  border-color: rgba(196, 216, 232, 0.50);
+  background: var(--accent-blue);
+  border-color: var(--accent-blue);
+  color: #ffffff;
   transform: translateY(-2px);
 }
 
 /* ── Grid Background ─────────────────────────────────────── */
 .bg-grid-mesh {
   background-image:
-    linear-gradient(rgba(196, 216, 232, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(196, 216, 232, 0.05) 1px, transparent 1px);
+    linear-gradient(rgba(100, 85, 70, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(100, 85, 70, 0.06) 1px, transparent 1px);
   background-size: 56px 56px;
   mask-image: radial-gradient(ellipse at 60% 40%, #000 20%, transparent 75%);
 }
@@ -125,7 +124,7 @@
   justify-content: space-between;
   gap: 1rem;
   padding: 1.5rem 1.5rem;
-  border-bottom: 1px solid rgba(196, 216, 232, 0.12);
+  border-bottom: 1px solid var(--line);
   transition: background 0.25s ease, padding-left 0.25s ease;
   cursor: pointer;
   text-decoration: none;
@@ -133,7 +132,7 @@
 }
 
 .browse-row:first-child {
-  border-top: 1px solid rgba(196, 216, 232, 0.12);
+  border-top: 1px solid var(--line);
 }
 
 .browse-row::before {
@@ -142,15 +141,15 @@
   left: 0;
   top: 0;
   bottom: 0;
-  width: 3px;
-  background: linear-gradient(to bottom, var(--dusty-600), var(--blush-500));
+  width: 4px;
+  background: var(--accent-blue);
   border-radius: 0 2px 2px 0;
   opacity: 0;
   transition: opacity 0.25s ease;
 }
 
 .browse-row:hover {
-  background: rgba(74, 106, 138, 0.08);
+  background: rgba(45, 80, 138, 0.05);
   padding-left: 2rem;
 }
 
@@ -218,11 +217,11 @@
 
 /* ── Scrollbar ───────────────────────────────────────────── */
 ::-webkit-scrollbar { width: 9px; }
-::-webkit-scrollbar-track { background: #0f1824; }
+::-webkit-scrollbar-track { background: var(--bg-canvas); }
 ::-webkit-scrollbar-thumb {
-  background: rgba(74, 106, 138, 0.35);
+  background: rgba(100, 85, 70, 0.28);
   border-radius: 999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(74, 106, 138, 0.55);
+  background: rgba(100, 85, 70, 0.45);
 }

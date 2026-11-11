@@ -17,16 +17,16 @@ export default function Marquee({
 
   return (
     <div
-      className={`relative w-full overflow-hidden bg-white/[0.04] border-y border-white/[0.1] py-3 select-none pointer-events-none backdrop-blur-sm ${className}`}
+      className={`relative w-full overflow-hidden bg-[#2d508a] border-y border-[#203c6b] py-3.5 select-none pointer-events-none ${className}`}
       aria-hidden="true"
     >
       <div className="flex w-max animate-marquee space-x-8">
         {repeatedItems.map((item, index) => (
           <div key={index} className="flex items-center space-x-6">
-            <span className="text-xs sm:text-[13px] font-semibold tracking-[0.16em] uppercase text-[#cfe0ff]/90 whitespace-nowrap">
+            <span className="text-xs sm:text-[13px] font-bold tracking-[0.18em] uppercase text-white whitespace-nowrap">
               {item}
             </span>
-            <span className="text-confluence-sky text-xs font-bold">✦</span>
+            <span className="text-white/80 text-xs font-bold">✦</span>
           </div>
         ))}
       </div>

@@ -20,18 +20,16 @@ const merchandiseInfo = {
 
 function MerchCard({ item }) {
   return (
-    <div className="card-glass p-6 group">
-      <span className="inline-block text-[10px] font-semibold tracking-[0.18em] uppercase
-                       text-[var(--accent-blush)] mb-3">
+    <div className="rounded-2xl bg-[#ece1cf] border border-[rgba(100,85,70,0.18)] p-6 group shadow-sm hover:shadow-md hover:border-[#2d508a] transition-all duration-300">
+      <span className="inline-block text-[10px] font-semibold tracking-[0.18em] uppercase text-[#913433] mb-3">
         {item.tag}
       </span>
-      <h3 className="font-heading font-bold text-white text-base md:text-lg mb-2 leading-snug
-                     group-hover:text-[var(--dusty-200)] transition-colors">
+      <h3 className="font-heading font-extrabold text-[#121110] text-base md:text-lg mb-2 leading-snug group-hover:text-[#2d508a] transition-colors">
         {item.title}
       </h3>
-      <p className="text-sm text-[var(--muted)] leading-relaxed">{item.desc}</p>
-      <div className="mt-4 pt-4 border-t border-[rgba(196,216,232,0.10)]">
-        <span className="text-[11px] font-semibold text-[var(--dusty-400)] uppercase tracking-wider">
+      <p className="text-sm text-[#2d2b28] leading-relaxed">{item.desc}</p>
+      <div className="mt-4 pt-4 border-t border-[rgba(100,85,70,0.14)]">
+        <span className="text-[11px] font-semibold text-[#6b6459] uppercase tracking-wider">
           Price TBA · Pre-order available soon
         </span>
       </div>
@@ -46,8 +44,7 @@ export default function Merchandise() {
     <div className="py-12 md:py-20 relative min-h-screen">
       <BrainWatermark mode="watermark" />
       <div className="wrap relative z-10">
-        <Link to="/" className="inline-flex items-center gap-2 text-sm text-[var(--dusty-400)]
-                                hover:text-white transition-colors mb-8 group">
+        <Link to="/" className="inline-flex items-center gap-2 text-sm text-[#6b6459] hover:text-[#121110] transition-colors mb-8 group">
           <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
           Back to Home
         </Link>
@@ -65,10 +62,10 @@ export default function Merchandise() {
             { icon: <Package className="w-4 h-4" />, label: 'Accessories', val: '3+ Items' },
             { icon: <ShoppingBag className="w-4 h-4" />, label: 'Pre-order', val: 'Soon' },
           ].map(s => (
-            <div key={s.label} className="card-glass p-4 text-center">
-              <div className="text-[var(--blush-300)] flex justify-center mb-1">{s.icon}</div>
-              <b className="font-heading text-white text-lg block">{s.val}</b>
-              <span className="text-[10px] text-[var(--muted)] uppercase tracking-wider">{s.label}</span>
+            <div key={s.label} className="p-4 text-center rounded-xl bg-[#ece1cf] border border-[rgba(100,85,70,0.18)] shadow-xs">
+              <div className="text-[#2d508a] flex justify-center mb-1">{s.icon}</div>
+              <b className="font-heading text-[#121110] text-lg block">{s.val}</b>
+              <span className="text-[10px] text-[#6b6459] uppercase tracking-wider font-semibold">{s.label}</span>
             </div>
           ))}
         </div>
@@ -77,10 +74,9 @@ export default function Merchandise() {
           {merchandiseInfo.items.map(item => <MerchCard key={item.id} item={item} />)}
         </div>
 
-        <div className="p-5 rounded-2xl bg-[rgba(74,106,138,0.08)] border border-[rgba(196,216,232,0.14)]
-                        flex items-start gap-3">
-          <span className="text-[var(--accent-blush)] mt-0.5 flex-shrink-0">✦</span>
-          <p className="text-sm text-[var(--muted)] leading-relaxed">{merchandiseInfo.note}</p>
+        <div className="p-5 rounded-2xl bg-[#ece1cf] border border-[rgba(100,85,70,0.18)] flex items-start gap-3">
+          <span className="text-[#913433] mt-0.5 flex-shrink-0">✦</span>
+          <p className="text-sm text-[#2d2b28] leading-relaxed">{merchandiseInfo.note}</p>
         </div>
       </div>
     </div>

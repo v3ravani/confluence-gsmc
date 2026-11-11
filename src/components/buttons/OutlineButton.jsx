@@ -14,10 +14,10 @@ export default function OutlineButton({
   type = 'button',
 }) {
   const base = `inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full
-    font-semibold text-[15px] text-[var(--ink)]
-    bg-[rgba(74,106,138,0.10)] border border-[rgba(196,216,232,0.28)]
-    hover:bg-[rgba(74,106,138,0.22)] hover:border-[rgba(196,216,232,0.55)]
-    hover:text-white hover:-translate-y-0.5 active:translate-y-0
+    font-semibold text-[15px] text-[#2d508a]
+    bg-[#f7f1e6] border border-[#2d508a]
+    hover:bg-[#2d508a] hover:text-white
+    hover:-translate-y-0.5 active:translate-y-0
     transition-all duration-200 cursor-pointer
     disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none
     select-none whitespace-nowrap ${className}`;

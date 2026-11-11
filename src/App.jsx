@@ -12,7 +12,7 @@ import Contact from './pages/Contact';
 
 export default function App() {
   return (
-    <div className="flex flex-col min-h-screen text-[var(--ink)] bg-[#162030]">
+    <div className="flex flex-col min-h-screen text-[var(--ink-2)] bg-[var(--bg-canvas)]">
       <Header />
       <main className="flex-1 relative">
         <Routes>

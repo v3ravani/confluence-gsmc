@@ -21,12 +21,10 @@ export default function SectionHeading({
         </span>
       )}
       <h2 className="text-3xl md:text-4xl lg:text-[42px] font-heading font-extrabold
-                     text-white tracking-tight leading-[1.15] mb-3">
+                     text-[#121110] tracking-tight leading-[1.15] mb-3">
         {title}{' '}
         {highlightWord && (
-          <span className="italic font-normal
-                           bg-gradient-to-r from-[var(--dusty-400)] to-[var(--blush-300)]
-                           bg-clip-text text-transparent">
+          <span className="italic font-normal text-[var(--accent-crimson)]">
             {highlightWord}
           </span>
         )}

@@ -11,8 +11,8 @@ export default function CategoryMarquee() {
 
   return (
     <div
-      className="w-full overflow-hidden bg-[var(--dusty-700)] border-y border-[rgba(196,216,232,0.15)]
-                 py-3.5 select-none relative z-20"
+      className="w-full overflow-hidden bg-[#2d508a] border-y border-[#203c6b]
+                 py-3.5 select-none relative z-20 shadow-sm"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
       aria-hidden="true"
@@ -33,7 +33,7 @@ export default function CategoryMarquee() {
               {item}
             </span>
             {/* Diamond separator */}
-            <span className="text-[var(--blush-300)] text-xs font-bold">◆</span>
+            <span className="text-white/80 text-xs font-bold">✦</span>
           </React.Fragment>
         ))}
       </div>
