@@ -5,6 +5,7 @@ export const navLinks = [
   { label: 'Workshop',    path: '/workshops' },
   { label: 'Merchandise', path: '/merchandise' },
   { label: 'CME',         path: '/cme' },
+  { label: 'Gallery',     path: '/gallery' },
   { label: 'Contact',     path: '/contact' },
 ];
 

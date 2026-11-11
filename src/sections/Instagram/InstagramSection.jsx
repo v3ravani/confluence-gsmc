@@ -58,7 +58,13 @@ export default function InstagramSection() {
           >
             <h2 className="text-3xl sm:text-4xl font-heading font-extrabold text-[#121110] dark:text-[#F2F0ED]
                            tracking-tight leading-tight mb-4">
-              {instagramConfig.heading}
+              Follow CONFLUENCE 2026 on{' '}
+              <span
+                className="italic font-normal text-[var(--accent-crimson)] dark:text-[#F14666]"
+                style={{ fontFamily: "'Playfair Display', 'Cormorant Garamond', 'Georgia', serif" }}
+              >
+                Instagram
+              </span>
             </h2>
 
             <p className="text-[var(--ink-2)] text-base leading-relaxed mb-8 max-w-md">

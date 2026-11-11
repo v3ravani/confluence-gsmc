@@ -4,6 +4,7 @@ import Hero from '../sections/Hero/Hero';
 import CategoryMarquee from '../sections/Browse/CategoryMarquee';
 import BrowseSection from '../sections/Browse/BrowseSection';
 import RegistrationRoadmap from '../sections/Registration/RegistrationRoadmap';
+import HomeEventsSection from '../sections/Events/HomeEventsSection';
 import Collaborators from '../sections/Collaborators/Collaborators';
 import InstagramSection from '../sections/Instagram/InstagramSection';
 
@@ -30,6 +31,9 @@ export default function Home() {
 
           {/* How Registration Works */}
           <RegistrationRoadmap />
+
+          {/* Featured Events (Horizontal Scroll of all Event Cards) */}
+          <HomeEventsSection />
 
           {/* Meet Our Collaborators */}
           <Collaborators />

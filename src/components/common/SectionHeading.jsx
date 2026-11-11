@@ -24,7 +24,10 @@ export default function SectionHeading({
                      text-[#121110] dark:text-[#F2F0ED] tracking-tight leading-[1.15] mb-3">
         {title}{' '}
         {highlightWord && (
-          <span className="italic font-normal text-[var(--accent-crimson)] dark:text-[#F14666]">
+          <span
+            className="italic font-normal text-[var(--accent-crimson)] dark:text-[#F14666]"
+            style={{ fontFamily: "'Playfair Display', 'Cormorant Garamond', 'Georgia', serif" }}
+          >
             {highlightWord}
           </span>
         )}

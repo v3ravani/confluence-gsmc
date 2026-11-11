@@ -11,6 +11,7 @@ import Workshop from './pages/Workshop';
 import Merchandise from './pages/Merchandise';
 import CME from './pages/CME';
 import Contact from './pages/Contact';
+import Gallery from './pages/Gallery';
 
 export default function App() {
   const [showSplash, setShowSplash] = useState(true);
@@ -33,6 +34,7 @@ export default function App() {
             <Route path="/workshops"  element={<Workshop />} />
             <Route path="/merchandise"element={<Merchandise />} />
             <Route path="/cme"        element={<CME />} />
+            <Route path="/gallery"    element={<Gallery />} />
             <Route path="/contact"    element={<Contact />} />
             <Route path="*"           element={<Home />} />
           </Routes>

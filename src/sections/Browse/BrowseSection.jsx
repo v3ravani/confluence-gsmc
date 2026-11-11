@@ -29,6 +29,12 @@ const browseCategories = [
     desc:  'Accredited Continuing Medical Education programmes for residents & consultants.',
     to:    '/cme',
   },
+  {
+    id:    'gallery',
+    label: 'GALLERY',
+    desc:  'Photos and visual memories from previous CONFLUENCE editions and medical campus life.',
+    to:    '/gallery',
+  },
 ];
 
 export default function BrowseSection() {

@@ -93,7 +93,10 @@ export default function RegistrationRoadmap() {
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-heading font-extrabold
                          text-[#121110] dark:text-[#F2F0ED] tracking-tight leading-tight mb-3">
             How Registration{' '}
-            <span className="italic font-normal text-[var(--accent-crimson)]">
+            <span
+              className="italic font-normal text-[var(--accent-crimson)] dark:text-[#F14666]"
+              style={{ fontFamily: "'Playfair Display', 'Cormorant Garamond', 'Georgia', serif" }}
+            >
               Works
             </span>
           </h2>

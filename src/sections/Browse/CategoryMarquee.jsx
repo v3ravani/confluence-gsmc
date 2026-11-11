@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 // ── Categories repeated for seamless loop ────────────────────────────────────
-const ITEMS = ['EVENT', 'WORKSHOP', 'CME', 'MERCHANDISE'];
+const ITEMS = ['EVENT', 'WORKSHOP', 'CME', 'MERCHANDISE', 'GALLERY'];
 
 export default function CategoryMarquee() {
   const [paused, setPaused] = useState(false);

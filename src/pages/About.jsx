@@ -4,7 +4,6 @@ import { ArrowLeft, Calendar, MapPin, Users } from 'lucide-react';
 import BrainWatermark from '../components/animations/BrainWatermark';
 import MobilePageHero from '../components/common/MobilePageHero';
 import HostSection from '../components/about/HostSection';
-import MemoriesGallery from '../components/about/MemoriesGallery';
 import gsmcCrest from '../assets/logos/gsmc_crest.png';
 import { conferenceInfo } from '../data/events';
 
@@ -165,9 +164,6 @@ export default function About() {
 
         {/* Section 2: The Host — About Seth GSMC & KEMH */}
         <HostSection />
-
-        {/* Section 3: Memories — Photos from Previous Editions */}
-        <MemoriesGallery />
       </div>
     </div>
   );

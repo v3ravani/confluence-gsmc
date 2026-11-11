@@ -86,43 +86,6 @@ export default function HostSection() {
           </div>
         </div>
       </div>
-
-      {/* Campus Photos Gallery: 3-column responsive row */}
-      <div>
-        <div className="mb-4">
-          <span className="text-xs font-semibold tracking-[0.16em] uppercase text-[var(--muted)]">
-            Campus Architecture & Medical Facilities
-          </span>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-          {hostInfo.campusPhotos.map((photo) => (
-            <div
-              key={photo.title}
-              className="card-glass rounded-xl overflow-hidden group hover:border-[var(--accent-blue)] transition-all duration-300 flex flex-col shadow-sm"
-            >
-              <div className="relative aspect-[16/10] overflow-hidden bg-[#ded2c0] dark:bg-[#323438]">
-                <img
-                  src={photo.src}
-                  alt={photo.alt}
-                  className="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-300"
-                  loading="lazy"
-                />
-              </div>
-              <div className="p-4 flex-1 flex flex-col justify-between">
-                <div>
-                  <h4 className="font-heading font-bold text-[#121110] dark:text-[#F2F0ED] text-sm mb-1.5 group-hover:text-[var(--accent-blue)] transition-colors">
-                    {photo.title}
-                  </h4>
-                  <p className="text-xs text-[var(--muted)] leading-relaxed">
-                    {photo.subtitle}
-                  </p>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
     </section>
   );
 }
