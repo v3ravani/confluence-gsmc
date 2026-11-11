@@ -367,3 +367,24 @@ html.dark textarea::placeholder {
   box-shadow: 0 16px 36px -12px rgba(0, 0, 0, 0.65) !important;
 }
 
+/* ── Mobile Interactions: Horizontal Scroll & Card Stacking ── */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.touch-pan-x {
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-x;
+}
+
+.mobile-stack-card {
+  box-shadow: 0 -6px 20px -2px rgba(0, 0, 0, 0.14), 0 12px 28px -6px rgba(0, 0, 0, 0.22);
+}
+.dark .mobile-stack-card {
+  box-shadow: 0 -8px 24px -4px rgba(0, 0, 0, 0.45), 0 16px 36px -8px rgba(0, 0, 0, 0.65);
+}
+

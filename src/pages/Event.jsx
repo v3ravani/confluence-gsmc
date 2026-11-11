@@ -39,7 +39,7 @@ function EventCard({ event, index, onOpenDetails }) {
   };
 
   return (
-    <div className="rounded-2xl bg-[#ece1cf] dark:bg-[#2B2D30] border border-[rgba(100,85,70,0.18)] dark:border-[#3B3D41] shadow-sm hover:shadow-md hover:border-[#2d508a] dark:hover:border-[#F14666] transition-all duration-300 flex flex-col justify-between h-full overflow-hidden group">
+    <div className="w-[84vw] max-w-[340px] flex-shrink-0 snap-start md:w-full md:max-w-none md:flex-shrink md:snap-align-none rounded-2xl bg-[#ece1cf] dark:bg-[#2B2D30] border border-[rgba(100,85,70,0.18)] dark:border-[#3B3D41] shadow-sm hover:shadow-md hover:border-[#2d508a] dark:hover:border-[#F14666] transition-all duration-300 flex flex-col justify-between h-full overflow-hidden group">
       {/* Top Blue Header Banner (Slightly increased height with decorative curves & icon design) */}
       <div className="relative bg-[#2d508a] dark:bg-[#252629] dark:border-b dark:border-[#3B3D41] px-5 py-4 sm:py-4.5 text-white flex items-center justify-between rounded-t-2xl overflow-hidden">
         {/* Subtle decorative background curves */}
@@ -415,7 +415,7 @@ export default function Event() {
   });
 
   return (
-    <div className="pt-0 pb-12 md:py-20 relative min-h-screen">
+    <div className="pt-0 pb-12 md:py-20 relative min-h-screen overflow-x-clip md:overflow-x-visible">
       <BrainWatermark mode="watermark" />
       <MobilePageHero title="EVENTS" />
       <div className="wrap relative z-10">
@@ -504,9 +504,21 @@ export default function Event() {
           </div>
         </div>
 
-        {/* ── Equal-Height Responsive Event Cards Grid ─────────────── */}
+        {/* ── Mobile Swipe Hint (visible on mobile only) ─────────── */}
+        {filteredEvents.length > 0 && (
+          <div className="flex md:hidden items-center justify-between text-xs text-[#6b6459] dark:text-[#898A89] mb-3 px-1">
+            <span className="flex items-center gap-1.5 font-medium">
+              <span>← Swipe to explore</span>
+            </span>
+            <span className="text-[11px] font-semibold text-[#2d508a] dark:text-[#EE9590]">
+              {filteredEvents.length} Events →
+            </span>
+          </div>
+        )}
+
+        {/* ── Responsive Event Cards (Horizontal swipe on mobile, 2/3 col Grid on desktop) ── */}
         {filteredEvents.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-7 mb-14 items-stretch">
+          <div className="flex md:grid overflow-x-auto md:overflow-visible snap-x snap-mandatory md:snap-none no-scrollbar touch-pan-x gap-4 sm:gap-5 md:gap-6 lg:gap-7 md:grid-cols-2 lg:grid-cols-3 mb-14 items-stretch pb-4 md:pb-0 -mx-4 px-4 sm:-mx-6 sm:px-6 md:mx-0 md:px-0">
             {filteredEvents.map((event, index) => (
               <EventCard
                 key={event.id}
