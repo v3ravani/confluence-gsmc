@@ -14,7 +14,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="relative min-h-screen">
+    <div className="relative min-h-screen overflow-x-clip">
       {/* 1. Hero — text hierarchy + responsive brain watermark + date boxes + intro + CTA + brochure buttons */}
       <Hero />
 
@@ -26,14 +26,14 @@ export default function Home() {
         <BrainWatermark mode="watermark" />
 
         <div className="relative z-10">
-          {/* Browse — 4 clickable categories */}
+          {/* Browse — clickable categories */}
           <BrowseSection />
-
-          {/* How Registration Works */}
-          <RegistrationRoadmap />
 
           {/* Featured Events (Horizontal Scroll of all Event Cards) */}
           <HomeEventsSection />
+
+          {/* How Registration Works */}
+          <RegistrationRoadmap />
 
           {/* Meet Our Collaborators */}
           <Collaborators />

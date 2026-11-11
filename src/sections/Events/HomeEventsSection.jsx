@@ -1,6 +1,5 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { createPortal } from 'react-dom';
 import {
   Trophy,
   Calendar,
@@ -8,228 +7,10 @@ import {
   Info,
   ArrowUpRight,
   ArrowRight,
-  X,
-  Clock,
-  Sparkles,
-  Phone,
-  HelpCircle,
-  AlertCircle,
 } from 'lucide-react';
 import SectionHeading from '../../components/common/SectionHeading';
+import EventDetailModal from '../../components/events/EventDetailModal';
 import { scientificEvents } from '../../data/events';
-
-/* ── Event Detail Modal Popup ───────────────────────────────────── */
-function EventDetailModal({ event, onClose }) {
-  useEffect(() => {
-    if (!event) return;
-
-    const handleKeyDown = (e) => {
-      if (e.key === 'Escape') onClose();
-    };
-    window.addEventListener('keydown', handleKeyDown);
-    document.body.style.overflow = 'hidden';
-
-    return () => {
-      window.removeEventListener('keydown', handleKeyDown);
-      document.body.style.overflow = 'unset';
-    };
-  }, [event, onClose]);
-
-  if (!event) return null;
-
-  const handleRegister = () => {
-    if (event.googleFormUrl) {
-      window.open(event.googleFormUrl, '_blank', 'noopener,noreferrer');
-    } else {
-      alert(
-        `Registration for "${event.name}" is coordinated directly through the event desk.\n\nPlease contact event coordinator: ${event.coordinator.name} at ${event.coordinator.phone}.`
-      );
-    }
-  };
-
-  return createPortal(
-    <div
-      role="dialog"
-      aria-modal="true"
-      className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/60 backdrop-blur-sm p-4 overflow-y-auto"
-      onClick={onClose}
-    >
-      <div
-        className="relative max-w-2xl w-full max-h-[90vh] flex flex-col rounded-3xl bg-[#ece1cf] dark:bg-[#252629] border border-[rgba(100,85,70,0.25)] dark:border-[#3B3D41] shadow-2xl overflow-hidden my-auto"
-        onClick={(e) => e.stopPropagation()}
-      >
-        {/* Modal Header */}
-        <div className="relative bg-[#2d508a] dark:bg-[#202124] text-white px-6 py-5 flex items-start justify-between border-b border-white/10 dark:border-[#3B3D41]">
-          <div className="relative z-10 pr-6">
-            <span className="text-[11px] font-bold tracking-[0.2em] uppercase text-white/80 block mb-1">
-              {event.category}
-            </span>
-            <h2 className="text-2xl sm:text-3xl font-heading font-black tracking-tight leading-tight">
-              {event.name}
-            </h2>
-            <p className="text-xs sm:text-sm text-white/90 mt-0.5">
-              {event.subtitle}
-            </p>
-          </div>
-
-          <button
-            type="button"
-            onClick={onClose}
-            className="p-1.5 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors cursor-pointer flex-shrink-0"
-            aria-label="Close dialog"
-          >
-            <X className="w-5 h-5" />
-          </button>
-        </div>
-
-        {/* Modal Body */}
-        <div className="p-6 overflow-y-auto space-y-6 flex-1 text-sm text-[#2d2b28] dark:text-[#B5B3B0]">
-          {/* Quick Metrics Banner */}
-          <div className="grid grid-cols-3 gap-3 p-3.5 rounded-2xl bg-[#f7f1e6] dark:bg-[#2B2D30] border border-[rgba(100,85,70,0.18)] dark:border-[#3B3D41] text-center">
-            <div>
-              <span className="text-[10px] uppercase font-bold text-[#6b6459] dark:text-[#898A89] block">
-                Total Prize
-              </span>
-              <b className="font-heading font-extrabold text-[#913433] dark:text-[#F14666] text-sm sm:text-base block mt-0.5">
-                {event.totalPrize}
-              </b>
-            </div>
-            <div>
-              <span className="text-[10px] uppercase font-bold text-[#6b6459] dark:text-[#898A89] block">
-                Team Size
-              </span>
-              <b className="font-heading font-semibold text-[#121110] dark:text-[#F2F0ED] text-xs sm:text-sm block mt-0.5">
-                {event.teamStructure.size}
-              </b>
-            </div>
-            <div>
-              <span className="text-[10px] uppercase font-bold text-[#6b6459] dark:text-[#898A89] block">
-                Deadline
-              </span>
-              <b className="font-heading font-semibold text-[#2d508a] dark:text-[#EE9590] text-xs sm:text-sm block mt-0.5 truncate">
-                {event.pricing.deadline}
-              </b>
-            </div>
-          </div>
-
-          {/* Description */}
-          <div>
-            <h4 className="font-heading font-bold text-xs uppercase tracking-wider text-[#121110] dark:text-[#F2F0ED] mb-2 flex items-center gap-1.5">
-              <Sparkles className="w-3.5 h-3.5 text-[#2d508a] dark:text-[#F14666]" />
-              Event Overview
-            </h4>
-            <p className="leading-relaxed text-xs sm:text-[13px] text-[#2d2b28] dark:text-[#B5B3B0]">
-              {event.description}
-            </p>
-          </div>
-
-          {/* Rounds & Important Dates */}
-          {event.rounds && event.rounds.length > 0 && (
-            <div>
-              <h4 className="font-heading font-bold text-xs uppercase tracking-wider text-[#121110] dark:text-[#F2F0ED] mb-2.5 flex items-center gap-1.5">
-                <Clock className="w-3.5 h-3.5 text-[#2d508a] dark:text-[#F14666]" />
-                Event Rounds &amp; Format
-              </h4>
-              <div className="space-y-2">
-                {event.rounds.map((round) => (
-                  <div
-                    key={round.stage}
-                    className="p-3 rounded-xl bg-[#f7f1e6] dark:bg-[#2B2D30] border border-[rgba(100,85,70,0.16)] dark:border-[#3B3D41]"
-                  >
-                    <div className="flex items-center justify-between gap-2 mb-1">
-                      <span className="font-heading font-bold text-xs text-[#121110] dark:text-[#F2F0ED]">
-                        {round.stage}
-                      </span>
-                      <span className="text-[11px] font-semibold text-[#2d508a] dark:text-[#EE9590]">
-                        {round.date}
-                      </span>
-                    </div>
-                    <p className="text-xs text-[#6b6459] dark:text-[#898A89]">
-                      {round.format}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
-
-          {/* Prize Distribution Breakdown */}
-          {event.prizes && event.prizes.length > 0 && (
-            <div>
-              <h4 className="font-heading font-bold text-xs uppercase tracking-wider text-[#121110] dark:text-[#F2F0ED] mb-2 flex items-center gap-1.5">
-                <Trophy className="w-3.5 h-3.5 text-[#913433] dark:text-[#F14666]" />
-                Prize Breakdown
-              </h4>
-              <div className="grid grid-cols-2 gap-2 sm:gap-2.5">
-                {event.prizes.map((prize) => (
-                  <div
-                    key={prize.rank}
-                    className="p-2.5 rounded-xl bg-[#f7f1e6] dark:bg-[#2B2D30] border border-[rgba(100,85,70,0.14)] dark:border-[#3B3D41] flex items-center justify-between"
-                  >
-                    <span className="text-xs text-[#6b6459] dark:text-[#898A89]">
-                      {prize.rank}
-                    </span>
-                    <b className="font-heading font-extrabold text-xs sm:text-sm text-[#913433] dark:text-[#F14666]">
-                      {prize.amount}
-                    </b>
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
-
-          {/* Coordinator Helpdesk */}
-          {event.coordinator && (
-            <div className="p-3 rounded-xl bg-[#ece1cf] dark:bg-[#323438] border border-[rgba(100,85,70,0.20)] dark:border-[#3B3D41] flex items-center justify-between text-xs">
-              <span className="text-[#6b6459] dark:text-[#898A89] flex items-center gap-1.5">
-                <Phone className="w-3.5 h-3.5 text-[#2d508a] dark:text-[#F14666]" />
-                Coordinator: <b className="text-[#121110] dark:text-[#F2F0ED]">{event.coordinator.name}</b>
-              </span>
-              <a
-                href={`tel:${event.coordinator.phone}`}
-                className="font-bold text-[#2d508a] dark:text-[#EE9590] hover:underline"
-              >
-                +91 {event.coordinator.phone}
-              </a>
-            </div>
-          )}
-        </div>
-
-        {/* Modal Footer */}
-        <div className="px-6 py-4 bg-[#ece1cf] dark:bg-[#202124] border-t border-[rgba(100,85,70,0.18)] dark:border-[#3B3D41] flex items-center justify-between gap-3">
-          <div className="flex flex-col">
-            <b className="font-heading font-extrabold text-sm sm:text-base text-[#913433] dark:text-[#F14666]">
-              {event.pricing.earlyBird.split('(')[0]}
-            </b>
-            <span className="text-[11px] text-[#6b6459] dark:text-[#898A89]">
-              Registration Fee
-            </span>
-          </div>
-
-          <div className="flex items-center gap-3">
-            <button
-              type="button"
-              onClick={onClose}
-              className="px-5 py-2 rounded-full text-xs font-bold text-[#121110] dark:text-[#F2F0ED] hover:bg-black/5 dark:hover:bg-[#323438] border border-[#121110] dark:border-[#3B3D41] transition-colors cursor-pointer"
-            >
-              Close
-            </button>
-
-            <button
-              type="button"
-              onClick={handleRegister}
-              className="inline-flex items-center gap-1.5 px-6 py-2 rounded-full font-bold text-xs text-white bg-[#913433] hover:bg-[#782827] dark:bg-[#F14666] dark:hover:bg-[#e03253] shadow-sm transition-all cursor-pointer"
-            >
-              <span>Register</span>
-              <ArrowUpRight className="w-3.5 h-3.5" />
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>,
-    document.body
-  );
-}
 
 /* ── Individual Event Card ──────────────────────────────────────── */
 function EventCard({ event, index, onOpenDetails }) {
@@ -248,8 +29,20 @@ function EventCard({ event, index, onOpenDetails }) {
     <div className="rounded-2xl bg-[#ece1cf] dark:bg-[#2B2D30] border border-[rgba(100,85,70,0.18)] dark:border-[#3B3D41] shadow-sm hover:shadow-md hover:border-[#2d508a] dark:hover:border-[#F14666] transition-all duration-300 flex flex-col justify-between h-full overflow-hidden group">
       {/* Top Blue Header Banner */}
       <div className="relative bg-[#2d508a] dark:bg-[#252629] dark:border-b dark:border-[#3B3D41] px-5 py-4 text-white flex items-center justify-between rounded-t-2xl overflow-hidden">
-        <div className="absolute -right-6 -bottom-8 w-24 h-24 rounded-full bg-white/10 pointer-events-none" />
-        <div className="absolute right-14 -top-6 w-16 h-16 rounded-full bg-white/5 pointer-events-none" />
+        <div
+          className="absolute -right-6 -bottom-8 w-24 h-24 rounded-full bg-white/10 pointer-events-none animate-bubble-primary"
+          style={{
+            animationDuration: `${8 + ((index ?? 0) % 4) * 1.5}s`,
+            animationDelay: `${-(((index ?? 0) % 5) * 1.6)}s`,
+          }}
+        />
+        <div
+          className="absolute right-14 -top-6 w-16 h-16 rounded-full bg-white/5 pointer-events-none animate-bubble-secondary"
+          style={{
+            animationDuration: `${10 + ((index ?? 0) % 3) * 2}s`,
+            animationDelay: `${-(((index ?? 0) % 4) * 2.1)}s`,
+          }}
+        />
 
         <div className="relative z-10 flex items-center gap-2">
           <div className="w-6 h-6 rounded-md border border-white/20 bg-white/10 flex items-center justify-center text-white/90 flex-shrink-0">
@@ -369,7 +162,7 @@ export default function HomeEventsSection() {
   };
 
   return (
-    <section id="featured-events" className="py-16 md:py-24 relative border-b border-[rgba(100,85,70,0.18)] dark:border-[#3B3D41] overflow-hidden">
+    <section id="featured-events" className="py-16 md:py-24 relative border-b border-[rgba(100,85,70,0.18)] dark:border-[#3B3D41] overflow-x-clip">
       {/* Ambient background glows */}
       <div className="absolute top-1/3 left-0 w-80 h-80 bg-[var(--accent-blue)]/5 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute bottom-10 right-0 w-80 h-80 bg-[var(--accent-crimson)]/5 rounded-full blur-[120px] pointer-events-none" />
@@ -400,7 +193,7 @@ export default function HomeEventsSection() {
         <div
           ref={scrollRef}
           onScroll={handleScroll}
-          className="flex gap-5 sm:gap-6 overflow-x-auto pb-6 pt-2 snap-x snap-mandatory scroll-smooth scrollbar-none -mx-4 px-4 sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8"
+          className="flex gap-5 sm:gap-6 overflow-x-auto overflow-y-hidden pb-6 pt-2 snap-x snap-mandatory scroll-smooth no-scrollbar touch-pan-x -mx-4 px-4 sm:-mx-6 sm:px-6 lg:mx-0 lg:px-0"
         >
           {scientificEvents.map((event, idx) => (
             <div

@@ -70,7 +70,7 @@ export default function RegistrationRoadmap() {
   const reduced = useReducedMotion();
 
   return (
-    <section id="registration" className="py-16 md:py-24 relative border-b border-[rgba(100,85,70,0.18)] dark:border-[#3B3D41] overflow-hidden">
+    <section id="registration" className="py-16 md:py-24 relative border-b border-[rgba(100,85,70,0.18)] dark:border-[#3B3D41] overflow-x-clip">
       {/* Ambient glows */}
       <div className="absolute top-1/4 right-0 w-72 h-72
                       bg-[var(--accent-blue)]/5 rounded-full blur-[120px] pointer-events-none" />

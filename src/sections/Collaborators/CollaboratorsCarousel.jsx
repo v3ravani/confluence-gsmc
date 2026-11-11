@@ -128,7 +128,7 @@ export default function CollaboratorsCarousel() {
         onMouseUp={handleMouseUp}
         onTouchStart={() => setIsInteracting(true)}
         onTouchEnd={() => setIsInteracting(false)}
-        className="flex gap-5 py-2 overflow-x-auto cursor-grab active:cursor-grabbing"
+        className="flex gap-5 py-2 overflow-x-auto no-scrollbar touch-pan-x cursor-grab active:cursor-grabbing"
         style={{
           scrollbarWidth: 'none',
           msOverflowStyle: 'none',

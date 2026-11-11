@@ -13,6 +13,8 @@
   html {
     scroll-behavior: smooth;
     -webkit-text-size-adjust: 100%;
+    overflow-x: hidden;
+    overflow-x: clip;
   }
 
   body {
@@ -28,6 +30,7 @@
     font-size: 16px;
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
+    overflow-x: clip;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -169,8 +172,7 @@
   .carousel-track,
   .animate-bubble-primary,
   .animate-bubble-secondary,
-  .animate-touch-burst,
-  .animate-touch-dot {
+  .animate-dna-helix {
     animation: none !important;
   }
 }
@@ -372,17 +374,19 @@ html.dark textarea::placeholder {
 }
 
 /* ── Mobile Interactions: Horizontal Scroll & Card Stacking ── */
-.no-scrollbar::-webkit-scrollbar {
+.no-scrollbar::-webkit-scrollbar,
+.scrollbar-none::-webkit-scrollbar {
   display: none;
 }
-.no-scrollbar {
+.no-scrollbar,
+.scrollbar-none {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
 
 .touch-pan-x {
   -webkit-overflow-scrolling: touch;
-  touch-action: pan-x;
+  touch-action: pan-x pan-y;
 }
 
 .mobile-stack-card {
@@ -439,60 +443,38 @@ html.dark textarea::placeholder {
   will-change: transform;
 }
 
-/* ── Custom Cursor & Interactive Touch Indicator ── */
-html.custom-cursor-active,
-html.custom-cursor-active body,
-html.custom-cursor-active #root,
-html.custom-cursor-active *,
-html.custom-cursor-active *::before,
-html.custom-cursor-active *::after,
-html.custom-cursor-active a,
-html.custom-cursor-active button,
-html.custom-cursor-active input,
-html.custom-cursor-active select,
-html.custom-cursor-active textarea,
-html.custom-cursor-active label,
-html.custom-cursor-active [role="button"],
-html.custom-cursor-active .cursor-pointer {
-  cursor: none !important;
-}
-
-@keyframes touch-burst {
+/* ── Mobile Header DNA Double-Helix Rotation Animation ── */
+@keyframes dna-helix-rotate {
   0% {
-    transform: scale(0.4);
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.9;
+    transform: translate3d(0, 0, 0);
   }
   100% {
-    transform: scale(2.2);
-    opacity: 0;
+    transform: translate3d(-50%, 0, 0);
   }
 }
 
-@keyframes touch-dot {
-  0% {
-    transform: scale(0.8);
-    opacity: 1;
-  }
-  35% {
-    transform: scale(1.35);
-    opacity: 0.95;
-  }
-  100% {
-    transform: scale(0.6);
-    opacity: 0;
-  }
+.animate-dna-helix {
+  animation: dna-helix-rotate 9s linear infinite;
+  will-change: transform;
 }
 
-.animate-touch-burst {
-  animation: touch-burst 0.48s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  will-change: transform, opacity;
-}
-
-.animate-touch-dot {
-  animation: touch-dot 0.48s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  will-change: transform, opacity;
+/* ── Desktop-Only Custom Cursor Suppression ── */
+@media (min-width: 768px) {
+  html.custom-cursor-active,
+  html.custom-cursor-active body,
+  html.custom-cursor-active #root,
+  html.custom-cursor-active *,
+  html.custom-cursor-active *::before,
+  html.custom-cursor-active *::after,
+  html.custom-cursor-active a,
+  html.custom-cursor-active button,
+  html.custom-cursor-active input,
+  html.custom-cursor-active select,
+  html.custom-cursor-active textarea,
+  html.custom-cursor-active label,
+  html.custom-cursor-active [role="button"],
+  html.custom-cursor-active .cursor-pointer {
+    cursor: none !important;
+  }
 }
 
