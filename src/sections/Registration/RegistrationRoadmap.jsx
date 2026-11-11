@@ -3,39 +3,28 @@ import { motion, useInView, useReducedMotion } from 'framer-motion';
 import { registrationSteps } from '../../data/registration';
 
 function TimelineStep({ step, index, total }) {
-  const ref     = useRef(null);
-  const inView  = useInView(ref, { once: false, margin: '-60px 0px -60px 0px' });
+  const ref = useRef(null);
+  // Activates only after element has been scrolled up past 40% from bottom of screen
+  const inView = useInView(ref, { once: true, margin: '-10% 0px -40% 0px' });
   const reduced = useReducedMotion();
-
-  const variants = {
-    hidden:  { opacity: 0.6, y: reduced ? 0 : 8 },
-    visible: { opacity: 1, y: 0,
-      transition: { duration: 0.4, delay: index * 0.05, ease: [0.22, 1, 0.36, 1] } },
-  };
 
   const isLast = index === total - 1;
 
   return (
-    <motion.div
-      ref={ref}
-      variants={variants}
-      initial="hidden"
-      animate={inView ? 'visible' : 'hidden'}
-      className="flex gap-5 md:gap-7"
-    >
-      {/* Left: node + line */}
+    <div ref={ref} className="flex gap-5 md:gap-7">
+      {/* Left: node circle + connecting line */}
       <div className="flex flex-col items-center flex-shrink-0">
         <motion.div
           animate={
             inView
-              ? { backgroundColor: '#2d508a', borderColor: '#2d508a', scale: 1.05 }
-              : { backgroundColor: '#f7f1e6', borderColor: 'rgba(100,85,70,0.30)', scale: 1 }
+              ? { backgroundColor: '#2d508a', borderColor: '#2d508a', scale: 1.04 }
+              : { backgroundColor: '#f7f1e6', borderColor: 'rgba(100,85,70,0.32)', scale: 1 }
           }
-          transition={{ duration: 0.35, ease: 'easeOut' }}
+          transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
           className="w-11 h-11 rounded-full border-2 flex items-center justify-center z-10 shadow-sm"
         >
           <span
-            className={`font-heading font-extrabold text-sm transition-colors duration-300 ${
+            className={`font-heading font-extrabold text-sm transition-colors duration-400 ${
               inView ? 'text-white' : 'text-[#6b6459]'
             }`}
           >
@@ -44,25 +33,25 @@ function TimelineStep({ step, index, total }) {
         </motion.div>
         {!isLast && (
           <div
-            className={`w-0.5 flex-1 mt-2 transition-colors duration-500 min-h-[44px] ${
+            className={`w-0.5 flex-1 mt-2 transition-colors duration-700 min-h-[48px] ${
               inView ? 'bg-[#2d508a]/40' : 'bg-[rgba(100,85,70,0.18)]'
             }`}
           />
         )}
       </div>
 
-      {/* Right: content */}
+      {/* Right: step title & details */}
       <div className="flex-1 min-w-0 pb-8">
         <span
-          className={`block text-[10px] font-bold tracking-[0.22em] uppercase mb-1.5 transition-colors duration-300 ${
+          className={`block text-[10.5px] font-bold tracking-[0.22em] uppercase mb-1.5 transition-colors duration-400 ${
             inView ? 'text-[#913433]' : 'text-[#6b6459]'
           }`}
         >
           STEP {step.step}
         </span>
         <h3
-          className={`font-heading font-extrabold text-base md:text-lg mb-2 leading-snug transition-colors duration-300 ${
-            inView ? 'text-[#121110]' : 'text-[#2d2b28]/80'
+          className={`font-heading font-extrabold text-base md:text-lg mb-2 leading-snug transition-colors duration-400 ${
+            inView ? 'text-[#121110]' : 'text-[#2d2b28]/85'
           }`}
         >
           {step.title}
@@ -71,14 +60,14 @@ function TimelineStep({ step, index, total }) {
           {step.description}
         </p>
       </div>
-    </motion.div>
+    </div>
   );
 }
 
 export default function RegistrationRoadmap() {
-  const headingRef  = useRef(null);
+  const headingRef = useRef(null);
   const headingView = useInView(headingRef, { once: true, margin: '-60px 0px' });
-  const reduced     = useReducedMotion();
+  const reduced = useReducedMotion();
 
   return (
     <section id="registration" className="py-16 md:py-24 relative border-b border-[rgba(100,85,70,0.18)] overflow-hidden">

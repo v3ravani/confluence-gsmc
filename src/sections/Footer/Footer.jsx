@@ -11,13 +11,13 @@ export default function Footer() {
   return (
     <footer className="relative bg-[#1a3158] pt-16 pb-10 text-white
                        border-t border-[rgba(100,85,70,0.22)] overflow-hidden">
-      {/* Large decorative watermark */}
+      {/* Large decorative watermark anchored cleanly at bottom */}
       <div
         aria-hidden="true"
-        className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden"
+        className="absolute bottom-0 left-1/2 -translate-x-1/2 pointer-events-none select-none overflow-hidden w-full flex justify-center translate-y-3 sm:translate-y-4 md:translate-y-6"
       >
-        <span className="font-heading font-extrabold text-[clamp(80px,16vw,200px)]
-                         tracking-tighter text-white/[0.04] uppercase leading-none whitespace-nowrap">
+        <span className="font-heading font-black text-[clamp(95px,22vw,240px)]
+                         tracking-tighter text-white/[0.045] uppercase leading-none whitespace-nowrap select-none">
           CONFLUENCE
         </span>
       </div>
@@ -170,7 +170,7 @@ export default function Footer() {
             © {year} CONFLUENCE · Seth GS Medical College &amp; KEM Hospital, Mumbai
           </span>
           <span className="text-center sm:text-right">
-            Official Medical Conference Portal · Built with React &amp; Tailwind CSS
+            Official Medical Conference Portal · Build by Prithvi Kharje &amp; Viraj Ravani
           </span>
         </div>
       </div>
