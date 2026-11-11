@@ -117,17 +117,12 @@ export default function MemoriesGallery() {
                 className="group rounded-2xl overflow-hidden cursor-pointer bg-[#ece1cf] dark:bg-[#2B2D30] border border-[rgba(100,85,70,0.24)] dark:border-[#3B3D41] mobile-stack-card transition-all duration-300"
               >
                 {/* Card Top Label Bar */}
-                <div className="flex items-center justify-between px-4 py-2.5 bg-[#e4d6c0] dark:bg-[#252629] border-b border-[rgba(100,85,70,0.16)] dark:border-[#3B3D41]">
-                  <div className="flex items-center gap-2">
-                    <span className="font-heading font-black text-xs text-[#913433] dark:text-[#F14666]">
-                      {String(idx + 1).padStart(2, '0')} / {String(memoriesGallery.length).padStart(2, '0')}
-                    </span>
-                    <span className="text-[10px] font-semibold tracking-wider uppercase text-[#6b6459] dark:text-[#898A89] truncate max-w-[180px]">
-                      {photo.tag || 'CONFLUENCE'}
-                    </span>
-                  </div>
-                  <span className="text-[10px] font-medium text-[#2d508a] dark:text-[#EE9590] flex items-center gap-1">
-                    Tap to view ↗
+                <div className="flex items-center gap-2 px-4 py-2.5 bg-[#e4d6c0] dark:bg-[#252629] border-b border-[rgba(100,85,70,0.16)] dark:border-[#3B3D41]">
+                  <span className="font-heading font-black text-xs text-[#913433] dark:text-[#F14666]">
+                    {String(idx + 1).padStart(2, '0')} / {String(memoriesGallery.length).padStart(2, '0')}
+                  </span>
+                  <span className="text-[10px] font-semibold tracking-wider uppercase text-[#6b6459] dark:text-[#898A89] truncate">
+                    {photo.tag || 'CONFLUENCE'}
                   </span>
                 </div>
 

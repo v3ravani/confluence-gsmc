@@ -166,8 +166,10 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .carousel-track {
-    animation: none;
+  .carousel-track,
+  .animate-bubble-primary,
+  .animate-bubble-secondary {
+    animation: none !important;
   }
 }
 
@@ -386,5 +388,52 @@ html.dark textarea::placeholder {
 }
 .dark .mobile-stack-card {
   box-shadow: 0 -8px 24px -4px rgba(0, 0, 0, 0.45), 0 16px 36px -8px rgba(0, 0, 0, 0.65);
+}
+
+/* ── Event Card Blue Header Floating Bubbles Animation ── */
+@keyframes float-bubble-primary {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  25% {
+    transform: translate3d(-7px, -6px, 0) scale(1.04);
+  }
+  50% {
+    transform: translate3d(5px, -9px, 0) scale(0.97);
+  }
+  75% {
+    transform: translate3d(-4px, 5px, 0) scale(1.03);
+  }
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+@keyframes float-bubble-secondary {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  25% {
+    transform: translate3d(6px, 5px, 0) scale(0.96);
+  }
+  50% {
+    transform: translate3d(-5px, 8px, 0) scale(1.04);
+  }
+  75% {
+    transform: translate3d(4px, -4px, 0) scale(0.98);
+  }
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+.animate-bubble-primary {
+  animation: float-bubble-primary 9s ease-in-out infinite;
+  will-change: transform;
+}
+
+.animate-bubble-secondary {
+  animation: float-bubble-secondary 12s ease-in-out infinite;
+  will-change: transform;
 }
 

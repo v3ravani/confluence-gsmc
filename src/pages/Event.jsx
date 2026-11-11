@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
 import { Link } from 'react-router-dom';
 import {
@@ -42,9 +42,21 @@ function EventCard({ event, index, onOpenDetails }) {
     <div className="w-[84vw] max-w-[340px] flex-shrink-0 snap-start md:w-full md:max-w-none md:flex-shrink md:snap-align-none rounded-2xl bg-[#ece1cf] dark:bg-[#2B2D30] border border-[rgba(100,85,70,0.18)] dark:border-[#3B3D41] shadow-sm hover:shadow-md hover:border-[#2d508a] dark:hover:border-[#F14666] transition-all duration-300 flex flex-col justify-between h-full overflow-hidden group">
       {/* Top Blue Header Banner (Slightly increased height with decorative curves & icon design) */}
       <div className="relative bg-[#2d508a] dark:bg-[#252629] dark:border-b dark:border-[#3B3D41] px-5 py-4 sm:py-4.5 text-white flex items-center justify-between rounded-t-2xl overflow-hidden">
-        {/* Subtle decorative background curves */}
-        <div className="absolute -right-6 -bottom-8 w-24 h-24 rounded-full bg-white/10 pointer-events-none" />
-        <div className="absolute right-14 -top-6 w-16 h-16 rounded-full bg-white/5 pointer-events-none" />
+        {/* Subtle decorative background curves — independently animated organic floating bubbles */}
+        <div
+          className="absolute -right-6 -bottom-8 w-24 h-24 rounded-full bg-white/10 pointer-events-none animate-bubble-primary"
+          style={{
+            animationDuration: `${8 + (index % 4) * 1.5}s`,
+            animationDelay: `${-((index % 5) * 1.6)}s`,
+          }}
+        />
+        <div
+          className="absolute right-14 -top-6 w-16 h-16 rounded-full bg-white/5 pointer-events-none animate-bubble-secondary"
+          style={{
+            animationDuration: `${10 + (index % 3) * 2}s`,
+            animationDelay: `${-((index % 4) * 2.1)}s`,
+          }}
+        />
 
         <div className="relative z-10 flex items-center gap-2">
           <div className="w-6 h-6 rounded-md border border-white/20 bg-white/10 flex items-center justify-center text-white/90 flex-shrink-0">
@@ -383,10 +395,8 @@ export default function Event() {
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [searchQuery, setSearchQuery] = useState('');
   const [activeModalEvent, setActiveModalEvent] = useState(null);
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+  const [activeCardIndex, setActiveCardIndex] = useState(0);
+  const scrollContainerRef = useRef(null);
 
   const categories = [
     'All',
@@ -396,7 +406,7 @@ export default function Event() {
     'Research & Presentations',
   ];
 
-  // Filter events
+  // Filter events — defined before useEffects to avoid TDZ ReferenceError
   const filteredEvents = scientificEvents.filter((ev) => {
     const matchesCategory =
       selectedCategory === 'All' || ev.category === selectedCategory;
@@ -413,6 +423,62 @@ export default function Event() {
 
     return matchesCategory && matchesSearch;
   });
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  // Sync active pagination dot dynamically as user swipes between cards
+  useEffect(() => {
+    const el = scrollContainerRef.current;
+    if (!el) return;
+
+    let ticking = false;
+    const updateActiveDot = () => {
+      const scrollLeft = el.scrollLeft;
+      const card = el.firstElementChild;
+      if (card) {
+        const itemWidth = card.offsetWidth + 16; // card width + gap-4 (16px)
+        const newIndex = Math.round(scrollLeft / itemWidth);
+        const clamped = Math.max(0, Math.min(newIndex, filteredEvents.length - 1));
+        setActiveCardIndex(clamped);
+      }
+      ticking = false;
+    };
+
+    const onScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(updateActiveDot);
+        ticking = true;
+      }
+    };
+
+    el.addEventListener('scroll', onScroll, { passive: true });
+    return () => el.removeEventListener('scroll', onScroll);
+  }, [filteredEvents.length]);
+
+  // Reset active card index and scroll position when filters or search change
+  useEffect(() => {
+    setActiveCardIndex(0);
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollLeft = 0;
+    }
+  }, [selectedCategory, searchQuery]);
+
+  // Tap pagination dot to scroll directly to card
+  const scrollToCard = (index) => {
+    const el = scrollContainerRef.current;
+    if (!el) return;
+    const card = el.children[index];
+    if (card) {
+      card.scrollIntoView({
+        behavior: 'smooth',
+        inline: 'start',
+        block: 'nearest',
+      });
+      setActiveCardIndex(index);
+    }
+  };
 
   return (
     <div className="pt-0 pb-12 md:py-20 relative min-h-screen overflow-x-clip md:overflow-x-visible">
@@ -518,16 +584,43 @@ export default function Event() {
 
         {/* ── Responsive Event Cards (Horizontal swipe on mobile, 2/3 col Grid on desktop) ── */}
         {filteredEvents.length > 0 ? (
-          <div className="flex md:grid overflow-x-auto md:overflow-visible snap-x snap-mandatory md:snap-none no-scrollbar touch-pan-x gap-4 sm:gap-5 md:gap-6 lg:gap-7 md:grid-cols-2 lg:grid-cols-3 mb-14 items-stretch pb-4 md:pb-0 -mx-4 px-4 sm:-mx-6 sm:px-6 md:mx-0 md:px-0">
-            {filteredEvents.map((event, index) => (
-              <EventCard
-                key={event.id}
-                event={event}
-                index={index}
-                onOpenDetails={setActiveModalEvent}
-              />
-            ))}
-          </div>
+          <>
+            <div
+              ref={scrollContainerRef}
+              className="flex md:grid overflow-x-auto md:overflow-visible snap-x snap-mandatory md:snap-none no-scrollbar touch-pan-x gap-4 sm:gap-5 md:gap-6 lg:gap-7 md:grid-cols-2 lg:grid-cols-3 mb-4 md:mb-14 items-stretch pb-4 md:pb-0 -mx-4 px-4 sm:-mx-6 sm:px-6 md:mx-0 md:px-0"
+            >
+              {filteredEvents.map((event, index) => (
+                <EventCard
+                  key={event.id}
+                  event={event}
+                  index={index}
+                  onOpenDetails={setActiveModalEvent}
+                />
+              ))}
+            </div>
+
+            {/* ── Mobile Horizontal Scroll Pagination Dots (Mobile Only) ── */}
+            {filteredEvents.length > 1 && (
+              <div
+                className="flex md:hidden items-center justify-center gap-1.5 mb-10 select-none"
+                aria-label="Event cards pagination"
+              >
+                {filteredEvents.map((ev, i) => (
+                  <button
+                    key={ev.id || i}
+                    type="button"
+                    onClick={() => scrollToCard(i)}
+                    aria-label={`Scroll to event ${i + 1}: ${ev.name}`}
+                    className={`h-1.5 rounded-full transition-all duration-300 ease-out cursor-pointer ${
+                      activeCardIndex === i
+                        ? 'w-6 bg-[#2d508a] dark:bg-[#EE9590] shadow-sm'
+                        : 'w-1.5 bg-[rgba(100,85,70,0.35)] dark:bg-[#525458] hover:bg-[rgba(100,85,70,0.60)]'
+                    }`}
+                  />
+                ))}
+              </div>
+            )}
+          </>
         ) : (
           <div className="p-12 text-center rounded-2xl mb-14 bg-[#ece1cf] dark:bg-[#2B2D30] border border-[rgba(100,85,70,0.18)] dark:border-[#3B3D41]">
             <HelpCircle className="w-10 h-10 text-[#6b6459] dark:text-[#898A89] mx-auto mb-3 opacity-60" />
