@@ -46,15 +46,15 @@ function EventCard({ event, index, onOpenDetails }) {
         <div
           className="absolute -right-6 -bottom-8 w-24 h-24 rounded-full bg-white/10 pointer-events-none animate-bubble-primary"
           style={{
-            animationDuration: `${8 + (index % 4) * 1.5}s`,
-            animationDelay: `${-((index % 5) * 1.6)}s`,
+            animationDuration: `${8 + ((index ?? 0) % 4) * 1.5}s`,
+            animationDelay: `${-(((index ?? 0) % 5) * 1.6)}s`,
           }}
         />
         <div
           className="absolute right-14 -top-6 w-16 h-16 rounded-full bg-white/5 pointer-events-none animate-bubble-secondary"
           style={{
-            animationDuration: `${10 + (index % 3) * 2}s`,
-            animationDelay: `${-((index % 4) * 2.1)}s`,
+            animationDuration: `${10 + ((index ?? 0) % 3) * 2}s`,
+            animationDelay: `${-(((index ?? 0) % 4) * 2.1)}s`,
           }}
         />
 
@@ -201,9 +201,15 @@ function EventDetailModal({ event, onClose }) {
       >
         {/* Modal Header — Deep Blue Curved Header (matches Inspo Image 2) */}
         <div className="relative bg-[#2d508a] dark:bg-[#252629] dark:border-b dark:border-[#3B3D41] p-6 text-white rounded-t-2xl overflow-hidden">
-          {/* Decorative faint curves */}
-          <div className="absolute -right-8 -bottom-10 w-36 h-36 rounded-full bg-white/10 pointer-events-none" />
-          <div className="absolute right-16 -top-10 w-28 h-28 rounded-full bg-white/5 pointer-events-none" />
+          {/* Decorative faint curves — animated floating bubbles */}
+          <div
+            className="absolute -right-8 -bottom-10 w-36 h-36 rounded-full bg-white/10 pointer-events-none animate-bubble-primary"
+            style={{ animationDuration: '9s' }}
+          />
+          <div
+            className="absolute right-16 -top-10 w-28 h-28 rounded-full bg-white/5 pointer-events-none animate-bubble-secondary"
+            style={{ animationDuration: '12s', animationDelay: '-2s' }}
+          />
 
           <div className="relative z-10 flex items-center justify-between mb-2">
             <span className="text-[11px] font-semibold uppercase tracking-wider px-3 py-1 rounded-full bg-white/20 text-white border border-white/20">

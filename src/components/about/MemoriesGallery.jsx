@@ -89,11 +89,8 @@ export default function MemoriesGallery() {
 
       {/* ── MOBILE STACKING CARDS SCROLL GALLERY (< sm: progressive layered card stack) ── */}
       <div className="sm:hidden relative pb-6">
-        {/* Mobile stack hint indicator */}
-        <div className="flex items-center justify-between text-xs text-[#6b6459] dark:text-[#898A89] mb-4 px-1">
-          <span className="flex items-center gap-1.5 font-medium">
-            <span>↓ Scroll down to reveal photo stack</span>
-          </span>
+        {/* Mobile stack header count */}
+        <div className="flex items-center justify-end text-xs text-[#6b6459] dark:text-[#898A89] mb-4 px-1">
           <span className="text-[11px] font-semibold text-[var(--accent-crimson)] dark:text-[#EE9590]">
             {memoriesGallery.length} Memories
           </span>
