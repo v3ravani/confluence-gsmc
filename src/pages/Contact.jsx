@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import SectionHeading from '../components/common/SectionHeading';
 import BrainWatermark from '../components/animations/BrainWatermark';
+import MobilePageHero from '../components/common/MobilePageHero';
 import { Mail, Phone, MapPin, ExternalLink, Clock } from 'lucide-react';
 import PrimaryButton from '../components/buttons/PrimaryButton';
 
@@ -10,8 +11,9 @@ export default function Contact() {
   }, []);
 
   return (
-    <div className="py-12 md:py-20 relative">
+    <div className="pt-0 pb-12 md:py-20 relative">
       <BrainWatermark mode="watermark" />
+      <MobilePageHero title="CONTACT" />
       <div className="wrap relative z-10">
         <SectionHeading
           eyebrow="Reach Us"

@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, Calendar, MapPin, Users } from 'lucide-react';
 import BrainWatermark from '../components/animations/BrainWatermark';
+import MobilePageHero from '../components/common/MobilePageHero';
 import HostSection from '../components/about/HostSection';
 import MemoriesGallery from '../components/about/MemoriesGallery';
 import gsmcCrest from '../assets/logos/gsmc_crest.png';
@@ -11,15 +12,16 @@ export default function About() {
   useEffect(() => { window.scrollTo(0, 0); }, []);
 
   return (
-    <div className="py-12 md:py-20 relative min-h-screen">
+    <div className="pt-0 pb-12 md:py-20 relative min-h-screen">
       <BrainWatermark mode="watermark" />
+      <MobilePageHero title="ABOUT" />
       <div className="wrap relative z-10">
 
-        {/* Back */}
+        {/* Desktop Back */}
         <Link
           to="/"
-          className="inline-flex items-center gap-2 text-sm text-[var(--accent-blue)]
-                     hover:text-[var(--accent-blue-hover)] transition-colors mb-10 group"
+          className="hidden md:inline-flex items-center gap-2 text-sm text-[#6b6459]
+                     hover:text-[#121110] transition-colors mb-10 group"
         >
           <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
           Back to Home

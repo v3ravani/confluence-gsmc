@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, ShoppingBag, Package, Shirt } from 'lucide-react';
 import BrainWatermark from '../components/animations/BrainWatermark';
+import MobilePageHero from '../components/common/MobilePageHero';
 import SectionHeading from '../components/common/SectionHeading';
 
 // ── Configurable placeholder content ────────────────────────────────────────
@@ -41,10 +42,11 @@ export default function Merchandise() {
   useEffect(() => { window.scrollTo(0, 0); }, []);
 
   return (
-    <div className="py-12 md:py-20 relative min-h-screen">
+    <div className="pt-0 pb-12 md:py-20 relative min-h-screen">
       <BrainWatermark mode="watermark" />
+      <MobilePageHero title="MERCHANDISE" />
       <div className="wrap relative z-10">
-        <Link to="/" className="inline-flex items-center gap-2 text-sm text-[#6b6459] hover:text-[#121110] transition-colors mb-8 group">
+        <Link to="/" className="hidden md:inline-flex items-center gap-2 text-sm text-[#6b6459] hover:text-[#121110] transition-colors mb-8 group">
           <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
           Back to Home
         </Link>
