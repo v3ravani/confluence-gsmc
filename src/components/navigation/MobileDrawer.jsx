@@ -40,15 +40,15 @@ export default function MobileDrawer({ isOpen, onClose }) {
             aria-hidden="true"
           />
 
-          {/* Top-down Drawer Panel (Website canvas background, 1 page per line) */}
+          {/* Fullscreen Mobile Drawer Panel (Opens full, not scrollable) */}
           <motion.div
             initial={{ y: '-100%', opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: '-100%', opacity: 0 }}
             transition={{ type: 'spring', damping: 28, stiffness: 300 }}
-            className="fixed top-0 left-0 right-0 w-full max-h-[68vh]
-                       bg-[#f7f1e6] dark:bg-[#252629] border-b border-[rgba(100,85,70,0.24)] dark:border-[#3B3D41] rounded-b-3xl
-                       p-5 sm:p-6 flex flex-col justify-between shadow-2xl overflow-y-auto text-[#121110] dark:text-[#F2F0ED]"
+            className="fixed inset-0 w-full h-[100dvh]
+                       bg-[#f7f1e6] dark:bg-[#252629]
+                       p-5 sm:p-6 flex flex-col justify-between shadow-2xl overflow-y-auto sm:overflow-hidden text-[#121110] dark:text-[#F2F0ED]"
           >
             <div>
               {/* Drawer header */}
@@ -83,15 +83,15 @@ export default function MobileDrawer({ isOpen, onClose }) {
                 </div>
               </div>
 
-              {/* Nav links: Exactly 1 page per line */}
-              <nav className="flex flex-col gap-1.5 mt-4 sm:mt-5" aria-label="Mobile Navigation">
+              {/* Nav links: Exactly 1 page per line, comfortably fitted */}
+              <nav className="flex flex-col gap-1 sm:gap-1.5 mt-3 sm:mt-5" aria-label="Mobile Navigation">
                 {navLinks.map((link) => (
                   <NavLink
                     key={link.path}
                     to={link.path}
                     onClick={onClose}
                     className={({ isActive }) =>
-                      `w-full px-5 py-3 rounded-full font-heading font-extrabold text-sm sm:text-base tracking-wider uppercase text-left transition-all duration-200 ${
+                      `w-full px-5 py-2.5 sm:py-3 rounded-full font-heading font-extrabold text-sm sm:text-base tracking-wider uppercase text-left transition-all duration-200 ${
                         isActive
                           ? 'text-white bg-[#2d508a] dark:bg-[#F14666] shadow-sm'
                           : 'text-[#121110] dark:text-[#F2F0ED] hover:text-[#2d508a] dark:hover:text-[#F14666] hover:bg-[#ece1cf]/80 dark:hover:bg-[#323438]'

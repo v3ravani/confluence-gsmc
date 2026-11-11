@@ -8,8 +8,6 @@ import {
   Info,
   ArrowUpRight,
   ArrowRight,
-  ChevronLeft,
-  ChevronRight,
   X,
   Clock,
   Sparkles,
@@ -350,11 +348,23 @@ function EventCard({ event, index, onOpenDetails }) {
 export default function HomeEventsSection() {
   const scrollRef = useRef(null);
   const [activeModalEvent, setActiveModalEvent] = useState(null);
+  const [activeIndex, setActiveIndex] = useState(0);
 
-  const scroll = (direction) => {
-    if (scrollRef.current) {
-      const offset = direction === 'left' ? -360 : 360;
-      scrollRef.current.scrollBy({ left: offset, behavior: 'smooth' });
+  const handleScroll = () => {
+    if (!scrollRef.current) return;
+    const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
+    const maxScroll = scrollWidth - clientWidth;
+    if (maxScroll <= 0) return;
+    const itemWidth = scrollWidth / scientificEvents.length;
+    const idx = Math.round(scrollLeft / itemWidth);
+    setActiveIndex(Math.min(scientificEvents.length - 1, Math.max(0, idx)));
+  };
+
+  const scrollToCard = (idx) => {
+    if (!scrollRef.current) return;
+    const cardEl = scrollRef.current.children[idx];
+    if (cardEl) {
+      cardEl.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
     }
   };
 
@@ -365,8 +375,8 @@ export default function HomeEventsSection() {
       <div className="absolute bottom-10 right-0 w-80 h-80 bg-[var(--accent-crimson)]/5 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="wrap relative z-10">
-        {/* Header row with Title and Navigation Controls */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 md:mb-12">
+        {/* Header row with Title and View All Events Link in grey */}
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8 sm:mb-10">
           <SectionHeading
             eyebrow="Scientific Competitions"
             title="Featured"
@@ -375,40 +385,21 @@ export default function HomeEventsSection() {
             className="mb-0"
           />
 
-          <div className="flex items-center gap-3">
+          <div className="flex items-center sm:self-end">
             <Link
               to="/events"
-              className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-[#2d508a] dark:text-[#EE9590] hover:text-[#121110] dark:hover:text-[#F2F0ED] mr-2 transition-colors"
+              className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-medium text-[#6b6459] dark:text-[#898A89] hover:text-[#121110] dark:hover:text-[#F2F0ED] transition-colors"
             >
-              <span>View All Events</span>
-              <ArrowRight className="w-4 h-4" />
+              <span>View all events</span>
+              <ArrowRight className="w-3.5 h-3.5" />
             </Link>
-
-            {/* Left Scroll Button */}
-            <button
-              type="button"
-              onClick={() => scroll('left')}
-              className="w-10 h-10 rounded-full border border-[rgba(100,85,70,0.22)] dark:border-[#3B3D41] bg-[#ece1cf] dark:bg-[#2B2D30] text-[#121110] dark:text-[#F2F0ED] hover:bg-[#ded2c0] dark:hover:bg-[#323438] flex items-center justify-center transition-colors cursor-pointer shadow-xs"
-              aria-label="Scroll left"
-            >
-              <ChevronLeft className="w-5 h-5" />
-            </button>
-
-            {/* Right Scroll Button */}
-            <button
-              type="button"
-              onClick={() => scroll('right')}
-              className="w-10 h-10 rounded-full border border-[rgba(100,85,70,0.22)] dark:border-[#3B3D41] bg-[#ece1cf] dark:bg-[#2B2D30] text-[#121110] dark:text-[#F2F0ED] hover:bg-[#ded2c0] dark:hover:bg-[#323438] flex items-center justify-center transition-colors cursor-pointer shadow-xs"
-              aria-label="Scroll right"
-            >
-              <ChevronRight className="w-5 h-5" />
-            </button>
           </div>
         </div>
 
         {/* Horizontal Scroll of all event cards */}
         <div
           ref={scrollRef}
+          onScroll={handleScroll}
           className="flex gap-5 sm:gap-6 overflow-x-auto pb-6 pt-2 snap-x snap-mandatory scroll-smooth scrollbar-none -mx-4 px-4 sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8"
         >
           {scientificEvents.map((event, idx) => (
@@ -422,6 +413,23 @@ export default function HomeEventsSection() {
                 onOpenDetails={(ev) => setActiveModalEvent(ev)}
               />
             </div>
+          ))}
+        </div>
+
+        {/* Small dots for scroll reference */}
+        <div className="flex items-center justify-center gap-2 mt-4 sm:mt-5">
+          {scientificEvents.map((_, idx) => (
+            <button
+              key={idx}
+              type="button"
+              onClick={() => scrollToCard(idx)}
+              aria-label={`Scroll to event ${idx + 1}`}
+              className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
+                activeIndex === idx
+                  ? 'w-6 bg-[#913433] dark:bg-[#F14666]'
+                  : 'w-2 bg-[rgba(100,85,70,0.30)] dark:bg-[#3B3D41] hover:bg-[rgba(100,85,70,0.50)]'
+              }`}
+            />
           ))}
         </div>
       </div>
