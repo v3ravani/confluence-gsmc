@@ -4,8 +4,6 @@ import { ArrowLeft } from 'lucide-react';
 
 export default function MobilePageHero({ title }) {
   return (
-export default function MobilePageHero({ title }) {
-  return (
     <div className="md:hidden relative bg-[#2d508a] dark:bg-[#252629] w-full pt-6 pb-11 px-5 text-white overflow-hidden shadow-md mb-7 border-b border-[#203c6b] dark:border-[#3B3D41]">
       {/* Decorative background curves — smooth organic floating blue bubble animations */}
       <div
