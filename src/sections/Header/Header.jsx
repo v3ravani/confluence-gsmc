@@ -10,16 +10,6 @@ import { headerBrand, navLinks } from '../../data/navigation';
 import { instagramConfig } from '../../data/collaborators';
 import gsmcCrest from '../../assets/logos/gsmc_crest.png';
 
-const NON_HOME_PATHS = new Set([
-  '/about',
-  '/events',
-  '/workshops',
-  '/merchandise',
-  '/cme',
-  '/gallery',
-  '/team',
-]);
-
 function BrandLogo({ onClick }) {
   return (
     <Link
@@ -69,7 +59,7 @@ function ScrollProgressBar({ progress }) {
 export default function Header() {
   const { pathname } = useLocation();
   const normalizedPath = (pathname.replace(/\/+$/, '') || '/').toLowerCase();
-  const isHomePage = !NON_HOME_PATHS.has(normalizedPath);
+  const isHomePage = normalizedPath === '/';
 
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
