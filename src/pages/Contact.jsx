@@ -50,8 +50,8 @@ export default function Contact() {
                 <p className="text-[#29405B] dark:text-[#B5B3B0] text-sm leading-relaxed mb-2">
                   For delegate enquiries, scientific submissions, and sponsorship:
                 </p>
-                <a href="mailto:confluence.gsmc@gmail.com" className="text-[#1D344F] dark:text-[#F14666] hover:text-[#536F91] dark:hover:text-[#EE9590] font-semibold hover:underline text-sm">
-                  confluence.gsmc@gmail.com
+                <a href="mailto:confluencegsmc@kem.edu" className="text-[#1D344F] dark:text-[#F14666] hover:text-[#536F91] dark:hover:text-[#EE9590] font-semibold hover:underline text-sm">
+                  confluencegsmc@kem.edu
                 </a>
               </div>
             </div>
@@ -60,14 +60,44 @@ export default function Contact() {
               <div className="w-12 h-12 rounded-xl bg-[#D4E1EF]/80 dark:bg-[#323438] border border-[#829DBB]/40 dark:border-[#3B3D41] flex items-center justify-center text-[#1D344F] dark:text-[#F14666] flex-shrink-0">
                 <Phone className="w-6 h-6" />
               </div>
-              <div>
+              <div className="w-full">
                 <h4 className="font-heading font-extrabold text-lg text-[#1D344F] dark:text-[#F2F0ED] mb-1">
-                  Secretariat Helpline
+                  Chief Organisers
                 </h4>
-                <p className="text-[#29405B] dark:text-[#B5B3B0] text-sm leading-relaxed mb-2">
-                  Office Hours: Monday to Friday (9:00 AM - 5:00 PM IST)
+                <p className="text-[#29405B] dark:text-[#B5B3B0] text-sm leading-relaxed mb-3">
+                  For conference-related enquiries, contact:
                 </p>
-                <span className="text-[#1D344F] dark:text-[#F2F0ED] font-semibold text-sm">+91 22 2410 7000</span>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <div className="rounded-xl bg-[#F8FBFE] dark:bg-[#323438] border border-[#829DBB]/40 dark:border-[#3B3D41] p-3">
+                    <b className="font-heading font-bold text-[#1D344F] dark:text-[#F2F0ED] text-xs tracking-wide block">
+                      DANISH SAHAB
+                    </b>
+                    <span className="text-[10px] font-semibold uppercase tracking-[0.14em] text-[#536F91] dark:text-[#898A89] block mt-0.5 mb-1.5">
+                      Chief Organiser
+                    </span>
+                    <a
+                      href="tel:8828988982"
+                      className="text-[#1D344F] dark:text-[#F14666] hover:underline font-semibold text-sm inline-flex items-center gap-1"
+                    >
+                      8828988982
+                    </a>
+                  </div>
+
+                  <div className="rounded-xl bg-[#F8FBFE] dark:bg-[#323438] border border-[#829DBB]/40 dark:border-[#3B3D41] p-3">
+                    <b className="font-heading font-bold text-[#1D344F] dark:text-[#F2F0ED] text-xs tracking-wide block">
+                      ROHAN KARANDIKAR
+                    </b>
+                    <span className="text-[10px] font-semibold uppercase tracking-[0.14em] text-[#536F91] dark:text-[#898A89] block mt-0.5 mb-1.5">
+                      Chief Organiser
+                    </span>
+                    <a
+                      href="tel:7021864720"
+                      className="text-[#1D344F] dark:text-[#F14666] hover:underline font-semibold text-sm inline-flex items-center gap-1"
+                    >
+                      7021864720
+                    </a>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

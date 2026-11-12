@@ -16,7 +16,9 @@ import { scientificEvents } from '../../data/events';
 function EventCard({ event, index, onOpenDetails }) {
   const handleRegister = (e) => {
     e.stopPropagation();
-    if (event.googleFormUrl) {
+    if (event.registrationLinks && event.registrationLinks.length > 1) {
+      onOpenDetails(event);
+    } else if (event.googleFormUrl) {
       window.open(event.googleFormUrl, '_blank', 'noopener,noreferrer');
     } else {
       alert(

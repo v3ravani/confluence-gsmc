@@ -27,7 +27,9 @@ import { scientificEvents, conferenceInfo } from '../data/events';
 function EventCard({ event, index, onOpenDetails }) {
   const handleRegister = (e) => {
     e.stopPropagation();
-    if (event.googleFormUrl) {
+    if (event.registrationLinks && event.registrationLinks.length > 1) {
+      onOpenDetails(event);
+    } else if (event.googleFormUrl) {
       window.open(event.googleFormUrl, '_blank', 'noopener,noreferrer');
     } else {
       alert(
@@ -162,6 +164,7 @@ export default function Event() {
   const categories = [
     'All',
     'Medical Quizzes',
+    'Healthcare Hackathon',
     'Symposium',
     'Clinical Cases',
     'Research & Presentations',
@@ -176,6 +179,7 @@ export default function Event() {
     const matchesSearch =
       !q ||
       ev.name.toLowerCase().includes(q) ||
+      ev.aliases?.some((a) => a.toLowerCase().includes(q)) ||
       ev.subtitle.toLowerCase().includes(q) ||
       ev.description.toLowerCase().includes(q) ||
       ev.syllabus.some((s) => s.toLowerCase().includes(q)) ||
@@ -258,17 +262,17 @@ export default function Event() {
 
         {/* Section Heading */}
         <SectionHeading
-          eyebrow="Academic Competitions & Quizzes"
+          eyebrow="Academic Competitions, Hackathons & Quizzes"
           title="Scientific"
           highlightWord="Events"
-          subtitle="Seven premier medical competitions spanning foundational sciences, clinicopathological deduction, original research papers, and the flagship intercollegiate symposium."
+          subtitle="Eight premier medical competitions spanning foundational sciences, healthcare innovation hackathons, clinicopathological deduction, original research papers, and the flagship intercollegiate symposium."
         />
 
         {/* Fast Key Stats Pill Bar */}
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 mb-10">
           {[
-            { label: 'Official Events', value: '7 Competitions', sub: 'Quizzes, Papers, Cases & Symposium' },
-            { label: 'Total Prize Pool', value: '₹1,70,000+', sub: 'Cash awards & certificates' },
+            { label: 'Official Events', value: '8 Competitions', sub: 'Quizzes, Hackathon, Papers & Symposium' },
+            { label: 'Total Prize Pool', value: '₹2,20,000+', sub: 'Cash awards & certificates' },
             { label: 'Format', value: 'Hybrid Track', sub: 'Online screening + Campus finals' },
             { label: 'Target Delegates', value: 'UG & PG Streams', sub: 'MBBS, Interns & Residents' },
           ].map((stat) => (

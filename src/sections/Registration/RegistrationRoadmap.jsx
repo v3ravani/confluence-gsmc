@@ -154,7 +154,16 @@ export default function RegistrationRoadmap() {
                 </li>
                 <li className="flex items-start gap-2.5">
                   <span className="text-[var(--accent-blush)] mt-0.5 flex-shrink-0">◆</span>
-                  Contact confluence.gsmc@gmail.com for queries.
+                  <span>
+                    Contact{' '}
+                    <a
+                      href="mailto:confluencegsmc@kem.edu"
+                      className="text-[#1D344F] dark:text-[#F2F0ED] font-semibold underline underline-offset-2 hover:opacity-80 transition-opacity"
+                    >
+                      confluencegsmc@kem.edu
+                    </a>{' '}
+                    for queries.
+                  </span>
                 </li>
               </ul>
             </div>

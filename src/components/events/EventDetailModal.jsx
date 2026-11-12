@@ -148,6 +148,37 @@ export default function EventDetailModal({ event, onClose }) {
             </div>
           </div>
 
+          {/* Rounds & Format Breakdown (When multiple rounds exist) */}
+          {event.rounds && event.rounds.length > 0 && (
+            <div className="p-4 rounded-xl bg-[#EAF0F6] dark:bg-[#2B2D30] border border-[#829DBB]/40 dark:border-[#3B3D41] space-y-2.5">
+              <span className="text-[10px] font-semibold uppercase tracking-wider text-[#536F91] dark:text-[#898A89] block">
+                Rounds &amp; Schedule
+              </span>
+              <div className="space-y-2">
+                {event.rounds.map((r) => (
+                  <div
+                    key={r.stage}
+                    className="p-2.5 rounded-lg bg-[#F8FBFE] dark:bg-[#323438] border border-[#829DBB]/35 dark:border-[#3B3D41] flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1"
+                  >
+                    <div>
+                      <b className="text-[#1D344F] dark:text-[#F2F0ED] text-xs font-bold block">{r.stage}</b>
+                      <span className="text-[11px] text-[#29405B] dark:text-[#B5B3B0] block">{r.format}</span>
+                    </div>
+                    <span className="text-[11px] font-semibold text-[#536F91] dark:text-[#EE9590] whitespace-nowrap">
+                      {r.date}
+                    </span>
+                  </div>
+                ))}
+              </div>
+              {event.pricing?.regular && (
+                <div className="pt-2 border-t border-[#829DBB]/25 dark:border-[#3B3D41] text-[11px] text-[#29405B] dark:text-[#B5B3B0] flex flex-wrap gap-x-4 gap-y-1">
+                  <span><b className="text-[#1D344F] dark:text-[#F2F0ED]">Early Bird:</b> {event.pricing.earlyBird}</span>
+                  <span><b className="text-[#1D344F] dark:text-[#F2F0ED]">Regular/Late:</b> {event.pricing.regular}</span>
+                </div>
+              )}
+            </div>
+          )}
+
           {/* Eligibility & Team Structure */}
           <div className="p-4 rounded-xl bg-[#EAF0F6] dark:bg-[#2B2D30] border border-[#829DBB]/40 dark:border-[#3B3D41] space-y-2">
             <div>
@@ -194,14 +225,21 @@ export default function EventDetailModal({ event, onClose }) {
             <span className="text-[#29405B] dark:text-[#B5B3B0]">
               Coordinator: <b className="text-[#1D344F] dark:text-[#F2F0ED]">{event.coordinator.name}</b>
             </span>
-            <div className="flex items-center gap-4">
-              <a
-                href={`tel:${event.coordinator.phone.replace(/[^0-9]/g, '')}`}
-                className="inline-flex items-center gap-1.5 text-[#1D344F] dark:text-[#F14666] hover:underline font-semibold"
-              >
-                <Phone className="w-3.5 h-3.5" />
-                {event.coordinator.phone}
-              </a>
+            <div className="flex flex-wrap items-center gap-3">
+              {event.coordinator.phone.split('/').map((rawNum) => {
+                const clean = rawNum.trim();
+                const digits = clean.replace(/[^0-9]/g, '');
+                return (
+                  <a
+                    key={clean}
+                    href={`tel:${digits}`}
+                    className="inline-flex items-center gap-1.5 text-[#1D344F] dark:text-[#F14666] hover:underline font-semibold"
+                  >
+                    <Phone className="w-3.5 h-3.5" />
+                    {clean}
+                  </a>
+                );
+              })}
               {event.rulebookUrl && (
                 <button
                   type="button"
@@ -218,33 +256,48 @@ export default function EventDetailModal({ event, onClose }) {
         </div>
 
         {/* Modal Sticky Footer Actions */}
-        <div className="p-4 sm:px-6 border-t border-[#829DBB]/40 dark:border-[#3B3D41] bg-[#EAF0F6] dark:bg-[#252629] flex items-center justify-between gap-4">
+        <div className="p-4 sm:px-6 border-t border-[#829DBB]/40 dark:border-[#3B3D41] bg-[#EAF0F6] dark:bg-[#252629] flex flex-wrap items-center justify-between gap-3">
           <div className="flex flex-col">
             <b className="text-xl sm:text-2xl font-black text-[#1D344F] dark:text-[#F2F0ED] leading-none">
               {event.pricing.earlyBird.split('(')[0].trim()}
             </b>
             <span className="text-[11px] text-[#536F91] dark:text-[#898A89] mt-0.5">
-              Per participant
+              {event.feeLabel || 'Registration Fee'}
             </span>
           </div>
 
-          <div className="flex items-center gap-3 ml-auto">
+          <div className="flex flex-wrap items-center gap-2.5 ml-auto">
             <button
               type="button"
               onClick={onClose}
-              className="px-5 py-2.5 rounded-full text-xs font-bold text-[#1D344F] dark:text-[#F2F0ED] hover:bg-[#D4E1EF]/70 dark:hover:bg-[#323438] border border-[#829DBB] dark:border-[#3B3D41] transition-colors cursor-pointer"
+              className="px-4 sm:px-5 py-2.5 rounded-full text-xs font-bold text-[#1D344F] dark:text-[#F2F0ED] hover:bg-[#D4E1EF]/70 dark:hover:bg-[#323438] border border-[#829DBB] dark:border-[#3B3D41] transition-colors cursor-pointer"
             >
               Close
             </button>
 
-            <button
-              type="button"
-              onClick={handleRegister}
-              className="inline-flex items-center gap-2 px-7 py-2.5 rounded-full font-bold text-xs text-white bg-[#1D344F] hover:bg-[#15273C] dark:bg-[#F14666] dark:hover:bg-[#e03253] shadow-sm hover:scale-[1.02] active:scale-100 transition-all cursor-pointer"
-            >
-              <span>Register</span>
-              <ArrowUpRight className="w-3.5 h-3.5" />
-            </button>
+            {event.registrationLinks && event.registrationLinks.length > 1 ? (
+              event.registrationLinks.map((regLink) => (
+                <a
+                  key={regLink.label}
+                  href={regLink.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full font-bold text-xs text-white bg-[#1D344F] hover:bg-[#15273C] dark:bg-[#F14666] dark:hover:bg-[#e03253] shadow-sm hover:scale-[1.02] active:scale-100 transition-all cursor-pointer"
+                >
+                  <span>{regLink.label}</span>
+                  <ArrowUpRight className="w-3.5 h-3.5" />
+                </a>
+              ))
+            ) : (
+              <button
+                type="button"
+                onClick={handleRegister}
+                className="inline-flex items-center gap-2 px-7 py-2.5 rounded-full font-bold text-xs text-white bg-[#1D344F] hover:bg-[#15273C] dark:bg-[#F14666] dark:hover:bg-[#e03253] shadow-sm hover:scale-[1.02] active:scale-100 transition-all cursor-pointer"
+              >
+                <span>Register</span>
+                <ArrowUpRight className="w-3.5 h-3.5" />
+              </button>
+            )}
           </div>
         </div>
       </div>

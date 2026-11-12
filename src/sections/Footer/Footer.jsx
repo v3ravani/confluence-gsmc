@@ -189,15 +189,52 @@ export default function Footer() {
               <div className="flex items-center gap-2.5">
                 <Mail className="w-4 h-4 text-white/60 flex-shrink-0" />
                 <a
-                  href="mailto:confluence.gsmc@gmail.com"
-                  className="text-white/80 hover:underline hover:text-white transition-colors"
+                  href="mailto:confluencegsmc@kem.edu"
+                  className="text-white/85 hover:underline hover:text-white transition-colors"
                 >
-                  confluence.gsmc@gmail.com
+                  confluencegsmc@kem.edu
                 </a>
               </div>
-              <div className="flex items-center gap-2.5">
-                <Phone className="w-4 h-4 text-white/60 flex-shrink-0" />
-                <span>Secretariat: +91 22 2410 7000</span>
+              <div className="pt-1">
+                <div className="flex items-center gap-2 mb-2 text-[10.5px] font-bold tracking-[0.16em] uppercase text-white/60">
+                  <Phone className="w-3.5 h-3.5 text-white/60 flex-shrink-0" />
+                  <span>Chief Organisers</span>
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-2">
+                  <div className="rounded-lg bg-white/[0.06] border border-white/10 px-3 py-2 flex items-center justify-between gap-2">
+                    <div>
+                      <p className="font-heading font-bold text-white text-[11.5px] leading-tight tracking-wide">
+                        DANISH SAHAB
+                      </p>
+                      <span className="text-[9.5px] uppercase tracking-[0.14em] text-white/60 block">
+                        Chief Organiser
+                      </span>
+                    </div>
+                    <a
+                      href="tel:8828988982"
+                      className="text-white font-semibold text-xs hover:underline whitespace-nowrap"
+                    >
+                      8828988982
+                    </a>
+                  </div>
+
+                  <div className="rounded-lg bg-white/[0.06] border border-white/10 px-3 py-2 flex items-center justify-between gap-2">
+                    <div>
+                      <p className="font-heading font-bold text-white text-[11.5px] leading-tight tracking-wide">
+                        ROHAN KARANDIKAR
+                      </p>
+                      <span className="text-[9.5px] uppercase tracking-[0.14em] text-white/60 block">
+                        Chief Organiser
+                      </span>
+                    </div>
+                    <a
+                      href="tel:7021864720"
+                      className="text-white font-semibold text-xs hover:underline whitespace-nowrap"
+                    >
+                      7021864720
+                    </a>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

@@ -31,4 +31,4 @@ export const registrationSteps = [
   },
 ];
 
-export const registrationFaqNote = 'Each event and workshop has its own registration form and fee structure. Details will be published with the official brochure. For queries, contact the organising secretariat at confluence.gsmc@gmail.com.';
+export const registrationFaqNote = 'Each event and workshop has its own registration form and fee structure. Details will be published with the official brochure. For queries, contact the organising secretariat at confluencegsmc@kem.edu.';
