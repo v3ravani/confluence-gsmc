@@ -27,7 +27,7 @@ export default function About() {
         </Link>
 
         {/* Section 1: The Conference */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start pb-6">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 pb-6">
 
           {/* Left — full description */}
           <div className="lg:col-span-8">

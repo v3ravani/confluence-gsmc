@@ -66,7 +66,7 @@ export default function BrowseSection() {
               {/* Index */}
               <span
                 className="font-heading font-bold text-2xl md:text-3xl w-10 flex-shrink-0 select-none
-                           text-[#829DBB] dark:text-[#898A89] group-hover:text-[var(--accent-blue)]
+                           text-[#829DBB] dark:text-[#898A89] group-hover:text-[var(--accent-blue)] dark:group-hover:text-[#F14666]
                            transition-colors duration-300"
               >
                 {String(idx + 1).padStart(2, '0')}
@@ -76,11 +76,11 @@ export default function BrowseSection() {
               <div className="flex-1 min-w-0 pr-4">
                 <h3 className="font-heading font-extrabold text-xl md:text-2xl lg:text-3xl
                                tracking-tight text-[#1D344F] dark:text-[#F2F0ED]
-                               group-hover:text-[var(--accent-blue)] transition-colors duration-250 mb-1">
+                               group-hover:text-[var(--accent-blue)] dark:group-hover:text-[#F14666] transition-colors duration-250 mb-1">
                   {cat.label}
                 </h3>
-                <p className="text-xs md:text-sm text-[var(--muted)] leading-relaxed
-                               line-clamp-1 md:line-clamp-none">
+                <p className="text-xs md:text-sm text-[var(--muted)] dark:text-[#B5B3B0] dark:group-hover:text-[#F2F0ED]/90 leading-relaxed
+                               line-clamp-1 md:line-clamp-none transition-colors">
                   {cat.desc}
                 </p>
               </div>

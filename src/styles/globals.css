@@ -156,6 +156,10 @@
   padding-left: 2rem;
 }
 
+.dark .browse-row:hover {
+  background: #323438;
+}
+
 .browse-row:hover::before {
   opacity: 1;
 }

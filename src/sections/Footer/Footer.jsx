@@ -24,11 +24,11 @@ export default function Footer() {
 
       <div className="wrap relative z-10">
         {/* ── Main grid ───────────────────────────────────────────── */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-12 gap-y-10 gap-x-6 lg:gap-8
                         pb-14 border-b border-white/10 dark:border-[#3B3D41]">
 
-          {/* Col 1 — Brand (4 cols) */}
-          <div className="lg:col-span-4">
+          {/* Col 1 — Brand (4 cols on desktop, full width on mobile) */}
+          <div className="col-span-2 md:col-span-1 lg:col-span-4">
             <Link to="/" className="flex items-center gap-3 select-none mb-5">
               <img
                 src={gsmcCrest}
@@ -77,8 +77,8 @@ export default function Footer() {
             </span>
           </div>
 
-          {/* Col 2 — Navigation (3 cols) */}
-          <div className="lg:col-span-3">
+          {/* Col 2 — Navigation (3 cols on desktop, left half on mobile) */}
+          <div className="col-span-1 md:col-span-1 lg:col-span-3">
             <h4 className="font-heading font-bold text-white text-sm mb-4 tracking-tight uppercase">
               Explore
             </h4>
@@ -95,8 +95,8 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Col 3 — Delegate resources (2 cols) */}
-          <div className="lg:col-span-2">
+          {/* Col 3 — Delegate resources (2 cols on desktop, right half on mobile) */}
+          <div className="col-span-1 md:col-span-1 lg:col-span-2">
             <h4 className="font-heading font-bold text-white text-sm mb-4 tracking-tight uppercase">
               Delegates
             </h4>
@@ -132,8 +132,8 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Col 4 — Contact (3 cols) */}
-          <div className="lg:col-span-3">
+          {/* Col 4 — Contact (3 cols on desktop, full width on mobile) */}
+          <div className="col-span-2 md:col-span-1 lg:col-span-3">
             <h4 className="font-heading font-bold text-white text-sm mb-4 tracking-tight uppercase">
               Contact &amp; Venue
             </h4>
@@ -170,7 +170,7 @@ export default function Footer() {
             © {year} CONFLUENCE · Seth GS Medical College &amp; KEM Hospital, Mumbai
           </span>
           <span className="text-center sm:text-right">
-            Official Medical Conference Portal · Build by Prithvi Kharje &amp; Viraj Ravani
+            Build by Prithvi Kharje &amp; Viraj Ravani
           </span>
         </div>
       </div>

@@ -62,8 +62,8 @@ export const collaboratorsData = [
 
 // ── Instagram configuration ───────────────────────────────────────────────────
 export const instagramConfig = {
-  handle:        '@confluence_gsmc',
-  url:           'https://www.instagram.com/confluence_gsmc/',
+  handle:        '@confluencegsmc',
+  url:           'https://www.instagram.com/confluencegsmc?srtk=MTZmZjA2azczaWVqeA==',
   heading:       'Follow CONFLUENCE 2026 on Instagram',
   subtext:       'Stay updated with live announcements, speaker reveals, workshop glimpses, and behind-the-scenes moments from the GSMC campus.',
   placeholderPosts: [

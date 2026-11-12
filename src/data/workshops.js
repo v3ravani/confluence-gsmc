@@ -7,7 +7,7 @@ export const officialWorkshopsAnnouncement = {
   conferenceDates: '11th – 13th December 2026',
   venue: 'Seth GS Medical College & KEM Hospital, Parel, Mumbai',
   instagramNotice:
-    'Stay tuned as we release the comprehensive list of individual workshop batches that will elevate your experience to new heights. For the latest updates, releases, and seat allotment insights, be sure to follow our Instagram page @confluence_gsmc.',
+    'Stay tuned as we release the comprehensive list of individual workshop batches that will elevate your experience to new heights. For the latest updates, releases, and seat allotment insights, be sure to follow our Instagram page @confluencegsmc.',
   accreditation: 'Applied for 4 MMC Credit Points',
   delegationTiers: [
     {
@@ -45,7 +45,7 @@ export const workshopsData = [
     seats: 'Strictly Limited Batches',
     eligibility: ['MBBS Students', 'Undergraduate Interns', 'Postgraduate Residents'],
     desc: 'High-yield practical training featuring animal tissue suturing, tendon repair, subcuticular wound approximation, and surgical knotting under the mentorship of senior GSMC & KEMH faculty.',
-    googleFormUrl: 'https://www.instagram.com/confluence_gsmc/',
+    googleFormUrl: 'https://www.instagram.com/confluencegsmc?srtk=MTZmZjA2azczaWVqeA==',
   },
   {
     id: 'trauma-emergency-life-support',
@@ -57,7 +57,7 @@ export const workshopsData = [
     seats: 'Strictly Limited Batches',
     eligibility: ['MBBS Students', 'Undergraduate Interns', 'Postgraduate Residents'],
     desc: 'Critical casualty triage, ATLS primary & secondary surveys, rapid-sequence endotracheal intubation on mannequins, and emergency intercostal chest tube insertion simulations.',
-    googleFormUrl: 'https://www.instagram.com/confluence_gsmc/',
+    googleFormUrl: 'https://www.instagram.com/confluencegsmc?srtk=MTZmZjA2azczaWVqeA==',
   },
   {
     id: 'pocus-bedside-ultrasound',
@@ -69,7 +69,7 @@ export const workshopsData = [
     seats: 'Strictly Limited Batches',
     eligibility: ['Undergraduate Interns', 'Postgraduate Residents'],
     desc: 'Interactive ultrasound probe ergonomics, bedside eFAST protocols for occult hemoperitoneum, vascular access line guidance, and focused cardiac hemodynamic echocardiography.',
-    googleFormUrl: 'https://www.instagram.com/confluence_gsmc/',
+    googleFormUrl: 'https://www.instagram.com/confluencegsmc?srtk=MTZmZjA2azczaWVqeA==',
   },
   {
     id: 'protecting-practitioner-cme',
@@ -81,7 +81,7 @@ export const workshopsData = [
     seats: 'Open Delegation',
     eligibility: ['MBBS Students', 'Undergraduate Interns', 'Postgraduate Residents', 'Consultants'],
     desc: 'Three-phase survival curriculum: Phase 1 (Threat recognition & prevention), Phase 2 (Casualty survival & escape protocols), and Phase 3 (Evidence collection, FIR filing & legal retaliation).',
-    googleFormUrl: 'https://www.instagram.com/confluence_gsmc/',
+    googleFormUrl: 'https://www.instagram.com/confluencegsmc?srtk=MTZmZjA2azczaWVqeA==',
   },
   {
     id: 'financial-literacy-practitioners',
@@ -93,7 +93,7 @@ export const workshopsData = [
     seats: 'Open Delegation',
     eligibility: ['Interns', 'Postgraduate Residents', 'Junior Consultants'],
     desc: 'Asset protection for medical practitioners: Keep what you earn (taxation & debt management), ethical side hustles in the healthcare creator economy, and setting up hospital infrastructure.',
-    googleFormUrl: 'https://www.instagram.com/confluence_gsmc/',
+    googleFormUrl: 'https://www.instagram.com/confluencegsmc?srtk=MTZmZjA2azczaWVqeA==',
   },
   {
     id: 'advances-infertility-art',
@@ -105,7 +105,7 @@ export const workshopsData = [
     seats: 'Open Delegation',
     eligibility: ['MBBS Students', 'Undergraduate Interns', 'Postgraduate Residents'],
     desc: 'Proactive screening in high-risk young women, social and oncological egg freezing, recurrent implantation failure management, male/female triage, and the frontiers of regenerative ART.',
-    googleFormUrl: 'https://www.instagram.com/confluence_gsmc/',
+    googleFormUrl: 'https://www.instagram.com/confluencegsmc?srtk=MTZmZjA2azczaWVqeA==',
   },
   {
     id: 'psychosomatic-invisible-illness',
@@ -117,7 +117,7 @@ export const workshopsData = [
     seats: 'Open Delegation',
     eligibility: ['MBBS Students', 'Undergraduate Interns', 'Postgraduate Residents'],
     desc: 'The neurobiology of "fake" pain, defensive medicine and red-flag triage, and actionable psychological interventions that can be executed during a fast-paced 10-minute clinical consult.',
-    googleFormUrl: 'https://www.instagram.com/confluence_gsmc/',
+    googleFormUrl: 'https://www.instagram.com/confluencegsmc?srtk=MTZmZjA2azczaWVqeA==',
   },
   {
     id: 'research-sushruta-methodology',
@@ -129,6 +129,6 @@ export const workshopsData = [
     seats: 'Strictly Limited Batches',
     eligibility: ['MBBS Students', 'Undergraduate Interns', 'Postgraduate Residents'],
     desc: 'Hands-on training in formulation of research protocols, sample size calculations, critical appraisal of clinical trials, and systematic literature review writing for indexed medical journals.',
-    googleFormUrl: 'https://www.instagram.com/confluence_gsmc/',
+    googleFormUrl: 'https://www.instagram.com/confluencegsmc?srtk=MTZmZjA2azczaWVqeA==',
   },
 ];
