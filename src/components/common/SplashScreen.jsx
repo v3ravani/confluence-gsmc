@@ -49,17 +49,17 @@ export default function SplashScreen({ onComplete, duration = 3200 }) {
         className="absolute inset-0 pointer-events-none"
       />
 
-      {/* 2. Full-Page Light Illumination: radiant bloom that floods the ENTIRE viewport (no harsh circular edges) */}
+      {/* 2. Full-Page Light Illumination: subtle radiant bloom that floods the viewport */}
       <motion.div
         aria-hidden="true"
-        initial={{ opacity: 0.15 }}
-        animate={{ opacity: [0.15, 0.45, 0.85, 1] }}
+        initial={{ opacity: 0.1 }}
+        animate={{ opacity: [0.1, 0.35, 0.6, 0.72] }}
         transition={{ duration: 2.8, ease: 'easeOut' }}
         className="absolute inset-0 pointer-events-none"
         style={{
           background: isDark
-            ? 'radial-gradient(circle at 50% 42%, rgba(241, 70, 102, 0.28) 0%, rgba(238, 149, 144, 0.14) 40%, rgba(32, 33, 36, 0.05) 75%, transparent 100%)'
-            : 'radial-gradient(circle at 50% 42%, rgba(130, 157, 187, 0.42) 0%, rgba(212, 225, 239, 0.28) 42%, rgba(246, 249, 252, 0.08) 75%, transparent 100%)',
+            ? 'radial-gradient(circle at 50% 42%, rgba(241, 70, 102, 0.16) 0%, rgba(238, 149, 144, 0.08) 40%, rgba(32, 33, 36, 0.03) 75%, transparent 100%)'
+            : 'radial-gradient(circle at 50% 42%, rgba(130, 157, 187, 0.24) 0%, rgba(212, 225, 239, 0.15) 42%, rgba(246, 249, 252, 0.04) 75%, transparent 100%)',
         }}
       />
 
@@ -67,13 +67,13 @@ export default function SplashScreen({ onComplete, duration = 3200 }) {
       <motion.div
         aria-hidden="true"
         initial={{ opacity: 0 }}
-        animate={{ opacity: [0, 0.2, 0.55, 0.7] }}
+        animate={{ opacity: [0, 0.15, 0.35, 0.45] }}
         transition={{ duration: 2.8, ease: 'easeOut' }}
         className="absolute inset-0 pointer-events-none"
         style={{
           background: isDark
-            ? 'linear-gradient(180deg, rgba(241, 70, 102, 0.08) 0%, rgba(32, 33, 36, 0) 50%, rgba(241, 70, 102, 0.08) 100%)'
-            : 'linear-gradient(180deg, rgba(212, 225, 239, 0.25) 0%, rgba(246, 249, 252, 0) 50%, rgba(212, 225, 239, 0.22) 100%)',
+            ? 'linear-gradient(180deg, rgba(241, 70, 102, 0.05) 0%, rgba(32, 33, 36, 0) 50%, rgba(241, 70, 102, 0.05) 100%)'
+            : 'linear-gradient(180deg, rgba(212, 225, 239, 0.16) 0%, rgba(246, 249, 252, 0) 50%, rgba(212, 225, 239, 0.14) 100%)',
         }}
       />
 
@@ -101,17 +101,17 @@ export default function SplashScreen({ onComplete, duration = 3200 }) {
           />
         </motion.div>
 
-        {/* Yellow Halo Glow strictly BEHIND the bulb (not on the bulb image itself) */}
+        {/* Soft Yellow Halo Glow strictly BEHIND the bulb (subtle illumination) */}
         <motion.div
           aria-hidden="true"
-          initial={{ opacity: 0.15, scale: 0.85 }}
-          animate={{ opacity: [0.15, 0.55, 0.95], scale: [0.85, 1, 1.12] }}
+          initial={{ opacity: 0.1, scale: 0.88 }}
+          animate={{ opacity: [0.1, 0.38, 0.62], scale: [0.88, 1, 1.06] }}
           transition={{ duration: 2.8, ease: [0.25, 0.1, 0.25, 1] }}
-          className="absolute inset-[12%] rounded-full pointer-events-none z-[1]"
+          className="absolute inset-[14%] rounded-full pointer-events-none z-[1]"
           style={{
             background: isDark
-              ? 'radial-gradient(circle at 50% 45%, rgba(250, 204, 21, 0.48) 0%, rgba(253, 224, 71, 0.20) 45%, transparent 75%)'
-              : 'radial-gradient(circle at 50% 45%, rgba(250, 204, 21, 0.65) 0%, rgba(253, 224, 71, 0.32) 48%, transparent 78%)',
+              ? 'radial-gradient(circle at 50% 45%, rgba(250, 204, 21, 0.28) 0%, rgba(253, 224, 71, 0.11) 45%, transparent 72%)'
+              : 'radial-gradient(circle at 50% 45%, rgba(250, 204, 21, 0.36) 0%, rgba(253, 224, 71, 0.16) 46%, transparent 74%)',
           }}
         />
 

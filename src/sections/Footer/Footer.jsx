@@ -10,7 +10,7 @@ export default function Footer() {
 
   return (
     <footer className="relative bg-[#1D344F] dark:bg-[#252629] rounded-t-[36px] sm:rounded-t-[48px] md:rounded-t-[60px] pt-16 pb-10 text-white
-                       border-t border-[#829DBB]/20 dark:border-[#3B3D41] shadow-[0_-8px_32px_rgba(29,52,79,0.20)] dark:shadow-[0_-8px_32px_rgba(0,0,0,0.50)] overflow-hidden">
+                       shadow-[0_-8px_32px_rgba(29,52,79,0.20)] dark:shadow-[0_-8px_32px_rgba(0,0,0,0.50)] overflow-hidden">
       {/* Large decorative watermark anchored cleanly at bottom */}
       <div
         aria-hidden="true"
