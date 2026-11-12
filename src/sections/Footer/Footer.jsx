@@ -1,12 +1,20 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Mail, Phone, MapPin, Instagram, ArrowUpRight } from 'lucide-react';
+import { Mail, Phone, MapPin, Instagram, Linkedin, FileText, ArrowUpRight } from 'lucide-react';
 import gsmcCrest from '../../assets/logos/gsmc_crest.png';
-import { headerBrand, navLinks } from '../../data/navigation';
+import { headerBrand, navLinks, brochureConfig } from '../../data/navigation';
 import { instagramConfig } from '../../data/collaborators';
 
 export default function Footer() {
   const year = 2026;
+  const hasBrochureFile = Boolean(brochureConfig.eventBrochureUrl && !brochureConfig.eventBrochureUrl.startsWith('#'));
+
+  const handleBrochureClick = (e) => {
+    if (!hasBrochureFile) {
+      e.preventDefault();
+      alert(`The ${brochureConfig.eventBrochureFileName} will be released with the official conference compendium.`);
+    }
+  };
 
   return (
     <footer className="relative bg-[#1D344F] dark:bg-[#252629] rounded-t-[36px] sm:rounded-t-[48px] md:rounded-t-[60px] pt-16 pb-10 text-white
@@ -53,13 +61,14 @@ export default function Footer() {
               organised by Seth GS Medical College &amp; King Edward VII Memorial Hospital, Mumbai.
             </p>
 
-            {/* Social links */}
+            {/* Social & brochure links */}
             <div className="flex items-center gap-3">
               <a
                 href={instagramConfig.url}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="CONFLUENCE on Instagram"
+                title="Instagram"
                 className="w-9 h-9 rounded-full border border-white/20
                            bg-white/10
                            flex items-center justify-center text-white/90
@@ -67,6 +76,37 @@ export default function Footer() {
                            hover:text-white transition-all duration-250"
               >
                 <Instagram className="w-4 h-4" />
+              </a>
+
+              <a
+                href="https://www.linkedin.com/school/gsmedicalcollege/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Seth GSMC on LinkedIn"
+                title="LinkedIn"
+                className="w-9 h-9 rounded-full border border-white/20
+                           bg-white/10
+                           flex items-center justify-center text-white/90
+                           hover:bg-[var(--accent-crimson)] hover:border-[var(--accent-crimson)]
+                           hover:text-white transition-all duration-250"
+              >
+                <Linkedin className="w-4 h-4" />
+              </a>
+
+              <a
+                href={brochureConfig.eventBrochureUrl}
+                onClick={handleBrochureClick}
+                target={hasBrochureFile ? '_blank' : undefined}
+                rel={hasBrochureFile ? 'noopener noreferrer' : undefined}
+                aria-label="CONFLUENCE 2026 Brochure"
+                title="Brochure"
+                className="w-9 h-9 rounded-full border border-white/20
+                           bg-white/10
+                           flex items-center justify-center text-white/90
+                           hover:bg-[var(--accent-crimson)] hover:border-[var(--accent-crimson)]
+                           hover:text-white transition-all duration-250 cursor-pointer"
+              >
+                <FileText className="w-4 h-4" />
               </a>
             </div>
 
@@ -170,7 +210,24 @@ export default function Footer() {
             © {year} CONFLUENCE · Seth GS Medical College &amp; KEM Hospital, Mumbai
           </span>
           <span className="text-center sm:text-right">
-            Build by Prithvi Kharje &amp; Viraj Ravani
+            Build by{' '}
+            <a
+              href="https://www.linkedin.com/in/prithvi-k-195281381"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white/80 hover:text-white underline-offset-2 hover:underline transition-colors"
+            >
+              Prithvi Kharje
+            </a>{' '}
+            &amp;{' '}
+            <a
+              href="https://www.linkedin.com/in/virajravani/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white/80 hover:text-white underline-offset-2 hover:underline transition-colors"
+            >
+              Viraj Ravani
+            </a>
           </span>
         </div>
       </div>

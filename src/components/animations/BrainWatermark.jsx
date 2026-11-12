@@ -44,15 +44,15 @@ export default function BrainWatermark({
         isMobile ? 'w-full h-full' : 'max-w-[500px] xl:max-w-[530px] w-full'
       } ${className}`}
     >
-      {/* 1. Ambient & Hover YELLOW radial glow strictly BEHIND the bulb (Desktop: NO glow by default, yellow glow ONLY on hover; Mobile: unchanged) */}
+      {/* 1. Ambient & Hover YELLOW radial glow strictly BEHIND the bulb (Desktop: NO glow by default, gentle yellow glow ONLY on hover; Mobile: unchanged) */}
       <div
         className="absolute inset-[8%] rounded-full pointer-events-none z-0 transition-all duration-700 ease-out"
         style={{
           background: isDark
-            ? 'radial-gradient(circle at 50% 45%, rgba(250, 204, 21, 0.45) 0%, rgba(253, 224, 71, 0.22) 42%, rgba(250, 204, 21, 0.05) 68%, transparent 80%)'
-            : 'radial-gradient(circle at 50% 45%, rgba(250, 204, 21, 0.62) 0%, rgba(253, 224, 71, 0.34) 44%, rgba(250, 204, 21, 0.08) 70%, transparent 82%)',
-          transform: isHovered ? 'scale(1.10)' : 'scale(1)',
-          opacity: isMobile ? (isDark ? 0.45 : 0.55) : isHovered ? 1 : 0,
+            ? 'radial-gradient(circle at 50% 45%, rgba(250, 204, 21, 0.26) 0%, rgba(253, 224, 71, 0.11) 42%, rgba(250, 204, 21, 0.02) 68%, transparent 80%)'
+            : 'radial-gradient(circle at 50% 45%, rgba(250, 204, 21, 0.36) 0%, rgba(253, 224, 71, 0.17) 44%, rgba(250, 204, 21, 0.03) 70%, transparent 82%)',
+          transform: isHovered ? 'scale(1.06)' : 'scale(1)',
+          opacity: isMobile ? (isDark ? 0.45 : 0.55) : isHovered ? 0.85 : 0,
         }}
       />
 
