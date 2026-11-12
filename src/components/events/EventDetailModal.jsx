@@ -57,7 +57,7 @@ export default function EventDetailModal({ event, onClose }) {
         onClick={(e) => e.stopPropagation()}
       >
         {/* Modal Header — Deep Blue Curved Header */}
-        <div className="relative bg-[#1D344F] dark:bg-[#252629] dark:border-b dark:border-[#3B3D41] p-6 text-white rounded-t-2xl overflow-hidden">
+        <div className="relative flex-shrink-0 bg-[#1D344F] dark:bg-[#252629] dark:border-b dark:border-[#3B3D41] p-5 sm:p-6 text-white rounded-t-2xl overflow-hidden">
           {/* Decorative faint curves — animated floating bubbles */}
           <div
             className="absolute -right-8 -bottom-10 w-36 h-36 rounded-full bg-white/10 pointer-events-none animate-bubble-primary"
@@ -68,21 +68,21 @@ export default function EventDetailModal({ event, onClose }) {
             style={{ animationDuration: '12s', animationDelay: '-2s' }}
           />
 
-          <div className="relative z-10 flex items-center justify-between mb-2">
+          <div className="relative z-10 flex items-center justify-between gap-2 mb-2">
             <span className="text-[11px] font-semibold uppercase tracking-wider px-3 py-1 rounded-full bg-white/20 text-white border border-white/20">
               {event.category || 'Scientific Events'}
             </span>
             <button
               type="button"
               onClick={onClose}
-              className="w-8 h-8 rounded-full bg-white/20 hover:bg-white/30 text-white flex items-center justify-center transition-colors cursor-pointer"
+              className="w-8 h-8 flex-shrink-0 rounded-full bg-white/20 hover:bg-white/30 text-white flex items-center justify-center transition-colors cursor-pointer"
               aria-label="Close modal"
             >
               <X className="w-4 h-4" />
             </button>
           </div>
 
-          <h2 className="relative z-10 font-heading font-black text-white text-2xl sm:text-3xl tracking-tight leading-tight my-2">
+          <h2 className="relative z-10 font-heading font-black text-white text-2xl sm:text-3xl tracking-tight leading-tight my-2 break-words">
             {event.name}
           </h2>
 
@@ -92,7 +92,7 @@ export default function EventDetailModal({ event, onClose }) {
         </div>
 
         {/* Modal Scrollable Body */}
-        <div className="p-6 overflow-y-auto space-y-4 text-xs text-[#29405B] dark:text-[#B5B3B0]">
+        <div className="flex-1 min-h-0 p-5 sm:p-6 overflow-y-auto space-y-4 text-xs text-[#29405B] dark:text-[#B5B3B0]">
           {/* Description */}
           <p className="text-sm text-[#29405B] dark:text-[#B5B3B0] leading-relaxed">
             {event.description}
@@ -256,7 +256,7 @@ export default function EventDetailModal({ event, onClose }) {
         </div>
 
         {/* Modal Sticky Footer Actions */}
-        <div className="p-4 sm:px-6 border-t border-[#829DBB]/40 dark:border-[#3B3D41] bg-[#EAF0F6] dark:bg-[#252629] flex flex-wrap items-center justify-between gap-3">
+        <div className="flex-shrink-0 p-4 sm:px-6 border-t border-[#829DBB]/40 dark:border-[#3B3D41] bg-[#EAF0F6] dark:bg-[#252629] flex flex-wrap items-center justify-between gap-3">
           <div className="flex flex-col">
             <b className="text-xl sm:text-2xl font-black text-[#1D344F] dark:text-[#F2F0ED] leading-none">
               {event.pricing.earlyBird.split('(')[0].trim()}

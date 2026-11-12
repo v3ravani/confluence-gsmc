@@ -41,7 +41,7 @@ function EventCard({ event, index, onOpenDetails }) {
   return (
     <div className="w-[84vw] max-w-[340px] flex-shrink-0 snap-start md:w-full md:max-w-none md:flex-shrink md:snap-align-none rounded-2xl bg-[#EAF0F6] dark:bg-[#2B2D30] border border-[#829DBB]/40 dark:border-[#3B3D41] shadow-sm hover:shadow-md hover:border-[#536F91] dark:hover:border-[#F14666] transition-all duration-300 flex flex-col justify-between h-full overflow-hidden group">
       {/* Top Blue Header Banner (Slightly increased height with decorative curves & icon design) */}
-      <div className="relative bg-[#1D344F] dark:bg-[#252629] dark:border-b dark:border-[#3B3D41] px-5 py-4 sm:py-4.5 text-white flex items-center justify-between rounded-t-2xl overflow-hidden">
+      <div className="relative flex-shrink-0 bg-[#1D344F] dark:bg-[#252629] dark:border-b dark:border-[#3B3D41] px-4 sm:px-5 py-4 sm:py-4.5 text-white flex items-center justify-between gap-2 rounded-t-2xl overflow-hidden">
         {/* Subtle decorative background curves — independently animated organic floating bubbles */}
         <div
           className="absolute -right-6 -bottom-8 w-24 h-24 rounded-full bg-white/10 pointer-events-none animate-bubble-primary"
@@ -58,16 +58,16 @@ function EventCard({ event, index, onOpenDetails }) {
           }}
         />
 
-        <div className="relative z-10 flex items-center gap-2">
+        <div className="relative z-10 flex items-center gap-2 min-w-0">
           <div className="w-6 h-6 rounded-md border border-white/20 bg-white/10 flex items-center justify-center text-white/90 flex-shrink-0">
             <Trophy className="w-3.5 h-3.5" />
           </div>
-          <span className="text-xs font-bold tracking-wider uppercase text-white/95">
+          <span className="text-xs font-bold tracking-wider uppercase text-white/95 truncate">
             {event.category || 'Scientific'}
           </span>
         </div>
 
-        <div className="relative z-10">
+        <div className="relative z-10 flex-shrink-0">
           <span className="text-2xl sm:text-3xl font-black tracking-tight text-white/95">
             {String((index ?? 0) + 1).padStart(2, '0')}
           </span>
@@ -75,23 +75,23 @@ function EventCard({ event, index, onOpenDetails }) {
       </div>
 
       {/* Card Body — Trimmed vertical spacing for compact height */}
-      <div className="p-5 flex-1 flex flex-col justify-between">
-        <div>
+      <div className="p-4 sm:p-5 flex-1 flex flex-col justify-between min-w-0">
+        <div className="min-w-0">
           {/* Title & Subtitle */}
-          <div className="mb-2.5">
-            <h3 className="font-heading font-extrabold text-[#1D344F] dark:text-[#F2F0ED] text-lg sm:text-xl leading-snug group-hover:text-[#536F91] dark:group-hover:text-[#F14666] transition-colors">
+          <div className="mb-2.5 min-w-0">
+            <h3 className="font-heading font-extrabold text-[#1D344F] dark:text-[#F2F0ED] text-lg sm:text-xl leading-snug break-words group-hover:text-[#536F91] dark:group-hover:text-[#F14666] transition-colors">
               {event.name}
             </h3>
-            <h4 className="font-heading font-semibold text-[11px] tracking-[0.14em] uppercase text-[#536F91] dark:text-[#898A89] mt-0.5">
+            <h4 className="font-heading font-semibold text-[11px] tracking-[0.14em] uppercase text-[#536F91] dark:text-[#898A89] mt-0.5 leading-snug break-words">
               {event.subtitle}
             </h4>
           </div>
 
           {/* Quick Date & Prize Row */}
-          <div className="flex items-center justify-between text-xs mb-3 pb-2.5 border-b border-[#829DBB]/25 dark:border-[#3B3D41]">
-            <span className="font-semibold text-[#1D344F] dark:text-[#EE9590] flex items-center gap-1.5 truncate">
+          <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-1 text-xs mb-3 pb-2.5 border-b border-[#829DBB]/25 dark:border-[#3B3D41]">
+            <span className="font-semibold text-[#1D344F] dark:text-[#EE9590] flex items-center gap-1.5 min-w-0">
               <Calendar className="w-3.5 h-3.5 flex-shrink-0" />
-              {event.rounds?.[0]?.date || 'September 2026'}
+              <span className="truncate">{event.rounds?.[0]?.date || 'December 2026'}</span>
             </span>
             <span className="font-bold text-[#536F91] dark:text-[#F14666] flex items-center gap-1 flex-shrink-0">
               <Trophy className="w-3.5 h-3.5 flex-shrink-0" />
@@ -100,17 +100,17 @@ function EventCard({ event, index, onOpenDetails }) {
           </div>
 
           {/* Specs Matrix (Compact) */}
-          <div className="grid grid-cols-2 gap-2 p-2.5 rounded-xl bg-[#D4E1EF]/60 dark:bg-[#323438] border border-[#829DBB]/40 dark:border-[#3B3D41] mb-3 text-xs">
-            <div>
+          <div className="grid grid-cols-2 gap-2.5 p-2.5 rounded-xl bg-[#D4E1EF]/60 dark:bg-[#323438] border border-[#829DBB]/40 dark:border-[#3B3D41] mb-3 text-xs">
+            <div className="min-w-0">
               <span className="text-[9.5px] font-semibold uppercase tracking-wider text-[#536F91] dark:text-[#898A89] block">
                 Team Size
               </span>
-              <b className="text-[#1D344F] dark:text-[#F2F0ED] font-medium flex items-center gap-1 text-[11.5px] truncate mt-0.5">
+              <b className="text-[#1D344F] dark:text-[#F2F0ED] font-medium flex items-center gap-1 text-[11.5px] mt-0.5 min-w-0">
                 <Users className="w-3 h-3 text-[#536F91] dark:text-[#F14666] flex-shrink-0" />
-                {event.teamStructure.size}
+                <span className="truncate">{event.teamStructure.size}</span>
               </b>
             </div>
-            <div>
+            <div className="min-w-0">
               <span className="text-[9.5px] font-semibold uppercase tracking-wider text-[#536F91] dark:text-[#898A89] block">
                 Registration Fee
               </span>

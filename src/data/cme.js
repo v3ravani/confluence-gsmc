@@ -15,6 +15,7 @@ export const cmeConferenceOverview = {
       group3: '₹2,499',
       group5: '₹3,899',
       badge: 'Undergraduate MBBS',
+      registerUrl: 'https://forms.gle/vTiN7xkAZioyGmNc6',
     },
     {
       role: 'PG Delegation',
@@ -23,6 +24,7 @@ export const cmeConferenceOverview = {
       group3: '₹4,500',
       group5: '₹7,000',
       badge: 'Postgraduate Residents',
+      registerUrl: 'https://docs.google.com/forms/d/e/1FAIpQLSdBBcuhRi5aoMKMHwZxtvbCwvws6Zl-4UDfFOncarkP9ixAfA/viewform?usp=dialog',
     },
     {
       role: 'Post PG Delegation',
@@ -30,7 +32,8 @@ export const cmeConferenceOverview = {
       regular: '₹1,950',
       group3: '₹5,299',
       group5: '₹8,299',
-      badge: 'Super-Specialists & Faculty',
+      badge: 'Postgraduate / Post PG',
+      registerUrl: 'https://docs.google.com/forms/d/e/1FAIpQLSfcS2LLDjEqZwqqty5NLPQJWCBYxMOAX9_A5kUUez2JQxSK7Q/viewform?usp=dialog',
     },
   ],
 };
@@ -57,7 +60,7 @@ export const cmeDays = [
         department: 'Practice Economics & Healthcare Wealth Advisory',
         accreditation: 'Applied for 4 MMC Credit Points',
         audience: 'UGs · Interns · PG Residents · Practitioners',
-        registrationFee: 'Early Bird ₹750 (Delegate Pass)',
+        registrationFee: 'UG ₹750 · PG ₹1,350 · Post PG ₹1,650 (Early Bird)',
         brochurePage: 19,
         summary:
           'Proactive financial planning for medical professionals: taxation mastery, debt liquidation, building private hospital infrastructure, and ethical creator avenues.',
@@ -75,7 +78,6 @@ export const cmeDays = [
           'Ethical side ventures, clinical consulting, and medical media creation',
           'Shielding assets through trusts, indemnity policies, and corporate hulls',
         ],
-        googleFormUrl: 'https://www.instagram.com/confluencegsmc?srtk=MTZmZjA2azczaWVqeA==',
       },
       {
         id: 'medicolegal-defense-workplace-violence',
@@ -90,7 +92,7 @@ export const cmeDays = [
         department: 'Forensic Medicine & Medical Administration, GSMC',
         accreditation: 'Applied for 4 MMC Credit Points',
         audience: 'UGs · Interns · PG Residents · Consultants',
-        registrationFee: 'Early Bird ₹750 (Delegate Pass)',
+        registrationFee: 'UG ₹750 · PG ₹1,350 · Post PG ₹1,650 (Early Bird)',
         brochurePage: 20,
         summary:
           'A three-phase tactical survival manual for clinicians: Threat recognition, active casualty escape protocols, and immediate legal retaliation with airtight FIRs.',
@@ -107,7 +109,6 @@ export const cmeDays = [
           'Digital evidence chain-of-custody: CCTV, body cam, and duty logbooks',
           'Filing non-bailable FIRs under state Medicare & Prevention of Violence Acts',
         ],
-        googleFormUrl: 'https://www.instagram.com/confluencegsmc?srtk=MTZmZjA2azczaWVqeA==',
       },
     ],
   },
@@ -132,15 +133,15 @@ export const cmeDays = [
         department: 'Department of Obstetrics & Gynaecology, GSMC',
         accreditation: 'Applied for 4 MMC Credit Points',
         audience: 'UGs · Interns · PG Residents · Gynaecologists',
-        registrationFee: 'Early Bird ₹750 (Delegate Pass)',
+        registrationFee: 'UG ₹750 · PG ₹1,350 · Post PG ₹1,650 (Early Bird)',
         brochurePage: 21,
         summary:
           'Proactive screening in high-risk women, social and oncological egg freezing, recurrent implantation failure management, and navigating ART breakthroughs.',
         topics: [
+          'The Modern Baseline: Female & Male Triage',
           'Proactive Screening: The high risk young woman',
           'The preservation boom: From Oncology to Social Freezing',
           'The frustration of failure: recurrent implantation failure',
-          'The Modern Baseline: Female & Male Triage',
           'Frontiers of ART & Regeneration: hype vs reality',
         ],
         details:
@@ -151,7 +152,6 @@ export const cmeDays = [
           'Endometrial receptivity arrays, ERA, and immunomodulatory therapy',
           'Comprehensive male-female simultaneous investigative algorithms',
         ],
-        googleFormUrl: 'https://www.instagram.com/confluencegsmc?srtk=MTZmZjA2azczaWVqeA==',
       },
       {
         id: 'psychosomatic-invisible-illness',
@@ -166,15 +166,15 @@ export const cmeDays = [
         department: 'Department of Psychiatry & Internal Medicine, GSMC',
         accreditation: 'Applied for 4 MMC Credit Points',
         audience: 'UGs · Interns · PG Residents · Physicians',
-        registrationFee: 'Early Bird ₹750 (Delegate Pass)',
+        registrationFee: 'UG ₹750 · PG ₹1,350 · Post PG ₹1,650 (Early Bird)',
         brochurePage: 22,
         summary:
           'The neurobiology of "fake" pain, red-flag triage, defensive medical safeguards, and compassionate interventions executable during rapid 10-minute consults.',
         topics: [
           'The neurobiology of ‘Fake’ pain',
+          'Triage, red flags & defensive medicine',
           '‘To dismiss or not to dismiss?’',
           'Interventions in the 10 minute consult',
-          'Triage, red flags & defensive medicine',
         ],
         details:
           'Chronic functional syndromes and medically unexplained symptoms pose frequent clinical and ethical dilemmas. This session examines central sensitization, nociplastic pain mechanisms, and defensible diagnostic pathways that protect patients from both under-investigation and excessive invasive procedures.',
@@ -184,7 +184,6 @@ export const cmeDays = [
           'High-impact psychological validation phrases for busy OPD clinics',
           'Medicolegal charting and defensive documentation best practices',
         ],
-        googleFormUrl: 'https://www.instagram.com/confluencegsmc?srtk=MTZmZjA2azczaWVqeA==',
       },
     ],
   },

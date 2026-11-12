@@ -237,7 +237,7 @@ export const scientificEvents = [
       phone: '7219180776',
     },
     googleFormUrl: 'https://forms.gle/gc5DY5GPzMGKicXx5',
-    rulebookUrl: null,
+    rulebookUrl: 'https://drive.google.com/file/d/1sOI8Ni8Z-OnshYDuQ2TNgu2ooiguerYh/view?usp=drivesdk',
   },
   {
     id: 'medathon-hackathon',

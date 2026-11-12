@@ -46,25 +46,25 @@ function CMEDetailsModal({ session, onClose }) {
         onClick={(e) => e.stopPropagation()}
       >
         {/* Modal Header — Midnight Navy Header Banner */}
-        <div className="relative bg-[#1D344F] dark:bg-[#252629] dark:border-b dark:border-[#3B3D41] p-6 text-white rounded-t-2xl overflow-hidden">
+        <div className="relative flex-shrink-0 bg-[#1D344F] dark:bg-[#252629] dark:border-b dark:border-[#3B3D41] p-5 sm:p-6 text-white rounded-t-2xl overflow-hidden">
           <div className="absolute -right-8 -bottom-10 w-36 h-36 rounded-full bg-white/10 pointer-events-none" />
           <div className="absolute right-16 -top-10 w-28 h-28 rounded-full bg-white/5 pointer-events-none" />
 
-          <div className="relative z-10 flex items-center justify-between mb-2">
+          <div className="relative z-10 flex items-center justify-between gap-2 mb-2">
             <span className="text-[11px] font-semibold uppercase tracking-wider px-3 py-1 rounded-full bg-white/20 text-white border border-white/20">
               {session.dayBadge}
             </span>
             <button
               type="button"
               onClick={onClose}
-              className="w-8 h-8 rounded-full bg-white/20 hover:bg-white/30 text-white flex items-center justify-center transition-colors cursor-pointer"
+              className="w-8 h-8 flex-shrink-0 rounded-full bg-white/20 hover:bg-white/30 text-white flex items-center justify-center transition-colors cursor-pointer"
               aria-label="Close modal"
             >
               <X className="w-4 h-4" />
             </button>
           </div>
 
-          <h2 className="relative z-10 font-heading font-black text-white text-2xl sm:text-3xl tracking-tight leading-tight my-2">
+          <h2 className="relative z-10 font-heading font-black text-white text-xl sm:text-3xl tracking-tight leading-tight my-2 break-words">
             {session.name}
           </h2>
 
@@ -75,7 +75,7 @@ function CMEDetailsModal({ session, onClose }) {
         </div>
 
         {/* Modal Body */}
-        <div className="p-6 overflow-y-auto space-y-4 text-xs text-[#29405B] dark:text-[#B5B3B0]">
+        <div className="flex-1 min-h-0 p-5 sm:p-6 overflow-y-auto space-y-4 text-xs text-[#29405B] dark:text-[#B5B3B0]">
           <p className="text-sm text-[#29405B] dark:text-[#B5B3B0] leading-relaxed">
             {session.summary}
           </p>
@@ -141,7 +141,7 @@ function CMEDetailsModal({ session, onClose }) {
         </div>
 
         {/* Modal Footer — Informational Only (Register Button Removed) */}
-        <div className="p-4 sm:p-5 bg-[#D4E1EF]/60 dark:bg-[#252629] border-t border-[#829DBB]/35 dark:border-[#3B3D41] flex items-center justify-between gap-4">
+        <div className="flex-shrink-0 p-4 sm:p-5 bg-[#D4E1EF]/60 dark:bg-[#252629] border-t border-[#829DBB]/35 dark:border-[#3B3D41] flex flex-wrap items-center justify-between gap-4">
           <div>
             <span className="text-[10px] font-bold uppercase tracking-wider text-[#536F91] dark:text-[#898A89] block">
               Registration Fee
@@ -211,7 +211,7 @@ function CMECard({ session, index, onOpenDetails }) {
             </span>
             <span className="font-bold text-[#1D344F] dark:text-[#FFCCAA] flex items-center gap-1 flex-shrink-0">
               <Award className="w-3.5 h-3.5 flex-shrink-0" />
-              4 MMC Points
+              Applied for 4 MMC Points
             </span>
           </div>
 
@@ -331,7 +331,7 @@ export default function CME() {
                 className="rounded-2xl bg-[#D4E1EF]/65 dark:bg-[#2B2D30] border border-[#829DBB]/45 dark:border-[#3B3D41] p-5 flex flex-col justify-between shadow-xs"
               >
                 <div>
-                  <div className="flex items-center justify-between gap-2 mb-3 pb-2.5 border-b border-[#829DBB]/30 dark:border-[#3B3D41]">
+                  <div className="flex flex-wrap items-center justify-between gap-2 mb-3 pb-2.5 border-b border-[#829DBB]/30 dark:border-[#3B3D41]">
                     <h4 className="font-heading font-bold text-[#1D344F] dark:text-[#F2F0ED] text-base">
                       {tier.role}
                     </h4>
@@ -362,11 +362,11 @@ export default function CME() {
 
                 <div className="pt-3 border-t border-[#829DBB]/30 dark:border-[#3B3D41] flex flex-col gap-3">
                   <div className="flex items-center justify-between text-[11px] text-[#536F91] dark:text-[#898A89]">
-                    <span>4 MMC Points Included</span>
+                    <span>Applied for 4 MMC Points</span>
                     <span className="font-bold text-[#1D344F] dark:text-[#FFCCAA]">GSMC &amp; KEMH</span>
                   </div>
                   <a
-                    href="https://www.instagram.com/confluencegsmc?srtk=MTZmZjA2azczaWVqeA=="
+                    href={tier.registerUrl}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-full inline-flex items-center justify-center gap-1.5 py-2.5 px-4 rounded-full text-xs font-semibold text-white bg-[#1D344F] hover:bg-[#15273C] dark:bg-[#F14666] dark:hover:bg-[#e03253] transition-all cursor-pointer shadow-xs"
