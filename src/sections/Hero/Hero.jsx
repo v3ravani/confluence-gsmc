@@ -243,8 +243,8 @@ function DesktopHeroLockup({ isDark }) {
         />
       </svg>
 
-      {/* College Name nested cleanly on the left underneath CONFLUENCE */}
-      <div className="-mt-11 xl:-mt-12 relative z-10 max-w-[66%] select-text">
+      {/* College Name nested cleanly on the left underneath CONFLUENCE with clear spacing */}
+      <div className="-mt-7 xl:-mt-8 relative z-10 max-w-[66%] select-text">
         <p className="font-body font-semibold tracking-[0.20em] uppercase leading-snug
                       text-[11px] xl:text-[13px] text-[var(--muted)]">
           SETH GS MEDICAL COLLEGE &amp;
