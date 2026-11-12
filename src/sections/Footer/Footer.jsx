@@ -247,7 +247,7 @@ export default function Footer() {
             © {year} CONFLUENCE · Seth GS Medical College &amp; KEM Hospital, Mumbai
           </span>
           <span className="text-center sm:text-right">
-            Build by{' '}
+            Website Build by{' '}
             <a
               href="https://www.linkedin.com/in/prithvi-k-195281381"
               target="_blank"
