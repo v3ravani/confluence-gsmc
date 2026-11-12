@@ -6,7 +6,7 @@ export const navLinks = [
   { label: 'Merchandise', path: '/merchandise' },
   { label: 'CME',         path: '/cme' },
   { label: 'Gallery',     path: '/gallery' },
-  { label: 'Contact',     path: '/contact' },
+  { label: 'Team',        path: '/team' },
 ];
 
 export const headerBrand = {
