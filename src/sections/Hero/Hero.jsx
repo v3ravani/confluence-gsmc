@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowUpRight, FileText } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import BrainWatermark from '../../components/animations/BrainWatermark';
+import { useTheme } from '../../context/ThemeContext';
 import { conferenceInfo } from '../../data/events';
 import { brochureConfig } from '../../data/navigation';
 
@@ -125,8 +126,141 @@ const BROCHURE_BUTTONS = [
   },
 ];
 
+/* ── Desktop-Only CONFLUENCE + Overlapping Hollow 2026 Lockup ── */
+function DesktopHeroLockup({ isDark }) {
+  const confRef = useRef(null);
+  const [coords, setCoords] = useState({ yearX: 668, yearY: 124, viewW: 680 });
+
+  useEffect(() => {
+    const measure = () => {
+      if (!confRef.current) return;
+      try {
+        const bbox = confRef.current.getBBox();
+        if (bbox.width > 0) {
+          const yearX = Math.round(bbox.x + bbox.width + 44);
+          const yearY = Math.round(bbox.y + bbox.height + 44);
+          setCoords({
+            yearX,
+            yearY,
+            viewW: Math.max(680, yearX + 8),
+          });
+        }
+      } catch (e) {}
+    };
+
+    measure();
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(measure);
+    }
+  }, []);
+
+  const confColor = isDark ? '#F2F0ED' : '#1D344F';
+  const outerStroke = isDark ? '#FFFFFF' : '#1D344F';
+  const overlapStroke = isDark ? '#000000' : '#FFFFFF';
+
+  return (
+    <motion.div {...fadeUp(0)} className="hidden lg:block w-full mb-5 relative select-none">
+      <h1 className="sr-only">CONFLUENCE 2026</h1>
+
+      <svg
+        viewBox={`0 0 ${coords.viewW} 136`}
+        className="w-full max-w-[680px] h-auto overflow-visible block"
+        aria-hidden="true"
+      >
+        <defs>
+          <text
+            id="hero-conf-text"
+            ref={confRef}
+            x="0"
+            y="78"
+            fontFamily="'Sora', system-ui, -apple-system, sans-serif"
+            fontWeight="800"
+            fontSize="86"
+            letterSpacing="-2"
+          >
+            CONFLUENCE
+          </text>
+
+          <text
+            id="hero-year-text"
+            x={coords.yearX}
+            y={coords.yearY}
+            textAnchor="end"
+            fontFamily="'Sora', system-ui, -apple-system, sans-serif"
+            fontWeight="800"
+            fontSize="74"
+            letterSpacing="-1.5"
+          >
+            2026
+          </text>
+
+          <mask
+            id="hero-overlap-mask"
+            maskUnits="userSpaceOnUse"
+            x="-10"
+            y="-20"
+            width={coords.viewW + 40}
+            height="180"
+          >
+            <rect x="-10" y="-20" width={coords.viewW + 40} height="180" fill="black" />
+            <use href="#hero-conf-text" fill="white" />
+          </mask>
+
+          <mask
+            id="hero-outside-mask"
+            maskUnits="userSpaceOnUse"
+            x="-10"
+            y="-20"
+            width={coords.viewW + 40}
+            height="180"
+          >
+            <rect x="-10" y="-20" width={coords.viewW + 40} height="180" fill="white" />
+            <use href="#hero-conf-text" fill="black" />
+          </mask>
+        </defs>
+
+        {/* Solid CONFLUENCE letters */}
+        <use href="#hero-conf-text" fill={confColor} />
+
+        {/* Hollow 2026 edge OUTSIDE CONFLUENCE */}
+        <use
+          href="#hero-year-text"
+          fill="none"
+          stroke={outerStroke}
+          strokeWidth="2.4"
+          strokeLinejoin="round"
+          mask="url(#hero-outside-mask)"
+        />
+
+        {/* Hollow 2026 edge WHERE OVERLAPPING CONFLUENCE */}
+        <use
+          href="#hero-year-text"
+          fill="none"
+          stroke={overlapStroke}
+          strokeWidth="2.4"
+          strokeLinejoin="round"
+          mask="url(#hero-overlap-mask)"
+        />
+      </svg>
+
+      {/* College Name nested cleanly on the left underneath CONFLUENCE */}
+      <div className="-mt-9 xl:-mt-11 relative z-10 max-w-[66%] select-text">
+        <p className="font-body font-semibold tracking-[0.20em] uppercase leading-snug
+                      text-[11px] xl:text-[13px] text-[var(--muted)]">
+          SETH GS MEDICAL COLLEGE &amp;
+        </p>
+        <p className="font-body font-semibold tracking-[0.20em] uppercase leading-snug
+                      text-[11px] xl:text-[13px] text-[var(--muted)]">
+          KING EDWARD VII MEMORIAL HOSPITAL
+        </p>
+      </div>
+    </motion.div>
+  );
+}
+
 /* ── Main Hero ──────────────────────────────────────────── */
 export default function Hero() {
+  const { isDark } = useTheme();
   const scrollToBrowse = () => {
     const el = document.getElementById('browse');
     if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -156,26 +290,32 @@ export default function Hero() {
           {/* ── LEFT: Text hierarchy + date boxes + intro + buttons (7 cols on desktop, full width on mobile) ── */}
           <div className="lg:col-span-7 flex flex-col items-start relative z-10">
 
-            {/* 1. CONFLUENCE — primary and most prominent heading */}
-            <motion.h1
-              {...fadeUp(0)}
-              className="font-heading font-black uppercase tracking-tight leading-none
-                         text-[clamp(44px,8.5vw,96px)] text-[#1D344F] dark:text-[#F2F0ED] mb-2"
-            >
-              CONFLUENCE
-            </motion.h1>
+            {/* Desktop Only: CONFLUENCE + Overlapping Hollow 2026 Lockup */}
+            <DesktopHeroLockup isDark={isDark} />
 
-            {/* 2. College Name — clean spaced caps typography hierarchy */}
-            <motion.div {...fadeUp(0.16)} className="mb-4">
-              <p className="font-body font-semibold tracking-[0.20em] uppercase leading-snug
-                            text-[clamp(10.5px,1.2vw,14px)] text-[var(--muted)]">
-                SETH GS MEDICAL COLLEGE &amp;
-              </p>
-              <p className="font-body font-semibold tracking-[0.20em] uppercase leading-snug
-                            text-[clamp(10.5px,1.2vw,14px)] text-[var(--muted)]">
-                KING EDWARD VII MEMORIAL HOSPITAL
-              </p>
-            </motion.div>
+            {/* Mobile Only: Untouched CONFLUENCE + College Name */}
+            <div className="lg:hidden">
+              {/* 1. CONFLUENCE — primary and most prominent heading */}
+              <motion.h1
+                {...fadeUp(0)}
+                className="font-heading font-black uppercase tracking-tight leading-none
+                           text-[clamp(44px,8.5vw,96px)] text-[#1D344F] dark:text-[#F2F0ED] mb-2"
+              >
+                CONFLUENCE
+              </motion.h1>
+
+              {/* 2. College Name — clean spaced caps typography hierarchy */}
+              <motion.div {...fadeUp(0.16)} className="mb-4">
+                <p className="font-body font-semibold tracking-[0.20em] uppercase leading-snug
+                              text-[clamp(10.5px,1.2vw,14px)] text-[var(--muted)]">
+                  SETH GS MEDICAL COLLEGE &amp;
+                </p>
+                <p className="font-body font-semibold tracking-[0.20em] uppercase leading-snug
+                              text-[clamp(10.5px,1.2vw,14px)] text-[var(--muted)]">
+                  KING EDWARD VII MEMORIAL HOSPITAL
+                </p>
+              </motion.div>
+            </div>
 
             {/* 3. WHERE IDEAS MEET — distinctive elegant serif italic tagline */}
             <motion.div

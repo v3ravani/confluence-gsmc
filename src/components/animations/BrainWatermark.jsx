@@ -44,19 +44,15 @@ export default function BrainWatermark({
         isMobile ? 'w-full h-full' : 'max-w-[500px] xl:max-w-[530px] w-full'
       } ${className}`}
     >
-      {/* 1. Ambient static & hover YELLOW radial glow strictly BEHIND the bulb */}
+      {/* 1. Ambient & Hover YELLOW radial glow strictly BEHIND the bulb (Desktop: NO glow by default, yellow glow ONLY on hover; Mobile: unchanged) */}
       <div
         className="absolute inset-[8%] rounded-full pointer-events-none z-0 transition-all duration-700 ease-out"
         style={{
-          background: isHovered
-            ? isDark
-              ? 'radial-gradient(circle at 50% 45%, rgba(250, 204, 21, 0.45) 0%, rgba(253, 224, 71, 0.22) 42%, rgba(250, 204, 21, 0.05) 68%, transparent 80%)'
-              : 'radial-gradient(circle at 50% 45%, rgba(250, 204, 21, 0.62) 0%, rgba(253, 224, 71, 0.34) 44%, rgba(250, 204, 21, 0.08) 70%, transparent 82%)'
-            : isDark
-              ? 'radial-gradient(circle at 50% 45%, rgba(250, 204, 21, 0.20) 0%, rgba(253, 224, 71, 0.08) 46%, transparent 72%)'
-              : 'radial-gradient(circle at 50% 45%, rgba(250, 204, 21, 0.34) 0%, rgba(253, 224, 71, 0.16) 48%, transparent 74%)',
+          background: isDark
+            ? 'radial-gradient(circle at 50% 45%, rgba(250, 204, 21, 0.45) 0%, rgba(253, 224, 71, 0.22) 42%, rgba(250, 204, 21, 0.05) 68%, transparent 80%)'
+            : 'radial-gradient(circle at 50% 45%, rgba(250, 204, 21, 0.62) 0%, rgba(253, 224, 71, 0.34) 44%, rgba(250, 204, 21, 0.08) 70%, transparent 82%)',
           transform: isHovered ? 'scale(1.10)' : 'scale(1)',
-          opacity: isHovered ? 1 : 0.9,
+          opacity: isMobile ? (isDark ? 0.45 : 0.55) : isHovered ? 1 : 0,
         }}
       />
 
