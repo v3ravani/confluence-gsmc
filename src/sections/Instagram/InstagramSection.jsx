@@ -40,7 +40,7 @@ export default function InstagramSection() {
   const reduced     = useReducedMotion();
 
   return (
-    <section className="py-16 md:py-24 relative border-b border-[#829DBB]/30 dark:border-[#3B3D41] overflow-x-clip">
+    <section className="py-16 md:py-24 relative border-b border-[#829DBB]/30 dark:border-b-0 overflow-x-clip">
       <div className="absolute top-1/2 right-10 w-80 h-80
                       bg-[var(--accent-crimson)]/5 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute bottom-0 left-10 w-56 h-56
