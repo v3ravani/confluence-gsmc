@@ -1,18 +1,84 @@
 import React, { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 import { Menu, X, ExternalLink } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Navigation from '../../components/navigation/Navigation';
+import MobileDrawer from '../../components/navigation/MobileDrawer';
 import ThemeToggle from '../../components/common/ThemeToggle';
 import { headerBrand, navLinks } from '../../data/navigation';
 import { instagramConfig } from '../../data/collaborators';
 import gsmcCrest from '../../assets/logos/gsmc_crest.png';
 
+const NON_HOME_PATHS = new Set([
+  '/about',
+  '/events',
+  '/workshops',
+  '/merchandise',
+  '/cme',
+  '/gallery',
+  '/team',
+]);
+
+function BrandLogo({ onClick }) {
+  return (
+    <Link
+      to="/"
+      onClick={onClick}
+      className="flex items-center gap-2.5 sm:gap-3 group select-none min-w-0"
+      aria-label="CONFLUENCE 2026 — Home"
+    >
+      <img
+        src={gsmcCrest}
+        alt="Seth GS Medical College & KEM Hospital Crest"
+        className="w-10 h-10 sm:w-11 sm:h-11 object-contain drop-shadow-[0_2px_8px_rgba(29,52,79,0.14)]
+                   group-hover:scale-105 transition-transform duration-200 flex-shrink-0"
+      />
+      <div className="flex flex-col leading-tight min-w-0">
+        <b className="font-heading font-extrabold text-[15px] sm:text-[17px] tracking-tight text-[#1D344F] dark:text-[#F2F0ED]
+                      group-hover:text-[var(--accent-blue)] transition-colors truncate">
+          {headerBrand.title}
+        </b>
+        <span className="font-body font-medium text-[9px] sm:text-[10.5px]
+                         tracking-[0.14em] text-[var(--muted)] uppercase mt-0.5 truncate hidden sm:block">
+          {headerBrand.collegeLine1}
+        </span>
+        <span className="font-body font-medium text-[8.5px] sm:text-[10px]
+                         tracking-[0.12em] text-[var(--muted)]/80 uppercase truncate hidden md:block">
+          {headerBrand.collegeLine2}
+        </span>
+        <span className="font-body font-medium text-[9.5px] tracking-[0.12em] text-[var(--muted)] uppercase sm:hidden truncate">
+          GSMC &amp; KEMH, Mumbai
+        </span>
+      </div>
+    </Link>
+  );
+}
+
+function ScrollProgressBar({ progress }) {
+  return (
+    <div className="absolute bottom-0 left-0 w-full h-[2px] bg-transparent pointer-events-none overflow-hidden">
+      <div
+        className="h-full bg-[#536F91] dark:bg-[#F14666] transition-[width] duration-75 ease-out"
+        style={{ width: `${progress}%` }}
+      />
+    </div>
+  );
+}
+
 export default function Header() {
+  const { pathname } = useLocation();
+  const normalizedPath = (pathname.replace(/\/+$/, '') || '/').toLowerCase();
+  const isHomePage = !NON_HOME_PATHS.has(normalizedPath);
+
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
+
+  // Close mobile navigation whenever the route changes
+  useEffect(() => {
+    setMobileMenuOpen(false);
+  }, [pathname]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -31,11 +97,11 @@ export default function Header() {
     window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [pathname]);
 
-  // Support Escape key when mobile dropdown menu is open (avoid body overflow mutations that cause mobile scroll jumps)
+  // Support Escape key for home floating dropdown (MobileDrawer manages its own listener on other pages)
   useEffect(() => {
-    if (!mobileMenuOpen) return;
+    if (!isHomePage || !mobileMenuOpen) return;
 
     const handleKeyDown = (e) => {
       if (e.key === 'Escape') setMobileMenuOpen(false);
@@ -45,8 +111,48 @@ export default function Header() {
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
     };
-  }, [mobileMenuOpen]);
+  }, [isHomePage, mobileMenuOpen]);
 
+  // Non-floating original header for all non-home pages
+  if (!isHomePage) {
+    return (
+      <header
+        className={`sticky top-0 z-40 border-b transition-all duration-300
+          ${scrolled
+            ? 'bg-[#F6F9FC]/95 dark:bg-[#252629]/95 backdrop-blur-md border-[#829DBB]/35 dark:border-[#3B3D41] shadow-[0_4px_20px_rgba(29,52,79,0.08)]'
+            : 'bg-[#F6F9FC]/88 dark:bg-[#252629]/88 backdrop-blur-sm border-[#829DBB]/25 dark:border-[#3B3D41]'
+          } text-[var(--ink)]`}
+      >
+        <div className="wrap flex items-center justify-between h-[72px] gap-2 sm:gap-4">
+          <BrandLogo onClick={() => setMobileMenuOpen(false)} />
+
+          <div className="flex items-center gap-2 sm:gap-3.5 ml-auto">
+            <Navigation />
+            <ThemeToggle />
+
+            <button
+              type="button"
+              onClick={() => setMobileMenuOpen(true)}
+              className="lg:hidden p-1.5 text-[#1D344F] dark:text-[#F2F0ED] bg-transparent hover:opacity-75 transition-opacity flex-shrink-0 cursor-pointer focus-visible:outline-none"
+              aria-label="Open navigation menu"
+              aria-expanded={mobileMenuOpen}
+            >
+              <Menu className="w-6 h-6 text-[#1D344F] dark:text-[#F2F0ED]" strokeWidth={2.35} />
+            </button>
+          </div>
+        </div>
+
+        <ScrollProgressBar progress={scrollProgress} />
+
+        <MobileDrawer
+          isOpen={mobileMenuOpen}
+          onClose={() => setMobileMenuOpen(false)}
+        />
+      </header>
+    );
+  }
+
+  // Floating header with smooth downward-expanding mobile menu on Home page
   return (
     <>
       {/* Translucent backdrop behind the floating header when menu is expanded */}
@@ -85,44 +191,11 @@ export default function Header() {
         >
           {/* Top Bar Row */}
           <div className="relative w-full px-4 sm:px-5 md:w-[min(1200px,100%-40px)] md:mx-auto md:px-0 flex items-center justify-between h-[64px] md:h-[72px] gap-2 sm:gap-4">
-            {/* Brand */}
-            <Link
-              to="/"
-              onClick={() => setMobileMenuOpen(false)}
-              className="flex items-center gap-2.5 sm:gap-3 group select-none min-w-0"
-              aria-label="CONFLUENCE 2026 — Home"
-            >
-              <img
-                src={gsmcCrest}
-                alt="Seth GS Medical College & KEM Hospital Crest"
-                className="w-10 h-10 sm:w-11 sm:h-11 object-contain drop-shadow-[0_2px_8px_rgba(29,52,79,0.14)]
-                           group-hover:scale-105 transition-transform duration-200 flex-shrink-0"
-              />
-              <div className="flex flex-col leading-tight min-w-0">
-                <b className="font-heading font-extrabold text-[15px] sm:text-[17px] tracking-tight text-[#1D344F] dark:text-[#F2F0ED]
-                              group-hover:text-[var(--accent-blue)] transition-colors truncate">
-                  {headerBrand.title}
-                </b>
-                <span className="font-body font-medium text-[9px] sm:text-[10.5px]
-                                 tracking-[0.14em] text-[var(--muted)] uppercase mt-0.5 truncate hidden sm:block">
-                  {headerBrand.collegeLine1}
-                </span>
-                <span className="font-body font-medium text-[8.5px] sm:text-[10px]
-                                 tracking-[0.12em] text-[var(--muted)]/80 uppercase truncate hidden md:block">
-                  {headerBrand.collegeLine2}
-                </span>
-                <span className="font-body font-medium text-[9.5px] tracking-[0.12em] text-[var(--muted)] uppercase sm:hidden truncate">
-                  GSMC & KEMH, Mumbai
-                </span>
-              </div>
-            </Link>
+            <BrandLogo onClick={() => setMobileMenuOpen(false)} />
 
             {/* Right Action Group: Desktop Navigation + Theme Toggle + Mobile Hamburger */}
             <div className="flex items-center gap-2 sm:gap-3.5 ml-auto">
-              {/* Desktop Navigation */}
               <Navigation />
-
-              {/* Theme Toggle (Desktop & Mobile) */}
               <ThemeToggle />
 
               {/* Mobile Hamburger / Close Button */}
@@ -161,15 +234,7 @@ export default function Header() {
               </button>
             </div>
 
-            {/* Scroll Progress Indicator Line along bottom of Top Bar */}
-            {!mobileMenuOpen && (
-              <div className="absolute bottom-0 left-0 w-full h-[2px] bg-transparent pointer-events-none overflow-hidden">
-                <div
-                  className="h-full bg-[#536F91] dark:bg-[#F14666] transition-[width] duration-75 ease-out"
-                  style={{ width: `${scrollProgress}%` }}
-                />
-              </div>
-            )}
+            {!mobileMenuOpen && <ScrollProgressBar progress={scrollProgress} />}
           </div>
 
           {/* Smooth Downward-Expanding Dropdown Menu directly attached inside the Floating Header */}
