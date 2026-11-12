@@ -143,7 +143,7 @@ export default function Hero() {
       {/* On small screens, adjusts responsively according to screen width and NEVER drops below content */}
       <div
         className="lg:hidden absolute top-4 sm:top-8 -right-6 sm:right-2
-                   w-[250px] xs:w-[290px] sm:w-[360px] md:w-[420px] aspect-square
+                   w-[285px] xs:w-[325px] sm:w-[385px] md:w-[430px] aspect-square
                    pointer-events-none z-0 opacity-45 sm:opacity-55"
         aria-hidden="true"
       >

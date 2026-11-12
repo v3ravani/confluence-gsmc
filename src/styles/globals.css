@@ -475,7 +475,7 @@ html.dark textarea::placeholder {
 }
 
 .animate-dna-helix {
-  animation: dna-helix-rotate 9s linear infinite;
+  animation: dna-helix-rotate 7s linear infinite;
   will-change: transform;
 }
 

@@ -101,31 +101,37 @@ export default function SplashScreen({ onComplete, duration = 3200 }) {
           />
         </motion.div>
 
-        {/* The Bulb — Brightness slowly illuminates and radiates out */}
+        {/* Yellow Halo Glow strictly BEHIND the bulb (not on the bulb image itself) */}
+        <motion.div
+          aria-hidden="true"
+          initial={{ opacity: 0.15, scale: 0.85 }}
+          animate={{ opacity: [0.15, 0.55, 0.95], scale: [0.85, 1, 1.12] }}
+          transition={{ duration: 2.8, ease: [0.25, 0.1, 0.25, 1] }}
+          className="absolute inset-[12%] rounded-full pointer-events-none z-[1]"
+          style={{
+            background: isDark
+              ? 'radial-gradient(circle at 50% 45%, rgba(250, 204, 21, 0.48) 0%, rgba(253, 224, 71, 0.20) 45%, transparent 75%)'
+              : 'radial-gradient(circle at 50% 45%, rgba(250, 204, 21, 0.65) 0%, rgba(253, 224, 71, 0.32) 48%, transparent 78%)',
+          }}
+        />
+
+        {/* The Bulb — Clean sharp reveal with yellow glow behind it */}
         <motion.div
           initial={{
             opacity: 0,
             scale: 0.92,
-            filter: isDark
-              ? 'brightness(0.50) drop-shadow(0 0 0px rgba(226, 185, 111, 0))'
-              : 'hue-rotate(182deg) saturate(0.82) brightness(0.70) drop-shadow(0 0 0px rgba(130, 157, 187, 0))',
+            filter: isDark ? 'brightness(0.75)' : 'hue-rotate(182deg) saturate(0.82) brightness(0.82)',
           }}
           animate={{
             opacity: 1,
             scale: [0.92, 1, 1.05],
-            filter: [
-              ...(isDark
-                ? [
-                    'brightness(0.50) drop-shadow(0 0 0px rgba(226, 185, 111, 0))',
-                    'brightness(0.85) drop-shadow(0 0 16px rgba(226, 185, 111, 0.45))',
-                    'brightness(1.22) drop-shadow(0 0 35px rgba(226, 185, 111, 0.95)) drop-shadow(0 0 75px rgba(226, 185, 111, 0.65))',
-                  ]
-                : [
-                    'hue-rotate(182deg) saturate(0.82) brightness(0.70) drop-shadow(0 0 0px rgba(130, 157, 187, 0))',
-                    'hue-rotate(182deg) saturate(0.85) brightness(0.95) drop-shadow(0 0 16px rgba(130, 157, 187, 0.50))',
-                    'hue-rotate(182deg) saturate(0.88) brightness(1.08) drop-shadow(0 0 32px rgba(83, 111, 145, 0.65)) drop-shadow(0 0 70px rgba(130, 157, 187, 0.45))',
-                  ]),
-            ],
+            filter: isDark
+              ? ['brightness(0.75)', 'brightness(0.95)', 'brightness(1.08)']
+              : [
+                  'hue-rotate(182deg) saturate(0.82) brightness(0.82)',
+                  'hue-rotate(182deg) saturate(0.85) brightness(0.95)',
+                  'hue-rotate(182deg) saturate(0.88) brightness(1.04)',
+                ],
           }}
           transition={{
             duration: 2.8,
