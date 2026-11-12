@@ -33,13 +33,14 @@ export default function Header() {
 
   return (
     <header
-      className={`sticky top-0 z-40 border-b transition-all duration-300
+      className={`sticky top-2.5 md:top-0 z-40 mx-3 mt-2.5 mb-2 md:m-0
+        rounded-3xl md:rounded-none border md:border-x-0 md:border-t-0 md:border-b overflow-hidden transition-all duration-300
         ${scrolled
-          ? 'bg-[#F6F9FC]/95 backdrop-blur-md border-[#829DBB]/35 shadow-[0_4px_20px_rgba(29,52,79,0.08)]'
-          : 'bg-[#F6F9FC]/88 backdrop-blur-sm border-[#829DBB]/25'
+          ? 'bg-[#F6F9FC]/95 dark:bg-[#252629]/95 backdrop-blur-md border-[#829DBB]/45 dark:border-[#3B3D41] shadow-[0_10px_28px_rgba(29,52,79,0.14)] md:shadow-[0_4px_20px_rgba(29,52,79,0.08)] dark:shadow-[0_10px_28px_rgba(0,0,0,0.50)]'
+          : 'bg-[#F6F9FC]/90 dark:bg-[#252629]/90 backdrop-blur-md border-[#829DBB]/35 dark:border-[#3B3D41] shadow-[0_6px_20px_rgba(29,52,79,0.08)] md:shadow-none dark:shadow-[0_6px_20px_rgba(0,0,0,0.35)] md:dark:shadow-none'
         } text-[var(--ink)]`}
     >
-      <div className="wrap flex items-center justify-between h-[72px] gap-2 sm:gap-4">
+      <div className="w-full px-4 sm:px-5 md:w-[min(1200px,100%-40px)] md:mx-auto md:px-0 flex items-center justify-between h-[64px] md:h-[72px] gap-2 sm:gap-4">
         {/* Brand */}
         <Link
           to="/"
