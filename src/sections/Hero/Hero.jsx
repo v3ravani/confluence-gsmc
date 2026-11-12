@@ -129,7 +129,7 @@ const BROCHURE_BUTTONS = [
 /* ── Desktop-Only CONFLUENCE + Overlapping Hollow 2026 Lockup ── */
 function DesktopHeroLockup({ isDark }) {
   const confRef = useRef(null);
-  const [coords, setCoords] = useState({ yearX: 668, yearY: 124, viewW: 680 });
+  const [coords, setCoords] = useState({ yearX: 668, yearY: 115, viewW: 680 });
 
   useEffect(() => {
     const measure = () => {
@@ -137,11 +137,11 @@ function DesktopHeroLockup({ isDark }) {
       try {
         const bbox = confRef.current.getBBox();
         if (bbox.width > 0) {
+          // Baseline of uppercase CONFLUENCE is y=78; set yearY=115 so top of 2026 (~y=61) cleanly overlaps bottom ~17px of CONFLUENCE
           const yearX = Math.round(bbox.x + bbox.width + 44);
-          const yearY = Math.round(bbox.y + bbox.height + 44);
           setCoords({
             yearX,
-            yearY,
+            yearY: 115,
             viewW: Math.max(680, yearX + 8),
           });
         }
@@ -163,7 +163,7 @@ function DesktopHeroLockup({ isDark }) {
       <h1 className="sr-only">CONFLUENCE 2026</h1>
 
       <svg
-        viewBox={`0 0 ${coords.viewW} 136`}
+        viewBox={`0 0 ${coords.viewW} 124`}
         className="w-full max-w-[680px] h-auto overflow-visible block"
         aria-hidden="true"
       >
@@ -200,9 +200,9 @@ function DesktopHeroLockup({ isDark }) {
             x="-10"
             y="-20"
             width={coords.viewW + 40}
-            height="180"
+            height="170"
           >
-            <rect x="-10" y="-20" width={coords.viewW + 40} height="180" fill="black" />
+            <rect x="-10" y="-20" width={coords.viewW + 40} height="170" fill="black" />
             <use href="#hero-conf-text" fill="white" />
           </mask>
 
@@ -212,9 +212,9 @@ function DesktopHeroLockup({ isDark }) {
             x="-10"
             y="-20"
             width={coords.viewW + 40}
-            height="180"
+            height="170"
           >
-            <rect x="-10" y="-20" width={coords.viewW + 40} height="180" fill="white" />
+            <rect x="-10" y="-20" width={coords.viewW + 40} height="170" fill="white" />
             <use href="#hero-conf-text" fill="black" />
           </mask>
         </defs>
@@ -244,7 +244,7 @@ function DesktopHeroLockup({ isDark }) {
       </svg>
 
       {/* College Name nested cleanly on the left underneath CONFLUENCE */}
-      <div className="-mt-9 xl:-mt-11 relative z-10 max-w-[66%] select-text">
+      <div className="-mt-11 xl:-mt-12 relative z-10 max-w-[66%] select-text">
         <p className="font-body font-semibold tracking-[0.20em] uppercase leading-snug
                       text-[11px] xl:text-[13px] text-[var(--muted)]">
           SETH GS MEDICAL COLLEGE &amp;
