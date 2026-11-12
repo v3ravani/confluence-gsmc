@@ -1,10 +1,84 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, Phone, Mail, Users, Award } from 'lucide-react';
 import BrainWatermark from '../components/animations/BrainWatermark';
 import MobilePageHero from '../components/common/MobilePageHero';
+import ScrollParallaxMedia from '../components/common/ScrollParallaxMedia';
 import SectionHeading from '../components/common/SectionHeading';
 import { chiefOrganisers, organisers } from '../data/team';
+
+function ChiefOrganiserCard({ member }) {
+  const cardRef = useRef(null);
+
+  return (
+    <div
+      ref={cardRef}
+      className="group rounded-2xl overflow-hidden bg-[#EAF0F6] dark:bg-[#2B2D30] border border-[#829DBB]/45 dark:border-[#3B3D41] hover:border-[#536F91] dark:hover:border-[#F14666] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 flex flex-col"
+    >
+      {/* Main Focus: Prominent Portrait Photo with mild desktop opposite-direction scroll parallax */}
+      <div className="relative h-44 sm:h-60 md:h-64 w-full overflow-hidden bg-[#D4E1EF] dark:bg-[#1E2022]">
+        <ScrollParallaxMedia targetRef={cardRef} offsetPx={10} scale={1.08} className="w-full h-full">
+          <img
+            src={member.photo}
+            alt={`${member.name} — ${member.designation}`}
+            className="w-full h-full object-cover object-top group-hover:scale-[1.03] transition-transform duration-500 ease-out"
+          />
+        </ScrollParallaxMedia>
+      </div>
+
+      {/* Details: Name, Designation & Clickable Number */}
+      <div className="p-3 sm:p-4 bg-[#1D344F] dark:bg-[#252629] text-white text-center flex-1 flex flex-col items-center justify-center border-t border-[#536F91]/40 dark:border-[#3B3D41] relative z-10">
+        <h2 className="font-heading font-black text-xs sm:text-base tracking-wide text-white leading-tight break-words">
+          {member.name}
+        </h2>
+        <span className="inline-block mt-0.5 text-[9.5px] sm:text-[10.5px] font-bold tracking-[0.16em] uppercase text-[#D4E1EF] dark:text-[#EE9590]">
+          {member.designation}
+        </span>
+        <a
+          href={`tel:${member.phone}`}
+          className="mt-2 inline-flex items-center gap-1 sm:gap-1.5 px-2.5 sm:px-3.5 py-1 rounded-full text-[11px] sm:text-xs font-semibold bg-white/15 hover:bg-white/25 dark:bg-[#F14666]/20 dark:hover:bg-[#F14666]/35 text-white border border-white/20 dark:border-[#F14666]/40 transition-colors"
+        >
+          <Phone className="w-3 h-3 flex-shrink-0" />
+          <span>{member.phone}</span>
+        </a>
+      </div>
+    </div>
+  );
+}
+
+function OrganiserCard({ member, isLast }) {
+  const cardRef = useRef(null);
+
+  return (
+    <div
+      ref={cardRef}
+      className={`group rounded-xl sm:rounded-2xl overflow-hidden bg-[#EAF0F6] dark:bg-[#2B2D30] border border-[#829DBB]/40 dark:border-[#3B3D41] hover:border-[#536F91] dark:hover:border-[#F14666] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 flex flex-col ${
+        isLast ? 'col-span-2 sm:col-span-1 max-w-[calc(50%-6px)] sm:max-w-none mx-auto w-full' : ''
+      }`}
+    >
+      {/* Compact Portrait Frame with mild desktop opposite-direction scroll parallax */}
+      <div className="relative h-32 sm:h-40 lg:h-44 w-full overflow-hidden bg-[#D4E1EF] dark:bg-[#1E2022]">
+        <ScrollParallaxMedia targetRef={cardRef} offsetPx={9} scale={1.08} className="w-full h-full">
+          <img
+            src={member.photo}
+            alt={`${member.name} — ${member.designation}`}
+            className="w-full h-full object-cover object-top group-hover:scale-[1.04] transition-transform duration-500 ease-out"
+          />
+        </ScrollParallaxMedia>
+      </div>
+
+      {/* Compact Name & Role */}
+      <div className="p-2.5 sm:p-3 bg-[#1D344F] dark:bg-[#252629] text-white text-center border-t border-[#536F91]/40 dark:border-[#3B3D41] flex-1 flex flex-col justify-center relative z-10">
+        <h3 className="font-heading font-extrabold text-xs sm:text-[13px] tracking-wide text-white leading-tight break-words">
+          {member.name}
+        </h3>
+        <span className="inline-block mt-0.5 text-[9.5px] font-bold tracking-[0.16em] uppercase text-[#D4E1EF] dark:text-[#EE9590]">
+          {member.designation}
+        </span>
+      </div>
+    </div>
+  );
+}
 
 export default function Team() {
   useEffect(() => {
@@ -48,36 +122,7 @@ export default function Team() {
 
           <div className="grid grid-cols-2 gap-3.5 sm:gap-6 max-w-xl mx-auto">
             {chiefOrganisers.map((member) => (
-              <div
-                key={member.id}
-                className="group rounded-2xl overflow-hidden bg-[#EAF0F6] dark:bg-[#2B2D30] border border-[#829DBB]/45 dark:border-[#3B3D41] hover:border-[#536F91] dark:hover:border-[#F14666] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 flex flex-col"
-              >
-                {/* Main Focus: Prominent Portrait Photo */}
-                <div className="relative h-44 sm:h-60 md:h-64 w-full overflow-hidden bg-[#D4E1EF] dark:bg-[#1E2022]">
-                  <img
-                    src={member.photo}
-                    alt={`${member.name} — ${member.designation}`}
-                    className="w-full h-full object-cover object-top group-hover:scale-[1.03] transition-transform duration-500 ease-out"
-                  />
-                </div>
-
-                {/* Details: Name, Designation & Clickable Number */}
-                <div className="p-3 sm:p-4 bg-[#1D344F] dark:bg-[#252629] text-white text-center flex-1 flex flex-col items-center justify-center border-t border-[#536F91]/40 dark:border-[#3B3D41]">
-                  <h2 className="font-heading font-black text-xs sm:text-base tracking-wide text-white leading-tight break-words">
-                    {member.name}
-                  </h2>
-                  <span className="inline-block mt-0.5 text-[9.5px] sm:text-[10.5px] font-bold tracking-[0.16em] uppercase text-[#D4E1EF] dark:text-[#EE9590]">
-                    {member.designation}
-                  </span>
-                  <a
-                    href={`tel:${member.phone}`}
-                    className="mt-2 inline-flex items-center gap-1 sm:gap-1.5 px-2.5 sm:px-3.5 py-1 rounded-full text-[11px] sm:text-xs font-semibold bg-white/15 hover:bg-white/25 dark:bg-[#F14666]/20 dark:hover:bg-[#F14666]/35 text-white border border-white/20 dark:border-[#F14666]/40 transition-colors"
-                  >
-                    <Phone className="w-3 h-3 flex-shrink-0" />
-                    <span>{member.phone}</span>
-                  </a>
-                </div>
-              </div>
+              <ChiefOrganiserCard key={member.id} member={member} />
             ))}
           </div>
         </section>
@@ -95,31 +140,11 @@ export default function Team() {
 
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4 max-w-6xl mx-auto">
             {organisers.map((member, idx) => (
-              <div
+              <OrganiserCard
                 key={member.id}
-                className={`group rounded-xl sm:rounded-2xl overflow-hidden bg-[#EAF0F6] dark:bg-[#2B2D30] border border-[#829DBB]/40 dark:border-[#3B3D41] hover:border-[#536F91] dark:hover:border-[#F14666] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 flex flex-col ${
-                  idx === organisers.length - 1 ? 'col-span-2 sm:col-span-1 max-w-[calc(50%-6px)] sm:max-w-none mx-auto w-full' : ''
-                }`}
-              >
-                {/* Compact Portrait Frame */}
-                <div className="relative h-32 sm:h-40 lg:h-44 w-full overflow-hidden bg-[#D4E1EF] dark:bg-[#1E2022]">
-                  <img
-                    src={member.photo}
-                    alt={`${member.name} — ${member.designation}`}
-                    className="w-full h-full object-cover object-top group-hover:scale-[1.04] transition-transform duration-500 ease-out"
-                  />
-                </div>
-
-                {/* Compact Name & Role */}
-                <div className="p-2.5 sm:p-3 bg-[#1D344F] dark:bg-[#252629] text-white text-center border-t border-[#536F91]/40 dark:border-[#3B3D41] flex-1 flex flex-col justify-center">
-                  <h3 className="font-heading font-extrabold text-xs sm:text-[13px] tracking-wide text-white leading-tight break-words">
-                    {member.name}
-                  </h3>
-                  <span className="inline-block mt-0.5 text-[9.5px] font-bold tracking-[0.16em] uppercase text-[#D4E1EF] dark:text-[#EE9590]">
-                    {member.designation}
-                  </span>
-                </div>
-              </div>
+                member={member}
+                isLast={idx === organisers.length - 1}
+              />
             ))}
           </div>
         </section>

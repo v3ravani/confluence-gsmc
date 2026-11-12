@@ -1,8 +1,9 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, ChevronLeft, ChevronRight, X, Sparkles, Maximize2 } from 'lucide-react';
 import BrainWatermark from '../components/animations/BrainWatermark';
 import MobilePageHero from '../components/common/MobilePageHero';
+import ScrollParallaxMedia from '../components/common/ScrollParallaxMedia';
 import { memoriesGallery } from '../data/about';
 
 // Desktop-only 12-column editorial Bento configuration matched to each photo's aspect ratio
@@ -22,6 +23,51 @@ const DESKTOP_BENTO_TILES = [
   { span: 'lg:col-span-3 lg:row-span-2', objPos: 'object-[center_25%]' }, // 12: memory7  (0.75 portrait)
   { span: 'lg:col-span-6 lg:row-span-1', objPos: 'object-center' },       // 13: memory2 (1.78 landscape)
 ];
+
+// Desktop-only 12-column editorial Bento tile with mild opposite-direction scroll parallax on the photo
+function BentoGalleryTile({ photo, tile, idx, onOpen }) {
+  const tileRef = useRef(null);
+
+  return (
+    <div
+      ref={tileRef}
+      onClick={() => onOpen(idx)}
+      className={`relative rounded-2xl overflow-hidden cursor-pointer border border-[#829DBB]/40 dark:border-[#3B3D41] hover:border-[#536F91] dark:hover:border-[#F14666] bg-[#D4E1EF] dark:bg-[#2B2D30] shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col justify-end ${tile.span}`}
+    >
+      {/* Background Image with mild opposite-direction desktop scroll parallax + hover zoom */}
+      <ScrollParallaxMedia targetRef={tileRef} offsetPx={14} scale={1.09} className="absolute inset-0 w-full h-full">
+        <img
+          src={photo.src}
+          alt={photo.title || 'CONFLUENCE memory'}
+          className={`w-full h-full object-cover ${tile.objPos} transition-transform duration-500 ease-out group-hover:scale-105`}
+          loading="lazy"
+        />
+      </ScrollParallaxMedia>
+
+      {/* Gradient Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent transition-opacity duration-300 group-hover:from-black/90" />
+
+      {/* Top Corner Quick Maximize Icon */}
+      <div className="absolute top-3.5 right-3.5 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+        <span className="w-8 h-8 rounded-full bg-black/50 backdrop-blur-sm text-white flex items-center justify-center hover:bg-black/70 transition-colors">
+          <Maximize2 className="w-4 h-4" />
+        </span>
+      </div>
+
+      {/* Tile Content in Bottom Area */}
+      <div className="relative z-10 p-5 text-white flex flex-col justify-end">
+        <h3 className="font-heading font-extrabold text-base sm:text-lg lg:text-xl text-white leading-snug drop-shadow-sm group-hover:text-white transition-colors">
+          {photo.title}
+        </h3>
+        {photo.caption && (
+          <p className="text-xs text-white/80 line-clamp-2 leading-relaxed mt-1.5 opacity-90 group-hover:opacity-100 transition-opacity">
+            {photo.caption}
+          </p>
+        )}
+      </div>
+    </div>
+  );
+}
 
 export default function Gallery() {
   const [selectedIdx, setSelectedIdx] = useState(null);
@@ -161,41 +207,13 @@ export default function Gallery() {
             };
 
             return (
-              <div
+              <BentoGalleryTile
                 key={photo.id}
-                onClick={() => openLightbox(idx)}
-                className={`relative rounded-2xl overflow-hidden cursor-pointer border border-[#829DBB]/40 dark:border-[#3B3D41] hover:border-[#536F91] dark:hover:border-[#F14666] bg-[#D4E1EF] dark:bg-[#2B2D30] shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col justify-end ${tile.span}`}
-              >
-                {/* Background Image with smooth hover zoom */}
-                <img
-                  src={photo.src}
-                  alt={photo.title || 'CONFLUENCE memory'}
-                  className={`absolute inset-0 w-full h-full object-cover ${tile.objPos} transition-transform duration-500 ease-out group-hover:scale-105`}
-                  loading="lazy"
-                />
-
-                {/* Gradient Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent transition-opacity duration-300 group-hover:from-black/90" />
-
-                {/* Top Corner Quick Maximize Icon */}
-                <div className="absolute top-3.5 right-3.5 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-                  <span className="w-8 h-8 rounded-full bg-black/50 backdrop-blur-sm text-white flex items-center justify-center hover:bg-black/70 transition-colors">
-                    <Maximize2 className="w-4 h-4" />
-                  </span>
-                </div>
-
-                {/* Tile Content in Bottom Area */}
-                <div className="relative z-10 p-5 text-white flex flex-col justify-end">
-                  <h3 className="font-heading font-extrabold text-base sm:text-lg lg:text-xl text-white leading-snug drop-shadow-sm group-hover:text-white transition-colors">
-                    {photo.title}
-                  </h3>
-                  {photo.caption && (
-                    <p className="text-xs text-white/80 line-clamp-2 leading-relaxed mt-1.5 opacity-90 group-hover:opacity-100 transition-opacity">
-                      {photo.caption}
-                    </p>
-                  )}
-                </div>
-              </div>
+                photo={photo}
+                tile={tile}
+                idx={idx}
+                onOpen={openLightbox}
+              />
             );
           })}
         </div>
