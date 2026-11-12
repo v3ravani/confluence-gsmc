@@ -33,14 +33,10 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Lock background scroll & support Escape key when mobile dropdown menu is open
+  // Support Escape key when mobile dropdown menu is open (avoid body overflow mutations that cause mobile scroll jumps)
   useEffect(() => {
-    if (!mobileMenuOpen) {
-      document.body.style.overflow = 'unset';
-      return;
-    }
+    if (!mobileMenuOpen) return;
 
-    document.body.style.overflow = 'hidden';
     const handleKeyDown = (e) => {
       if (e.key === 'Escape') setMobileMenuOpen(false);
     };
@@ -48,7 +44,6 @@ export default function Header() {
 
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
-      document.body.style.overflow = 'unset';
     };
   }, [mobileMenuOpen]);
 
@@ -65,7 +60,7 @@ export default function Header() {
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.24 }}
                 onClick={() => setMobileMenuOpen(false)}
-                className="fixed inset-0 z-[35] bg-black/40 backdrop-blur-[2px] lg:hidden"
+                className="fixed inset-0 z-40 bg-black/40 backdrop-blur-[2px] lg:hidden touch-none"
                 aria-hidden="true"
               />
             )}
@@ -73,8 +68,11 @@ export default function Header() {
           document.body
         )}
 
-      {/* Outer sticky slot preserves fixed 64px/72px height in flow so expanding menu never pushes page down */}
-      <header className="sticky top-2.5 md:top-0 z-40 mx-3 mt-2.5 mb-2 md:m-0 h-[64px] md:h-[72px] text-[var(--ink)]">
+      {/* Flow spacer on mobile/tablet while header uses fixed positioning so menu always opens cleanly at any scroll position */}
+      <div className="h-[82px] md:h-[72px] lg:hidden flex-shrink-0" aria-hidden="true" />
+
+      {/* Header: fixed below lg (guarantees menu always opens even when scrolled down), sticky on desktop lg+ */}
+      <header className="fixed top-2.5 left-3 right-3 md:top-0 md:left-0 md:right-0 lg:sticky lg:top-0 lg:left-auto lg:right-auto z-50 h-[64px] md:h-[72px] text-[var(--ink)]">
         <div
           className={`w-full rounded-3xl ${
             mobileMenuOpen ? 'md:rounded-b-3xl lg:rounded-none' : 'md:rounded-none'
