@@ -197,9 +197,12 @@ export default function Footer() {
               </div>
               <div className="flex items-start gap-2.5">
                 <Phone className="w-4 h-4 text-white/60 flex-shrink-0 mt-0.5" />
-                <div className="flex flex-col gap-1.5 text-xs text-white/80 w-full">
-                  <div className="flex items-center justify-between gap-2">
-                    <span>Danish Sahab</span>
+                <div className="flex flex-col gap-2 text-xs text-white/80 w-full">
+                  <div className="flex items-start justify-between gap-2">
+                    <div>
+                      <span className="block leading-snug">Danish Sahab</span>
+                      <span className="text-[11px] text-white/60 block leading-tight">(Chief Organiser)</span>
+                    </div>
                     <a
                       href="tel:8828988982"
                       className="text-white/85 hover:underline hover:text-white transition-colors whitespace-nowrap"
@@ -207,8 +210,11 @@ export default function Footer() {
                       8828988982
                     </a>
                   </div>
-                  <div className="flex items-center justify-between gap-2">
-                    <span>Rohan Karandikar</span>
+                  <div className="flex items-start justify-between gap-2">
+                    <div>
+                      <span className="block leading-snug">Rohan Karandikar</span>
+                      <span className="text-[11px] text-white/60 block leading-tight">(Chief Organiser)</span>
+                    </div>
                     <a
                       href="tel:7021864720"
                       className="text-white/85 hover:underline hover:text-white transition-colors whitespace-nowrap"
