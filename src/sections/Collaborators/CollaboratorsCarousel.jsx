@@ -4,41 +4,52 @@ import { collaboratorsData } from '../../data/collaborators';
 
 // ── Single logo tile ─────────────────────────────────────────────────────────
 function LogoTile({ collab }) {
-  const initials = collab.name
-    .split(' ')
-    .filter(w => w.length > 2)
-    .slice(0, 2)
-    .map(w => w[0])
-    .join('');
-
   return (
     <div
-      className="flex-shrink-0 flex flex-col items-center justify-center gap-3
-                 w-[160px] h-[160px] sm:w-[185px] sm:h-[185px] aspect-square rounded-2xl
+      className="flex-shrink-0 flex items-center justify-center
+                 w-[220px] sm:w-[260px] h-[115px] sm:h-[130px] rounded-2xl
                  border border-[#829DBB]/40 dark:border-[#3B3D41]
-                 bg-[#EAF0F6] dark:bg-[#2B2D30] hover:bg-[#D4E1EF]/65 dark:hover:bg-[#323438] hover:border-[#536F91] dark:hover:border-[#F14666]
-                 transition-all duration-300 group p-5 sm:p-6 shadow-xs select-none"
-      title={collab.name}
+                 bg-[#EAF0F6] dark:bg-[#2B2D30] hover:bg-[#D4E1EF]/70 dark:hover:bg-[#323438]
+                 hover:border-[#536F91] dark:hover:border-[#F14666]
+                 transition-all duration-300 group p-4 sm:p-5 shadow-xs select-none"
+      title={`${collab.name} — ${collab.category}`}
+      aria-label={collab.name}
     >
-      {collab.logo ? (
-        <img
-          src={collab.logo}
-          alt={collab.name}
-          className="max-h-14 max-w-[120px] object-contain opacity-85 group-hover:opacity-100 transition-opacity pointer-events-none"
-        />
-      ) : (
+      {collab.logoDark ? (
         <>
-          {/* Large Square tile monogram */}
-          <span className="font-heading font-black text-3xl sm:text-4xl text-[#1D344F] dark:text-[#F2F0ED]
-                           group-hover:text-[#536F91] dark:group-hover:text-[#F14666] transition-colors leading-none pointer-events-none">
-            {initials}
-          </span>
-          <span className="text-[11px] sm:text-xs font-bold tracking-wider uppercase
-                           text-[#536F91] dark:text-[#898A89] group-hover:text-[#1D344F] dark:group-hover:text-[#F14666]
-                           transition-colors text-center leading-tight line-clamp-2 pointer-events-none">
-            {collab.category}
-          </span>
+          {/* Light Mode Logo (Dark text/stethoscope) */}
+          <img
+            src={collab.logoLight || collab.logo}
+            alt={collab.name}
+            className="dark:hidden max-h-14 sm:max-h-16 max-w-[180px] sm:max-w-[215px] w-auto h-auto object-contain transition-transform duration-300 group-hover:scale-105 pointer-events-none"
+            loading="lazy"
+          />
+          {/* Dark Mode Logo (White text/stethoscope) */}
+          <img
+            src={collab.logoDark}
+            alt={collab.name}
+            className="hidden dark:block max-h-14 sm:max-h-16 max-w-[180px] sm:max-w-[215px] w-auto h-auto object-contain transition-transform duration-300 group-hover:scale-105 pointer-events-none"
+            loading="lazy"
+          />
         </>
+      ) : collab.isSquare ? (
+        <div className="h-16 w-16 sm:h-20 sm:w-20 rounded-xl overflow-hidden flex items-center justify-center transition-transform duration-300 group-hover:scale-105 pointer-events-none shadow-xs">
+          <img
+            src={collab.logo}
+            alt={collab.name}
+            className="w-full h-full object-cover"
+            loading="lazy"
+          />
+        </div>
+      ) : (
+        <div className="max-h-14 sm:max-h-16 max-w-[175px] sm:max-w-[210px] rounded-lg overflow-hidden flex items-center justify-center transition-transform duration-300 group-hover:scale-105 pointer-events-none">
+          <img
+            src={collab.logo}
+            alt={collab.name}
+            className="w-full h-full object-contain"
+            loading="lazy"
+          />
+        </div>
       )}
     </div>
   );
@@ -53,8 +64,15 @@ export default function CollaboratorsCarousel() {
   const startXRef = useRef(0);
   const scrollLeftRef = useRef(0);
 
-  // Triple items for seamless continuous looping
-  const items = [...collaboratorsData, ...collaboratorsData, ...collaboratorsData];
+  // Repeat items 6 times (24 items total, split into two 12-item halves) for seamless infinite looping
+  const items = [
+    ...collaboratorsData,
+    ...collaboratorsData,
+    ...collaboratorsData,
+    ...collaboratorsData,
+    ...collaboratorsData,
+    ...collaboratorsData,
+  ];
 
   // Gentle auto-scroll when user is NOT dragging/touching/hovering
   useEffect(() => {
@@ -67,12 +85,12 @@ export default function CollaboratorsCarousel() {
       const el = scrollRef.current;
       if (el && !isInteracting) {
         el.scrollLeft += speed;
-        // Seamless loop when scrolled past one third of the items
-        const oneThird = el.scrollWidth / 3;
-        if (el.scrollLeft >= oneThird * 2) {
-          el.scrollLeft -= oneThird;
+        // Seamless loop when scrolled past one half of the duplicate sets
+        const half = el.scrollWidth / 2;
+        if (el.scrollLeft >= half) {
+          el.scrollLeft -= half;
         } else if (el.scrollLeft <= 0) {
-          el.scrollLeft += oneThird;
+          el.scrollLeft += half;
         }
       }
       animId = requestAnimationFrame(step);

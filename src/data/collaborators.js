@@ -1,62 +1,43 @@
 // ── Collaborating organisations ───────────────────────────────────────────────
-// Replace `logo` paths with actual image paths once logos are provided.
-// Logos should be placed in: src/assets/logos/collaborators/
+import medicrewLight from '../assets/colaborator_logos/medicrew_light.png';
+import medicrewDark from '../assets/colaborator_logos/medicrew_dark.png';
+import smrLogo from '../assets/colaborator_logos/smr_logo.png';
+import girlUpLogo from '../assets/colaborator_logos/girlup_med.png';
+import medicoMarvelsLogo from '../assets/colaborator_logos/medico_marvels.jpg';
+
 export const collaboratorsData = [
   {
-    id:       'gsmc-alumni',
-    name:     'Seth GSMC Alumni Association',
-    category: 'Patron Body',
-    location: 'Mumbai',
-    logo:     null,   // e.g. '/logos/collaborators/gsmc-alumni.png'
+    id:        'medicrew',
+    name:      'Rotaract Club of Medicrew',
+    category:  'Partner Body',
+    location:  'Mumbai',
+    logoLight: medicrewLight,
+    logoDark:  medicrewDark,
+    isWide:    true,
   },
   {
-    id:       'kemh-research',
-    name:     'KEM Hospital Research Society',
-    category: 'Academic Partner',
-    location: 'Mumbai',
-    logo:     null,
+    id:        'smr',
+    name:      'Squad Medicine and Research (SMR)',
+    category:  'Research & Academic Partner',
+    location:  'India',
+    logo:      smrLogo,
+    isWide:    true,
   },
   {
-    id:       'ima-students',
-    name:     'IMA Students Wing',
-    category: 'Affiliate Body',
-    location: 'India',
-    logo:     null,
+    id:        'girlup-med',
+    name:      'Girl Up Med',
+    category:  'Youth & Health Partner',
+    location:  'India',
+    logo:      girlUpLogo,
+    isSquare:  true,
   },
   {
-    id:       'muhs',
-    name:     'Maharashtra University of Health Sciences',
-    category: 'Accreditation',
-    location: 'Nashik',
-    logo:     null,
-  },
-  {
-    id:       'biomedical',
-    name:     'Biomedical Innovation & Clinical Skills Centre',
-    category: 'Simulation Partner',
-    location: 'GSMC Campus',
-    logo:     null,
-  },
-  {
-    id:       'api',
-    name:     'Association of Physicians of India',
-    category: 'Scientific Patron',
-    location: 'India',
-    logo:     null,
-  },
-  {
-    id:       'bmj',
-    name:     'British Medical Journal Education',
-    category: 'Media Partner',
-    location: 'International',
-    logo:     null,
-  },
-  {
-    id:       'msai',
-    name:     'Medical Students Association of India',
-    category: 'Student Body',
-    location: 'India',
-    logo:     null,
+    id:        'medico-marvels',
+    name:      'Rotaract Club of Mumbai Medico Marvels',
+    category:  'Partner Body',
+    location:  'Mumbai',
+    logo:      medicoMarvelsLogo,
+    isSquare:  true,
   },
 ];
 
