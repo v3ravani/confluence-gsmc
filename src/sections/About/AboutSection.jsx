@@ -85,6 +85,10 @@ export default function AboutSection() {
                 <img
                   src={gsmcCrest}
                   alt="Seth GSMC & KEMH Crest"
+                  width={64}
+                  height={64}
+                  loading="lazy"
+                  decoding="async"
                   className="w-16 h-16 object-contain drop-shadow-[0_4px_12px_rgba(0,0,0,0.5)]"
                 />
                 <div>

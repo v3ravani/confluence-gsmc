@@ -75,6 +75,7 @@ export default function HostSection() {
                 alt={hostInfo.campusPhotos[0].alt}
                 className="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-300"
                 loading="lazy"
+                decoding="async"
               />
             </div>
             <h4 className="font-heading font-bold text-[#1D344F] dark:text-[#F2F0ED] text-sm sm:text-base leading-snug px-1 mb-1">

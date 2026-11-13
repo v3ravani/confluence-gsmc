@@ -4,6 +4,7 @@ import { ArrowLeft, Calendar, MapPin, Users } from 'lucide-react';
 import BrainWatermark from '../components/animations/BrainWatermark';
 import MobilePageHero from '../components/common/MobilePageHero';
 import HostSection from '../components/about/HostSection';
+import SEO from '../components/common/SEO';
 import gsmcCrest from '../assets/logos/gsmc_crest.png';
 import { conferenceInfo } from '../data/events';
 
@@ -11,7 +12,13 @@ export default function About() {
   useEffect(() => { window.scrollTo(0, 0); }, []);
 
   return (
-    <div className="pt-0 pb-12 md:py-20 relative min-h-screen">
+    <>
+      <SEO
+        title="About CONFLUENCE 2026 | Seth GSMC & KEM Hospital, Mumbai"
+        description="Learn about the legacy of CONFLUENCE since 2014, Seth GS Medical College & KEM Hospital, Mumbai. Discover our mission of fostering undergraduate medical research and clinical excellence."
+        canonicalUrl="https://confluencegsmc.in/about"
+      />
+      <div className="pt-0 pb-12 md:py-20 relative min-h-screen">
       <BrainWatermark mode="watermark" />
       <MobilePageHero title="ABOUT" />
       <div className="wrap relative z-10">
@@ -88,6 +95,10 @@ export default function About() {
                 <img
                   src={gsmcCrest}
                   alt="Seth GSMC & KEMH Crest"
+                  width={56}
+                  height={56}
+                  loading="lazy"
+                  decoding="async"
                   className="w-14 h-14 object-contain drop-shadow"
                 />
                 <div>
@@ -166,5 +177,6 @@ export default function About() {
         <HostSection />
       </div>
     </div>
+    </>
   );
 }

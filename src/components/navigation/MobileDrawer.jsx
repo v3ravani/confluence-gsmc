@@ -57,6 +57,10 @@ export default function MobileDrawer({ isOpen, onClose }) {
                   <img
                     src={gsmcCrest}
                     alt="Seth GSMC & KEMH Logo"
+                    width={32}
+                    height={32}
+                    loading="lazy"
+                    decoding="async"
                     className="w-8 h-8 object-contain object-center drop-shadow-xs"
                   />
                   <div>

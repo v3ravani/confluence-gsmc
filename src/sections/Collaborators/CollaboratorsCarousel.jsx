@@ -18,6 +18,7 @@ function LogoTile({ collab }) {
             alt={collab.name}
             className="dark:hidden h-20 sm:h-22 md:h-24 max-w-[270px] sm:max-w-[290px] md:max-w-[320px] w-auto object-contain transition-transform duration-300 group-hover:scale-105 pointer-events-none"
             loading="lazy"
+            decoding="async"
           />
           {/* Dark Mode Logo (White text/stethoscope) */}
           <img
@@ -25,6 +26,7 @@ function LogoTile({ collab }) {
             alt={collab.name}
             className="hidden dark:block h-20 sm:h-22 md:h-24 max-w-[270px] sm:max-w-[290px] md:max-w-[320px] w-auto object-contain transition-transform duration-300 group-hover:scale-105 pointer-events-none"
             loading="lazy"
+            decoding="async"
           />
         </>
       ) : collab.isSquare ? (
@@ -33,6 +35,7 @@ function LogoTile({ collab }) {
           alt={collab.name}
           className="h-24 w-24 sm:h-26 sm:w-26 md:h-28 md:w-28 object-contain rounded-2xl shadow-xs transition-transform duration-300 group-hover:scale-105 pointer-events-none"
           loading="lazy"
+          decoding="async"
         />
       ) : (
         <img
@@ -40,6 +43,7 @@ function LogoTile({ collab }) {
           alt={collab.name}
           className="h-20 sm:h-22 md:h-24 max-w-[270px] sm:max-w-[290px] md:max-w-[320px] w-auto object-contain rounded-xl shadow-xs transition-transform duration-300 group-hover:scale-105 pointer-events-none"
           loading="lazy"
+          decoding="async"
         />
       )}
     </div>

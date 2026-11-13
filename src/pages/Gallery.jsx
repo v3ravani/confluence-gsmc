@@ -4,6 +4,7 @@ import { ArrowLeft, ChevronLeft, ChevronRight, X, Sparkles, Maximize2 } from 'lu
 import BrainWatermark from '../components/animations/BrainWatermark';
 import MobilePageHero from '../components/common/MobilePageHero';
 import ScrollParallaxMedia from '../components/common/ScrollParallaxMedia';
+import SEO from '../components/common/SEO';
 import { memoriesGallery } from '../data/about';
 
 // Desktop-only 12-column editorial Bento configuration matched to each photo's aspect ratio
@@ -41,6 +42,7 @@ function BentoGalleryTile({ photo, tile, idx, onOpen }) {
           alt={photo.title || 'CONFLUENCE memory'}
           className={`w-full h-full object-cover ${tile.objPos} transition-transform duration-500 ease-out group-hover:scale-105`}
           loading="lazy"
+          decoding="async"
         />
       </ScrollParallaxMedia>
 
@@ -113,7 +115,13 @@ export default function Gallery() {
   }, [selectedIdx, closeLightbox, nextPhoto, prevPhoto]);
 
   return (
-    <div className="pt-0 pb-16 md:py-20 relative min-h-screen overflow-x-clip">
+    <>
+      <SEO
+        title="Gallery & Campus Memories | CONFLUENCE 2026 | Seth GSMC Mumbai"
+        description="Explore photographs and memories from past editions of CONFLUENCE at Seth GS Medical College & KEM Hospital. Witness medical competitions, symposiums, and delegate moments."
+        canonicalUrl="https://confluencegsmc.in/gallery"
+      />
+      <div className="pt-0 pb-16 md:py-20 relative min-h-screen overflow-x-clip">
       <BrainWatermark mode="watermark" />
       <MobilePageHero title="GALLERY" />
 
@@ -178,6 +186,7 @@ export default function Gallery() {
                       alt={photo.title || 'CONFLUENCE memory'}
                       className="w-full h-full object-cover"
                       loading="lazy"
+                      decoding="async"
                     />
                   </div>
                 </div>
@@ -295,6 +304,7 @@ export default function Gallery() {
         )}
       </div>
     </div>
+    </>
   );
 }
 

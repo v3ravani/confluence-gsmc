@@ -21,6 +21,9 @@ function BrandLogo({ onClick }) {
       <img
         src={gsmcCrest}
         alt="Seth GS Medical College & KEM Hospital Crest"
+        width={44}
+        height={44}
+        fetchpriority="high"
         className="w-10 h-10 sm:w-11 sm:h-11 object-contain drop-shadow-[0_2px_8px_rgba(29,52,79,0.14)]
                    group-hover:scale-105 transition-transform duration-200 flex-shrink-0"
       />

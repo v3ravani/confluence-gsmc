@@ -81,6 +81,7 @@ export default function MemoriesGallery() {
                 alt={photo.title || 'CONFLUENCE memory'}
                 className="w-full h-full object-cover transition-opacity duration-300 hover:opacity-95"
                 loading="lazy"
+                decoding="async"
               />
             </div>
           );
@@ -130,6 +131,7 @@ export default function MemoriesGallery() {
                     alt={photo.title || 'CONFLUENCE memory'}
                     className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"
                     loading="lazy"
+                    decoding="async"
                   />
                 </div>
 

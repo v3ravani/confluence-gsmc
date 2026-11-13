@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import SEO from '../components/common/SEO';
 import BrainWatermark from '../components/animations/BrainWatermark';
 import Hero from '../sections/Hero/Hero';
 import CategoryMarquee from '../sections/Browse/CategoryMarquee';
@@ -14,7 +15,13 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="relative min-h-screen overflow-x-clip">
+    <>
+      <SEO
+        title="CONFLUENCE 2026 | Seth GS Medical College & KEM Hospital, Mumbai"
+        description="Official portal of CONFLUENCE 2026, the premier international undergraduate medical conference organized by Seth GS Medical College & KEM Hospital, Mumbai. Explore 8 scientific events, workshops, accredited CME, and register online."
+        canonicalUrl="https://confluencegsmc.in/"
+      />
+      <div className="relative min-h-screen overflow-x-clip">
       {/* 1. Hero — text hierarchy + responsive brain watermark + date boxes + intro + CTA + brochure buttons */}
       <Hero />
 
@@ -43,5 +50,6 @@ export default function Home() {
         </div>
       </div>
     </div>
+    </>
   );
 }

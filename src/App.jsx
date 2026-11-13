@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import CustomCursor from './components/common/CustomCursor';
 import SplashScreen from './components/common/SplashScreen';
@@ -13,7 +13,18 @@ import Merchandise from './pages/Merchandise';
 import CME from './pages/CME';
 import Team from './pages/Team';
 import Gallery from './pages/Gallery';
+import NotFound from './pages/NotFound';
 import { trackPageView } from './utils/analytics';
+
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+  }, [pathname]);
+
+  return null;
+}
 
 export default function App() {
   const [showSplash, setShowSplash] = useState(true);
@@ -25,6 +36,7 @@ export default function App() {
 
   return (
     <>
+      <ScrollToTop />
       <CustomCursor />
       <AnimatePresence>
         {showSplash && (
@@ -44,7 +56,7 @@ export default function App() {
             <Route path="/cme"        element={<CME />} />
             <Route path="/gallery"    element={<Gallery />} />
             <Route path="/team"       element={<Team />} />
-            <Route path="*"           element={<Home />} />
+            <Route path="*"           element={<NotFound />} />
           </Routes>
         </main>
         <Footer />

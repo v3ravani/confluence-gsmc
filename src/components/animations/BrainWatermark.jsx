@@ -25,12 +25,14 @@ export default function BrainWatermark({
             alt=""
             className="absolute inset-0 w-full h-full object-contain brightness-0"
             loading="lazy"
+            decoding="async"
           />
           <img
             src={heroBulbColored}
             alt=""
             className="absolute inset-0 w-full h-full object-contain brightness-0"
             loading="lazy"
+            decoding="async"
           />
         </div>
       </div>
@@ -71,6 +73,8 @@ export default function BrainWatermark({
               : 'hue-rotate(182deg) saturate(0.82) contrast(1.05) drop-shadow(0 6px 20px rgba(83,111,145,0.28))',
           }}
           loading="eager"
+          fetchpriority="high"
+          decoding="async"
         />
       </div>
 
@@ -93,6 +97,8 @@ export default function BrainWatermark({
               : 'hue-rotate(182deg) saturate(0.85)',
           }}
           loading="eager"
+          fetchpriority="high"
+          decoding="async"
         />
       </div>
     </div>

@@ -264,14 +264,6 @@ export default function EventDetailModal({ event, onClose }) {
               </a>
             )}
 
-            <button
-              type="button"
-              onClick={onClose}
-              className="px-4 sm:px-5 py-2.5 rounded-full text-xs font-bold text-[#1D344F] dark:text-[#F2F0ED] hover:bg-[#D4E1EF]/70 dark:hover:bg-[#323438] border border-[#829DBB] dark:border-[#3B3D41] transition-colors cursor-pointer"
-            >
-              Close
-            </button>
-
             {event.registrationLinks && event.registrationLinks.length > 1 ? (
               event.registrationLinks.map((regLink) => (
                 <a

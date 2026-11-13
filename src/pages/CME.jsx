@@ -18,6 +18,7 @@ import MobilePageHero from '../components/common/MobilePageHero';
 import SectionHeading from '../components/common/SectionHeading';
 import { cmeConferenceOverview, cmeDays, cmeContacts } from '../data/cme';
 import { trackEventRegistration } from '../utils/analytics';
+import SEO from '../components/common/SEO';
 
 /* ── CME Session Details Modal (Informational Only — No Register Button) ── */
 function CMEDetailsModal({ session, onClose }) {
@@ -264,7 +265,13 @@ export default function CME() {
   } = cmeConferenceOverview;
 
   return (
-    <div className="pt-0 pb-12 md:py-20 relative min-h-screen">
+    <>
+      <SEO
+        title="CME Conference & 4 MMC Credit Points | CONFLUENCE 2026 | Seth GSMC"
+        description="Official Continuing Medical Education (CME) conference of CONFLUENCE 2026 at Seth GS Medical College & KEM Hospital. Accredited for 4 MMC credit points with premier medical faculty sessions."
+        canonicalUrl="https://confluencegsmc.in/cme"
+      />
+      <div className="pt-0 pb-12 md:py-20 relative min-h-screen">
       <BrainWatermark mode="watermark" />
       <MobilePageHero title="CME 2026" />
       <div className="wrap relative z-10">
@@ -472,5 +479,6 @@ export default function CME() {
         />
       )}
     </div>
+    </>
   );
 }

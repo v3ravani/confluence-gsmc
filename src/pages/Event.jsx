@@ -23,6 +23,7 @@ import SectionHeading from '../components/common/SectionHeading';
 import EventDetailModal from '../components/events/EventDetailModal';
 import { scientificEvents, conferenceInfo } from '../data/events';
 import { trackEventRegistration } from '../utils/analytics';
+import SEO from '../components/common/SEO';
 
 /* ── Sleek Compact Event Card (Equal Height, Reduced Height, Badges Removed) ── */
 function EventCard({ event, index, onOpenDetails }) {
@@ -248,7 +249,13 @@ export default function Event() {
   };
 
   return (
-    <div className="pt-0 pb-12 md:py-20 relative min-h-screen overflow-x-clip md:overflow-x-visible">
+    <>
+      <SEO
+        title="Scientific Events | CONFLUENCE 2026 | Seth GSMC & KEM Hospital"
+        description="Explore 8 flagship medical competitions at CONFLUENCE 2026: Colloquium Symposium, Medical Quiz, Clinical Case Presentations, Empirica Research Papers, Inceptum Hackathon, and Model Making. Over ₹3.5 Lakhs in prize pools."
+        canonicalUrl="https://confluencegsmc.in/events"
+      />
+      <div className="pt-0 pb-12 md:py-20 relative min-h-screen overflow-x-clip md:overflow-x-visible">
       <BrainWatermark mode="watermark" />
       <MobilePageHero title="EVENTS" />
       <div className="wrap relative z-10">
@@ -441,5 +448,6 @@ export default function Event() {
         />
       )}
     </div>
+    </>
   );
 }

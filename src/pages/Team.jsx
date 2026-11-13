@@ -5,6 +5,7 @@ import BrainWatermark from '../components/animations/BrainWatermark';
 import MobilePageHero from '../components/common/MobilePageHero';
 import ScrollParallaxMedia from '../components/common/ScrollParallaxMedia';
 import SectionHeading from '../components/common/SectionHeading';
+import SEO from '../components/common/SEO';
 import { chiefOrganisers, organisers } from '../data/team';
 
 function ChiefOrganiserCard({ member }) {
@@ -21,6 +22,8 @@ function ChiefOrganiserCard({ member }) {
           <img
             src={member.photo}
             alt={`${member.name} — ${member.designation}`}
+            loading="lazy"
+            decoding="async"
             className="w-full h-full object-cover object-top group-hover:scale-[1.03] transition-transform duration-500 ease-out"
           />
         </ScrollParallaxMedia>
@@ -62,6 +65,8 @@ function OrganiserCard({ member, isLast }) {
           <img
             src={member.photo}
             alt={`${member.name} — ${member.designation}`}
+            loading="lazy"
+            decoding="async"
             className="w-full h-full object-cover object-top group-hover:scale-[1.04] transition-transform duration-500 ease-out"
           />
         </ScrollParallaxMedia>
@@ -86,7 +91,13 @@ export default function Team() {
   }, []);
 
   return (
-    <div className="pt-0 pb-10 md:py-10 relative min-h-screen overflow-x-clip">
+    <>
+      <SEO
+        title="Organising Committee & Secretariat | CONFLUENCE 2026 | Seth GSMC Mumbai"
+        description="Meet the Organising Committee, Chief Organisers, and student leadership behind CONFLUENCE 2026 at Seth GS Medical College & KEM Hospital, Mumbai."
+        canonicalUrl="https://confluencegsmc.in/team"
+      />
+      <div className="pt-0 pb-10 md:py-10 relative min-h-screen overflow-x-clip">
       <BrainWatermark mode="watermark" />
       <MobilePageHero title="MEET THE TEAM" />
 
@@ -169,5 +180,6 @@ export default function Team() {
         </div>
       </div>
     </div>
+    </>
   );
 }
