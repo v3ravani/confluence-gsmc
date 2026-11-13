@@ -1,0 +1,334 @@
+# CONFLUENCE 2026 — Seth GSMC & KEM Hospital, Mumbai
+
+> Official machine-readable intelligence guide and index for CONFLUENCE 2026, the premier international undergraduate and postgraduate medical and research conference organized by Seth Gordhandas Sunderdas Medical College (GSMC) and King Edward VII Memorial (KEM) Hospital, Parel, Mumbai, India.
+
+---
+
+## A. Website Identity
+
+- **Official Website Name:** CONFLUENCE 2026
+- **Primary Domain:** https://confluencegsmc.in
+- **Canonical Production URL:** https://confluencegsmc.in/
+- **Associated Host Institution:** Seth Gordhandas Sunderdas Medical College & King Edward VII Memorial Hospital (Seth GSMC & KEMH)
+- **Institution Location:** Acharya Donde Marg, Parel, Mumbai — 400012, Maharashtra, India
+- **Conference Dates:** 
+  - Pre-Conference Workshops: 9th & 10th December 2026
+  - Main Conference & Finals: 11th, 12th & 13th December 2026
+- **Format:** Hybrid (Nationwide Online Screening Rounds + In-Person Grand Finals & Workshops at Seth GSMC Campus)
+- **Target Audience & Eligibility:** MBBS Undergraduates, Medical Interns, Post-Interns, Dental/Allied Health Scholars, and Postgraduate Residents.
+
+---
+
+## B. About CONFLUENCE
+
+Founded in 2014, CONFLUENCE is an annual, five-day international medical and scientific conference hosted by the students and faculty of Seth GS Medical College and KEM Hospital in Mumbai. It serves as an academic convergence for young healthcare minds, uniting undergraduate research, clinical acumen, interdisciplinary healthcare innovation, and accredited medical education.
+
+### Mission and Core Pillars
+
+1. **Undergraduate Medical Research:** Encourages original scientific inquiry, critical literature appraisal, and research defense through structured paper and poster symposiums.
+2. **Clinical Acumen & Diagnostics:** Sharpens diagnostic instincts and bedside decision-making through competitive clinicopathological cases, debates, and multi-tier medical quizzes.
+3. **Cross-Disciplinary Innovation:** Bridges clinical medicine with engineering, design, and biotechnology to solve systemic healthcare bottlenecks without coding barriers.
+4. **Hands-On Procedural Training:** Offers intensive simulation masterclasses guided by senior clinical faculty and department heads across surgical, emergency, and diagnostic domains.
+5. **Continuing Professional Development:** Provides accredited Continuing Medical Education (CME) masterclasses for resident doctors, consultants, and interns.
+
+---
+
+## C. About the College: Seth GSMC & KEM Hospital
+
+- **Full Official Name:** Seth Gordhandas Sunderdas Medical College and King Edward VII Memorial Hospital
+- **Founding Year:** 1926 (Centenary legacy of pioneering medical education in India)
+- **Affiliation & Governance:** Municipal Corporation of Greater Mumbai (MCGM) and Maharashtra University of Health Sciences (MUHS), Nashik
+- **Campus Address:** Acharya Donde Marg, Parel, Mumbai — 400012, Maharashtra, India
+- **Official Institutional Portal:** https://www.kem.edu
+- **Official Institutional LinkedIn:** https://www.linkedin.com/school/gsmedicalcollege/
+
+### Academic Profile
+Seth GS Medical College is among India's foremost apex tertiary healthcare institutions, providing training to approximately 2,000 scholars across undergraduate (MBBS), postgraduate (MD/MS/Diploma), super-speciality (DM/MCh), physical therapy (B.P.Th), occupational therapy (B.O.Th), nursing, and allied PhD disciplines. It operates in tandem with KEM Hospital, a legendary 1,800+ bed multidisciplinary tertiary referral public hospital serving western India.
+
+---
+
+## D. Scientific Events
+
+CONFLUENCE 2026 features eight official scientific competitions. All competitions follow strict academic guidelines, multi-stage evaluations, and independent faculty juries.
+
+### 1. COLLOQUIUM (The Medical Symposium 2026)
+
+- **Introduction:** The flagship intercollegiate medical symposium of CONFLUENCE 2026. Institutional teams synthesize cutting-edge clinical, technological, and diagnostic medical topics into a multidisciplinary symposium presentation evaluated by distinguished professors.
+- **Category:** Intercollegiate Symposium / Team Presentation
+- **Team Composition:** 6 to 12 members per team (All members must be from the same college; maximum 6 speakers).
+- **Prize Pool:** ₹75,000 (Winner: ₹45,000 · Runner Up: ₹20,000 · Best Tech Presentation: ₹5,000 · Best Speaker: ₹5,000)
+- **Eligibility:** MBBS UG Students, Interns, and Post-Interns.
+- **Key Dates:**
+  - Abstract Submission Deadline: 13th November 2026
+  - Grand Offline Finals: 13th December 2026
+- **Venue:** Offline Finals at Seth GSMC & KEMH Campus, Mumbai
+- **Event Coordinator:** Netra Modi (+91 8779643933)
+- **Event Page:** https://confluencegsmc.in/events
+- **Rulebook URL:** https://drive.google.com/file/d/1c-IO_SbIv4EPJ3BRSB8HY84wUeD-2Lbx/view?usp=drive_link
+- **Registration URL:** https://forms.gle/k8rP5qbb71fD7GXd8
+
+---
+
+### 2. ENDOVELICUS (The Pre & Paraclinical Quiz)
+
+- **Introduction:** A rigorous test of foundational medical sciences challenging participants across pre- and paraclinical MBBS disciplines through online screening and a high-stakes campus buzzer finale.
+- **Category:** Medical Quizzes / Pre & Paraclinical Track
+- **Team Composition:** 2 to 3 candidates per team (Same college only; at least 1 candidate from the 2024/25 batch is compulsory; maximum 1 intern per team).
+- **Syllabus:** Anatomy, Physiology, Biochemistry, Pharmacology, Pathology, Microbiology.
+- **Prize Pool:** ₹25,000 (Winner: ₹15,000 · Runner Up: ₹10,000)
+- **Eligibility:** MBBS UG Students and Interns.
+- **Key Dates:**
+  - Stage 1 (Online Google Form): 24th November 2026
+  - Stage 2 (Online Proctored Qualifier): 30th November 2026
+  - Stage 3 (Offline Buzzer Finale): 11th December 2026
+- **Venue:** Offline Finale at Seth GSMC Campus, Mumbai
+- **Event Coordinator:** Arnav Darekar (+91 7977997332)
+- **Event Page:** https://confluencegsmc.in/events
+- **Rulebook URL:** https://drive.google.com/file/d/11SJYX78EbQRcCGLKfBDo7HMONPq_1OjA/view?usp=drivesdk
+- **Registration URL:** https://forms.gle/cgfD1s4TZu6cm2i56
+
+---
+
+### 3. AESCULAPIUS (The Clinicopathological Quiz)
+
+- **Introduction:** The signature clinicopathological challenge bridging clinical medicine with Pathology, Forensic Medicine & Toxicology (FMT), and Preventive & Social Medicine (PSM).
+- **Category:** Medical Quizzes / Clinicopathological Track
+- **Team Composition:** 2 to 3 candidates per team (Cross-college teams not permitted; minimum 1 student from 2022, 2023, or 2024 batch compulsory; maximum 1 Post-Intern allowed).
+- **Syllabus:** Clinical Medicine, Pathology, Forensic Medicine & Toxicology, Community Medicine / PSM.
+- **Prize Pool:** ₹20,000 (Winner: ₹10,000 · Runner Up: ₹6,000 · 3rd Place: ₹3,000 · 4th Place: ₹1,000)
+- **Eligibility:** MBBS Undergraduates, Interns, and Post-Interns.
+- **Key Dates:**
+  - Round 1 (Online Screening): 26th November 2026
+  - Round 2 (Online Differential Diagnosis Qualifier): 1st December 2026
+  - Grand Finale (Offline Campus Stage): 12th December 2026
+- **Venue:** Offline Stage Finals at Seth GSMC Campus, Mumbai
+- **Event Coordinator:** Gauri Bendre (+91 9136766446)
+- **Event Page:** https://confluencegsmc.in/events
+- **Rulebook URL:** https://drive.google.com/file/d/1CSfOsFgqD0YLr5Nl8ycP6F8drCawJR6L/view?usp=drivesdk
+- **Registration URL:** https://docs.google.com/forms/d/e/1FAIpQLSeOOdd9eyyVLTjqe-c8RGWg3mL-_Z74I1ce5rBJhCmuEO-ynA/viewform?usp=header
+
+---
+
+### 4. SUSHRUTA (The Research Quiz)
+
+- **Introduction:** An intellectual academic quiz dedicated entirely to research methodology, study designs, biostatistics, data interpretation, critical literature appraisal, and research ethics.
+- **Category:** Medical Quizzes / Research Methodology Track
+- **Team Composition:** 2 participants per team (Inter-collegiate teams welcome).
+- **Syllabus:** Research Methodology, Study Designs, Biostatistics, Data Interpretation, Research Ethics, Evidence-Based Medicine, and Critical Appraisal.
+- **Prize Pool:** ₹9,500 (Winner: ₹6,000 · Runner Up: ₹3,500)
+- **Eligibility:** MBBS Undergraduates, Interns, and Post-Interns.
+- **Key Dates:**
+  - Round 1 (Online Qualifier): 6th December 2026
+  - Round 2 (Offline Grand Finale): 13th December 2026
+- **Venue:** Offline Finals at Seth GSMC Campus, Mumbai
+- **Event Coordinator:** Swadip Jadhav (+91 7219180776)
+- **Event Page:** https://confluencegsmc.in/events
+- **Rulebook URL:** https://drive.google.com/file/d/1sOI8Ni8Z-OnshYDuQ2TNgu2ooiguerYh/view?usp=drivesdk
+- **Registration URL:** https://forms.gle/gc5DY5GPzMGKicXx5
+
+---
+
+### 5. MEDATHON (The Healthcare Hackathon)
+
+- **Introduction:** A 3-day non-coding healthcare innovation hackathon uniting medical, dental, allied health, engineering, and design students to solve pressing real-world clinical and public health dilemmas.
+- **Category:** Healthcare Hackathon / Cross-Disciplinary Innovation
+- **Structure:** Individual registration followed by mentor-guided cross-disciplinary team formation, ideation workshops, time-based problem auctions, and jury defense.
+- **Prize Pool:** ₹47,000 (Winner: ₹21,000 · 1st Runner Up: ₹15,000 · 2nd Runner Up: ₹11,000)
+- **Eligibility:** Medical & Dental UG/PG, Physiotherapy (B.P.Th), Occupational Therapy (B.O.Th), Engineering UG/Graduates, and Design UG scholars.
+- **Key Dates:**
+  - Registration Deadline for Medicos: 22nd November 2026
+  - Registration Deadline for Engineering & Design: 1st December 2026
+  - Hackathon & Campus Finals: 11th – 13th December 2026
+- **Venue:** Seth GSMC & KEMH Campus, Mumbai
+- **Event Coordinators:** Madhav Loya (+91 7498407911) & Tanmay Bhandari (+91 9324210306)
+- **Event Page:** https://confluencegsmc.in/events
+- **Rulebook URL:** None published (Guided mentorship hackathon; details provided upon entry).
+- **Registration URLs:**
+  - Medical / Dental / Allied Registration: https://forms.gle/oi1Q7pE6JYuiTSrKA
+  - Engineering & Design Registration: https://forms.gle/k6J9BzGgEU4bRw9T6
+
+---
+
+### 6. DHANVANTARI (The Case Presentation)
+
+- **Introduction:** An elite clinical case presentation competition evaluating diagnostic acumen, clinical reasoning, literature synthesis, and patient management within health sciences.
+- **Category:** Clinical Cases / Case Presentation
+- **Format:** Solo or team presentation with patient consent and HOD/HOU verification. Online screening of top 15 candidates followed by top 6 offline finals.
+- **Prize Pool:** ₹12,000 (Winner: ₹8,000 · Runner Up: ₹4,000)
+- **Eligibility:** MBBS Undergraduates, Interns, and Health Science PG Students.
+- **Key Dates:**
+  - Abstract Submission Deadline: 23rd November 2026
+  - Screening Round (Online): 5th December 2026
+  - Final Presentation Round (Offline): 12th December 2026
+- **Venue:** Offline Finals at Seth GSMC Campus, Mumbai
+- **Event Coordinator:** Radhika Shimpi (+91 8767608300)
+- **Event Page:** https://confluencegsmc.in/events
+- **Rulebook URL:** https://drive.google.com/file/d/1fYuO6s2cM5EDMt-thZ65q1qVQnvzWav6/view?usp=drivesdk
+- **Registration URL:** https://forms.gle/xUzkaiiJwZcrRaEy9
+
+---
+
+### 7. APOPHENIA (The Paper Presentation — UG & PG Divisions)
+
+- **Introduction:** The premier scientific research paper defense platform of CONFLUENCE, providing separate competition tracks for undergraduate and postgraduate medical researchers. Accepts original research, systematic reviews, and meta-analyses.
+- **Category:** Research & Scientific Defense (UG & PG Divisions)
+- **Prize Pool:** ₹16,000 Total (UG Winner: ₹5,000 · UG Runner Up: ₹3,000 · PG Winner: ₹5,000 · PG Runner Up: ₹3,000)
+- **Eligibility:**
+  - UG Division: MBBS Undergraduates, Interns, Post-Interns.
+  - PG Division: Postgraduate Residents in health sciences.
+- **Key Dates:**
+  - Abstract Submission Deadline: 26th November 2026
+  - Online Screening Round (Top 20): 3rd December 2026
+  - Offline Final Defense: 12th December 2026
+- **Venue:** Offline Finals at Seth GSMC Campus, Mumbai
+- **Event Coordinators:** Rijul Kharat (+91 8454074964) & Zeeshaan Sheikh (+91 8652308111)
+- **Event Page:** https://confluencegsmc.in/events
+- **Rulebook URL:** https://drive.google.com/file/d/13IEHvjZAWtkZK6EDmSy0V0yfTMtYUkGs/view?usp=drivesdk
+- **Registration URLs:**
+  - Undergraduate (UG) Form: https://forms.gle/izuca5MJSMv1bJXx6
+  - Postgraduate (PG) Form: https://forms.gle/kBPLVY3UmjA8CoMX6
+
+---
+
+### 8. COGNITIO (The Poster Presentation — UG & PG Divisions)
+
+- **Introduction:** The visual research defense arena of CONFLUENCE where medical scholars convert clinical studies, case series, and public health investigations into impactful visual abstracts and poster defenses.
+- **Category:** Research & Visual Abstracts (UG & PG Divisions)
+- **Prize Pool:** ₹16,000 Total (UG Winner: ₹5,000 · UG Runner Up: ₹3,000 · PG Winner: ₹5,000 · PG Runner Up: ₹3,000)
+- **Eligibility:**
+  - UG Division: MBBS Undergraduates, Interns, Post-Interns.
+  - PG Division: Postgraduate Health Science Students.
+- **Key Dates:**
+  - Abstract Submission Deadline: 23rd November 2026
+  - Online Screening Round (Top 20): 27th November 2026
+  - Offline Grand Finals (Top 6): 13th December 2026
+- **Venue:** Offline Finals at Seth GSMC Campus, Mumbai
+- **Event Coordinators:** Rijul Kharat (+91 8454074964) & Zeeshaan Sheikh (+91 8652308111)
+- **Event Page:** https://confluencegsmc.in/events
+- **Rulebook URL:** https://drive.google.com/file/d/1IIQs5u5he6v9t7xQQw03uPYbMtGb4Od0/view?usp=drivesdk
+- **Registration URLs:**
+  - Undergraduate (UG) Form: https://forms.gle/LYp3aJwozKM7Pidk6
+  - Postgraduate (PG) Form: https://forms.gle/P2VsmuAL9nd31adTA
+
+---
+
+## E. Continuing Medical Education (CME)
+
+- **Program Title:** CME 2026 — Masterclasses for Clinicians & Scholars
+- **Accreditation:** Applied for 4 Maharashtra Medical Council (MMC) Credit Points
+- **Dates:** Friday, 11th & Saturday, 12th December 2026
+- **Venue:** Main Auditorium, Seth GS Medical College & KEM Hospital, Parel, Mumbai
+- **Official CME Page:** https://confluencegsmc.in/cme
+- **Official CME Brochure:** https://confluencegsmc.in/brochures/CONFLUENCE_2026_CME_Brochure.pdf
+- **CME Enquiries Coordinators:**
+  - Shlok Khanvilkar: +91 97690 25136
+  - Vaishvi Shah: +91 90049 04569
+
+### CME Program Curriculum
+
+#### Day 1 (11th December 2026) — Protecting the Practitioner: Financial & Legal Armor
+1. **Masterclass 1: Financial Literacy & Asset Management**
+   - *Scope:* Taxation optimization (44ADA regimes, GST exemptions), ethical side ventures in the creator economy, capital allocation for private hospital infrastructure, debt management, and shielding assets through trusts and corporate structures.
+   - *Target:* Undergraduates, Interns, Resident Doctors, and Healthcare Practitioners.
+2. **Masterclass 2: Medico-Legal Defense & Workplace Violence**
+   - *Scope:* Tactical de-escalation protocols for medical mobs, recognizing pre-assault agitation, rapid evacuation pathways, digital evidence chain-of-custody (CCTV/logbooks), and filing non-bailable FIRs under State Medicare & Prevention of Violence Acts.
+   - *Department:* Forensic Medicine & Medical Administration, GSMC.
+
+#### Day 2 (12th December 2026) — Clinical Frontiers: Infertility & Psychosomatic Medicine
+3. **Masterclass 3: Array of Hope: Advances in Infertility & ART Realities**
+   - *Scope:* Proactive reproductive screening in high-risk young women, social and oncological oocyte preservation, triage of recurrent implantation failure (ERA, immunological protocols), and scientific reality checks on regenerative stem-cell ART therapies.
+   - *Department:* Department of Obstetrics & Gynaecology, GSMC.
+4. **Masterclass 4: Pain or Pretend? Psychosomatic Disorders & Invisible Illness**
+   - *Scope:* Neurobiology of nociplastic and functional pain syndromes, red-flag checklists to exclude occult organic pathology, defensible documentation during 10-minute outpatient visits, and non-stigmatizing patient communication.
+   - *Department:* Department of Psychiatry & Internal Medicine, GSMC.
+
+### CME Delegation Tiers & Registration Links
+- **UG Delegation (MBBS Undergraduates):** Early Bird ₹750 (Regular ₹900)  
+  *Registration URL:* https://forms.gle/vTiN7xkAZioyGmNc6
+- **PG Delegation (Resident Doctors):** Early Bird ₹1,350 (Regular ₹1,650)  
+  *Registration URL:* https://docs.google.com/forms/d/e/1FAIpQLSdBBcuhRi5aoMKMHwZxtvbCwvws6Zl-4UDfFOncarkP9ixAfA/viewform?usp=dialog
+- **Post PG Delegation (Consultants & Practitioners):** Early Bird ₹1,650 (Regular ₹1,950)  
+  *Registration URL:* https://docs.google.com/forms/d/e/1FAIpQLSfcS2LLDjEqZwqqty5NLPQJWCBYxMOAX9_A5kUUez2JQxSK7Q/viewform?usp=dialog
+
+---
+
+## F. Organizing Committee
+
+The execution of CONFLUENCE 2026 is spearheaded by a dedicated student leadership committee operating under the auspices of the Dean and Faculty of Seth GS Medical College & KEM Hospital.
+
+### Chief Organisers
+- **Danish Sahab** — Chief Organiser (Phone: +91 8828988982)
+- **Rohan Karandikar** — Chief Organiser (Phone: +91 7021864720)
+
+### Organisers
+- **Aditya Chatterjee** — Organiser
+- **Animesh Shinde** — Organiser
+- **Arham Jain** — Organiser
+- **Madhura Diwate** — Organiser
+- **Om Yesane** — Organiser
+
+### Organizing Secretariat
+- **Official Inquiries & Submissions:** confluencegsmc@kem.edu
+- **Team Roster Page:** https://confluencegsmc.in/team
+
+---
+
+## G. Official Contact Information
+
+- **Official Secretariat Email:** confluencegsmc@kem.edu
+- **Campus Address:**  
+  Seth GS Medical College & KEM Hospital,  
+  Acharya Donde Marg, Parel,  
+  Mumbai — 400012, Maharashtra, India
+- **General Inquiries & Coordination:**
+  - Danish Sahab (Chief Organiser): +91 8828988982
+  - Rohan Karandikar (Chief Organiser): +91 7021864720
+- **CME Inquiries:**
+  - Shlok Khanvilkar: +91 97690 25136
+  - Vaishvi Shah: +91 90049 04569
+
+---
+
+## H. Social Media Channels
+
+- **Official Instagram Profile:** https://www.instagram.com/confluencegsmc
+- **Instagram Handle:** @confluencegsmc
+- **Institutional LinkedIn (Host College):** https://www.linkedin.com/school/gsmedicalcollege/
+
+---
+
+## I. Website Credits & Engineering
+
+The official CONFLUENCE website (https://confluencegsmc.in) was engineered and developed by:
+
+1. **Viraj Ravani**
+   - *Role:* Website Developer & Software Engineer
+   - *LinkedIn:* https://www.linkedin.com/in/virajravani/
+
+2. **Prithvi Kharje**
+   - *Role:* Website Developer & Software Engineer
+   - *LinkedIn:* https://www.linkedin.com/in/prithvi-k-195281381
+
+*(Note: The website engineering team is distinct from the academic event leadership and medical college administrative faculty).*
+
+---
+
+## J. Canonical Website Navigation & Official Documents
+
+All primary sections of the website resolve through clean, History-API based URLs:
+
+- **Home Portal:** https://confluencegsmc.in/
+- **About Conference & Institution:** https://confluencegsmc.in/about
+- **Scientific Events Directory:** https://confluencegsmc.in/events
+- **Continuing Medical Education (CME):** https://confluencegsmc.in/cme
+- **Hands-On Clinical Workshops:** https://confluencegsmc.in/workshops
+- **Conference Merchandise:** https://confluencegsmc.in/merchandise
+- **Photo & Retrospective Archives:** https://confluencegsmc.in/gallery
+- **Organising Leadership & Secretariat:** https://confluencegsmc.in/team
+
+### Official Published Documents
+- **Official Event Brochure (PDF):** https://confluencegsmc.in/brochures/CONFLUENCE_2026_Event_Brochure.pdf
+- **Official CME Brochure (PDF):** https://confluencegsmc.in/brochures/CONFLUENCE_2026_CME_Brochure.pdf
+- **XML Sitemap:** https://confluencegsmc.in/sitemap.xml
+- **Robots Policy:** https://confluencegsmc.in/robots.txt
+- **Machine-Readable Intelligence Index:** https://confluencegsmc.in/llms.txt
