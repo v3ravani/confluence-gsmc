@@ -267,9 +267,12 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative z-20 overflow-hidden text-[#1D344F] dark:text-[#F2F0ED]
+    <section
+      id="hero-section"
+      className="relative z-20 overflow-hidden text-[#1D344F] dark:text-[#F2F0ED]
                         bg-gradient-to-br from-[#F8FBFE] via-[#F2F6FA] to-[#EAF0F6] dark:bg-none dark:bg-[var(--bg-canvas)]
-                        pt-10 sm:pt-14 pb-16 lg:py-20 border-b border-[#829DBB]/30 dark:border-[#3B3D41]">
+                        pt-10 sm:pt-14 pb-16 lg:py-20 border-b border-[#829DBB]/30 dark:border-[#3B3D41]"
+    >
       {/* Background grid mesh */}
       <div className="absolute inset-0 bg-grid-mesh pointer-events-none opacity-40" />
 
