@@ -147,12 +147,15 @@ export default function Footer() {
               >
                 Registration Guide
               </a>
-              <Link
-                to="/events"
+              <a
+                href={brochureConfig.eventBrochureUrl}
+                onClick={handleBrochureClick}
+                target={hasBrochureFile ? '_blank' : undefined}
+                rel={hasBrochureFile ? 'noopener noreferrer' : undefined}
                 className="hover:text-white hover:translate-x-1 transition-all duration-200"
               >
                 Event Brochure
-              </Link>
+              </a>
               <Link
                 to="/merchandise"
                 className="hover:text-white hover:translate-x-1 transition-all duration-200"

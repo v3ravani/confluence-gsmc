@@ -7,6 +7,7 @@ import {
   Info,
   ArrowUpRight,
   ArrowRight,
+  FileText,
 } from 'lucide-react';
 import SectionHeading from '../../components/common/SectionHeading';
 import EventDetailModal from '../../components/events/EventDetailModal';
@@ -182,7 +183,21 @@ export default function HomeEventsSection() {
             className="mb-0"
           />
 
-          <div className="flex items-center sm:self-end">
+          <div className="flex flex-wrap items-center gap-3 sm:gap-4 sm:self-end">
+            <a
+              href="/brochures/CONFLUENCE_2026_Event_Brochure.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-semibold
+                         bg-[#EAF0F6] dark:bg-[#2B2D30] border border-[#829DBB]/45 dark:border-[#3B3D41]
+                         text-[#1D344F] dark:text-[#F2F0ED] hover:bg-[#D4E1EF]/85 dark:hover:bg-[#323438]
+                         hover:border-[#536F91] dark:hover:border-[#F14666] transition-all shadow-xs group"
+              aria-label="View Official CONFLUENCE 2026 Event Brochure"
+            >
+              <FileText className="w-3.5 h-3.5 text-[#536F91] dark:text-[#F14666] group-hover:scale-110 transition-transform" />
+              <span>View Event Brochure</span>
+              <ArrowUpRight className="w-3.5 h-3.5 opacity-70 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+            </a>
             <Link
               to="/events"
               className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-medium text-[#536F91] dark:text-[#898A89] hover:text-[#1D344F] dark:hover:text-[#F2F0ED] transition-colors"

@@ -35,6 +35,12 @@ const browseCategories = [
     desc:  'Photos and visual memories from previous CONFLUENCE editions and medical campus life.',
     to:    '/gallery',
   },
+  {
+    id:    'team',
+    label: 'TEAM',
+    desc:  'Meet the Chief Organisers and Organising Committee leading CONFLUENCE 2026.',
+    to:    '/team',
+  },
 ];
 
 export default function BrowseSection() {
