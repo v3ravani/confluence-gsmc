@@ -189,3 +189,16 @@ export const cmeDays = [
   },
 ];
 
+export const cmeContacts = [
+  {
+    name: 'Shlok Khanvilkar',
+    phone: '+91 97690 25136',
+    tel: '+919769025136',
+  },
+  {
+    name: 'Vaishvi Shah',
+    phone: '+91 90049 04569',
+    tel: '+919004904569',
+  },
+];
+

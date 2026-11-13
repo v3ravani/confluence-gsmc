@@ -11,11 +11,12 @@ import {
   Info,
   X,
   Instagram,
+  Phone,
 } from 'lucide-react';
 import BrainWatermark from '../components/animations/BrainWatermark';
 import MobilePageHero from '../components/common/MobilePageHero';
 import SectionHeading from '../components/common/SectionHeading';
-import { cmeConferenceOverview, cmeDays } from '../data/cme';
+import { cmeConferenceOverview, cmeDays, cmeContacts } from '../data/cme';
 import { trackEventRegistration } from '../utils/analytics';
 
 /* ── CME Session Details Modal (Informational Only — No Register Button) ── */
@@ -409,6 +410,49 @@ export default function CME() {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* CME Queries & Contact Section */}
+        <div className="p-5 sm:p-6 rounded-2xl bg-[#EAF0F6] dark:bg-[#2B2D30] border border-[#829DBB]/40 dark:border-[#3B3D41] shadow-xs mb-8">
+          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-5">
+            <div>
+              <span className="text-[11px] font-bold tracking-[0.18em] uppercase text-[#536F91] dark:text-[#F14666] block mb-1">
+                Have Questions?
+              </span>
+              <h3 className="font-heading font-extrabold text-[#1D344F] dark:text-[#F2F0ED] text-lg sm:text-xl">
+                CME Enquiries &amp; Coordination
+              </h3>
+              <p className="text-xs sm:text-sm text-[#29405B] dark:text-[#B5B3B0] mt-1 max-w-xl">
+                For queries regarding CME registration, delegation packages, or MMC credit point accreditation, please reach out to our coordinators:
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 flex-shrink-0">
+              {cmeContacts.map((contact) => (
+                <a
+                  key={contact.name}
+                  href={`tel:${contact.tel}`}
+                  className="p-3.5 sm:p-4 rounded-xl bg-[#F6F9FC] dark:bg-[#323438] border border-[#829DBB]/35 dark:border-[#3B3D41] hover:border-[#536F91] dark:hover:border-[#F14666] hover:bg-[#D4E1EF]/50 dark:hover:bg-[#3B3D41] transition-all flex items-center gap-3 group shadow-2xs"
+                  aria-label={`Call ${contact.name} at ${contact.phone}`}
+                >
+                  <div className="w-9 h-9 rounded-full bg-[#1D344F]/10 dark:bg-white/10 flex items-center justify-center text-[#1D344F] dark:text-[#F14666] flex-shrink-0 group-hover:scale-110 transition-transform">
+                    <Phone className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-[#536F91] dark:text-[#898A89] block">
+                      Coordinator
+                    </span>
+                    <b className="block text-xs sm:text-sm font-bold text-[#1D344F] dark:text-[#F2F0ED]">
+                      {contact.name}
+                    </b>
+                    <span className="text-xs text-[#536F91] dark:text-[#EE9590] font-semibold block mt-0.5 group-hover:underline">
+                      {contact.phone}
+                    </span>
+                  </div>
+                </a>
+              ))}
+            </div>
+          </div>
         </div>
 
         {/* Footer Note */}
