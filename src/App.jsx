@@ -14,6 +14,7 @@ import CME from './pages/CME';
 import Team from './pages/Team';
 import Gallery from './pages/Gallery';
 import NotFound from './pages/NotFound';
+import ConferenceCountdown from './components/common/ConferenceCountdown';
 import { trackPageView } from './utils/analytics';
 
 function ScrollToTop() {
@@ -61,6 +62,7 @@ export default function App() {
         </main>
         <Footer />
       </div>
+      <ConferenceCountdown />
     </>
   );
 }
