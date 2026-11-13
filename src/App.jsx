@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import CustomCursor from './components/common/CustomCursor';
@@ -13,9 +13,15 @@ import Merchandise from './pages/Merchandise';
 import CME from './pages/CME';
 import Team from './pages/Team';
 import Gallery from './pages/Gallery';
+import { trackPageView } from './utils/analytics';
 
 export default function App() {
   const [showSplash, setShowSplash] = useState(true);
+
+  useEffect(() => {
+    // Record pageview and visitor analytics in Firebase RTDB
+    trackPageView();
+  }, []);
 
   return (
     <>

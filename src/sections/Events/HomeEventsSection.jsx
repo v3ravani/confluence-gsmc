@@ -11,11 +11,13 @@ import {
 import SectionHeading from '../../components/common/SectionHeading';
 import EventDetailModal from '../../components/events/EventDetailModal';
 import { scientificEvents } from '../../data/events';
+import { trackEventRegistration } from '../../utils/analytics';
 
 /* ── Individual Event Card ──────────────────────────────────────── */
 function EventCard({ event, index, onOpenDetails }) {
   const handleRegister = (e) => {
     e.stopPropagation();
+    trackEventRegistration(event.id, event.name);
     if (event.registrationLinks && event.registrationLinks.length > 1) {
       onOpenDetails(event);
     } else if (event.googleFormUrl) {

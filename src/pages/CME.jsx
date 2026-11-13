@@ -16,6 +16,7 @@ import BrainWatermark from '../components/animations/BrainWatermark';
 import MobilePageHero from '../components/common/MobilePageHero';
 import SectionHeading from '../components/common/SectionHeading';
 import { cmeConferenceOverview, cmeDays } from '../data/cme';
+import { trackEventRegistration } from '../utils/analytics';
 
 /* ── CME Session Details Modal (Informational Only — No Register Button) ── */
 function CMEDetailsModal({ session, onClose }) {
@@ -369,6 +370,7 @@ export default function CME() {
                     href={tier.registerUrl}
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={() => trackEventRegistration('cme_delegation', `CME - ${tier.title || tier.name || 'Delegation'}`)}
                     className="w-full inline-flex items-center justify-center gap-1.5 py-2.5 px-4 rounded-full text-xs font-semibold text-white bg-[#1D344F] hover:bg-[#15273C] dark:bg-[#F14666] dark:hover:bg-[#e03253] transition-all cursor-pointer shadow-xs"
                   >
                     <span>REGISTER</span>

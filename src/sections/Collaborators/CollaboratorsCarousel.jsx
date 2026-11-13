@@ -6,7 +6,7 @@ import { collaboratorsData } from '../../data/collaborators';
 function LogoTile({ collab }) {
   return (
     <div
-      className="flex-shrink-0 flex items-center justify-center px-6 sm:px-10 md:px-12 py-3 select-none group"
+      className="flex-shrink-0 flex items-center justify-center px-4 sm:px-8 md:px-12 py-3 select-none group"
       title={`${collab.name} — ${collab.category}`}
       aria-label={collab.name}
     >
@@ -16,14 +16,14 @@ function LogoTile({ collab }) {
           <img
             src={collab.logoLight || collab.logo}
             alt={collab.name}
-            className="dark:hidden h-16 sm:h-20 md:h-24 max-w-[240px] sm:max-w-[280px] md:max-w-[320px] w-auto object-contain transition-transform duration-300 group-hover:scale-105 pointer-events-none"
+            className="dark:hidden h-20 sm:h-22 md:h-24 max-w-[270px] sm:max-w-[290px] md:max-w-[320px] w-auto object-contain transition-transform duration-300 group-hover:scale-105 pointer-events-none"
             loading="lazy"
           />
           {/* Dark Mode Logo (White text/stethoscope) */}
           <img
             src={collab.logoDark}
             alt={collab.name}
-            className="hidden dark:block h-16 sm:h-20 md:h-24 max-w-[240px] sm:max-w-[280px] md:max-w-[320px] w-auto object-contain transition-transform duration-300 group-hover:scale-105 pointer-events-none"
+            className="hidden dark:block h-20 sm:h-22 md:h-24 max-w-[270px] sm:max-w-[290px] md:max-w-[320px] w-auto object-contain transition-transform duration-300 group-hover:scale-105 pointer-events-none"
             loading="lazy"
           />
         </>
@@ -31,14 +31,14 @@ function LogoTile({ collab }) {
         <img
           src={collab.logo}
           alt={collab.name}
-          className="h-20 w-20 sm:h-24 sm:w-24 md:h-28 md:w-28 object-contain rounded-2xl shadow-xs transition-transform duration-300 group-hover:scale-105 pointer-events-none"
+          className="h-24 w-24 sm:h-26 sm:w-26 md:h-28 md:w-28 object-contain rounded-2xl shadow-xs transition-transform duration-300 group-hover:scale-105 pointer-events-none"
           loading="lazy"
         />
       ) : (
         <img
           src={collab.logo}
           alt={collab.name}
-          className="h-16 sm:h-20 md:h-24 max-w-[240px] sm:max-w-[280px] md:max-w-[320px] w-auto object-contain rounded-xl shadow-xs transition-transform duration-300 group-hover:scale-105 pointer-events-none"
+          className="h-20 sm:h-22 md:h-24 max-w-[270px] sm:max-w-[290px] md:max-w-[320px] w-auto object-contain rounded-xl shadow-xs transition-transform duration-300 group-hover:scale-105 pointer-events-none"
           loading="lazy"
         />
       )}

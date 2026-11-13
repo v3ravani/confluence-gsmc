@@ -7,6 +7,7 @@ import {
   X,
   ExternalLink,
 } from 'lucide-react';
+import { trackEventRegistration } from '../../utils/analytics';
 
 /**
  * Shared Event Detail Modal Popup used across both the Events page and Homepage Featured Events.
@@ -30,6 +31,7 @@ export default function EventDetailModal({ event, onClose }) {
   if (!event) return null;
 
   const handleRegister = () => {
+    trackEventRegistration(event.id, event.name);
     if (event.googleFormUrl) {
       window.open(event.googleFormUrl, '_blank', 'noopener,noreferrer');
     } else {
@@ -282,6 +284,7 @@ export default function EventDetailModal({ event, onClose }) {
                   href={regLink.url}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => trackEventRegistration(event.id, `${event.name} (${regLink.label})`)}
                   className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full font-bold text-xs text-white bg-[#1D344F] hover:bg-[#15273C] dark:bg-[#F14666] dark:hover:bg-[#e03253] shadow-sm hover:scale-[1.02] active:scale-100 transition-all cursor-pointer"
                 >
                   <span>{regLink.label}</span>
