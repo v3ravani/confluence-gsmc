@@ -40,33 +40,27 @@ export default function ConferenceCountdown() {
       className="hidden md:flex fixed bottom-5 right-5 z-40 group pointer-events-auto"
       aria-label="Countdown to Pre-Conference"
     >
-      <div className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-white/95 dark:bg-[#202124]/95 backdrop-blur-md border border-[#829DBB]/35 dark:border-[#3B3D41] shadow-md hover:shadow-xl hover:border-[#1D344F]/40 dark:hover:border-[#F14666]/60 transition-all duration-300 ease-out hover:scale-105 select-none cursor-default">
-        {/* Subtle pulsing live indicator dot */}
-        <span className="relative flex h-2 w-2 flex-shrink-0">
-          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#F14666] opacity-75"></span>
-          <span className="relative inline-flex rounded-full h-2 w-2 bg-[#F14666]"></span>
-        </span>
+      <div className="flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/95 dark:bg-[#202124]/95 backdrop-blur-md border border-[#829DBB]/35 dark:border-[#3B3D41] shadow-md hover:shadow-xl hover:border-[#1D344F]/40 dark:hover:border-[#F14666]/60 transition-all duration-300 ease-out hover:scale-105 select-none cursor-default">
+        {/* Clock icon */}
+        <Clock className="w-4 h-4 text-[#536F91] dark:text-[#898A89] flex-shrink-0" />
 
-        {/* Small subtle clock icon */}
-        <Clock className="w-3.5 h-3.5 text-[#536F91] dark:text-[#898A89] flex-shrink-0" />
-
-        {/* Expandable Sentence on Hover: "Countdown to pre-conference:" */}
+        {/* Expandable Sentence on Hover: "Countdown to pre-conference:" (increased size by 2px) */}
         <div className="overflow-hidden transition-all duration-300 max-w-0 opacity-0 whitespace-nowrap group-hover:max-w-xs group-hover:opacity-100 flex-shrink-0">
-          <span className="text-[11.5px] font-semibold text-[#536F91] dark:text-[#A6A4A1] pr-1">
+          <span className="text-[13.5px] font-semibold text-[#536F91] dark:text-[#A6A4A1] pr-1">
             Countdown to pre-conference:
           </span>
         </div>
 
-        {/* dd:hh:mm Format */}
-        <div className="flex items-center font-mono font-bold text-xs tracking-tight text-[#1D344F] dark:text-[#F2F0ED] whitespace-nowrap">
+        {/* dd:hh:mm Format (increased by 2px: text-sm font-mono and text-xs units) */}
+        <div className="flex items-center font-mono font-bold text-sm tracking-tight text-[#1D344F] dark:text-[#F2F0ED] whitespace-nowrap">
           <span>{timeLeft.days}</span>
-          <span className="text-[10px] text-[#536F91] dark:text-[#898A89] font-normal mx-0.5">d</span>
+          <span className="text-xs text-[#536F91] dark:text-[#898A89] font-normal mx-0.5">d</span>
           <span className="text-[#829DBB] dark:text-[#536F91] mx-0.5">:</span>
           <span>{timeLeft.hours}</span>
-          <span className="text-[10px] text-[#536F91] dark:text-[#898A89] font-normal mx-0.5">h</span>
+          <span className="text-xs text-[#536F91] dark:text-[#898A89] font-normal mx-0.5">h</span>
           <span className="text-[#829DBB] dark:text-[#536F91] mx-0.5">:</span>
           <span>{timeLeft.minutes}</span>
-          <span className="text-[10px] text-[#536F91] dark:text-[#898A89] font-normal ml-0.5">m</span>
+          <span className="text-xs text-[#536F91] dark:text-[#898A89] font-normal ml-0.5">m</span>
         </div>
       </div>
     </div>
