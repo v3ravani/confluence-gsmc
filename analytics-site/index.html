@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CONFLUENCE 2026 — Realtime Analytics Dashboard</title>
+  <link rel="icon" type="image/png" href="../public/gsmc_crest.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Inter"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+            heading: ['"Plus Jakarta Sans"', '"Inter"', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              50: '#F4F7FB',
+              100: '#EAF0F6',
+              200: '#D4E1EF',
+              300: '#829DBB',
+              400: '#536F91',
+              500: '#2D508A',
+              600: '#1D344F',
+              700: '#15273C',
+              800: '#0F1C2B',
+              900: '#09111B',
+            },
+            crimson: '#D93856',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      background-color: #F8FAFD;
+      color: #1D344F;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+    .card-clean {
+      background: #FFFFFF;
+      border: 1px solid rgba(130, 157, 187, 0.32);
+      border-radius: 1rem;
+      box-shadow: 0 1px 3px 0 rgba(29, 52, 79, 0.04), 0 4px 12px -2px rgba(29, 52, 79, 0.03);
+    }
+    @keyframes spin-fast {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    .animate-spin-custom {
+      animation: spin-fast 0.8s linear infinite;
+    }
+  </style>
+</head>
+<body class="font-sans antialiased pb-16 sm:pb-24">
+
+  <!-- Top Sticky Header -->
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-[#829DBB]/30 shadow-xs">
+    <div class="max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8 py-3.5 sm:py-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+      
+      <!-- Brand & Title -->
+      <div class="flex items-center gap-3 min-w-0">
+        <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-[#1D344F] p-2 flex items-center justify-center text-white shadow-xs flex-shrink-0">
+          <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+          </svg>
+        </div>
+        <div class="min-w-0">
+          <div class="flex items-center gap-2">
+            <h1 class="font-heading font-extrabold text-base sm:text-lg tracking-tight text-[#1D344F] truncate">
+              CONFLUENCE 2026
+            </h1>
+            <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md text-[10px] font-bold tracking-wider uppercase bg-emerald-50 text-emerald-700 border border-emerald-200">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+              Live RTDB
+            </span>
+          </div>
+          <p class="text-[11px] sm:text-xs text-[#536F91] truncate font-medium">
+            Realtime Analytics &amp; Registration Insights Dashboard
+          </p>
+        </div>
+      </div>
+
+      <!-- Action Controls -->
+      <div class="flex items-center justify-between sm:justify-end gap-2 sm:gap-2.5 pt-1 sm:pt-0 border-t sm:border-t-0 border-[#829DBB]/20">
+        <!-- Auto-refresh Toggle -->
+        <label class="inline-flex items-center gap-1.5 text-[11px] sm:text-xs font-semibold text-[#536F91] cursor-pointer select-none bg-[#F4F7FB] px-2.5 sm:px-3 py-1.5 rounded-lg border border-[#829DBB]/30">
+          <input type="checkbox" id="autoRefreshToggle" checked class="w-3.5 h-3.5 accent-[#1D344F] rounded">
+          <span class="hidden sm:inline">Auto-refresh (15s)</span>
+          <span class="sm:hidden">Auto (15s)</span>
+        </label>
+
+        <!-- Refresh Button -->
+        <button id="refreshBtn" onclick="fetchAnalytics()" class="inline-flex items-center gap-1.5 px-3 sm:px-3.5 py-1.5 rounded-lg font-bold text-xs bg-[#1D344F] hover:bg-[#15273C] text-white shadow-xs transition-all active:scale-95 cursor-pointer">
+          <svg id="refreshIcon" class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+          </svg>
+          <span id="refreshBtnText">Refresh</span>
+        </button>
+
+        <!-- Reset Registrations Button -->
+        <button onclick="promptResetRegistrations()" class="inline-flex items-center gap-1.5 px-3 sm:px-3.5 py-1.5 rounded-lg font-bold text-xs bg-rose-50 hover:bg-rose-100 text-rose-700 border border-rose-200 transition-all active:scale-95 cursor-pointer">
+          <svg class="w-3.5 h-3.5 text-rose-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+          </svg>
+          <span class="hidden md:inline">Reset Registrations</span>
+          <span class="md:hidden">Reset</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8 pt-5 sm:pt-8 space-y-5 sm:space-y-8">
+    
+    <!-- Status & Last Updated Bar -->
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1.5 px-1 text-[11px] sm:text-xs text-[#536F91]">
+      <div class="flex items-center gap-2">
+        <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+        <span>Firebase Database: <code class="font-mono bg-white px-1.5 py-0.5 rounded border border-[#829DBB]/30 text-[#1D344F] font-semibold text-[10.5px]">confluence-site-default-rtdb.firebaseio.com</code></span>
+      </div>
+      <div id="lastUpdatedText" class="font-medium text-[#536F91]">
+        Connecting to Firebase...
+      </div>
+    </div>
+
+    <!-- 1. KPI Cards Grid (2 cols on mobile, 4 on desktop) -->
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5">
+      
+      <!-- Total Views -->
+      <div class="card-clean p-4 sm:p-5 flex flex-col justify-between">
+        <div class="flex items-center justify-between">
+          <span class="text-[10.5px] sm:text-xs font-bold uppercase tracking-wider text-[#536F91]">Total Views</span>
+          <div class="w-8 h-8 sm:w-9 sm:h-9 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center">
+            <svg class="w-4 h-4 sm:w-4.5 sm:h-4.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+            </svg>
+          </div>
+        </div>
+        <div class="mt-3 sm:mt-4">
+          <div id="totalViewsCount" class="text-2xl sm:text-3xl lg:text-4xl font-heading font-black text-[#1D344F]">
+            --
+          </div>
+          <p class="text-[10px] sm:text-[11px] text-[#536F91] mt-0.5">Website pageviews</p>
+        </div>
+      </div>
+
+      <!-- Unique Views -->
+      <div class="card-clean p-4 sm:p-5 flex flex-col justify-between">
+        <div class="flex items-center justify-between">
+          <span class="text-[10.5px] sm:text-xs font-bold uppercase tracking-wider text-[#536F91]">Unique Visitors</span>
+          <div class="w-8 h-8 sm:w-9 sm:h-9 rounded-lg bg-indigo-50 text-indigo-600 flex items-center justify-center">
+            <svg class="w-4 h-4 sm:w-4.5 sm:h-4.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path>
+            </svg>
+          </div>
+        </div>
+        <div class="mt-3 sm:mt-4">
+          <div id="uniqueViewsCount" class="text-2xl sm:text-3xl lg:text-4xl font-heading font-black text-[#1D344F]">
+            --
+          </div>
+          <p id="uniqueRatioText" class="text-[10px] sm:text-[11px] text-[#536F91] mt-0.5">--% of total views</p>
+        </div>
+      </div>
+
+      <!-- Total Registration Taps -->
+      <div class="card-clean p-4 sm:p-5 flex flex-col justify-between">
+        <div class="flex items-center justify-between">
+          <span class="text-[10.5px] sm:text-xs font-bold uppercase tracking-wider text-[#536F91]">Register Taps</span>
+          <div class="w-8 h-8 sm:w-9 sm:h-9 rounded-lg bg-rose-50 text-[#D93856] flex items-center justify-center">
+            <svg class="w-4 h-4 sm:w-4.5 sm:h-4.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+          </div>
+        </div>
+        <div class="mt-3 sm:mt-4">
+          <div id="totalRegistrationsCount" class="text-2xl sm:text-3xl lg:text-4xl font-heading font-black text-[#1D344F]">
+            --
+          </div>
+          <p id="conversionRateText" class="text-[10px] sm:text-[11px] text-[#536F91] mt-0.5">Event button taps</p>
+        </div>
+      </div>
+
+      <!-- Top Referrer -->
+      <div class="card-clean p-4 sm:p-5 flex flex-col justify-between">
+        <div class="flex items-center justify-between">
+          <span class="text-[10.5px] sm:text-xs font-bold uppercase tracking-wider text-[#536F91]">Top Referrer</span>
+          <div class="w-8 h-8 sm:w-9 sm:h-9 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center">
+            <svg class="w-4 h-4 sm:w-4.5 sm:h-4.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path>
+            </svg>
+          </div>
+        </div>
+        <div class="mt-3 sm:mt-4">
+          <div id="topReferrerName" class="text-xl sm:text-2xl lg:text-3xl font-heading font-black text-[#1D344F] capitalize truncate">
+            --
+          </div>
+          <p id="topReferrerSubtext" class="text-[10px] sm:text-[11px] text-[#536F91] mt-0.5">Leading traffic channel</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- 2. Device Breakdown & Referrers Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-8">
+      
+      <!-- Device Breakdown (5 cols) -->
+      <div class="lg:col-span-5 card-clean p-5 sm:p-6 flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between pb-3.5 border-b border-[#829DBB]/20">
+            <div>
+              <h2 class="font-heading font-bold text-base sm:text-lg text-[#1D344F]">Views by Device</h2>
+              <p class="text-[11px] sm:text-xs text-[#536F91]">Desktop vs Mobile vs Tablet</p>
+            </div>
+            <span class="text-xs font-bold text-[#1D344F] bg-[#F4F7FB] px-2.5 py-1 rounded-md border border-[#829DBB]/30" id="deviceTotalLabel">
+              0 views
+            </span>
+          </div>
+
+          <!-- Chart Area -->
+          <div class="py-5 flex items-center justify-center">
+            <div class="w-40 h-40 sm:w-48 sm:h-48 relative flex items-center justify-center">
+              <canvas id="deviceChart"></canvas>
+            </div>
+          </div>
+
+          <!-- Device Breakdown Bars -->
+          <div class="space-y-3 mt-1" id="deviceListContainer">
+            <!-- Mobile -->
+            <div>
+              <div class="flex items-center justify-between text-xs font-semibold mb-1">
+                <span class="flex items-center gap-2">
+                  <span class="w-2.5 h-2.5 rounded-sm bg-[#1D344F]"></span>
+                  <span>Mobile</span>
+                </span>
+                <span id="mobileCount">0 (0%)</span>
+              </div>
+              <div class="w-full h-2 rounded-full bg-[#EAF0F6] overflow-hidden">
+                <div id="mobileBar" class="h-full bg-[#1D344F] rounded-full transition-all duration-500" style="width: 0%"></div>
+              </div>
+            </div>
+
+            <!-- Desktop -->
+            <div>
+              <div class="flex items-center justify-between text-xs font-semibold mb-1">
+                <span class="flex items-center gap-2">
+                  <span class="w-2.5 h-2.5 rounded-sm bg-[#2D508A]"></span>
+                  <span>Desktop</span>
+                </span>
+                <span id="desktopCount">0 (0%)</span>
+              </div>
+              <div class="w-full h-2 rounded-full bg-[#EAF0F6] overflow-hidden">
+                <div id="desktopBar" class="h-full bg-[#2D508A] rounded-full transition-all duration-500" style="width: 0%"></div>
+              </div>
+            </div>
+
+            <!-- Tablet -->
+            <div>
+              <div class="flex items-center justify-between text-xs font-semibold mb-1">
+                <span class="flex items-center gap-2">
+                  <span class="w-2.5 h-2.5 rounded-sm bg-[#829DBB]"></span>
+                  <span>Tablet</span>
+                </span>
+                <span id="tabletCount">0 (0%)</span>
+              </div>
+              <div class="w-full h-2 rounded-full bg-[#EAF0F6] overflow-hidden">
+                <div id="tabletBar" class="h-full bg-[#829DBB] rounded-full transition-all duration-500" style="width: 0%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Traffic Referrers (7 cols) -->
+      <div class="lg:col-span-7 card-clean p-5 sm:p-6 flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between pb-3.5 border-b border-[#829DBB]/20">
+            <div>
+              <h2 class="font-heading font-bold text-base sm:text-lg text-[#1D344F]">Traffic Referrers</h2>
+              <p class="text-[11px] sm:text-xs text-[#536F91]">Incoming sources &amp; auto-discovered channels</p>
+            </div>
+            <span class="text-xs font-bold text-[#1D344F] bg-[#F4F7FB] px-2.5 py-1 rounded-md border border-[#829DBB]/30" id="referrerTotalLabel">
+              0 visits
+            </span>
+          </div>
+
+          <!-- Dynamic Referrers List -->
+          <div class="mt-4 space-y-2.5 max-h-[340px] overflow-y-auto pr-1" id="referrersList">
+            <div class="py-10 text-center text-xs text-[#536F91]">
+              Loading referrer sources...
+            </div>
+          </div>
+        </div>
+
+        <div class="pt-3.5 border-t border-[#829DBB]/20 text-[11px] text-[#536F91] flex items-center justify-between mt-3">
+          <span class="flex items-center gap-1.5">
+            <span class="w-1.5 h-1.5 rounded-full bg-blue-500"></span>
+            Auto-detection: New traffic channels registered automatically
+          </span>
+          <span id="uniqueReferrersCount" class="font-semibold text-[#1D344F]">0 channels</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- 3. Event Registration Taps Breakdown -->
+    <div class="card-clean p-4 sm:p-7">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 sm:pb-5 border-b border-[#829DBB]/25">
+        <div>
+          <div class="flex items-center gap-2">
+            <h2 class="font-heading font-bold text-base sm:text-xl text-[#1D344F]">
+              Event Registration Tap Counts
+            </h2>
+            <span id="totalEventsCountPill" class="text-xs font-bold bg-[#F4F7FB] text-[#1D344F] px-2.5 py-0.5 rounded-md border border-[#829DBB]/30">
+              0 events
+            </span>
+          </div>
+          <p class="text-[11px] sm:text-xs text-[#536F91] mt-0.5">
+            Individual button click metrics for every event registration CTA
+          </p>
+        </div>
+
+        <div class="flex items-center gap-2.5 self-start sm:self-auto">
+          <!-- Reset All Registrations -->
+          <button onclick="promptResetRegistrations()" class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg font-bold text-xs bg-rose-50 hover:bg-rose-100 text-rose-700 border border-rose-200 transition-all active:scale-95 cursor-pointer">
+            <svg class="w-3.5 h-3.5 text-rose-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+            </svg>
+            <span>Reset All Event Taps</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Desktop View: Clean Table (hidden on mobile) -->
+      <div class="hidden sm:block mt-5 overflow-x-auto">
+        <table class="w-full text-left text-xs">
+          <thead>
+            <tr class="text-[11px] font-bold uppercase tracking-wider text-[#536F91] border-b border-[#829DBB]/25 pb-3">
+              <th class="py-3 px-4">Event Name</th>
+              <th class="py-3 px-4">Category / Key</th>
+              <th class="py-3 px-4 text-center">Tap Count</th>
+              <th class="py-3 px-4">Share of Taps</th>
+              <th class="py-3 px-4 text-right">Action</th>
+            </tr>
+          </thead>
+          <tbody id="eventsTableBody" class="divide-y divide-[#829DBB]/15 font-medium">
+            <tr>
+              <td colspan="5" class="py-10 text-center text-[#536F91]">
+                Loading event tap counts...
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Mobile View: Adaptive Cards (hidden on desktop) -->
+      <div id="eventsMobileCards" class="sm:hidden mt-4 space-y-3">
+        <div class="py-8 text-center text-xs text-[#536F91]">
+          Loading event tap counts...
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Reset Confirmation Modal -->
+  <div id="resetModal" class="fixed inset-0 z-50 bg-black/50 backdrop-blur-xs hidden items-center justify-center p-4">
+    <div class="bg-white rounded-xl max-w-sm sm:max-w-md w-full p-5 sm:p-6 shadow-2xl border border-rose-200">
+      <div class="w-10 h-10 rounded-lg bg-rose-50 text-rose-600 flex items-center justify-center mb-3.5">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+        </svg>
+      </div>
+      <h3 class="font-heading font-bold text-base sm:text-lg text-[#1D344F]" id="resetModalTitle">
+        Reset Registration Counts?
+      </h3>
+      <p class="text-xs text-[#536F91] mt-1.5 leading-relaxed" id="resetModalDesc">
+        Are you sure you want to reset registration counts? This will delete the tap counts in Firebase Realtime Database.
+      </p>
+      
+      <div class="mt-5 flex items-center justify-end gap-2.5">
+        <button onclick="closeResetModal()" class="px-3.5 py-1.5 rounded-lg text-xs font-semibold text-[#1D344F] hover:bg-[#F4F7FB] border border-[#829DBB]/40 transition-colors cursor-pointer">
+          Cancel
+        </button>
+        <button id="confirmResetBtn" class="px-4 py-1.5 rounded-lg text-xs font-bold text-white bg-rose-600 hover:bg-rose-700 transition-colors shadow-xs cursor-pointer">
+          Yes, Reset
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript Application Logic -->
+  <script>
+    const FIREBASE_BASE = 'https://confluence-site-default-rtdb.firebaseio.com';
+    let deviceChartInstance = null;
+    let autoRefreshTimer = null;
+
+    // Friendly display names for events
+    const KNOWN_EVENTS = {
+      'colloquium-symposium': { name: 'COLLOQUIUM', category: 'Medical Symposium' },
+      'cpc-case': { name: 'Clinico-Pathological Case', category: 'Case Presentation' },
+      'dr-f-p-antoni-debate': { name: 'Dr. F.P. Antia Debate', category: 'Debate' },
+      'empirica-research': { name: 'EMPIRICA', category: 'Research Paper' },
+      'inceptum-hackathon': { name: 'INCEPTUM', category: 'Medical Hackathon' },
+      'med-quiz': { name: 'The Medical Quiz', category: 'Quiz' },
+      'panacea-case': { name: 'PANACEA', category: 'Case Presentation' },
+      'paradigms-model': { name: 'PARADIGMS', category: 'Model Making' },
+      'cme_delegation': { name: 'CME Delegation Rates', category: 'CME Conference' },
+    };
+
+    // Vector SVG Icons for Referrers (No Emojis)
+    const REFERRER_ICONS = {
+      instagram: `<svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>`,
+      whatsapp: `<svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>`,
+      linkedin: `<svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>`,
+      google: `<svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>`,
+      direct: `<svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>`,
+      twitter: `<svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>`,
+      facebook: `<svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>`,
+      default: `<svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>`
+    };
+
+    // Referrer Color Schemes
+    const REFERRER_STYLES = {
+      'instagram': { bg: '#FDF2F8', text: '#BE185D', label: 'Instagram' },
+      'whatsapp':  { bg: '#F0FDF4', text: '#15803D', label: 'WhatsApp' },
+      'linkedin':  { bg: '#EEF2FF', text: '#4338CA', label: 'LinkedIn' },
+      'google':    { bg: '#FFFBEB', text: '#B45309', label: 'Google' },
+      'direct':    { bg: '#F4F7FB', text: '#1D344F', label: 'Direct / Bookmarks' },
+      'twitter':   { bg: '#F0F9FF', text: '#0369A1', label: 'Twitter / X' },
+      'facebook':  { bg: '#EFF6FF', text: '#1D4ED8', label: 'Facebook' },
+      'telegram':  { bg: '#F0F9FF', text: '#0284C7', label: 'Telegram' },
+    };
+
+    // Format numbers with commas
+    function formatNum(n) {
+      return (Number(n) || 0).toLocaleString();
+    }
+
+    // Initialize or Update Device Doughnut Chart
+    function renderDeviceChart(desktop, mobile, tablet) {
+      const ctx = document.getElementById('deviceChart').getContext('2d');
+      const data = [mobile, desktop, tablet];
+
+      if (deviceChartInstance) {
+        deviceChartInstance.data.datasets[0].data = data;
+        deviceChartInstance.update();
+        return;
+      }
+
+      deviceChartInstance = new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+          labels: ['Mobile', 'Desktop', 'Tablet'],
+          datasets: [{
+            data: data,
+            backgroundColor: ['#1D344F', '#2D508A', '#829DBB'],
+            borderWidth: 0,
+            hoverOffset: 3,
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          cutout: '72%',
+          plugins: {
+            legend: { display: false },
+            tooltip: {
+              callbacks: {
+                label: function(context) {
+                  const val = context.raw || 0;
+                  const total = data.reduce((a, b) => a + b, 0);
+                  const pct = total > 0 ? Math.round((val / total) * 100) : 0;
+                  return ` ${context.label}: ${formatNum(val)} (${pct}%)`;
+                }
+              }
+            }
+          }
+        }
+      });
+    }
+
+    // Fetch Analytics from Firebase RTDB
+    async function fetchAnalytics() {
+      const refreshIcon = document.getElementById('refreshIcon');
+      const refreshBtnText = document.getElementById('refreshBtnText');
+      if (refreshIcon) refreshIcon.classList.add('animate-spin-custom');
+      if (refreshBtnText) refreshBtnText.textContent = 'Syncing...';
+
+      try {
+        const res = await fetch(`${FIREBASE_BASE}/.json?t=${Date.now()}`);
+        const data = await res.json() || {};
+
+        const totalViews = data.total_views || 0;
+        const uniqueViews = data.unique_views || 0;
+        const devices = data.views_by_device || {};
+        const referrers = data.referrers || {};
+        const registrations = data.event_registrations || {};
+
+        // 1. Update KPI Cards
+        document.getElementById('totalViewsCount').textContent = formatNum(totalViews);
+        document.getElementById('uniqueViewsCount').textContent = formatNum(uniqueViews);
+        const uniqueRatio = totalViews > 0 ? Math.round((uniqueViews / totalViews) * 100) : 0;
+        document.getElementById('uniqueRatioText').textContent = `${uniqueRatio}% of total views`;
+
+        const totalRegTaps = registrations.total || 0;
+        document.getElementById('totalRegistrationsCount').textContent = formatNum(totalRegTaps);
+        const convRate = totalViews > 0 ? ((totalRegTaps / totalViews) * 100).toFixed(1) : 0;
+        document.getElementById('conversionRateText').textContent = `${convRate}% tap conversion rate`;
+
+        // Top Referrer
+        const referrerEntries = Object.entries(referrers);
+        if (referrerEntries.length > 0) {
+          referrerEntries.sort((a, b) => (Number(b[1]) || 0) - (Number(a[1]) || 0));
+          const topRef = referrerEntries[0];
+          document.getElementById('topReferrerName').textContent = topRef[0];
+          document.getElementById('topReferrerSubtext').textContent = `${formatNum(topRef[1])} visits (${totalViews > 0 ? Math.round((topRef[1] / totalViews) * 100) : 0}% of traffic)`;
+        } else {
+          document.getElementById('topReferrerName').textContent = 'Direct';
+          document.getElementById('topReferrerSubtext').textContent = 'Awaiting incoming visits';
+        }
+
+        // 2. Update Device Breakdown
+        const mobile = Number(devices.mobile) || 0;
+        const desktop = Number(devices.desktop) || 0;
+        const tablet = Number(devices.tablet) || 0;
+        const devTotal = mobile + desktop + tablet;
+
+        document.getElementById('deviceTotalLabel').textContent = `${formatNum(devTotal)} views`;
+        const mobilePct = devTotal > 0 ? Math.round((mobile / devTotal) * 100) : 0;
+        const desktopPct = devTotal > 0 ? Math.round((desktop / devTotal) * 100) : 0;
+        const tabletPct = devTotal > 0 ? Math.round((tablet / devTotal) * 100) : 0;
+
+        document.getElementById('mobileCount').textContent = `${formatNum(mobile)} (${mobilePct}%)`;
+        document.getElementById('mobileBar').style.width = `${mobilePct}%`;
+
+        document.getElementById('desktopCount').textContent = `${formatNum(desktop)} (${desktopPct}%)`;
+        document.getElementById('desktopBar').style.width = `${desktopPct}%`;
+
+        document.getElementById('tabletCount').textContent = `${formatNum(tablet)} (${tabletPct}%)`;
+        document.getElementById('tabletBar').style.width = `${tabletPct}%`;
+
+        renderDeviceChart(desktop, mobile, tablet);
+
+        // 3. Update Referrers List
+        const totalRefVisits = referrerEntries.reduce((sum, [, count]) => sum + (Number(count) || 0), 0);
+        document.getElementById('referrerTotalLabel').textContent = `${formatNum(totalRefVisits)} visits`;
+        document.getElementById('uniqueReferrersCount').textContent = `${referrerEntries.length} channels`;
+
+        const referrersListEl = document.getElementById('referrersList');
+        if (referrerEntries.length === 0) {
+          referrersListEl.innerHTML = `
+            <div class="py-8 text-center text-xs text-[#536F91]">
+              No referrer data recorded yet.
+            </div>`;
+        } else {
+          referrersListEl.innerHTML = referrerEntries.map(([key, count]) => {
+            const style = REFERRER_STYLES[key] || {
+              bg: '#F4F7FB',
+              text: '#1D344F',
+              label: key.replace(/_/g, '.'),
+            };
+            const iconSvg = REFERRER_ICONS[key] || REFERRER_ICONS['default'];
+            const num = Number(count) || 0;
+            const pct = totalRefVisits > 0 ? Math.round((num / totalRefVisits) * 100) : 0;
+            return `
+              <div class="p-3 rounded-lg border border-[#829DBB]/20 bg-[#F8FAFD] hover:bg-[#F2F6FA] transition-colors">
+                <div class="flex items-center justify-between text-xs mb-1.5">
+                  <div class="flex items-center gap-2 min-w-0">
+                    <span class="p-1 rounded-md bg-white border border-[#829DBB]/30 text-[#1D344F] flex items-center justify-center flex-shrink-0">
+                      ${iconSvg}
+                    </span>
+                    <span class="font-bold text-[#1D344F] capitalize truncate">${style.label}</span>
+                  </div>
+                  <div class="flex items-center gap-2 flex-shrink-0">
+                    <span class="font-extrabold text-[#1D344F]">${formatNum(num)}</span>
+                    <span class="text-[11px] font-semibold text-[#536F91]">(${pct}%)</span>
+                  </div>
+                </div>
+                <div class="w-full h-1.5 rounded-full bg-[#EAF0F6] overflow-hidden">
+                  <div class="h-full rounded-full transition-all duration-500" style="width: ${pct}%; background-color: ${style.text}"></div>
+                </div>
+              </div>`;
+          }).join('');
+        }
+
+        // 4. Update Event Registrations Table & Mobile Cards
+        const eventEntries = Object.entries(registrations).filter(([k]) => k !== 'total');
+        document.getElementById('totalEventsCountPill').textContent = `${eventEntries.length} events`;
+
+        const eventsTableBody = document.getElementById('eventsTableBody');
+        const eventsMobileCards = document.getElementById('eventsMobileCards');
+
+        if (eventEntries.length === 0) {
+          const emptyMsg = `
+            <div class="py-8 text-center text-xs text-[#536F91]">
+              No registration button clicks recorded yet.
+            </div>`;
+          eventsTableBody.innerHTML = `<tr><td colspan="5">${emptyMsg}</td></tr>`;
+          eventsMobileCards.innerHTML = emptyMsg;
+        } else {
+          eventEntries.sort((a, b) => (Number(b[1]) || 0) - (Number(a[1]) || 0));
+
+          // Desktop Table Rows
+          eventsTableBody.innerHTML = eventEntries.map(([key, count]) => {
+            const num = Number(count) || 0;
+            const pct = totalRegTaps > 0 ? Math.round((num / totalRegTaps) * 100) : 0;
+            const info = KNOWN_EVENTS[key] || {
+              name: key.replace(/[-_]/g, ' ').toUpperCase(),
+              category: 'Scientific Event'
+            };
+
+            return `
+              <tr class="hover:bg-[#F2F6FA]/80 transition-colors">
+                <td class="py-3 px-4 font-bold text-[#1D344F]">
+                  ${info.name}
+                </td>
+                <td class="py-3 px-4 text-[#536F91]">
+                  <span class="font-mono text-[10.5px] bg-[#F4F7FB] text-[#1D344F] px-2 py-0.5 rounded border border-[#829DBB]/30">${key}</span>
+                </td>
+                <td class="py-3 px-4 text-center font-black text-sm text-[#1D344F]">
+                  ${formatNum(num)}
+                </td>
+                <td class="py-3 px-4">
+                  <div class="flex items-center gap-2 max-w-xs">
+                    <div class="flex-1 h-2 rounded-full bg-[#EAF0F6] overflow-hidden">
+                      <div class="h-full bg-[#D93856] rounded-full transition-all duration-500" style="width: ${pct}%"></div>
+                    </div>
+                    <span class="text-xs font-semibold text-[#536F91] w-10 text-right">${pct}%</span>
+                  </div>
+                </td>
+                <td class="py-3 px-4 text-right">
+                  <button onclick="promptResetSingleEvent('${key}', '${info.name.replace(/'/g, "\\'")}')" class="px-2.5 py-1 text-[11px] font-semibold text-rose-600 hover:text-rose-700 hover:bg-rose-50 rounded-md border border-rose-200 transition-colors cursor-pointer" title="Reset count">
+                    Reset
+                  </button>
+                </td>
+              </tr>`;
+          }).join('');
+
+          // Mobile Adaptive Cards
+          eventsMobileCards.innerHTML = eventEntries.map(([key, count]) => {
+            const num = Number(count) || 0;
+            const pct = totalRegTaps > 0 ? Math.round((num / totalRegTaps) * 100) : 0;
+            const info = KNOWN_EVENTS[key] || {
+              name: key.replace(/[-_]/g, ' ').toUpperCase(),
+              category: 'Scientific Event'
+            };
+
+            return `
+              <div class="p-3.5 rounded-xl border border-[#829DBB]/25 bg-white shadow-xs flex flex-col gap-2">
+                <div class="flex items-start justify-between gap-2">
+                  <div class="min-w-0">
+                    <h4 class="font-bold text-xs sm:text-sm text-[#1D344F] leading-snug truncate">
+                      ${info.name}
+                    </h4>
+                    <span class="font-mono text-[10px] text-[#536F91] block mt-0.5">${key}</span>
+                  </div>
+                  <span class="px-2.5 py-1 rounded-md text-xs font-extrabold bg-[#1D344F] text-white flex-shrink-0">
+                    ${formatNum(num)} taps
+                  </span>
+                </div>
+
+                <div class="pt-1">
+                  <div class="flex items-center justify-between text-[10.5px] text-[#536F91] mb-1">
+                    <span>Share of event taps</span>
+                    <span class="font-bold text-[#1D344F]">${pct}%</span>
+                  </div>
+                  <div class="w-full h-1.5 rounded-full bg-[#EAF0F6] overflow-hidden">
+                    <div class="h-full bg-[#D93856] rounded-full" style="width: ${pct}%"></div>
+                  </div>
+                </div>
+
+                <div class="pt-1.5 flex justify-end border-t border-[#829DBB]/15">
+                  <button onclick="promptResetSingleEvent('${key}', '${info.name.replace(/'/g, "\\'")}')" class="px-2.5 py-0.5 text-[10.5px] font-semibold text-rose-600 hover:bg-rose-50 rounded border border-rose-200 transition-colors cursor-pointer">
+                    Reset Count
+                  </button>
+                </div>
+              </div>`;
+          }).join('');
+        }
+
+        // Last updated time
+        const now = new Date();
+        document.getElementById('lastUpdatedText').innerHTML = `Last updated: <span class="font-semibold text-[#1D344F]">${now.toLocaleTimeString()}</span> · Auto-sync active`;
+
+      } catch (err) {
+        console.error('Failed to fetch analytics:', err);
+        document.getElementById('lastUpdatedText').innerHTML = `<span class="text-rose-600 font-semibold">Connection issue: Could not reach Firebase RTDB</span>`;
+      } finally {
+        if (refreshIcon) refreshIcon.classList.remove('animate-spin-custom');
+        if (refreshBtnText) refreshBtnText.textContent = 'Refresh';
+      }
+    }
+
+    // Modal Control: Reset All Registrations
+    function promptResetRegistrations() {
+      const modal = document.getElementById('resetModal');
+      document.getElementById('resetModalTitle').textContent = 'Reset All Registration Counts?';
+      document.getElementById('resetModalDesc').textContent = 'This will set the registration counts for all events back to 0 in Firebase Realtime Database. Pageviews and device analytics will NOT be touched.';
+      
+      const confirmBtn = document.getElementById('confirmResetBtn');
+      confirmBtn.onclick = async () => {
+        confirmBtn.disabled = true;
+        confirmBtn.textContent = 'Resetting...';
+        try {
+          await fetch(`${FIREBASE_BASE}/event_registrations.json`, { method: 'DELETE' });
+          await fetch(`${FIREBASE_BASE}/last_registration.json`, { method: 'DELETE' });
+          closeResetModal();
+          fetchAnalytics();
+        } catch (e) {
+          alert('Failed to reset: ' + e.message);
+        } finally {
+          confirmBtn.disabled = false;
+          confirmBtn.textContent = 'Yes, Reset';
+        }
+      };
+
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    // Modal Control: Reset Single Event
+    function promptResetSingleEvent(eventKey, eventName) {
+      const modal = document.getElementById('resetModal');
+      document.getElementById('resetModalTitle').textContent = `Reset "${eventName}"?`;
+      document.getElementById('resetModalDesc').textContent = `This will reset the tap count for "${eventName}" (${eventKey}) in Firebase Realtime Database.`;
+      
+      const confirmBtn = document.getElementById('confirmResetBtn');
+      confirmBtn.onclick = async () => {
+        confirmBtn.disabled = true;
+        confirmBtn.textContent = 'Resetting...';
+        try {
+          await fetch(`${FIREBASE_BASE}/event_registrations/${eventKey}.json`, { method: 'DELETE' });
+          closeResetModal();
+          fetchAnalytics();
+        } catch (e) {
+          alert('Failed to reset: ' + e.message);
+        } finally {
+          confirmBtn.disabled = false;
+          confirmBtn.textContent = 'Yes, Reset';
+        }
+      };
+
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closeResetModal() {
+      const modal = document.getElementById('resetModal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    // Auto-refresh interval management
+    function setupAutoRefresh() {
+      const toggle = document.getElementById('autoRefreshToggle');
+      if (toggle.checked) {
+        if (!autoRefreshTimer) {
+          autoRefreshTimer = setInterval(fetchAnalytics, 15000);
+        }
+      } else {
+        if (autoRefreshTimer) {
+          clearInterval(autoRefreshTimer);
+          autoRefreshTimer = null;
+        }
+      }
+    }
+
+    document.getElementById('autoRefreshToggle').addEventListener('change', setupAutoRefresh);
+
+    // Initial Load
+    fetchAnalytics();
+    setupAutoRefresh();
+  </script>
+</body>
+</html>
