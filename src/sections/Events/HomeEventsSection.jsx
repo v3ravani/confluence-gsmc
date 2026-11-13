@@ -80,9 +80,9 @@ function EventCard({ event, index, onOpenDetails }) {
 
           {/* Quick Date & Prize Row */}
           <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-1 text-xs mb-3 pb-2.5 border-b border-[#829DBB]/25 dark:border-[#3B3D41]">
-            <span className="font-semibold text-[#1D344F] dark:text-[#EE9590] flex items-center gap-1.5 min-w-0">
+            <span className="font-semibold text-[#1D344F] dark:text-[#EE9590] flex items-center gap-1.5 min-w-0" title={`Conducted: ${event.finalEventDate || 'December 2026'}`}>
               <Calendar className="w-3.5 h-3.5 flex-shrink-0" />
-              <span className="truncate">{event.rounds?.[0]?.date || 'December 2026'}</span>
+              <span className="truncate">{event.finalEventDate || event.rounds?.[event.rounds.length - 1]?.date || 'December 2026'}</span>
             </span>
             <span className="font-bold text-[#536F91] dark:text-[#F14666] flex items-center gap-1 flex-shrink-0">
               <Trophy className="w-3.5 h-3.5 flex-shrink-0" />

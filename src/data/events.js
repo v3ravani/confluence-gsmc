@@ -29,6 +29,8 @@ export const scientificEvents = [
     badge: '₹75,000 Prize Pool',
     totalPrize: '₹75,000',
     feeLabel: 'Per team',
+    finalEventDate: '13th December 2026',
+    finalFormat: 'Offline Finals at Seth GSMC',
     description: 'The premier intercollegiate medical symposium of CONFLUENCE 2026. Teams synthesize cutting-edge clinical, technological, and diagnostic medical topics into a multidisciplinary symposium presentation evaluated by distinguished department heads and professors.',
     teamStructure: {
       size: '6 to 12 Members',
@@ -81,6 +83,8 @@ export const scientificEvents = [
     badge: '₹25,000 Prize Pool',
     totalPrize: '₹25,000',
     feeLabel: 'Per team',
+    finalEventDate: '11th December 2026',
+    finalFormat: 'Offline Stage 3 at Seth GSMC',
     description: 'A rigorous test of foundational medical sciences challenging participants on pre- and paraclinical MBBS disciplines. Features online elimination rounds followed by a high-stakes buzzer finale on the Seth GSMC campus.',
     teamStructure: {
       size: '2 to 3 Candidates',
@@ -138,6 +142,8 @@ export const scientificEvents = [
     badge: '₹20,000 Prize Pool',
     totalPrize: '₹20,000',
     feeLabel: 'Per team',
+    finalEventDate: '12th December 2026',
+    finalFormat: 'Offline Grand Finale at Seth GSMC',
     description: 'The signature clinicopathological challenge bridging clinical subjects with Pathology, Forensic Medicine & Toxicology (FMT), and Preventive & Social Medicine (PSM).',
     teamStructure: {
       size: '2 to 3 Candidates',
@@ -184,7 +190,7 @@ export const scientificEvents = [
       phone: '9136766446',
     },
     googleFormUrl: 'https://docs.google.com/forms/d/e/1FAIpQLSeOOdd9eyyVLTjqe-c8RGWg3mL-_Z74I1ce5rBJhCmuEO-ynA/viewform?usp=header',
-    rulebookUrl: 'https://drive.google.com/file/d/1eAnaA-vLFt6qV3tFB1SLx477mn6MDVvb/view?usp=drivesdk',
+    rulebookUrl: 'https://drive.google.com/file/d/1CSfOsFgqD0YLr5Nl8ycP6F8drCawJR6L/view?usp=drivesdk',
   },
   {
     id: 'sushruta-quiz',
@@ -195,6 +201,8 @@ export const scientificEvents = [
     badge: '₹9,500 Prize Pool',
     totalPrize: '₹9,500',
     feeLabel: 'Per team',
+    finalEventDate: '13th December 2026',
+    finalFormat: 'Offline Grand Finale at Seth GSMC',
     description: 'An intellectual research quiz dedicated to research methodology, study designs, biostatistics, evidence-based medicine, critical appraisal of scientific literature, and research ethics.',
     teamStructure: {
       size: '2 Participants per Team',
@@ -249,6 +257,8 @@ export const scientificEvents = [
     badge: '₹47,000 Prize Pool',
     totalPrize: '₹47,000',
     feeLabel: 'Individual Registration',
+    finalEventDate: '11th – 13th December 2026',
+    finalFormat: '3-Day Healthcare Hackathon at Seth GSMC',
     description: 'Medathon is a three day healthcare hackathon where medical, engineering, and design students collaborate to solve real world healthcare problems. Instead of coding, participants focus on ideation and innovation, guided by mentors from both healthcare and technology. The event features workshops, team formation, brainstorming sessions, and final presentations with a unique time based auction for problem domains.',
     teamStructure: {
       size: 'Individual Registration',
@@ -278,6 +288,11 @@ export const scientificEvents = [
         stage: 'Round 2 — Hackathon & Engg/Design Registration',
         date: '1st December 2026 (Deadline)',
         format: 'Three-day healthcare hackathon with workshops, team formation, brainstorming, time-based auction & final presentations (Last date for engineering & design students: 1st December 2026)',
+      },
+      {
+        stage: '3-Day Hackathon & Final Presentations',
+        date: '11th – 13th December 2026',
+        format: 'Workshops, ideation, cross-disciplinary collaboration, auction & final presentations at Seth GSMC campus',
       },
     ],
     pricing: {
@@ -310,6 +325,8 @@ export const scientificEvents = [
     badge: '₹12,000 Prize Pool',
     totalPrize: '₹12,000',
     feeLabel: 'Per team',
+    finalEventDate: '12th December 2026',
+    finalFormat: 'Offline Finals at Seth GSMC',
     description: 'An elite stage for presenting compelling clinical cases within the scope of Health Sciences, submitted with patient consent or HOU/HOD approval and evaluated across online screening and offline campus finals.',
     teamStructure: {
       size: 'Solo or Team Presentation',
@@ -331,7 +348,7 @@ export const scientificEvents = [
       },
       {
         stage: 'Screening Round (Online)',
-        date: '3rd December 2026',
+        date: '5th December 2026',
         format: 'Top 15 selected participants present online',
       },
       {
@@ -365,6 +382,8 @@ export const scientificEvents = [
     badge: 'UG & PG Tracks',
     totalPrize: '₹16,000 Total Pool',
     feeLabel: 'Per participant',
+    finalEventDate: '12th December 2026',
+    finalFormat: 'Offline Finals at Seth GSMC',
     description: 'The flagship scientific paper presentation platform showcasing original research, systematic reviews, and meta-analyses authored by undergraduate and postgraduate delegates.',
     teamStructure: {
       size: 'Author / Co-Author',
@@ -410,7 +429,7 @@ export const scientificEvents = [
       { rank: 'PG Runner Up', amount: '₹3,000' },
     ],
     coordinator: {
-      name: 'Rijul Kharat & Zeeshaan Shaikh',
+      name: 'Rijul Kharat & Zeeshaan Sheikh',
       phone: '8454074964 / 8652308111',
     },
     googleFormUrl: 'https://forms.gle/izuca5MJSMv1bJXx6',
@@ -429,6 +448,8 @@ export const scientificEvents = [
     badge: 'UG & PG Tracks',
     totalPrize: '₹16,000 Total Pool',
     feeLabel: 'Per participant',
+    finalEventDate: '13th December 2026',
+    finalFormat: 'Offline Finals at Seth GSMC',
     description: 'Transform scientific discoveries into impactful visual abstracts. Shortlisted delegates present posters online in the screening round before top 6 finalists advance to the offline finale.',
     teamStructure: {
       size: 'Author / Co-Author',
@@ -473,7 +494,7 @@ export const scientificEvents = [
       { rank: 'PG Runner Up', amount: '₹3,000' },
     ],
     coordinator: {
-      name: 'Rijul Kharat & Zeeshaan Shaikh',
+      name: 'Rijul Kharat & Zeeshaan Sheikh',
       phone: '8454074964 / 8652308111',
     },
     googleFormUrl: 'https://forms.gle/LYp3aJwozKM7Pidk6',

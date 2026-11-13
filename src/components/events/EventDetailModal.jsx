@@ -5,7 +5,6 @@ import {
   Phone,
   FileText,
   X,
-  ExternalLink,
 } from 'lucide-react';
 import { trackEventRegistration } from '../../utils/analytics';
 
@@ -38,12 +37,6 @@ export default function EventDetailModal({ event, onClose }) {
       alert(
         `Registration for "${event.name}" is coordinated directly through the event desk.\n\nPlease contact event coordinator: ${event.coordinator.name} at ${event.coordinator.phone}.`
       );
-    }
-  };
-
-  const handleOpenRulebook = () => {
-    if (event.rulebookUrl) {
-      window.open(event.rulebookUrl, '_blank', 'noopener,noreferrer');
     }
   };
 
@@ -118,16 +111,16 @@ export default function EventDetailModal({ event, onClose }) {
                 Format
               </span>
               <b className="text-xs text-[#1D344F] dark:text-[#F2F0ED] font-bold block mt-0.5">
-                {event.rounds?.[0]?.format || 'Online Prelims and Offline Finals'}
+                {event.finalFormat || event.rounds?.[event.rounds.length - 1]?.format || event.rounds?.[0]?.format || 'Offline at Seth GSMC'}
               </b>
             </div>
 
             <div className="p-3.5 rounded-xl bg-[#EAF0F6] dark:bg-[#2B2D30] border border-[#829DBB]/40 dark:border-[#3B3D41]">
               <span className="text-[10px] text-[#536F91] dark:text-[#898A89] font-semibold uppercase tracking-wider block">
-                Date
+                Event Date
               </span>
               <b className="text-xs text-[#1D344F] dark:text-[#F2F0ED] font-bold block mt-0.5">
-                {event.rounds?.[0]?.date || 'September 2026'}
+                {event.finalEventDate || event.rounds?.[event.rounds.length - 1]?.date || 'December 2026'}
               </b>
             </div>
 
@@ -242,17 +235,6 @@ export default function EventDetailModal({ event, onClose }) {
                   </a>
                 );
               })}
-              {event.rulebookUrl && (
-                <button
-                  type="button"
-                  onClick={handleOpenRulebook}
-                  className="inline-flex items-center gap-1 text-[#536F91] dark:text-[#EE9590] hover:underline font-medium cursor-pointer"
-                >
-                  <FileText className="w-3.5 h-3.5" />
-                  <span>Rulebook</span>
-                  <ExternalLink className="w-3 h-3 opacity-70" />
-                </button>
-              )}
             </div>
           </div>
         </div>
@@ -269,6 +251,19 @@ export default function EventDetailModal({ event, onClose }) {
           </div>
 
           <div className="flex flex-wrap items-center gap-2.5 ml-auto">
+            {event.rulebookUrl && (
+              <a
+                href={event.rulebookUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 px-4 sm:px-5 py-2.5 rounded-full text-xs font-bold text-[#1D344F] dark:text-[#F2F0ED] hover:bg-[#D4E1EF]/70 dark:hover:bg-[#323438] border border-[#829DBB] dark:border-[#3B3D41] transition-colors cursor-pointer"
+              >
+                <FileText className="w-3.5 h-3.5 text-[#536F91] dark:text-[#EE9590]" />
+                <span>View Rulebook</span>
+                <ArrowUpRight className="w-3.5 h-3.5 opacity-70" />
+              </a>
+            )}
+
             <button
               type="button"
               onClick={onClose}
