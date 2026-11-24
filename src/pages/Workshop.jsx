@@ -30,6 +30,20 @@ import {
   workshopCoordinators,
 } from '../data/workshops';
 
+/* ── WhatsApp SVG Icon ───────────────────────────────────────────── */
+function WhatsAppIcon({ className = 'w-4 h-4' }) {
+  return (
+    <svg
+      className={className}
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      aria-hidden="true"
+    >
+      <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.275.072.376-.044c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.099.824zm-3.392-10.416c-5.514 0-10 4.486-10 10 0 1.761.458 3.417 1.258 4.867l-1.297 4.733 4.862-1.275c1.4 1.011 3.125 1.675 5.177 1.675 5.514 0 10-4.486 10-10 0-5.514-4.486-10-10-10z" />
+    </svg>
+  );
+}
+
 /* ── Workshop Details Modal ─────────────────────────────────────── */
 function WorkshopDetailsModal({ workshop, onClose }) {
   useEffect(() => {
@@ -55,7 +69,7 @@ function WorkshopDetailsModal({ workshop, onClose }) {
       onClick={onClose}
     >
       <div
-        className="relative max-w-3xl w-full max-h-[92vh] flex flex-col rounded-2xl bg-[#F6F9FC] dark:bg-[#202124] border border-[#829DBB]/45 dark:border-[#3B3D41] shadow-2xl overflow-hidden animate-fadeIn text-left my-auto text-[#29405B] dark:text-[#B5B3B0]"
+        className="relative max-w-3xl w-full h-[88vh] sm:h-auto sm:max-h-[92vh] flex flex-col rounded-2xl bg-[#F6F9FC] dark:bg-[#202124] border border-[#829DBB]/45 dark:border-[#3B3D41] shadow-2xl overflow-hidden animate-fadeIn text-left my-auto text-[#29405B] dark:text-[#B5B3B0]"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Modal Header */}
@@ -72,7 +86,7 @@ function WorkshopDetailsModal({ workshop, onClose }) {
                 {workshop.category}
               </span>
               {workshop.tagBadge && (
-                <span className="text-[11px] font-extrabold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-[#F14666] text-white">
+                <span className="text-[11px] font-extrabold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-white/20 text-white border border-white/25 dark:bg-[#F14666] dark:text-white dark:border-transparent">
                   {workshop.tagBadge}
                 </span>
               )}
@@ -105,7 +119,7 @@ function WorkshopDetailsModal({ workshop, onClose }) {
               <span>{workshop.timing}</span>
             </span>
             <span className="flex items-center gap-1.5 font-bold text-white">
-              <Award className="w-3.5 h-3.5 text-[#F14666]" />
+              <Award className="w-3.5 h-3.5 text-white/80 dark:text-[#F14666]" />
               <span>Registration Fee: {workshop.fee} {workshop.mealsIncluded ? '(Meals Included)' : ''}</span>
             </span>
           </div>
@@ -207,10 +221,13 @@ function WorkshopDetailsModal({ workshop, onClose }) {
                   {workshop.coordinator.name}
                 </b>
                 <a
-                  href={`tel:${workshop.coordinator.tel}`}
-                  className="inline-flex items-center gap-1 text-[11px] font-semibold text-[#536F91] dark:text-[#EE9590] hover:underline"
+                  href={`https://wa.me/${workshop.coordinator.phone.replace(/[^0-9]/g, '')}?text=${encodeURIComponent(`Hi ${workshop.coordinator.name}, I would like to enquire about ${workshop.name} at CONFLUENCE 2026.`)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 text-[11px] font-semibold text-[#25D366] hover:underline"
+                  title="Message on WhatsApp"
                 >
-                  <Phone className="w-3 h-3" />
+                  <WhatsAppIcon className="w-3.5 h-3.5 fill-[#25D366]" />
                   <span>{workshop.coordinator.phone}</span>
                 </a>
               </div>
@@ -238,22 +255,15 @@ function WorkshopDetailsModal({ workshop, onClose }) {
             <span>Registration fee: <b className="text-[#1D344F] dark:text-[#F2F0ED]">{workshop.fee}</b> (Meals Included)</span>
           </div>
 
-          <div className="flex items-center gap-2.5">
-            <a
-              href={`tel:${workshop.coordinator.tel}`}
-              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-semibold text-[#1D344F] dark:text-[#F2F0ED] bg-[#EAF0F6] dark:bg-[#323438] hover:bg-[#D4E1EF] dark:hover:bg-[#3B3D41] border border-[#829DBB]/40 dark:border-[#3B3D41] transition-all"
-            >
-              <Phone className="w-3.5 h-3.5" />
-              <span>Call Coordinator</span>
-            </a>
-            <button
-              type="button"
-              onClick={onClose}
-              className="px-5 py-2 rounded-full text-xs font-semibold text-white bg-[#1D344F] hover:bg-[#15273C] dark:bg-[#F14666] dark:hover:bg-[#e03253] transition-all shadow-xs cursor-pointer"
-            >
-              Done
-            </button>
-          </div>
+          <a
+            href={`https://wa.me/${workshop.coordinator.phone.replace(/[^0-9]/g, '')}?text=${encodeURIComponent(`Hi ${workshop.coordinator.name}, I would like to enquire about ${workshop.name} at CONFLUENCE 2026.`)}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold text-white bg-[#25D366] hover:bg-[#20bd5a] transition-all shadow-xs"
+          >
+            <WhatsAppIcon className="w-4 h-4 fill-white" />
+            <span>Message on WhatsApp</span>
+          </a>
         </div>
       </div>
     </div>,
@@ -294,7 +304,7 @@ function WorkshopCard({ workshop, index, onOpenDetails }) {
 
         <div className="relative z-10 flex items-center gap-2 flex-shrink-0">
           {workshop.tagBadge && (
-            <span className="hidden sm:inline-block text-[9.5px] font-extrabold uppercase px-2 py-0.5 rounded-full bg-[#F14666] text-white">
+            <span className="hidden sm:inline-block text-[9.5px] font-extrabold uppercase px-2 py-0.5 rounded-full bg-white/20 text-white border border-white/25 dark:bg-[#F14666] dark:text-white dark:border-transparent">
               {workshop.tagBadge}
             </span>
           )}
@@ -779,11 +789,14 @@ export default function Workshop() {
                       {coord.phone}
                     </span>
                     <a
-                      href={`tel:${coord.tel}`}
-                      className="inline-flex items-center gap-1 px-3 py-1 rounded-full text-[11px] font-bold bg-[#1D344F] hover:bg-[#15273C] text-white dark:bg-[#F14666] dark:hover:bg-[#e03253] transition-colors"
+                      href={`https://wa.me/${coord.phone.replace(/[^0-9]/g, '')}?text=${encodeURIComponent(`Hi ${coord.name}, I have an enquiry regarding CONFLUENCE 2026 Workshops.`)}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-bold bg-[#25D366] hover:bg-[#20bd5a] text-white transition-colors shadow-2xs"
+                      title="Message on WhatsApp"
                     >
-                      <Phone className="w-3 h-3" />
-                      <span>Call</span>
+                      <WhatsAppIcon className="w-3.5 h-3.5 fill-white" />
+                      <span>Message</span>
                     </a>
                   </div>
                 </div>
