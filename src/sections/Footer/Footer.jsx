@@ -176,17 +176,6 @@ export default function Footer() {
                 <span>Instagram</span>
                 <ArrowUpRight className="w-3.5 h-3.5" />
               </a>
-              <a
-                href="/llms.txt"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 text-white/70
-                           hover:text-white transition-colors text-xs font-mono"
-                title="Machine-readable AI guide (llms.txt)"
-              >
-                <span>llms.txt</span>
-                <ArrowUpRight className="w-3.5 h-3.5" />
-              </a>
             </div>
           </div>
 
