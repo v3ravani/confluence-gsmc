@@ -176,6 +176,17 @@ export default function Footer() {
                 <span>Instagram</span>
                 <ArrowUpRight className="w-3.5 h-3.5" />
               </a>
+              <a
+                href="/llms.txt"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1 text-white/70
+                           hover:text-white transition-colors text-xs font-mono"
+                title="Machine-readable AI guide (llms.txt)"
+              >
+                <span>llms.txt</span>
+                <ArrowUpRight className="w-3.5 h-3.5" />
+              </a>
             </div>
           </div>
 
@@ -238,9 +249,21 @@ export default function Footer() {
         {/* ── Bottom bar ──────────────────────────────────────────── */}
         <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3
                         text-xs text-white/60">
-          <span>
-            © {year} CONFLUENCE · Seth GS Medical College &amp; KEM Hospital, Mumbai
-          </span>
+          <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2">
+            <span>
+              © {year} CONFLUENCE · Seth GS Medical College &amp; KEM Hospital, Mumbai
+            </span>
+            <span className="text-white/30 hidden sm:inline">·</span>
+            <a
+              href="/llms.txt"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white/60 hover:text-white underline-offset-2 hover:underline transition-colors font-mono text-[11px]"
+              title="Machine-readable AI and LLM guide"
+            >
+              llms.txt
+            </a>
+          </div>
           <span className="text-center sm:text-right md:pr-52 lg:pr-60">
             Website Build by{' '}
             <a

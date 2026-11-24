@@ -374,6 +374,9 @@ export default function CME() {
             <h3 className="font-heading font-extrabold text-[#1D344F] dark:text-[#F2F0ED] text-lg sm:text-xl">
               CME 2026 Delegation Rates
             </h3>
+            <p className="text-xs text-[#536F91] dark:text-[#898A89] mt-1 font-medium">
+              Early bird rates valid till 21st November 2026. Group prices cover the whole group.
+            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">

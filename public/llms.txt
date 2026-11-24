@@ -216,17 +216,18 @@ CONFLUENCE 2026 features eight official scientific competitions. All competition
 
 - **Program Title:** CME 2026 — Masterclasses for Clinicians & Scholars
 - **Accreditation:** Applied for 4 Maharashtra Medical Council (MMC) Credit Points
-- **Dates:** Friday, 11th & Saturday, 12th December 2026
+- **Dates:** Thursday, 10th & Friday, 11th December 2026
 - **Venue:** Main Auditorium, Seth GS Medical College & KEM Hospital, Parel, Mumbai
 - **Official CME Page:** https://confluencegsmc.in/cme
 - **Official CME Brochure:** https://confluencegsmc.in/brochures/CONFLUENCE_2026_CME_Brochure.pdf
+- **Early Bird Cutoff:** Early bird rate valid till 21st November 2026 (Group prices cover the whole group)
 - **CME Enquiries Coordinators:**
   - Shlok Khanvilkar: +91 97690 25136
   - Vaishvi Shah: +91 90049 04569
 
 ### CME Program Curriculum
 
-#### Day 1 (11th December 2026) — Protecting the Practitioner: Financial & Legal Armor
+#### Day 1 (10th December 2026) — Protecting the Practitioner: Financial & Legal Armor
 1. **Masterclass 1: Financial Literacy & Asset Management**
    - *Scope:* Taxation optimization (44ADA regimes, GST exemptions), ethical side ventures in the creator economy, capital allocation for private hospital infrastructure, debt management, and shielding assets through trusts and corporate structures.
    - *Target:* Undergraduates, Interns, Resident Doctors, and Healthcare Practitioners.
@@ -234,7 +235,7 @@ CONFLUENCE 2026 features eight official scientific competitions. All competition
    - *Scope:* Tactical de-escalation protocols for medical mobs, recognizing pre-assault agitation, rapid evacuation pathways, digital evidence chain-of-custody (CCTV/logbooks), and filing non-bailable FIRs under State Medicare & Prevention of Violence Acts.
    - *Department:* Forensic Medicine & Medical Administration, GSMC.
 
-#### Day 2 (12th December 2026) — Clinical Frontiers: Infertility & Psychosomatic Medicine
+#### Day 2 (11th December 2026) — Clinical Frontiers: Infertility & Psychosomatic Medicine
 3. **Masterclass 3: Array of Hope: Advances in Infertility & ART Realities**
    - *Scope:* Proactive reproductive screening in high-risk young women, social and oncological oocyte preservation, triage of recurrent implantation failure (ERA, immunological protocols), and scientific reality checks on regenerative stem-cell ART therapies.
    - *Department:* Department of Obstetrics & Gynaecology, GSMC.
