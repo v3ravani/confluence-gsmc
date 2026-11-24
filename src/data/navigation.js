@@ -17,9 +17,9 @@ export const headerBrand = {
 };
 
 export const brochureConfig = {
-  eventBrochureUrl:          '/brochures/CONFLUENCE_2026_Event_Brochure.pdf',
-  workshopBrochureUrl:       '/brochures/CONFLUENCE_2026_Workshop_Brochure.pdf',
-  cmeBrochureUrl:            '/brochures/CONFLUENCE_2026_CME_Brochure.pdf',
+  eventBrochureUrl:          'https://drive.google.com/file/d/1swkk2Ww2SAD7xfd-eDuvedXYpCMqrsPu/view?usp=drive_link',
+  workshopBrochureUrl:       'https://drive.google.com/file/d/1l3E0v7xOKJ3G6-YDee1fDSn0dBxrn2FW/view?usp=drive_link',
+  cmeBrochureUrl:            'https://drive.google.com/file/d/1ZjMYzMSjzZtoGfEfaPvKtIXjVpn-lyQy/view?usp=drive_link',
   eventBrochureFileName:     'CONFLUENCE_2026_Event_Brochure.pdf',
   workshopBrochureFileName:  'CONFLUENCE_2026_Workshop_Brochure.pdf',
   cmeBrochureFileName:       'CONFLUENCE_2026_CME_Brochure.pdf',

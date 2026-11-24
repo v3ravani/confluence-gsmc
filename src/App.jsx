@@ -27,6 +27,13 @@ function ScrollToTop() {
   return null;
 }
 
+function ExternalRedirect({ to }) {
+  useEffect(() => {
+    window.location.replace(to);
+  }, [to]);
+  return null;
+}
+
 export default function App() {
   const [showSplash, setShowSplash] = useState(true);
 
@@ -58,6 +65,11 @@ export default function App() {
             <Route path="/cme"        element={<CME />} />
             <Route path="/gallery"    element={<Gallery />} />
             <Route path="/team"       element={<Team />} />
+            <Route path="/brochures/CONFLUENCE_2026_Event_Brochure.pdf" element={<ExternalRedirect to="https://drive.google.com/file/d/1swkk2Ww2SAD7xfd-eDuvedXYpCMqrsPu/view?usp=drive_link" />} />
+            <Route path="/brochures/CONFLUENCE_2026_CME_Brochure.pdf" element={<ExternalRedirect to="https://drive.google.com/file/d/1ZjMYzMSjzZtoGfEfaPvKtIXjVpn-lyQy/view?usp=drive_link" />} />
+            <Route path="/brochures/CONFLUENCE_2026_Workshop_Brochure.pdf" element={<ExternalRedirect to="https://drive.google.com/file/d/1l3E0v7xOKJ3G6-YDee1fDSn0dBxrn2FW/view?usp=drive_link" />} />
+            <Route path="/brochures"  element={<ExternalRedirect to="https://drive.google.com/file/d/1swkk2Ww2SAD7xfd-eDuvedXYpCMqrsPu/view?usp=drive_link" />} />
+            <Route path="/brochure"   element={<ExternalRedirect to="https://drive.google.com/file/d/1swkk2Ww2SAD7xfd-eDuvedXYpCMqrsPu/view?usp=drive_link" />} />
             <Route path="*"           element={<NotFound />} />
           </Routes>
         </main>

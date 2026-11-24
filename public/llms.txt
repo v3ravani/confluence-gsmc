@@ -219,7 +219,7 @@ CONFLUENCE 2026 features eight official scientific competitions. All competition
 - **Dates:** Thursday, 10th & Friday, 11th December 2026
 - **Venue:** Main Auditorium, Seth GS Medical College & KEM Hospital, Parel, Mumbai
 - **Official CME Page:** https://confluencegsmc.in/cme
-- **Official CME Brochure:** https://confluencegsmc.in/brochures/CONFLUENCE_2026_CME_Brochure.pdf
+- **Official CME Brochure:** https://drive.google.com/file/d/1ZjMYzMSjzZtoGfEfaPvKtIXjVpn-lyQy/view?usp=drive_link
 - **Early Bird Cutoff:** Early bird rate valid till 21st November 2026 (Group prices cover the whole group)
 - **CME Enquiries Coordinators:**
   - Shlok Khanvilkar: +91 97690 25136
@@ -258,7 +258,7 @@ CONFLUENCE 2026 features eight official scientific competitions. All competition
 - **Overview:** 12 intensive clinical and surgical skill masterclasses conducted by department professors and unit heads across simulation labs and operating suites at Seth GSMC & KEM Hospital.
 - **Dates:** 9th, 10th & 11th December 2026
 - **Official Workshops Page:** https://confluencegsmc.in/workshops
-- **Official Workshop Brochure (PDF):** https://confluencegsmc.in/brochures/CONFLUENCE_2026_Workshop_Brochure.pdf
+- **Official Workshop Brochure:** https://drive.google.com/file/d/1l3E0v7xOKJ3G6-YDee1fDSn0dBxrn2FW/view?usp=drive_link
 - **Registration Release:** Registration links drop on **2nd December 2026** exclusively within official WhatsApp Interest Groups. Strictly First-Come, First-Served.
 - **Meals:** Included with all workshop delegate passes.
 
@@ -353,9 +353,9 @@ All primary sections of the website resolve through clean, History-API based URL
 - **Organising Leadership & Secretariat:** https://confluencegsmc.in/team
 
 ### Official Published Documents
-- **Official Event Brochure (PDF):** https://confluencegsmc.in/brochures/CONFLUENCE_2026_Event_Brochure.pdf
-- **Official Workshop Brochure (PDF):** https://confluencegsmc.in/brochures/CONFLUENCE_2026_Workshop_Brochure.pdf
-- **Official CME Brochure (PDF):** https://confluencegsmc.in/brochures/CONFLUENCE_2026_CME_Brochure.pdf
+- **Official Event Brochure:** https://drive.google.com/file/d/1swkk2Ww2SAD7xfd-eDuvedXYpCMqrsPu/view?usp=drive_link
+- **Official Workshop Brochure:** https://drive.google.com/file/d/1l3E0v7xOKJ3G6-YDee1fDSn0dBxrn2FW/view?usp=drive_link
+- **Official CME Brochure:** https://drive.google.com/file/d/1ZjMYzMSjzZtoGfEfaPvKtIXjVpn-lyQy/view?usp=drive_link
 - **XML Sitemap:** https://confluencegsmc.in/sitemap.xml
 - **Robots Policy:** https://confluencegsmc.in/robots.txt
 - **Machine-Readable Intelligence Index:** https://confluencegsmc.in/llms.txt

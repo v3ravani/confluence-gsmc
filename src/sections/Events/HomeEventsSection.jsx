@@ -12,6 +12,7 @@ import {
 import SectionHeading from '../../components/common/SectionHeading';
 import EventDetailModal from '../../components/events/EventDetailModal';
 import { scientificEvents } from '../../data/events';
+import { brochureConfig } from '../../data/navigation';
 import { trackEventRegistration } from '../../utils/analytics';
 
 /* ── Individual Event Card ──────────────────────────────────────── */
@@ -185,7 +186,7 @@ export default function HomeEventsSection() {
 
           <div className="flex flex-wrap items-center gap-3 sm:gap-4 sm:self-end">
             <a
-              href="/brochures/CONFLUENCE_2026_Event_Brochure.pdf"
+              href={brochureConfig.eventBrochureUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-semibold

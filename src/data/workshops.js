@@ -5,7 +5,7 @@ export const workshopsOverview = {
   subtitle: 'The Crown Jewels of CONFLUENCE · Seth GSMC & KEM Hospital',
   dates: '9th, 10th & 11th December 2026',
   venue: 'Seth GS Medical College & KEM Hospital, Parel, Mumbai',
-  brochureUrl: '/brochures/CONFLUENCE_2026_Workshop_Brochure.pdf',
+  brochureUrl: 'https://drive.google.com/file/d/1l3E0v7xOKJ3G6-YDee1fDSn0dBxrn2FW/view?usp=drive_link',
   brochureFileName: 'CONFLUENCE_2026_Workshop_Brochure.pdf',
   description:
     'Hands-on clinical masterclasses meticulously crafted to provide medical undergraduates and interns with direct procedural mastery. Taught by department heads, senior professors, and expert clinical faculty across state-of-the-art simulation labs, surgical suites, and specialized hospital departments.',
