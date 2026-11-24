@@ -44,6 +44,15 @@ function WhatsAppIcon({ className = 'w-4 h-4' }) {
   );
 }
 
+function getWhatsAppUrl(phone, message = '') {
+  let digits = (phone || '').replace(/[^0-9]/g, '');
+  if (digits.length === 10) {
+    digits = `91${digits}`;
+  }
+  const query = message ? `?text=${encodeURIComponent(message)}` : '';
+  return `https://wa.me/${digits}${query}`;
+}
+
 /* ── Workshop Details Modal ─────────────────────────────────────── */
 function WorkshopDetailsModal({ workshop, onClose }) {
   useEffect(() => {
@@ -221,7 +230,7 @@ function WorkshopDetailsModal({ workshop, onClose }) {
                   {workshop.coordinator.name}
                 </b>
                 <a
-                  href={`https://wa.me/${workshop.coordinator.phone.replace(/[^0-9]/g, '')}?text=${encodeURIComponent(`Hi ${workshop.coordinator.name}, I would like to enquire about ${workshop.name} at CONFLUENCE 2026.`)}`}
+                  href={getWhatsAppUrl(workshop.coordinator.phone, `Hi ${workshop.coordinator.name}, I would like to enquire about ${workshop.name} at CONFLUENCE 2026.`)}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1.5 text-[11px] font-semibold text-[#1D344F] dark:text-[#F2F0ED] hover:underline"
@@ -791,7 +800,7 @@ export default function Workshop() {
                       {coord.phone}
                     </span>
                     <a
-                      href={`https://wa.me/${coord.phone.replace(/[^0-9]/g, '')}?text=${encodeURIComponent(`Hi ${coord.name}, I have an enquiry regarding CONFLUENCE 2026 Workshops.`)}`}
+                      href={getWhatsAppUrl(coord.phone, `Hi ${coord.name}, I have an enquiry regarding CONFLUENCE 2026 Workshops.`)}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[11px] font-bold bg-[#1D344F] hover:bg-[#15273C] dark:bg-[#323438] dark:hover:bg-[#3B3D41] border border-[#829DBB]/30 dark:border-[#3B3D41] text-white transition-all shadow-xs"

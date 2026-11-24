@@ -98,7 +98,7 @@ export const workshopsData = [
     ],
     coordinator: {
       name: 'Shrigun Kalekar',
-      phone: '99600 87843',
+      phone: '+91 99600 87843',
       tel: '+919960087843',
     },
   },
@@ -143,7 +143,7 @@ export const workshopsData = [
     ],
     coordinator: {
       name: 'Shrigun Kalekar',
-      phone: '99600 87843',
+      phone: '+91 99600 87843',
       tel: '+919960087843',
     },
   },
@@ -188,7 +188,7 @@ export const workshopsData = [
     ],
     coordinator: {
       name: 'Shrigun Kalekar',
-      phone: '99600 87843',
+      phone: '+91 99600 87843',
       tel: '+919960087843',
     },
   },
@@ -233,7 +233,7 @@ export const workshopsData = [
     ],
     coordinator: {
       name: 'Aditya Waghmode',
-      phone: '93569 55840',
+      phone: '+91 93569 55840',
       tel: '+919356955840',
     },
   },
@@ -279,7 +279,7 @@ export const workshopsData = [
     ],
     coordinator: {
       name: 'Aditya Waghmode',
-      phone: '93569 55840',
+      phone: '+91 93569 55840',
       tel: '+919356955840',
     },
   },
@@ -323,7 +323,7 @@ export const workshopsData = [
     ],
     coordinator: {
       name: 'Aditya Waghmode',
-      phone: '93569 55840',
+      phone: '+91 93569 55840',
       tel: '+919356955840',
     },
   },
@@ -367,7 +367,7 @@ export const workshopsData = [
     ],
     coordinator: {
       name: 'Dhruv Pachchhapurkar',
-      phone: '77180 80608',
+      phone: '+91 77180 80608',
       tel: '+917718080608',
     },
   },
@@ -420,7 +420,7 @@ export const workshopsData = [
     ],
     coordinator: {
       name: 'Dhruv Pachchhapurkar',
-      phone: '77180 80608',
+      phone: '+91 77180 80608',
       tel: '+917718080608',
     },
   },
@@ -465,7 +465,7 @@ export const workshopsData = [
     ],
     coordinator: {
       name: 'Dishita Khati',
-      phone: '91521 45229',
+      phone: '+91 91521 45229',
       tel: '+919152145229',
     },
   },
@@ -510,7 +510,7 @@ export const workshopsData = [
     ],
     coordinator: {
       name: 'Neeran Bhattad',
-      phone: '89990 80222',
+      phone: '+91 89990 80222',
       tel: '+918999080222',
     },
   },
@@ -555,7 +555,7 @@ export const workshopsData = [
     ],
     coordinator: {
       name: 'Dishita Khati',
-      phone: '91521 45229',
+      phone: '+91 91521 45229',
       tel: '+919152145229',
     },
   },
@@ -600,7 +600,7 @@ export const workshopsData = [
     ],
     coordinator: {
       name: 'Dishita Khati',
-      phone: '91521 45229',
+      phone: '+91 91521 45229',
       tel: '+919152145229',
     },
   },
