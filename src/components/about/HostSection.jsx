@@ -1,5 +1,6 @@
 import React from 'react';
 import { Building2, GraduationCap, HeartPulse, Award, MapPin } from 'lucide-react';
+import ProgressiveImage from '../common/ProgressiveImage';
 import { hostInfo } from '../../data/about';
 
 export default function HostSection() {
@@ -70,12 +71,11 @@ export default function HostSection() {
         <div className="lg:col-span-5 w-full">
           <div className="card-glass p-3.5 rounded-2xl overflow-hidden group shadow-sm">
             <div className="relative aspect-[4/3] rounded-xl overflow-hidden mb-3.5 bg-[#D4E1EF] dark:bg-[#323438]">
-              <img
+              <ProgressiveImage
                 src={hostInfo.campusPhotos[0].src}
                 alt={hostInfo.campusPhotos[0].alt}
+                containerClassName="w-full h-full"
                 className="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-300"
-                loading="lazy"
-                decoding="async"
               />
             </div>
             <h4 className="font-heading font-bold text-[#1D344F] dark:text-[#F2F0ED] text-sm sm:text-base leading-snug px-1 mb-1">

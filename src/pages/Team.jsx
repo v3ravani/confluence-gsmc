@@ -6,6 +6,7 @@ import MobilePageHero from '../components/common/MobilePageHero';
 import ScrollParallaxMedia from '../components/common/ScrollParallaxMedia';
 import SectionHeading from '../components/common/SectionHeading';
 import SEO from '../components/common/SEO';
+import ProgressiveImage from '../components/common/ProgressiveImage';
 import { chiefOrganisers, organisers } from '../data/team';
 
 function ChiefOrganiserCard({ member }) {
@@ -19,11 +20,10 @@ function ChiefOrganiserCard({ member }) {
       {/* Main Focus: Prominent Portrait Photo with mild desktop opposite-direction scroll parallax */}
       <div className="relative h-44 sm:h-60 md:h-64 w-full overflow-hidden bg-[#D4E1EF] dark:bg-[#1E2022]">
         <ScrollParallaxMedia targetRef={cardRef} offsetPx={10} scale={1.08} className="w-full h-full">
-          <img
+          <ProgressiveImage
             src={member.photo}
             alt={`${member.name} — ${member.designation}`}
-            loading="lazy"
-            decoding="async"
+            containerClassName="w-full h-full"
             className="w-full h-full object-cover object-top group-hover:scale-[1.03] transition-transform duration-500 ease-out"
           />
         </ScrollParallaxMedia>
@@ -62,11 +62,10 @@ function OrganiserCard({ member, isLast }) {
       {/* Compact Portrait Frame with mild desktop opposite-direction scroll parallax */}
       <div className="relative h-32 sm:h-40 lg:h-44 w-full overflow-hidden bg-[#D4E1EF] dark:bg-[#1E2022]">
         <ScrollParallaxMedia targetRef={cardRef} offsetPx={9} scale={1.08} className="w-full h-full">
-          <img
+          <ProgressiveImage
             src={member.photo}
             alt={`${member.name} — ${member.designation}`}
-            loading="lazy"
-            decoding="async"
+            containerClassName="w-full h-full"
             className="w-full h-full object-cover object-top group-hover:scale-[1.04] transition-transform duration-500 ease-out"
           />
         </ScrollParallaxMedia>

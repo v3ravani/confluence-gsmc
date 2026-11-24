@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { ChevronLeft, ChevronRight, X, Sparkles } from 'lucide-react';
+import ProgressiveImage from '../common/ProgressiveImage';
 import { memoriesGallery } from '../../data/about';
 
 export default function MemoriesGallery() {
@@ -76,12 +77,11 @@ export default function MemoriesGallery() {
                 isFeatured ? 'sm:col-span-2 lg:col-span-2 aspect-[16/10]' : 'aspect-[4/3]'
               }`}
             >
-              <img
+              <ProgressiveImage
                 src={photo.src}
                 alt={photo.title || 'CONFLUENCE memory'}
+                containerClassName="w-full h-full"
                 className="w-full h-full object-cover transition-opacity duration-300 hover:opacity-95"
-                loading="lazy"
-                decoding="async"
               />
             </div>
           );
@@ -126,12 +126,11 @@ export default function MemoriesGallery() {
 
                 {/* Photo Frame (Preserves original 16:10 aspect ratio without distortion) */}
                 <div className="relative w-full aspect-[16/10] bg-[#D4E1EF] dark:bg-[#1E2022] overflow-hidden">
-                  <img
+                  <ProgressiveImage
                     src={photo.src}
                     alt={photo.title || 'CONFLUENCE memory'}
+                    containerClassName="w-full h-full"
                     className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"
-                    loading="lazy"
-                    decoding="async"
                   />
                 </div>
 

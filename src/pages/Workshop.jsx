@@ -19,11 +19,13 @@ import {
   Users,
   Eye,
   Info,
+  Filter,
 } from 'lucide-react';
 import BrainWatermark from '../components/animations/BrainWatermark';
 import MobilePageHero from '../components/common/MobilePageHero';
 import SectionHeading from '../components/common/SectionHeading';
 import SEO from '../components/common/SEO';
+import ProgressiveImage from '../components/common/ProgressiveImage';
 import {
   workshopsOverview,
   workshopsData,
@@ -300,13 +302,12 @@ function WorkshopCard({ workshop, index, onOpenDetails }) {
         </div>
       </div>
 
-      {/* Card Visual Preview (Poster Flyer) */}
+      {/* Card Visual Preview (Poster Flyer) with Progressive Loading */}
       <div className="relative w-full aspect-[16/10] bg-[#1D344F]/5 dark:bg-[#202124] overflow-hidden border-b border-[#829DBB]/25 dark:border-[#3B3D41]">
-        <img
+        <ProgressiveImage
           src={workshop.image}
           alt={workshop.name}
-          loading="lazy"
-          decoding="async"
+          containerClassName="w-full h-full"
           className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-3">

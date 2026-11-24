@@ -5,6 +5,7 @@ import BrainWatermark from '../components/animations/BrainWatermark';
 import MobilePageHero from '../components/common/MobilePageHero';
 import ScrollParallaxMedia from '../components/common/ScrollParallaxMedia';
 import SEO from '../components/common/SEO';
+import ProgressiveImage from '../components/common/ProgressiveImage';
 import { memoriesGallery } from '../data/about';
 
 // Desktop-only 12-column editorial Bento configuration matched to each photo's aspect ratio
@@ -37,12 +38,11 @@ function BentoGalleryTile({ photo, tile, idx, onOpen }) {
     >
       {/* Background Image with mild opposite-direction desktop scroll parallax + hover zoom */}
       <ScrollParallaxMedia targetRef={tileRef} offsetPx={14} scale={1.09} className="absolute inset-0 w-full h-full">
-        <img
+        <ProgressiveImage
           src={photo.src}
           alt={photo.title || 'CONFLUENCE memory'}
+          containerClassName="w-full h-full"
           className={`w-full h-full object-cover ${tile.objPos} transition-transform duration-500 ease-out group-hover:scale-105`}
-          loading="lazy"
-          decoding="async"
         />
       </ScrollParallaxMedia>
 
@@ -181,12 +181,11 @@ export default function Gallery() {
                 {/* 2. Photo Container with Rounded Frame (No Badges) */}
                 <div className="px-3.5">
                   <div className="relative aspect-[4/3] w-full rounded-xl overflow-hidden bg-black/5">
-                    <img
+                    <ProgressiveImage
                       src={photo.src}
                       alt={photo.title || 'CONFLUENCE memory'}
+                      containerClassName="w-full h-full"
                       className="w-full h-full object-cover"
-                      loading="lazy"
-                      decoding="async"
                     />
                   </div>
                 </div>
