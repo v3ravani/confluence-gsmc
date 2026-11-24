@@ -253,7 +253,32 @@ CONFLUENCE 2026 features eight official scientific competitions. All competition
 
 ---
 
-## F. Organizing Committee
+## F. Hands-On Clinical Skill Workshops
+
+- **Overview:** 12 intensive clinical and surgical skill masterclasses conducted by department professors and unit heads across simulation labs and operating suites at Seth GSMC & KEM Hospital.
+- **Dates:** 9th, 10th & 11th December 2026
+- **Official Workshops Page:** https://confluencegsmc.in/workshops
+- **Official Workshop Brochure (PDF):** https://confluencegsmc.in/brochures/CONFLUENCE_2026_Workshop_Brochure.pdf
+- **Registration Release:** Registration links drop on **2nd December 2026** exclusively within official WhatsApp Interest Groups. Strictly First-Come, First-Served.
+- **Meals:** Included with all workshop delegate passes.
+
+### Masterclass Tracks:
+1. **BLOCKBUSTERS: Anaesthesia Workshop** (9th & 10th Dec, 1:30–5:00 PM · ₹659) — Upper/lower limb nerve blocks, spine imaging, ultrasound Blue Phantom needle guidance.
+2. **PEDIAQUEST: Pediatric Surgery Workshop** (9th & 10th Dec, 9:00 AM–1:00 PM · ₹669) — Pediatric suturing, NG tube, Foley catheterization, neonatal resuscitation, basic pediatric laparoscopy.
+3. **VASCUNOVA: Vascular Interventional Radiology** (10th Dec, 2 batches · ₹699) — Balloon angioplasty, Seldinger method, catheter navigation, clot busters in hospital angio/OT suite.
+4. **SANJEEVNI: Trauma Care Workshop** (9th Dec, 2 sessions · ₹786) — Massive hemorrhage control, burns triage, CPR/BLS, traction splinting, emergency cricothyroidotomy.
+5. **VIRTULAB: Virtual Reality Workshop** (9th Dec, 2 sessions · ₹1,349) — First ever medical VR workshop in Maharashtra: Lumbar puncture, pleural aspiration, bone marrow aspiration, abscess I&D, diabetic foot debridement.
+6. **LABOUR & BEYOND: OBGY Workshop** (10th Dec, 2 sessions · ₹689) — Normal delivery conduct, maternal CPR, pelvic examination, postpartum hemorrhage (PPH) tamponade.
+7. **THE INTERN PACKAGE** (10th Dec, 2:00–5:00 PM · ₹699) — Foley catheterization, CVC/peripheral lines, endotracheal intubation, lumbar puncture.
+8. **SCOPE CRAFT: Laparoscopy Masterclass** (9th & 10th Dec, 10:00 AM–1:00 PM · ₹700) — Surgical endotrainers, hand-eye coordination, peg stacking, intracorporeal suturing and knot-tying.
+9. **MEDGAMES 3.0: Gamified Learning** (11th Dec, 1:00–3:00 PM · ₹499) — 25+ interactive games across Cardiology, Neurology, Infectious Diseases, and rapid diagnosis.
+10. **BIRTH TO BREATHE: Neonatal Resuscitation (NRP)** (9th Dec, 1:00–4:00 PM · ₹649) — Golden minute resuscitation algorithm, bag-mask ventilation, chest compressions, emergency neonatal airway.
+11. **ONCOLOGY 360°** (9th Dec, 1:00–5:00 PM · ₹699) — Multidisciplinary clinical immersion inside Tata Memorial Hospital (Radiation oncology, nuclear medicine, pediatric oncology).
+12. **THE OCCUPATIONAL THERAPY WORKSHOP** (10th Dec, 1:00–5:00 PM) — Neuro-rehabilitation, splinting & orthotics, ergonomic workstation design, sensory integration.
+
+---
+
+## G. Organizing Committee
 
 The execution of CONFLUENCE 2026 is spearheaded by a dedicated student leadership committee operating under the auspices of the Dean and Faculty of Seth GS Medical College & KEM Hospital.
 
