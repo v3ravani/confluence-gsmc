@@ -328,6 +328,7 @@ All primary sections of the website resolve through clean, History-API based URL
 
 ### Official Published Documents
 - **Official Event Brochure (PDF):** https://confluencegsmc.in/brochures/CONFLUENCE_2026_Event_Brochure.pdf
+- **Official Workshop Brochure (PDF):** https://confluencegsmc.in/brochures/CONFLUENCE_2026_Workshop_Brochure.pdf
 - **Official CME Brochure (PDF):** https://confluencegsmc.in/brochures/CONFLUENCE_2026_CME_Brochure.pdf
 - **XML Sitemap:** https://confluencegsmc.in/sitemap.xml
 - **Robots Policy:** https://confluencegsmc.in/robots.txt
