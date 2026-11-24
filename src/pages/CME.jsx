@@ -50,8 +50,15 @@ function CMEDetailsModal({ session, onClose }) {
       >
         {/* Modal Header — Midnight Navy Header Banner */}
         <div className="relative flex-shrink-0 bg-[#1D344F] dark:bg-[#252629] dark:border-b dark:border-[#3B3D41] p-5 sm:p-6 text-white rounded-t-2xl overflow-hidden">
-          <div className="absolute -right-8 -bottom-10 w-36 h-36 rounded-full bg-white/10 pointer-events-none" />
-          <div className="absolute right-16 -top-10 w-28 h-28 rounded-full bg-white/5 pointer-events-none" />
+          {/* Decorative faint curves — animated floating bubbles */}
+          <div
+            className="absolute -right-8 -bottom-10 w-36 h-36 rounded-full bg-white/10 pointer-events-none animate-bubble-primary"
+            style={{ animationDuration: '8s' }}
+          />
+          <div
+            className="absolute right-16 -top-10 w-28 h-28 rounded-full bg-white/8 pointer-events-none animate-bubble-secondary"
+            style={{ animationDuration: '10s', animationDelay: '-2s' }}
+          />
 
           <div className="relative z-10 flex items-center justify-between gap-2 mb-2">
             <span className="text-[11px] font-semibold uppercase tracking-wider px-3 py-1 rounded-full bg-white/20 text-white border border-white/20">

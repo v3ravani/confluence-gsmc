@@ -56,11 +56,11 @@ export default function EventDetailModal({ event, onClose }) {
           {/* Decorative faint curves — animated floating bubbles */}
           <div
             className="absolute -right-8 -bottom-10 w-36 h-36 rounded-full bg-white/10 pointer-events-none animate-bubble-primary"
-            style={{ animationDuration: '9s' }}
+            style={{ animationDuration: '8s' }}
           />
           <div
-            className="absolute right-16 -top-10 w-28 h-28 rounded-full bg-white/5 pointer-events-none animate-bubble-secondary"
-            style={{ animationDuration: '12s', animationDelay: '-2s' }}
+            className="absolute right-16 -top-10 w-28 h-28 rounded-full bg-white/8 pointer-events-none animate-bubble-secondary"
+            style={{ animationDuration: '10s', animationDelay: '-2s' }}
           />
 
           <div className="relative z-10 flex items-center justify-between gap-2 mb-2">
