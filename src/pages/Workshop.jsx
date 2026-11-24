@@ -224,10 +224,10 @@ function WorkshopDetailsModal({ workshop, onClose }) {
                   href={`https://wa.me/${workshop.coordinator.phone.replace(/[^0-9]/g, '')}?text=${encodeURIComponent(`Hi ${workshop.coordinator.name}, I would like to enquire about ${workshop.name} at CONFLUENCE 2026.`)}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-[11px] font-semibold text-[#25D366] hover:underline"
+                  className="inline-flex items-center gap-1.5 text-[11px] font-semibold text-[#1D344F] dark:text-[#F2F0ED] hover:underline"
                   title="Message on WhatsApp"
                 >
-                  <WhatsAppIcon className="w-3.5 h-3.5 fill-[#25D366]" />
+                  <WhatsAppIcon className="w-3.5 h-3.5 fill-[#1D344F] dark:fill-[#F2F0ED]" />
                   <span>{workshop.coordinator.phone}</span>
                 </a>
               </div>
@@ -256,13 +256,14 @@ function WorkshopDetailsModal({ workshop, onClose }) {
           </div>
 
           <a
-            href={`https://wa.me/${workshop.coordinator.phone.replace(/[^0-9]/g, '')}?text=${encodeURIComponent(`Hi ${workshop.coordinator.name}, I would like to enquire about ${workshop.name} at CONFLUENCE 2026.`)}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold text-white bg-[#25D366] hover:bg-[#20bd5a] transition-all shadow-xs"
+            href={workshop.whatsappGroup || '#registration-protocol'}
+            target={workshop.whatsappGroup ? '_blank' : undefined}
+            rel={workshop.whatsappGroup ? 'noopener noreferrer' : undefined}
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-semibold text-white bg-[#1D344F] hover:bg-[#15273C] dark:bg-[#F14666] dark:hover:bg-[#e03253] transition-all shadow-xs cursor-pointer group"
           >
-            <WhatsAppIcon className="w-4 h-4 fill-white" />
-            <span>Message on WhatsApp</span>
+            <WhatsAppIcon className="w-4 h-4 fill-white flex-shrink-0" />
+            <span>Join Group</span>
+            <ArrowUpRight className="w-3.5 h-3.5 flex-shrink-0 opacity-80 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
           </a>
         </div>
       </div>
@@ -386,6 +387,7 @@ function WorkshopCard({ workshop, index, onOpenDetails }) {
             rel={workshop.whatsappGroup ? 'noopener noreferrer' : undefined}
             className="w-full inline-flex items-center justify-center gap-1.5 py-2 px-3 rounded-full text-xs font-semibold text-white bg-[#1D344F] hover:bg-[#15273C] dark:bg-[#F14666] dark:hover:bg-[#e03253] transition-all cursor-pointer shadow-xs"
           >
+            <WhatsAppIcon className="w-3.5 h-3.5 fill-white flex-shrink-0" />
             <span>JOIN GROUP</span>
             <ArrowUpRight className="w-3.5 h-3.5 flex-shrink-0" />
           </a>
@@ -792,7 +794,7 @@ export default function Workshop() {
                       href={`https://wa.me/${coord.phone.replace(/[^0-9]/g, '')}?text=${encodeURIComponent(`Hi ${coord.name}, I have an enquiry regarding CONFLUENCE 2026 Workshops.`)}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-bold bg-[#25D366] hover:bg-[#20bd5a] text-white transition-colors shadow-2xs"
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[11px] font-bold bg-[#1D344F] hover:bg-[#15273C] dark:bg-[#323438] dark:hover:bg-[#3B3D41] border border-[#829DBB]/30 dark:border-[#3B3D41] text-white transition-all shadow-xs"
                       title="Message on WhatsApp"
                     >
                       <WhatsAppIcon className="w-3.5 h-3.5 fill-white" />
